@@ -1,6 +1,6 @@
 # Settings
-url: https://dawn-cph.github.io/web
-baseurl: https://dawn-cph.github.io/web
+url: https://dawn-cph.github.io/
+baseurl: /web
 title: DAWN-CPH
 tagline: by HTML5 UP
 bannerTitle: "Hi, I’m Editorial<br />by HTML5 UP"
@@ -8,7 +8,7 @@ bannerTagline: A free and fully responsive site template
 bannerDescription: Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.
 bannerImage: images/pic10.jpg
 bannerButton: true
-bannerButtonLink: index.html
+bannerButtonLink: another.html
 contactTagline: Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
 copyright: Untitled
 

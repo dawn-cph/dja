@@ -1,11 +1,11 @@
 {% if page.categories %}
 <p> 
     {% for cat in page.categories %}
-    <a class="blog-category" href="/blog/categories/#{{ cat }}"> {{ cat }}</a>
+    <a class="blog-category" href="/web/blog/categories/#{{ cat }}"> {{ cat }}</a>
     {% endfor %}
     {% if page.tags %}
         {% for tag in page.tags %}
-        <a class="blog-tag" href="/blog/tags/#{{ tag }}"> {{ tag }}</a>
+        <a class="blog-tag" href="/web/blog/tags/#{{ tag }}"> {{ tag }}</a>
         {% endfor %}      
     {% endif %}
 </p>

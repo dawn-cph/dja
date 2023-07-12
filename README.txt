@@ -10,7 +10,15 @@ template I'd change it up a little. Enjoy :)
 AJ
 aj@lkn.io | @ajlkn
 
-Credits:
+# Devel
+
+Run 
+```bash
+ bundle exec jekyll serve --incremental
+```
+To serve locally 
+
+# Credits:
 
 	Icons:
 		Font Awesome (fortawesome.github.com/Font-Awesome)
