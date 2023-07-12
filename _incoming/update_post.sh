@@ -28,6 +28,8 @@ nbfile=$1
 date_timestamp=`date -r ${nbfile} +'%Y-%m-%d'`
 full_timestamp=`date -r ${nbfile} +'%Y-%m-%d %H:%M:%S %z'`
 
+base_path="web\/"
+
 echo $nbfile
 #echo $date_timestamp
 #echo $full_timestamp
@@ -51,7 +53,7 @@ cp tmp/${root}.md ./${outfile}
 # Auto title: first # line
 title_line=`grep \# tmp/${root}.md | head -1`
 title=`echo $title_line | sed "s/\#//g"`
-perl -pi -e "s/${title_line}/(This page is auto-generated from the Jupyter notebook \[${root}.ipynb\](\/assets\/post_files\/${date_timestamp}-${root}.ipynb).)/" ./${outfile}
+perl -pi -e "s/${title_line}/(This page is auto-generated from the Jupyter notebook \[${root}.ipynb\](${base_path}assets\/post_files\/${date_timestamp}-${root}.ipynb).)/" ./${outfile}
 perl -pi -e "s/{TITLE}/${title}/" ${outfile}
 
 # head -n 9 tmp/${root}.md | tail -8 > ${outfile}
@@ -68,7 +70,7 @@ perl -pi -e "s/{TIMESTAMP}/${full_timestamp}/" ${outfile}
 cp ${root}.ipynb ../assets/post_files/${date_timestamp}-${root}.ipynb
 
 
-perl -pi -e "s/${root}_files/\/assets\/post_files\/${date_timestamp}-${root}_files/" $outfile
+perl -pi -e "s/${root}_files/${base_path}assets\/post_files\/${date_timestamp}-${root}_files/" $outfile
 
 echo "=== Post added ==="
 echo "../_posts/${outfile}"
