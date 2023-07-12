@@ -9,11 +9,11 @@
         {% if a_post.categories %}
         /  
             {% for cat in a_post.categories %}
-            <a class="blog-category" href="/web/blog/categories/#{{ cat }}"> {{ cat }}</a>
+            <a class="blog-category" href="{{site.baseurl}}/blog/categories/#{{ cat }}"> {{ cat }}</a>
             {% endfor %}
             {% if a_post.tags %}
                 {% for tag in a_post.tags %}
-                <a class="blog-tag" href="/web/blog/tags/#{{ tag }}"> {{ tag }}</a>
+                <a class="blog-tag" href="{{site.baseurl}}/blog/tags/#{{ tag }}"> {{ tag }}</a>
                 {% endfor %}      
             {% endif %}
         {% endif %}
