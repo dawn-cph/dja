@@ -7,6 +7,37 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+/* GBr */
+.blog-category {
+    font-size: 12px;
+    color: #2b93db;
+    background-color: #d9ecf9;
+    padding: 3px;
+
+    &:hover {
+        color: #1f77b4;
+        text-decoration: underline;
+    }
+}
+
+.blog-tag {
+    font-size: 12px;
+    color: #df5152;
+    background-color: #fbe8e8;
+    padding: 3px;
+
+    &:hover {
+        color: #d62728;
+        text-decoration: underline;
+    }
+}
+
+.post-meta {
+    color: #828282;
+    font-size: 0.875rem;
+    margin-bottom: 0px;
+}
+
 /* Reset */
 
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -2107,13 +2138,13 @@
 		-ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #f56a6a;
+		color: #1f6f91;
 		text-decoration: none;
 	}
 
 		a:hover {
-			border-bottom-color: #f56a6a;
-			color: #f56a6a !important;
+			border-bottom-color: #1f6f91;
+			color: #1f6f91 !important;
 		}
 
 			a:hover strong {
@@ -2282,7 +2313,7 @@
 	}
 
 	header.major > :last-child {
-		border-bottom: solid 3px #f56a6a;
+		border-bottom: solid 3px #1f6f91;
 		display: inline-block;
 		margin: 0 0 2em 0;
 		padding: 0 0.75em 0.5em 0;
@@ -2349,8 +2380,8 @@
 		input[type="url"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #f56a6a;
-			box-shadow: 0 0 0 1px #f56a6a;
+			border-color: #1f6f91;
+			box-shadow: 0 0 0 1px #1f6f91;
 		}
 
 	.select-wrapper {
@@ -2463,8 +2494,8 @@
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #f56a6a;
-			box-shadow: 0 0 0 1px #f56a6a;
+			border-color: #1f6f91;
+			box-shadow: 0 0 0 1px #1f6f91;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2697,7 +2728,7 @@
 				}
 
 				ul.contact li:before {
-					color: #f56a6a;
+					color: #1f6f91;
 					display: inline-block;
 					font-size: 1.5em;
 					height: 1.125em;
@@ -2821,7 +2852,7 @@
 				}
 
 					ul.pagination li > .page.active {
-						background-color: #f56a6a;
+						background-color: #1f6f91;
 						color: #ffffff !important;
 					}
 
@@ -2953,8 +2984,8 @@
 		background-color: transparent;
 		border-radius: 0.375em;
 		border: 0;
-		box-shadow: inset 0 0 0 2px #f56a6a;
-		color: #f56a6a !important;
+		box-shadow: inset 0 0 0 2px #1f6f91;
+		color: #1f6f91 !important;
 		cursor: pointer;
 		display: inline-block;
 		font-family: "Roboto Slab", serif;
@@ -3027,7 +3058,7 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #f56a6a;
+			background-color: #1f6f91;
 			box-shadow: none;
 			color: #ffffff !important;
 		}
@@ -3147,7 +3178,7 @@
 			}
 
 				.features article .icon:before {
-					color: #f56a6a;
+					color: #1f6f91;
 					font-size: 2.75rem;
 					position: relative;
 					top: 0.05em;
@@ -3792,7 +3823,7 @@
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		border-bottom: solid 5px #f56a6a;
+		border-bottom: solid 5px #1f6f91;
 		padding: 6em 0 1em 0;
 		position: relative;
 	}
@@ -3886,7 +3917,6 @@
 		}
 
 			#banner .image img {
-				height: 100%;
 				-moz-object-fit: cover;
 				-webkit-object-fit: cover;
 				-ms-object-fit: cover;
@@ -3987,7 +4017,7 @@
 		}
 
 			#menu ul a:hover, #menu ul span:hover {
-				color: #f56a6a;
+				color: #1f6f91;
 			}
 
 			#menu ul a.opener, #menu ul span.opener {
@@ -4021,7 +4051,7 @@
 				}
 
 				#menu ul a.opener:hover:before, #menu ul span.opener:hover:before {
-					color: #f56a6a;
+					color: #1f6f91;
 				}
 
 				#menu ul a.opener.active + ul, #menu ul span.opener.active + ul {

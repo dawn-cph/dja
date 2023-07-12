@@ -1,15 +1,15 @@
 # Settings
 url: https://dawn-cph.github.io/
 baseurl: /web
-title: DAWN-CPH
-tagline: by HTML5 UP
-bannerTitle: "Hi, I’m Editorial<br />by HTML5 UP"
-bannerTagline: A free and fully responsive site template
-bannerDescription: Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.
-bannerImage: images/pic10.jpg
+title: DJA
+tagline: The DAWN JWST Archive
+bannerTitle: The DAWN JWST Archive
+bannerTagline: Science-ready public JWST data products
+bannerDescription: The <a href="https://cosmicdawn.dk/"> Cosmic Dawn Center </a> is involved in a number of James Webb Space Telescope (JWST) surveys, but the public data can also be thought of as one comprehensive survey. The DAWN JWST Archive (DJA) is a repository of public JWST galaxy data, reduced with <a href="https://github.com/gbrammer/grizli"> grizli </a> and <a href="https://github.com/gbrammer/msaexp"> msaexp </a>, and released for use by anyone.
+bannerImage: images/dja_logo.png
 bannerButton: true
-bannerButtonLink: another.html
-contactTagline: Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+bannerButtonLink: about/index.html
+contactTagline: <a href="https://nbi.ku.dk/english/staff/?pure=en/persons/625553">Gabriel Brammer </a>.  For <a href="https://github.com/gbrammer/grizli/issues"> grizli </a> or <a href="https://github.com/gbrammer/msaexp/issues"> msaexp </a> software questions or problems, please file an <i>Issue</i> on the respective GitHub repository pages.
 copyright: Untitled
 
 # Featurette
@@ -31,8 +31,23 @@ featuretteFourthIcon: icon fa-signal
 email: information@untitled.tld
 phone: (000) 000-0000
 address: "1234 Somewhere Road #8254<br />Nashville, TN 00000-0000"
-twitter: username
-facebook: username
-instagram: username
-snapchat: username
-github: username
+twitter: DAWNCopenhagen
+facebook: 
+instagram: 
+snapchat: 
+github: dawn-cph
+
+# Pagination
+paginate: 4
+permalink: /blog/:year/:month/:day/:title/
+paginate_path: /blog/page:num/
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+
+# Plug-ins
+plugins:
+    - jekyll-email-protect
+    - jekyll-paginate
+    - jemoji
