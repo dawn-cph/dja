@@ -28,7 +28,7 @@ nbfile=$1
 date_timestamp=`date -r ${nbfile} +'%Y-%m-%d'`
 full_timestamp=`date -r ${nbfile} +'%Y-%m-%d %H:%M:%S %z'`
 
-base_path="web\/"
+base_path="\/web\/"
 
 echo $nbfile
 #echo $date_timestamp
