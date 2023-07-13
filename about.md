@@ -52,4 +52,4 @@ We also encourage that users acknowledge the *original program IDs and PIs* of t
 
 <span class="image fit"> <img src="{{site.baseurl}}/images/all_logos.png" alt="logos"> </span>
 
-<img src="https://d0.awsstatic.com/logos/powered-by-aws.png" alt="Powered by AWS Cloud Computing" width="15%">
+<div class="image" style="width:20%; margin:auto; display: block"> <img src="https://d0.awsstatic.com/logos/powered-by-aws.png" alt="Powered by AWS Cloud Computing" width="100%"> </div>
