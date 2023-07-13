@@ -1,7 +1,6 @@
 ---
 layout: page
 title: About
-wideImage: images/all_logos.png
 showOnMenu: true
 ---
 
@@ -51,3 +50,6 @@ We also suggest to include references and DOIs to the grizli pipeline: [10.5281/
 
 We also encourage that users acknowledge the *original program IDs and PIs* of the constituent HST and JWST datasets of the DJA data products, as well as to cite any papers those investigators have published. Please see [this table](https://grizli.readthedocs.io/en/latest/grizli/image-release-v6.html) for a list of programs included in the archive so far.
 
+<span class="image fit"> <img src="{{site.baseurl}}/images/all_logos.png" alt="logos"> </span>
+
+<img src="https://d0.awsstatic.com/logos/powered-by-aws.png" alt="Powered by AWS Cloud Computing" width="15%">
