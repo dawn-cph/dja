@@ -1,10 +1,11 @@
 ---
 layout: post
 title:  Catalog Demo - GOODS-South
-date:   2023-07-15 01:12:13 +0200
+date:   2023-07-15 01:18:17 +0200
 categories: imaging
 tags: catalog gds
 author: Gabriel Brammer
+showOnHighlights: true
 ---
 {% include tags.html %}
 (This page is auto-generated from the Jupyter notebook [photometric-catalog-demo.ipynb](/dja/assets/post_files/2023-07-15-photometric-catalog-demo.ipynb).)
@@ -830,8 +831,3 @@ id, fig, img = quick_cutout(_[1], pl=2, scl=8, sy=3, size=1, filters='f090w-clea
 ![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_33_1.png)
     
 
-
-
-```python
-
-```
