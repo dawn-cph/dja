@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Wide Field Slitless Spectroscopy
-showDataset: true
+showSpecDataset: true
 navigation_weight: 30
 ---
 

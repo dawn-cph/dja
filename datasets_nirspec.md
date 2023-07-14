@@ -1,7 +1,7 @@
 ---
 layout: page
 title: NIRSpec spectra
-showDataset: true
+showSpecDataset: true
 navigation_weight: 20
 ---
 

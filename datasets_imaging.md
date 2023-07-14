@@ -1,7 +1,7 @@
 ---
 layout: page
 title: NIRCam + NIRISS imaging
-showDataset: true
+showImageDataset: true
 navigation_weight: 10
 ---
 
