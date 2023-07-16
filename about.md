@@ -4,9 +4,11 @@ title: About
 showOnMenu: true
 ---
 
-The [Cosmic Dawn Center](https://cosmicdawn.dk/) is involved in a number of James Webb Space Telescope (JWST) surveys, but the public data can also be thought of as one comprehensive survey. The DAWN JWST Archive (DJA) is a repository of public JWST galaxy data, reduced with [grizli](https://github.com/gbrammer/grizli) and [msaexp](https://github.com/gbrammer/msaexp), and released for use by anyone
+The [Cosmic Dawn Center](https://cosmicdawn.dk/) is involved in a number of James Webb Space Telescope (JWST) surveys, but the public data can also be thought of as one comprehensive survey. The DAWN JWST Archive (DJA) is a repository of public JWST galaxy data, reduced with [grizli](https://github.com/gbrammer/grizli) and [msaexp](https://github.com/gbrammer/msaexp), and released for use by anyone. 
 
-## Team
+We acknowledge the work done on the [JWST Science Calibration Pipeline](https://jwst-pipeline.readthedocs.io/en/stable/jwst/introduction.html), which grizli uses for the initial reduction steps. We also make use of [FITSMap](https://arxiv.org/abs/2201.12308), developed by Ryan Hausen and Brant Robertson, for our data viewers. 
+
+<!--## Team
 
 Gabriel Brammer
 <br> Lise Christensen
@@ -48,7 +50,7 @@ We kindly request all scientific papers based on data or products downloaded fro
 
 We also suggest to include references and DOIs to the grizli pipeline: [10.5281/zenodo.1146904](https://doi.org/10.5281/zenodo.1146904). Basic details of the data reduction are presented in [Valentino et al., 2023.](https://ui.adsabs.harvard.edu/abs/2023ApJ...947...20V/abstract).
 
-We also encourage that users acknowledge the *original program IDs and PIs* of the constituent HST and JWST datasets of the DJA data products, as well as to cite any papers those investigators have published. Please see [this table](https://grizli.readthedocs.io/en/latest/grizli/image-release-v6.html) for a list of programs included in the archive so far.
+We also encourage that users acknowledge the *original program IDs and PIs* of the constituent HST and JWST datasets of the DJA data products, as well as to cite any papers those investigators have published. Please see [this table](https://grizli.readthedocs.io/en/latest/grizli/image-release-v6.html) for a list of programs included in the archive so far.-->
 
 <span class="image fit"> <img src="{{site.baseurl}}/images/all_logos.png" alt="logos"> </span>
 
