@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About the DJA
+title: Citation Suggestions
 showImageDataset: true
 navigation_weight: 10
 ---

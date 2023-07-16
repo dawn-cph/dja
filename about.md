@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-showOnMenu: true
+showOnMenu: false
 ---
 
 The [Cosmic Dawn Center](https://cosmicdawn.dk/) is involved in a number of James Webb Space Telescope (JWST) surveys, but the public data can also be thought of as one comprehensive survey. The DAWN JWST Archive (DJA) is a repository of public JWST galaxy data, reduced with [grizli](https://github.com/gbrammer/grizli) and [msaexp](https://github.com/gbrammer/msaexp), and released for use by anyone. 
