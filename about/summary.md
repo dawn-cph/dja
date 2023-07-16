@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About the DJA
-showImageDataset: true
+about: true
 navigation_weight: 10
 ---
 

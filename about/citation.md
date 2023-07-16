@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Citation Suggestions
-showImageDataset: true
+about: true
 navigation_weight: 10
 ---
 

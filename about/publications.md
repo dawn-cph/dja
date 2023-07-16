@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Publications with the DJA
-showImageDataset: true
+about: true
 navigation_weight: 10
 ---
 

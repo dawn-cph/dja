@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Team
-showImageDataset: true
+about: true
 navigation_weight: 10
 ---
 
