@@ -34,7 +34,7 @@ Gabriel Brammer
 <br> Vadim Rusakov
 <br> Marko Shuntov
 <br> Nikolaj Bjerregaard Sillassen
-<br> Victoria Strait
+<br> Victorblia Strablit
 <br> Sune Toft
 <br> Francesco Valentino
 <br> Aswin Vijayan
