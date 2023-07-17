@@ -1,6 +1,13 @@
 /*
 Generated with
 $ pygmentize -S arduino -f html -a .highlight > assets/css/highlight.css
+
+With extra 
+
+    .highlight { background: #ffffff; font-weight: bold;}
+
+for better contrast
+
 */
 
 pre { line-height: 125%; }
