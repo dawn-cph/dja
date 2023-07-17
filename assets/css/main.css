@@ -38,31 +38,6 @@
     margin-bottom: 0px;
 }
 
-/* Manual specification for syntax highlighting? */
-.highlight .c, .highlight .cs, .highlight .cm, .highlight .cp, .highlight .c1 { color: #666; font-style: italic; }
-
-.highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kr, .highlight .kt, .highlight .kp { color: #00369f; }
-
-.highlight .na, .highlight .nb, .highlight .nc, .highlight .no, .highlight .nd, .highlight .ni, .highlight .ne, .highlight .nf, .highlight .nl, .highlight .nn, .highlight .nx { color: #333; }
-
-.highlight .mi, .highlight .il { color: #009f06; }
-
-.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .s3, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .ss, .highlight .s1 { color: #FF3636; }
-
-.hljs-title, .hljs-id, .scss .hljs-preprocessor { color: #FF3636; font-weight: bold; }
-
-.highlight .k { font-weight: normal; }
-
-.highlight .nc, .highlight .no { color: #00369f; }
-
-.highlight .o { color: #00369f; font-weight: normal; }
-
-.highlight .nb { color: #009f06; }
-
-.highlight .sr { color: #009f06; }
-
-.highlight .ss { color: #B509AC; }
-
 /* Reset */
 
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
