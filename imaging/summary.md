@@ -11,4 +11,4 @@ Science and weight images are those ending in *drz.fits.gz* and *wht.fits.gz*, r
 
 For pannable images with various possible layers, including HST and JWST filters as well as spectral observations, please use the "Map Viewers" menu option to the left. To see individual spectra, pan over a source with that instrument layer turned on. 
 
-More documentation is coming soon, but for now, the image reduction process is described in [Valentino et al., 2023](https://ui.adsabs.harvard.edu/abs/2023ApJ...947...20V/abstract). 
+*More documentation is coming soon, but for now, the image reduction process is described in [Valentino et al., 2023](https://ui.adsabs.harvard.edu/abs/2023ApJ...947...20V/abstract).*
