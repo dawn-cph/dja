@@ -1,10 +1,11 @@
 ---
 layout: post
 title:  DJA Imaging Data Products
-date:   2023-07-18 17:23:13 +0200
+date:   2023-07-18 17:28:54 +0200
 categories: imaging
 tags: demo jwst
 author: Gabriel Brammer
+showOnHighlights: true
 ---
 {% include tags.html %}
 (This page is auto-generated from the Jupyter notebook [image-data-products.ipynb](/dja/assets/post_files/2023-07-18-image-data-products.ipynb).)
