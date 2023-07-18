@@ -5,7 +5,9 @@ showImageDataset: true
 navigation_weight: 10
 ---
 
-<span class="image fit"> <img src="{{site.baseurl}}/images/smacs0723_rgb.png" alt="logos"> </span>
+<span class="image fit">
+    <img src="{{site.baseurl}}/images/smacs0723_rgb_rot.png" alt="SMACS 0723 lensing cluster from the ERO-2736 program">
+</span>
 
 <ul>
     <li><a href="https://dawn-cph.github.io/dja/imaging/v7/">Table of images reduced in latest (v7) release</a></li>
@@ -17,5 +19,9 @@ navigation_weight: 10
 </ul>
 
 
-<em>More documentation is coming soon, but for now, the image reduction process is described in <a href="https://ui.adsabs.harvard.edu/abs/2023ApJ...947...20V/abstract">Valentino et al., 2023</a> and <a href="https://github.com/gbrammer/grizli">grizli</a> is available publicly.</em>
+> More documentation is coming soon, but for now, the image reduction process is
+> described in [Valentino et
+> al., 2023](https://ui.adsabs.harvard.edu/abs/2023ApJ...947...20V/abstract) and 
+> the [grizli](https://github.com/gbrammer/grizli) software is freely available.
+
 
