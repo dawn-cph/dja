@@ -5,8 +5,9 @@ showImageDataset: true
 navigation_weight: 10
 ---
 
-<span class="image fit"> <img src="{{site.baseurl}}/images/fields.png" alt="logos"> </span>
+<span class="image fit"> <img src="{{site.baseurl}}/images/fields.png" alt="v6 fields"> </span>
 
+On this website, you will find various ways to access the imaging data:
 <ul>
     <li><a href="https://dawn-cph.github.io/dja/imaging/v7/">Table of images reduced in latest (v7) release</a></li>
     A list of links to all images and catalogs released in v7 so far. *phot_apcorr.fits are aperture corrected photometric catalogs.
