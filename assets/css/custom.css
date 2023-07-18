@@ -1,0 +1,35 @@
+/*
+
+Additional items added manually here
+
+*/
+
+.blog-category {
+    font-size: 12px;
+    color: #2b93db;
+    background-color: #d9ecf9;
+    padding: 3px;
+
+    &:hover {
+        color: #1f77b4;
+        text-decoration: underline;
+    }
+}
+
+.blog-tag {
+    font-size: 12px;
+    color: #df5152;
+    background-color: #fbe8e8;
+    padding: 3px;
+
+    &:hover {
+        color: #d62728;
+        text-decoration: underline;
+    }
+}
+
+.post-meta {
+    color: #828282;
+    font-size: 0.875rem;
+    margin-bottom: 0px;
+}

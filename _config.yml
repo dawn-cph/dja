@@ -44,13 +44,16 @@ paginate_path: /blog/page:num/
 
 # Build settings
 markdown: kramdown
-highlighter: pygments
-
-collections:
-  datasets:
-    output: true
-    permalink: /datasets/:path/
-    sort_by: order_number
+highlighter: rouge
+kramdown:
+    input: GFM
+    syntax_highlighter: rouge
+    
+# collections:
+#   datasets:
+#     output: true
+#     permalink: /datasets/:path/
+#     sort_by: order_number
       
 # Plug-ins
 plugins:
