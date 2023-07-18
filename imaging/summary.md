@@ -5,9 +5,7 @@ showImageDataset: true
 navigation_weight: 10
 ---
 
-<span class="image fit">
-    <img src="{{site.baseurl}}/images/smacs0723_rgb_rot.png" alt="SMACS 0723 lensing cluster from the ERO-2736 program">
-</span>
+<span class="image fit"> <img src="{{site.baseurl}}/images/fields.png" alt="logos"> </span>
 
 <ul>
     <li><a href="https://dawn-cph.github.io/dja/imaging/v7/">Table of images reduced in latest (v7) release</a></li>
