@@ -16,4 +16,4 @@ navigation_weight: 14
     Heintz, Brammer, Giménez-Arteaga, et al., 2022
 </ol>
 
-Are there more? Let us know. 
+Are there more? <a href="mailto:gabriel.brammer@nbi.ku.dk">Let us know.</a>
