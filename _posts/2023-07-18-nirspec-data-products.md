@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  DJA NIRSpec Spectroscopic Data Products
-date:   2023-07-18 21:54:48 +0200
+date:   2023-07-18 21:58:23 +0200
 categories: spectroscopy
 tags: demo nirspec
 author: Gabriel Brammer
@@ -227,7 +227,7 @@ nrs[src]['root','file','grating','filter','z','grade']
 
 URLs like:
 
-https://grizli-cutout.herokuapp.com/thumb?size=1&scl=7.0&invert=True&filters=f444w-clear&pl=2&coord=53.113326%20-27.802992&nirspec=True&dpi_scale=6&nrs_source=magenta&nrs_other=pink&nrs_lw=0.5&nrs_alpha=0.8
+[https://grizli-cutout.herokuapp.com/thumb?size=1&scl=7.0&invert=True&filters=f444w-clear&pl=2&coord=53.113326%20-27.802992&nirspec=True&dpi_scale=6&nrs_source=magenta&nrs_other=pink&nrs_lw=0.5&nrs_alpha=0.8](https://grizli-cutout.herokuapp.com/thumb?size=1&scl=7.0&invert=True&filters=f444w-clear&pl=2&coord=53.113326%20-27.802992&nirspec=True&dpi_scale=6&nrs_source=magenta&nrs_other=pink&nrs_lw=0.5&nrs_alpha=0.8)
 
 <img src="https://grizli-cutout.herokuapp.com/thumb?size=1&scl=7.0&invert=True&filters=f444w-clear&pl=2&coord=53.113326%20-27.802992&nirspec=True&dpi_scale=6&nrs_source=magenta&nrs_other=pink&nrs_lw=0.5&nrs_alpha=0.8" />
 
