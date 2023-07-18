@@ -20,3 +20,9 @@ On this website, you will find various ways to access the spectroscopic data:
 > [Heintz et al., 2023](https://ui.adsabs.harvard.edu/abs/2023arXiv230600647H/abstract),
 > and the [msaexp](https://github.com/gbrammer/msaexp) software used to process the
 > spectra is freely available.
+
+# Full visualization
+
+1051 NIRSpec prism in one plot!
+
+<span class="image fit"> <img src="{{site.baseurl}}/images/nirspec_prism_compliation_restframe.png" alt="1051 prism spectra"> </span>
