@@ -5,7 +5,7 @@ showImageDataset: true
 navigation_weight: 10
 ---
 
-<span class="image fit"> <img src="{{site.baseurl}}/images/smacs0723_rgb.png" alt="logos"> </span>
+<span class="image fit"> <img src="{{site.baseurl}}/images/fields.png" alt="logos"> </span>
 
 <ul>
     <li><a href="https://dawn-cph.github.io/dja/imaging/v7/">Table of images reduced in latest (v7) release</a></li>
