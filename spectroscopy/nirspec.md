@@ -13,4 +13,7 @@ navigation_weight: 10
     
 </ul>
 
-<em>More documentation is coming soon, but for now, the spectroscopy reduction process is described in <a href="https://ui.adsabs.harvard.edu/abs/2023arXiv230600647H/abstract">Heintz et al., 2023</a> and <a href="https://github.com/gbrammer/msaexp">msaexp</a> is available publicly.</em>
+> More documentation coming soon. The spectroscopy reduction process is described in
+> [Heintz et al., 2023](https://ui.adsabs.harvard.edu/abs/2023arXiv230600647H/abstract),
+> and the [msaexp](https://github.com/gbrammer/msaexp) software used to process the
+> spectra is freely available.

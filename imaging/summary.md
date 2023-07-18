@@ -17,5 +17,9 @@ navigation_weight: 10
 </ul>
 
 
-<em>More documentation is coming soon, but for now, the image reduction process is described in <a href="https://ui.adsabs.harvard.edu/abs/2023ApJ...947...20V/abstract">Valentino et al., 2023</a> and <a href="https://github.com/gbrammer/grizli">grizli</a> is available publicly.</em>
+> More documentation is coming soon, but for now, the image reduction process is
+> described in [Valentino et
+> al., 2023](https://ui.adsabs.harvard.edu/abs/2023ApJ...947...20V/abstract) and 
+> the [grizli](https://github.com/gbrammer/grizli) software is freely available.
+
 
