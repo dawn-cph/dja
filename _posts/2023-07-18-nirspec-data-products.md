@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  DJA NIRSpec Spectroscopic Data Products
-date:   2023-07-18 20:57:09 +0200
+date:   2023-07-18 21:54:48 +0200
 categories: spectroscopy
 tags: demo nirspec
 author: Gabriel Brammer
@@ -190,10 +190,13 @@ _ = fig.tight_layout(pad=1)
 id = '15157' # z=4.1
 ymax = [0.8, 0.4, 0.8, 0.8]
 xlimits = [(0.5, 5.4), (0.5, 2.2), (2.2, 2.8), (3.18, 3.6)]
+```
 
-gds = np.array([f.startswith('gds-deep') for f in nrs['file']])
 
-src = np.array([id in f for f in nrs['file']])
+```python
+is_gds = np.array([f.startswith('gds-deep') for f in nrs['file']])
+
+src = np.array([id in f for f in nrs['file']]) & is_gds
 
 nrs['root','file','grating','filter','z','grade'][src]
 
@@ -208,7 +211,7 @@ nrs[src]['root','file','grating','filter','z','grade']
 
 
 <div><i>GTable length=5</i>
-<table id="table5258874448" class="table-striped table-bordered table-condensed">
+<table id="table11021072080" class="table-striped table-bordered table-condensed">
 <thead><tr><th>root</th><th>file</th><th>grating</th><th>filter</th><th>z</th><th>grade</th></tr></thead>
 <thead><tr><th>str19</th><th>str53</th><th>str5</th><th>str6</th><th>float64</th><th>int64</th></tr></thead>
 <tr><td>gds-deep-hr-v1</td><td>gds-deep-hr-v1_g395h-f290lp_1210_15157.spec.fits</td><td>G395H</td><td>F290LP</td><td>4.1486</td><td>3</td></tr>
@@ -219,6 +222,14 @@ nrs[src]['root','file','grating','filter','z','grade']
 </table></div>
 
 
+
+## Slitlet viewer
+
+URLs like:
+
+https://grizli-cutout.herokuapp.com/thumb?size=1&scl=7.0&invert=True&filters=f444w-clear&pl=2&coord=53.113326%20-27.802992&nirspec=True&dpi_scale=6&nrs_source=magenta&nrs_other=pink&nrs_lw=0.5&nrs_alpha=0.8
+
+<img src="https://grizli-cutout.herokuapp.com/thumb?size=1&scl=7.0&invert=True&filters=f444w-clear&pl=2&coord=53.113326%20-27.802992&nirspec=True&dpi_scale=6&nrs_source=magenta&nrs_other=pink&nrs_lw=0.5&nrs_alpha=0.8" />
 
 ## 2D spectra
 
@@ -377,7 +388,7 @@ _ = fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_14_0.png)
+![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_16_0.png)
     
 
 
@@ -404,7 +415,7 @@ ax.grid()
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_16_0.png)
+![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_18_0.png)
     
 
 
@@ -436,7 +447,7 @@ ax.grid()
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_17_0.png)
+![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_19_0.png)
     
 
 
@@ -621,7 +632,7 @@ _ = fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_22_0.png)
+![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_24_0.png)
     
 
 
@@ -648,7 +659,7 @@ _ = fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_23_0.png)
+![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_25_0.png)
     
 
 
@@ -693,7 +704,7 @@ _ = fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_26_0.png)
+![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_28_0.png)
     
 
 
@@ -768,7 +779,7 @@ _ = fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_28_0.png)
+![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_30_0.png)
     
 
 
@@ -824,7 +835,7 @@ ax.set_xlim(line_um-0.02, line_um+0.12)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_31_1.png)
+![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_33_1.png)
     
 
 
@@ -834,7 +845,7 @@ ax.set_xlim(line_um-0.02, line_um+0.12)
 %timeit resamp = sp.resample_eazy_template(templ, z=z, scale_disp=1.3, velocity_sigma=50)
 ```
 
-    898 µs ± 4.18 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+    906 µs ± 9.98 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 
 
 # Full fitting functions
@@ -863,7 +874,7 @@ _ = msaexp.spectrum.plot_spectrum(url, z=z, plot_unit=astropy.units.microJansky)
     # flux x 10^-20 erg/s/cm2
     # https://s3.amazonaws.com/msaexp-nirspec/extractions/gds-deep-lr-v1/gds-deep-lr-v1_prism-clear_1210_15157.spec.fits
     # z = 4.14871
-    # Tue Jul 18 20:51:15 2023
+    # Tue Jul 18 21:48:58 2023
                  line Hb       76.2 ±      3.7
                  line Hg       26.2 ±      6.1
                  line Hd       18.2 ±      4.9
@@ -901,7 +912,7 @@ _ = msaexp.spectrum.plot_spectrum(url, z=z, plot_unit=astropy.units.microJansky)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_35_1.png)
+![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_37_1.png)
     
 
 
@@ -911,8 +922,8 @@ _ = msaexp.spectrum.plot_spectrum(url, z=z, plot_unit=astropy.units.microJansky)
 _ = msaexp.spectrum.fit_redshift(_file, z0=[z-0.1, z+0.1])
 ```
 
-    20it [00:00, 99.05it/s] 
-    101it [00:01, 87.09it/s]
+    20it [00:00, 88.12it/s]
+    101it [00:01, 89.43it/s]
 
 
     
@@ -920,7 +931,7 @@ _ = msaexp.spectrum.fit_redshift(_file, z0=[z-0.1, z+0.1])
     # flux x 10^-20 erg/s/cm2
     # gds-deep-lr-v1_prism-clear_1210_15157.spec.fits
     # z = 4.14755
-    # Tue Jul 18 20:50:21 2023
+    # Tue Jul 18 21:49:01 2023
                  line Hb       76.9 ±      3.9
                  line Hg       27.2 ±      6.3
                  line Hd       17.0 ±      5.8
@@ -958,13 +969,13 @@ _ = msaexp.spectrum.fit_redshift(_file, z0=[z-0.1, z+0.1])
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_36_2.png)
+![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_38_2.png)
     
 
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_36_3.png)
+![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_38_3.png)
     
 
 
