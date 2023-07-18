@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  DJA NIRSpec Spectroscopic Data Products
-date:   2023-07-18 20:51:43 +0200
+date:   2023-07-18 20:57:09 +0200
 categories: spectroscopy
 tags: demo nirspec
 author: Gabriel Brammer
@@ -46,7 +46,7 @@ PATH_TO_FILE = BASE_URL + '{root}/{file}'
     msaexp version: 0.6.12.dev5+ge335c82.d20230530
 
 
-# Full summary
+# Full summary catalog
 
 `grade` based on visual inspection of *individual* spectra.  That is, a particular object can have multiple entries in the table and only `grade=3` for the `grating+filter` combination that showed robust features.
 
@@ -967,3 +967,10 @@ _ = msaexp.spectrum.fit_redshift(_file, z0=[z-0.1, z+0.1])
 ![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_36_3.png)
     
 
+
+# TBD
+
+Items under development: 
+
+- Scale spectrum to photometry
+- Fit for emission line widths
