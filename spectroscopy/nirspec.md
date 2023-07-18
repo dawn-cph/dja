@@ -5,7 +5,9 @@ showSpecDataset: true
 navigation_weight: 10
 ---
 
-<span class="image fit"> <img src="{{site.baseurl}}/images/spec_example.png" width="50%" alt="example spectrum"> </span>
+<!--span class="image fit"> <img src="{{site.baseurl}}/images/spec_example.png" width="50%" alt="example spectrum"> </span-->
+
+<img src="{{site.baseurl}}/images/spec_example.png" width="50%" alt="example spectrum">
 
 On this website, you will find various ways to access the spectroscopic data:
 <ul>
