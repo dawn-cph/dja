@@ -18,14 +18,14 @@
 				cursor: default;
 				display: block;
 				font-size: 1.5em;
-				height: calc(_size(element-height) / 1.375);
-				line-height: calc(_size(element-height) / 1.375);
+				height: _size(element-height) / 1.375;
+				line-height: _size(element-height) / 1.375;
 				opacity: 0.325;
 				position: absolute;
 				right: 0;
 				text-align: center;
 				top: 0;
-				width: calc(_size(element-height) / 1.375);
+				width: _size(element-height) / 1.375;
 			}
 
 			input[type="text"] {
@@ -35,7 +35,7 @@
 	}
 
 	#sidebar {
-		$pad: calc(2em / 0.9);
+		$pad: 2em / 0.9;
 
 		@include vendor('flex-grow', '0');
 		@include vendor('flex-shrink', '0');
@@ -49,7 +49,7 @@
 		width: _size(sidebar-width);
 
 		h2 {
-			font-size: calc(1.25em / 0.9);
+			font-size: 1.25em / 0.9;
 		}
 
 		> .inner {
@@ -78,7 +78,7 @@
 				border-bottom: 0;
 				margin: ($pad * -1) 0 ($pad * 2) ($pad * -1);
 				padding: $pad;
-				width: calc(100% + #{$pad * 2});
+				width: 100% + #{$pad * 2};
 			}
 		}
 
@@ -119,7 +119,7 @@
 		}
 
 		@include breakpoint('<=xlarge') {
-			$pad: calc(1.5em / 0.9);
+			$pad: 1.5em / 0.9;
 
 			width: _size(sidebar-width-alt);
 
@@ -186,7 +186,7 @@
 
 				&:before {
 					font-size: 1.5rem;
-					margin-left: calc(-0.875em / 2);
+					margin-left: -0.875em / 2;
 				}
 			}
 
@@ -202,8 +202,8 @@
 
 				&:before {
 					color: _palette(fg);
-					margin-left: calc(-0.125em / 2);
-					margin-top: calc(-0.5em / 2);
+					margin-left: -0.125em / 2;
+					margin-top: -0.5em / 2;
 					font-size: 1.1rem;
 					z-index: 1;
 				}
