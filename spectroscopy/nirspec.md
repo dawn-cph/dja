@@ -21,7 +21,7 @@ On this website, you will find various ways to access the spectroscopic data:
 > and the [msaexp](https://github.com/gbrammer/msaexp) software used to process the
 > spectra is freely available.
 
-# Full visualization
+## Full visualization
 
 1051 NIRSpec prism spectra in one plot!
 
