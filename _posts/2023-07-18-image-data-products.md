@@ -8,7 +8,7 @@ author: Gabriel Brammer
 showOnHighlights: true
 ---
 {% include tags.html %}
-(This page is auto-generated from the Jupyter notebook [image-data-products.ipynb](/dja/assets/post_files/2023-07-18-image-data-products.ipynb).)
+(This page is auto-generated from the Jupyter notebook [image-data-products.ipynb]({{ site.baseurl }}/assets/post_files/2023-07-18-image-data-products.ipynb).)
 
 Here we summarize the files available for imaging datasets, for example in the [v7]({{ site.baseurl }}/imaging/v7/) data release.
 
@@ -396,7 +396,7 @@ fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-image-data-products_files/image-data-products_16_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-image-data-products_files/image-data-products_16_0.png)
     
 
 
@@ -443,7 +443,7 @@ fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-image-data-products_files/image-data-products_19_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-image-data-products_files/image-data-products_19_0.png)
     
 
 
@@ -534,6 +534,6 @@ fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-image-data-products_files/image-data-products_22_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-image-data-products_files/image-data-products_22_0.png)
     
 

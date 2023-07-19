@@ -8,7 +8,7 @@ author: Gabriel Brammer
 showOnHighlights: true
 ---
 {% include tags.html %}
-(This page is auto-generated from the Jupyter notebook [nirspec-data-products.ipynb](/dja/assets/post_files/2023-07-18-nirspec-data-products.ipynb).)
+(This page is auto-generated from the Jupyter notebook [nirspec-data-products.ipynb]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products.ipynb).)
 
 Here we summarize the files available for the DJA reductions of the public NIRSpec MSA datasets.
 
@@ -171,7 +171,7 @@ _ = fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_8_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_8_0.png)
     
 
 
@@ -388,7 +388,7 @@ _ = fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_16_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_16_0.png)
     
 
 
@@ -415,7 +415,7 @@ ax.grid()
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_18_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_18_0.png)
     
 
 
@@ -447,7 +447,7 @@ ax.grid()
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_19_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_19_0.png)
     
 
 
@@ -632,7 +632,7 @@ _ = fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_24_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_24_0.png)
     
 
 
@@ -659,7 +659,7 @@ _ = fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_25_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_25_0.png)
     
 
 
@@ -704,7 +704,7 @@ _ = fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_28_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_28_0.png)
     
 
 
@@ -779,7 +779,7 @@ _ = fig.tight_layout(pad=1)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_30_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_30_0.png)
     
 
 
@@ -835,7 +835,7 @@ ax.set_xlim(line_um-0.02, line_um+0.12)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_33_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_33_1.png)
     
 
 
@@ -912,7 +912,7 @@ _ = msaexp.spectrum.plot_spectrum(url, z=z, plot_unit=astropy.units.microJansky)
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_37_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_37_1.png)
     
 
 
@@ -969,13 +969,13 @@ _ = msaexp.spectrum.fit_redshift(_file, z0=[z-0.1, z+0.1])
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_38_2.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_38_2.png)
     
 
 
 
     
-![png](/dja/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_38_3.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products_files/nirspec-data-products_38_3.png)
     
 
 
