@@ -3,6 +3,7 @@ url: https://dawn-cph.github.io/
 baseurl: /dja
 title: DJA
 tagline: The DAWN JWST Archive
+repository: dawn-cph/dja
 
 bannerTitle: The DAWN JWST Archive
 bannerTagline: Science-ready public JWST data products
