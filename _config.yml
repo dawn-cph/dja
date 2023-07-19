@@ -9,33 +9,36 @@ bannerDescription: The <a href="https://cosmicdawn.dk/"> Cosmic Dawn Center </a>
 bannerImage: images/dja_logo.png
 bannerButton: true
 bannerButtonLink: about/summary
-contactTagline: <a href="https://nbi.ku.dk/english/staff/?pure=en/persons/625553">Gabriel Brammer </a>.  For <a href="https://github.com/gbrammer/grizli/issues"> grizli </a> or <a href="https://github.com/gbrammer/msaexp/issues"> msaexp </a> software questions or problems, please file an <i>Issue</i> on the respective GitHub repository pages.
-copyright: Untitled
+contactTagline: For DJA questions, please use the <a href="https://github.com/dawn-cph/dja/discussions"> Discussions </a> or <a href="https://github.com/dawn-cph/dja/issues"> Issues </a> functionality on the <a href="https://github.com/dawn-cph/dja"> repository page </a>.  <br> <br> For <a href="https://github.com/gbrammer/grizli/issues"> grizli </a> or <a href="https://github.com/gbrammer/msaexp/issues"> msaexp </a> software questions or problems, please file an <i>Issue</i> on the respective GitHub repository pages.
+copyright: 2023 Cosmic Dawn Center
 
-# Featurette
-featuretteTitle: Erat lacinia
-featuretteFirstHighlight: Portitor ullamcorper
-featuretteFirstTagline: Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
-featuretteFirstIcon: icon fa-diamond
-featuretteSecondHighlight: Sapien veroeros
-featuretteSecondTagline: Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
-featuretteSecondIcon: icon fa-paper-plane
-featuretteThirdHighlight: Quam lorem ipsum
-featuretteThirdTagline: Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
-featuretteThirdIcon: icon fa-rocket
-featuretteFourthHighlight: Sed magna finibus
-featuretteFourthTagline: Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
-featuretteFourthIcon: icon fa-signal
+# # Featurette
+# featuretteTitle: Erat lacinia
+# featuretteFirstHighlight: Portitor ullamcorper
+# featuretteFirstTagline: Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+# featuretteFirstIcon: icon fa-diamond
+# featuretteSecondHighlight: Sapien veroeros
+# featuretteSecondTagline: Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+# featuretteSecondIcon: icon fa-paper-plane
+# featuretteThirdHighlight: Quam lorem ipsum
+# featuretteThirdTagline: Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+# featuretteThirdIcon: icon fa-rocket
+# featuretteFourthHighlight: Sed magna finibus
+# featuretteFourthTagline: Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+# featuretteFourthIcon: icon fa-signal
 
 # Contact
-email: gabriel.brammer@nbi.ku.dk
-phone: 
+email:
+phone:
 address: "Cosmic Dawn Center <br /> Niels Bohr Institute <br /> University of Copenhagen <br /> Rådmandsgade 62, 2200 København"
 twitter: DAWNCopenhagen
 facebook: 
 instagram: 
 snapchat: 
 github: dawn-cph
+
+# Plugins
+gems: ["jekyll-paginate"]
 
 # Pagination
 paginate: 4
@@ -48,7 +51,9 @@ highlighter: rouge
 kramdown:
     input: GFM
     syntax_highlighter: rouge
-    
+sass:
+  sass_dir: assets/sass
+
 # collections:
 #   datasets:
 #     output: true

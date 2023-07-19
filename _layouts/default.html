@@ -1,9 +1,28 @@
+{% comment %}
+
+	Editorial by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+
+	Name:
+
+		Default layout
+
+	Description:
+
+		Basic HTML foundation for all pages.
+
+	Example:
+
+		---
+		layout: default
+		---
+
+{% endcomment %}
+
 <!DOCTYPE HTML>
-<!-- Editorial by HTML5 UP -->
-<!-- html5up.net | @ajlkn -->
-<!-- Free for personal and commercial use under the CCA 3.0 license (html5up.net/license) -->
 <html>
-	{% include head.html %}
+	{% include components/head.html %}
 	<body>
 		<!-- Wrapper -->
 		<div id="wrapper">
@@ -11,14 +30,14 @@
 			<div id="main">
 				<div class="inner">
 					<!-- Header -->
-					{% include header.html %}
+					{% include layout/header.html %}
 					{{ content }}
 				</div>
 			</div>
 			<!-- Sidebar -->
-			{% include sidebar.html %}
+			{% include layout/sidebar.html %}
 		</div>
 		<!-- Scripts -->
-		{% include scripts.html %}
+		{% include components/scripts.html %}
 	</body>
 </html>

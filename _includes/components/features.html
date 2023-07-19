@@ -1,0 +1,58 @@
+{% comment %}
+
+	Editorial by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+
+	Name:
+
+		Features
+
+	Description:
+
+		Generates a grid of featured content.
+
+	Example:
+
+		---
+		my_features_array:
+		- icon: fa-envelope
+			title: Magna feugiat lorem
+			excerpt: Nunc blandit nisi ligula magna dolor sit.
+		- icon: fa-diamond
+			title: Lorem ipsum dolor
+			excerpt: Nunc blandit nisi ligula magna dolor sit.
+			url: http://example.com
+		---
+
+		{% include components/features.html features=page.my_features_array %}
+
+{% endcomment %}
+
+<!-- Features -->
+	<div class="features">
+
+		{% for feature in include.features %}
+
+			<article>
+
+				{% if feature.icon %}
+					<span class="icon {{ feature.icon }}"></span>
+				{% endif %}
+
+				<div class="content">
+					<h3>{{ feature.title }}</h3>
+					<p>{{ feature.excerpt | remove: "<p>" | remove: "</p>" }}</p>
+
+					{% if feature.url %}
+						<ul class="actions">
+							<li><a class="button" href="#">Read More</a></li>
+						</ul>
+					{% endif %}
+
+				</div>
+			</article>
+
+		{% endfor %}
+
+	</div>
