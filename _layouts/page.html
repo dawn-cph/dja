@@ -31,6 +31,8 @@ layout: default
             <img src="{{ site.baseurl }}/{{ page.wideImage }}" alt="" />
         </span>
     	{% endif %}
-
+    	{% if page.title %}
+        <h2> {{ page.title}} </h2>
+        {% endif %}
 		{{ content }}
 	</section>
