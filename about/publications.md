@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Publications with the DJA
+title: Publications using the DJA
 about: true
 navigation_weight: 14
 ---

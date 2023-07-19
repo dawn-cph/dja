@@ -5,7 +5,7 @@ showImageDataset: true
 navigation_weight: 10
 ---
 
-<span class="image fit"> <img src="{{site.baseurl}}/images/fields.png" alt="v6 fields"> </span>
+<span class="image fit"> <img src="{{site.baseurl}}/images/fields.jpg" alt="v6 fields"> </span>
 
 On this website, you will find various ways to access the imaging data:
 <ul>

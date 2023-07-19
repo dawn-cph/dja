@@ -25,4 +25,4 @@ On this website, you will find various ways to access the spectroscopic data:
 
 1051 NIRSpec prism spectra in one plot!
 
-<span class="image fit"> <img src="{{site.baseurl}}/images/nirspec_prism_compliation_restframe.png" alt="1051 prism spectra"> </span>
+<span class="image fit"> <img src="{{site.baseurl}}/images/nirspec_prism_compliation_restframe.jpg" alt="1051 prism spectra"> </span>
