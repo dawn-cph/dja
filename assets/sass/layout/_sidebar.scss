@@ -1,14 +1,14 @@
 ///
-/// Editorial by HTML5 UP
-/// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+/// Editorial by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
 ///
 
 /* Sidebar */
 
 	#search {
 		form {
-			@include icon;
+			@include icon(false, solid);
 			position: relative;
 
 			&:before {
@@ -18,14 +18,14 @@
 				cursor: default;
 				display: block;
 				font-size: 1.5em;
-				height: _size(element-height) / 1.375;
-				line-height: _size(element-height) / 1.375;
+				height: calc(_size(element-height) / 1.375);
+				line-height: calc(_size(element-height) / 1.375);
 				opacity: 0.325;
 				position: absolute;
 				right: 0;
 				text-align: center;
 				top: 0;
-				width: _size(element-height) / 1.375;
+				width: calc(_size(element-height) / 1.375);
 			}
 
 			input[type="text"] {
@@ -35,7 +35,7 @@
 	}
 
 	#sidebar {
-		$pad: 2em / 0.9;
+		$pad: calc(2em / 0.9);
 
 		@include vendor('flex-grow', '0');
 		@include vendor('flex-shrink', '0');
@@ -49,7 +49,7 @@
 		width: _size(sidebar-width);
 
 		h2 {
-			font-size: (1.25em / 0.9);
+			font-size: calc(1.25em / 0.9);
 		}
 
 		> .inner {
@@ -83,7 +83,7 @@
 		}
 
 		.toggle {
-			@include icon;
+			@include icon(false, solid);
 			@include vendor('transition', 'left 0.5s ease');
 			-webkit-tap-highlight-color: rgba(255,255,255,0);
 			border: 0;
@@ -95,7 +95,8 @@
 			overflow: hidden;
 			position: absolute;
 			text-align: center;
-			text-indent: 7.5em;
+			text-indent: -15em;
+			white-space: nowrap;
 			top: 0;
 			width: 6em;
 			z-index: _misc(z-index-base);
@@ -117,8 +118,8 @@
 			margin-left: (_size(sidebar-width) * -1);
 		}
 
-		@include breakpoint(xlarge) {
-			$pad: 1.5em / 0.9;
+		@include breakpoint('<=xlarge') {
+			$pad: calc(1.5em / 0.9);
 
 			width: _size(sidebar-width-alt);
 
@@ -150,7 +151,7 @@
 			}
 		}
 
-		@include breakpoint(large) {
+		@include breakpoint('<=large') {
 			box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.175);
 			height: 100%;
 			left: 0;
@@ -185,24 +186,24 @@
 
 				&:before {
 					font-size: 1.5rem;
-					margin-left: (-0.875em / 2);
+					margin-left: calc(-0.875em / 2);
 				}
 			}
 
-			body.is-loading & {
+			body.is-preload & {
 				display: none;
 			}
 		}
 
-		@include breakpoint(small) {
+		@include breakpoint('<=small') {
 			.toggle {
 				text-indent: 7.25em;
 				width: 7.25em;
 
 				&:before {
 					color: _palette(fg);
-					margin-left: (-0.125em / 2);
-					margin-top: (-0.5em / 2);
+					margin-left: calc(-0.125em / 2);
+					margin-top: calc(-0.5em / 2);
 					font-size: 1.1rem;
 					z-index: 1;
 				}

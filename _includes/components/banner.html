@@ -1,0 +1,17 @@
+<section id="banner">
+	<div class="content">
+		<header>
+			<h1>{{ site.bannerTitle }}</h1>
+			<p>{{ site.bannerTagline }}</p>
+		</header>
+		<p>{{ site.bannerDescription }}</p>
+		{% if site.bannerButton == true %}
+		<ul class="actions">
+			<li><a href="{{ site.bannerButtonLink }}" class="button big">Learn More</a></li>
+		</ul>
+		{% endif %}
+	</div>
+	<span class="image fit">
+		<img src="{{ site.bannerImage }}" alt="banner image" class="fit"/>
+	</span>
+</section>

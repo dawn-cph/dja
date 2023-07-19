@@ -1,0 +1,17 @@
+<section>
+	<header class="major">
+		<h2>Get in touch</h2>
+	</header>
+	<p>{{ site.contactTagline }}</p>
+	<ul class="contact">
+		{% if site.email %}
+		<li class="icon solid fa-envelope"><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+		{% endif %}
+		{% if site.phone %}
+		<li class="icon solid fa-phone"> <a href="mailto:{{ site.email }}">{{ site.phone }}</a></li>
+		{% endif %}
+		{% if site.address %}
+		<li class="icon solid fa-home">{{ site.address }}</li>
+		{% endif %}
+	</ul>
+</section>

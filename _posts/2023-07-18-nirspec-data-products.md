@@ -7,7 +7,7 @@ tags: demo nirspec
 author: Gabriel Brammer
 showOnHighlights: true
 ---
-{% include tags.html %}
+{% include components/tags.html %}
 (This page is auto-generated from the Jupyter notebook [nirspec-data-products.ipynb]({{ site.baseurl }}/assets/post_files/2023-07-18-nirspec-data-products.ipynb).)
 
 Here we summarize the files available for the DJA reductions of the public NIRSpec MSA datasets.

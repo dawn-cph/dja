@@ -7,7 +7,7 @@ tags: demo jwst
 author: Gabriel Brammer
 showOnHighlights: true
 ---
-{% include tags.html %}
+{% include components/tags.html %}
 (This page is auto-generated from the Jupyter notebook [image-data-products.ipynb]({{ site.baseurl }}/assets/post_files/2023-07-18-image-data-products.ipynb).)
 
 Here we summarize the files available for imaging datasets, for example in the [v7]({{ site.baseurl }}/imaging/v7/) data release.

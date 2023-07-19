@@ -1,7 +1,7 @@
 ///
-/// Editorial by HTML5 UP
-/// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+/// Editorial by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
 ///
 
 /* Header */
@@ -28,11 +28,11 @@
 			text-align: right;
 		}
 
-		@include breakpoint(xlarge) {
+		@include breakpoint('<=xlarge') {
 			padding-top: 5em;
 		}
 
-		@include breakpoint(small) {
+		@include breakpoint('<=small') {
 			padding-top: 6.5em;
 
 			.logo {
@@ -41,10 +41,10 @@
 			}
 
 			.icons {
-				height: (6.25em / 1.25);
-				line-height: (6.25em / 1.25);
+				height: calc(6.25em / 1.25);
+				line-height: calc(6.25em / 1.25);
 				position: absolute;
-				right: (-0.625em / 1.25);
+				right: calc(-0.625em / 1.25);
 				top: 0;
 			}
 		}

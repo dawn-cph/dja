@@ -7,7 +7,7 @@ tags: catalog gds
 author: Gabriel Brammer
 showOnHighlights: true
 ---
-{% include tags.html %}
+{% include components/tags.html %}
 (This page is auto-generated from the Jupyter notebook [photometric-catalog-demo.ipynb]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo.ipynb).)
 
 Show how to interact with the DJA/grizli photometric catalogs.

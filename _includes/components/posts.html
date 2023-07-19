@@ -1,0 +1,25 @@
+<section>
+	<header class="major">
+		<h2>Posts / News</h2>
+	</header>
+	<div class="posts">
+	{% for a_post in site.posts %}
+		<article>
+        <p class="post-meta">{{ a_post.date | date: '%B %-d, %Y — %H:%M' }}
+        {% if a_post.categories %}
+        /  
+            {% for cat in a_post.categories %}
+            <a class="blog-category" href="{{site.baseurl}}/blog/categories/#{{ cat }}"> {{ cat }}</a>
+            {% endfor %}
+            {% if a_post.tags %}
+                {% for tag in a_post.tags %}
+                <a class="blog-tag" href="{{site.baseurl}}/blog/tags/#{{ tag }}"> {{ tag }}</a>
+                {% endfor %}      
+            {% endif %}
+        {% endif %}
+        </p>
+        <h2><a class="post-title" href="{{ a_post.url | prepend: site.baseurl }}">{{ a_post.title }}</a></h2>
+		</article>
+	{% endfor %}
+	</div>
+</section>

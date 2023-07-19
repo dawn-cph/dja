@@ -1,0 +1,32 @@
+{% comment %}
+
+	Editorial by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+
+	Name:
+
+		Sidebar
+
+	Description:
+
+		Site navigation, related content, and contact info.
+
+	Example:
+
+		{% include layout/sidebar.html %}
+
+{% endcomment %}
+
+<div id="sidebar">
+	<div class="inner">
+		<!-- Menu -->
+		{% include components/sidebarMenu.html %}
+		<!-- Highlights -->
+		{% include components/sidebarHighlights.html %}
+		<!-- Contact -->
+		{% include components/contact.html %}
+		<!-- Footer -->
+		{% include components/footer.html %}
+	</div>
+</div>

@@ -1,13 +1,36 @@
 ---
 layout: default
 ---
+
+{% comment %}
+
+	Editorial by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+
+	Name:
+
+		Page layout
+
+	Description:
+
+		Base layout for all interior pages.
+
+	Example:
+
+		---
+		layout: page
+		---
+
+{% endcomment %}
+
 <!-- Content -->
-<section>
-	<header class="main">
-		<h1>{{ page.title }}</h1>
-	</header>
-	{% if page.wideImage %}
-	<span class="image main"><img src="{{ site.baseurl }}/{{ page.wideImage }}" alt="" /></span>
-	{% endif %}
-	{{ content }}
-</section>
+	<section>
+    	{% if page.wideImage %}
+    	<span class="image main">
+            <img src="{{ site.baseurl }}/{{ page.wideImage }}" alt="" />
+        </span>
+    	{% endif %}
+
+		{{ content }}
+	</section>
