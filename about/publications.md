@@ -16,5 +16,5 @@ navigation_weight: 14
     Heintz, Brammer, Giménez-Arteaga, et al., 2022
 </ol>
 
-Are there more? <a href="mailto:gabriel.brammer@nbi.ku.dk">Let us know.</a>
+Are there more? Send them through a <a href="https://github.com/dawn-cph/dja/"> Pull Request </a>!
 
