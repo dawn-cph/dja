@@ -6,12 +6,19 @@
 	{% for my_post in site.posts %}
 		{% if my_post.showOnHighlights == true %}
 		<article>
+            <p class="post-meta">{{ my_post.date | date: '%B %-d, %Y — %H:%M' }} </p>
+			{% if my_post.image %}
 			<a href="{{ my_post.url | prepend: site.baseurl }}" class="image"><img src="{{ site.baseurl}}/{{ my_post.image }}" alt="" /></a>
-			<h3>{{ my_post.title }}</h3>
-			<p>{{ my_post.tagline }}</p>
-			<ul class="actions">
-				<li><a href="{{ my_post.url | prepend: site.baseurl }}" class="button">More</a></li>
-			</ul>
+			{% endif %}
+            <a href="{{ my_post.url | prepend: site.baseurl }}" class="title">
+                <h3>{{ my_post.title }}</h3>
+            </a>
+			{% if my_post.tagline %}
+            <p>{{ my_post.tagline }}</p>
+            {% endif %}
+            <!-- <ul class="actions">
+                <li><a href="{{ my_post.url | prepend: site.baseurl }}" class="button">More</a></li>
+            </ul> -->
 		</article>
 		{% endif %}
 	{% endfor %}		
