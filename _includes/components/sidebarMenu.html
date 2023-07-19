@@ -49,9 +49,25 @@
 				{% endfor %}
 			</ul>
 
+			<span class="opener">General</span>
+            
+			<ul>
+                {% assign navigation_pages = site.pages | sort: 'navigation_weight' %}
+				{% for a_page in navigation_pages %}
+					{% if a_page.showGeneralDataset == true %}
+						<li><a href="{{ a_page.url | prepend: site.baseurl }}">{{ a_page.title }}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+
 		</li>
         
-        {% include components/map_viewers.html %}
+        <!-- <li>
+            <span class="opener">Map Viewers</span>
+
+            {% include components/map_viewers.html %}
+
+        </li> -->
         
 		<!--li>
 			<span class="opener">Pages</span>
