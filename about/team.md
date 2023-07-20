@@ -16,7 +16,7 @@ Gabriel Brammer
 <br> Kasper Elm Heintz
 <br> Peter Jakobsen
 <br> Iris Jermann
-<br> Schuowen Jin
+<br> Shuowen Jin
 <br> Meghana Killi
 <br> Vasily Kokorev
 <br> Minju Lee
