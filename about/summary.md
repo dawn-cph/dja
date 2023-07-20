@@ -27,7 +27,7 @@ For questions or comments with the [eazy-py](https://github.com/gbrammer/eazy-py
 
 We acknowledge the many developers and contributors to the [JWST Science Calibration Pipeline](https://jwst-pipeline.readthedocs.io/en/stable/jwst/introduction.html), which we use for the initial reduction steps of both imaging and spectroscopic datasets.
 
-The [Map View]({{ site.baseurl }}/imaging/mapview/) interface is extended from [FITSMap](https://arxiv.org/abs/2201.12308), developed by Ryan Hausen and Brant Robertson.
+The [Map View]({{ site.baseurl }}/imaging/mapview/) interface is extended from <a href="https://github.com/ryanhausen/fitsmap/"> <img src="{{site.baseurl}}/images/fitsmap_logo.svg.png" height=16pt /> </a>, developed by [Ryan Hausen and Brant Robertson](https://arxiv.org/abs/2201.12308).
 
 
 <div style="height:12pt"> </div>
