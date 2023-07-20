@@ -7,7 +7,7 @@ navigation_weight: 10
 
 <!--span class="image fit"> <img src="{{site.baseurl}}/images/spec_example.png" width="50%" alt="example spectrum"> </span-->
 
-<img src="{{site.baseurl}}/images/spec_example.png" width="75%" alt="example spectrum">
+<span class="image fit"> <img src="{{site.baseurl}}/images/spec_example.png" alt="example spectrum"> </span>
 
 Here you can find various ways to access uniformly-reduced public NIRSpec datasets:
 

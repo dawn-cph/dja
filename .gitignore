@@ -7,3 +7,5 @@ Gemfile.lock
 vendor
 
 _incoming/.ipynb_checkpoints*
+*.ipynb_checkpoints
+
