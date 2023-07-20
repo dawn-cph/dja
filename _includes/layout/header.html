@@ -1,0 +1,38 @@
+{% comment %}
+
+	Editorial by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+
+	Name:
+
+		Header
+
+	Description:
+
+		Site header.
+
+	Example:
+
+		{% include layout/header.html %}
+
+{% endcomment %}
+
+<!-- Header -->
+    <header id="header">
+    	<a href="{{ site.baseurl }}/index.html" class="logo"><strong>{{ site.title }}</strong> {{ site.tagline }}</a>
+    	<ul class="icons">
+    		{% if site.github %}
+    		<li><a href="https://github.com/{{ site.github }}" class="icon brands fa-github"><span class="label">Github</span></a></li>
+    		{% endif %}
+    		{% if site.twitter %}
+    		<li><a href="https://twitter.com/{{ site.twitter }}" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+    		{% endif %}
+    		{% if site.facebook %}
+    		<li><a href="https://www.facebook.com/{{ site.facebook }}" class="icon brands fa-facebook"><span class="label">Facebook</span></a></li>
+    		{% endif %}
+    		{% if site.linkedin %}
+    		<li><a href="https://www.linkedin.com/company/{{ site.linkedin }}" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+    		{% endif %}
+    	</ul>
+    </header>

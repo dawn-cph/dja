@@ -1,7 +1,7 @@
 ///
-/// Editorial by HTML5 UP
-/// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+/// Editorial by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
 ///
 
 /* Banner */
@@ -28,7 +28,7 @@
 			width: 50%;
 
 			img {
-				height: 100%;
+//                height: 100%;
 				-moz-object-fit: cover;
 				-webkit-object-fit: cover;
 				-ms-object-fit: cover;
@@ -66,7 +66,7 @@
 				width: 100%;
 			}
 
-			@include breakpoint(xsmall) {
+			@include breakpoint('<=xsmall') {
 				.image {
 					max-height: 35vh;
 				}

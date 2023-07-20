@@ -32,10 +32,26 @@ navigation_weight: 12
     
     <li> <b> GOODS-North (gdn) </b>
         <ul>
-            <li> Includes a few pointings from the <a href="https://www.stsci.edu/cgi-bin/get-proposal-info?id=2514&observatory=JWST"> PANORAMIC </a> pure parallel program </li>
+            <li> Includes a few pointings from the PANORAMIC <a href="https://www.stsci.edu/cgi-bin/get-proposal-info?id=2514&observatory=JWST"> (GO-2514) </a> pure parallel program </li>
         </ul>
     </li>
-                
+
+    <li> <b> GOODS-South (gds) </b>
+        <ul>
+            <li> Includes all public imaging data from the FRESCO <a href="https://www.stsci.edu/cgi-bin/get-proposal-info?id=1895&observatory=JWST">(GO-1895)</a>, JEMS <a href="https://www.stsci.edu/cgi-bin/get-proposal-info?id=1963&observatory=JWST">(GO-1963)</a> and JADES <a href="https://www.stsci.edu/cgi-bin/get-proposal-info?id=1210&observatory=JWST">(GTO-1210)</a> programs.</li>
+        </ul>
+    </li>
+
+    <li> <b> PRIMER (primer-uds, primer-cosmos) </b>
+        <ul>
+            <li> COSMOS cosaic expanded w.r.t. <a href="{{site.baseurl}}/imaging/v6">v6</a> to encompass the full PRIMER NIRCam + MIRI mosaic, now including both epochs/orientations. </li>
+            <li> The mosaics in both PRIMER fields are huge!  NIRCam SW mosaics in both PRIMER fields are created with the same 40 mas pixel grid as LW.
+            <li> Updated HST mosaics included here on the new COSMOS pixel grid.  UDS is unchanged from <a href="{{site.baseurl}}/imaging/v6">v6</a>.</li>
+            <li> Some improvement in the PRIMER MIRI reductions using time-dependent sky flats.</li>
+        </ul>
+    </li>
+    
+    
     
 </ul>
 
@@ -58,7 +74,7 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 });
 
 $(document).ready(function() {
-    $('#table4375363296').dataTable({
+    $('#table4372233952').dataTable({
         order: [],
         pageLength: 50,
         dom: 'Blfrtip',
@@ -68,8 +84,7 @@ $(document).ready(function() {
         columnDefs: [{targets: [1], type: "optionalnum"}]
     });
 } );  </script>
-
-  <table class="display compact" id="table4375363296">
+  <table class="display compact" id="table4372233952">
    <thead>
     <tr>
      <th>date</th>
@@ -1009,6 +1024,36 @@ $(document).ready(function() {
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-f814w_wcs.csv" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-f814w_wcs.csv </a></td>
    </tr>
    <tr>
+    <td>2023-07-17 10:36:48</td>
+    <td>206.2</td>
+    <td>abell2744clu-grizli-v7.0-fix.photoz.tar.gz</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-fix.photoz.tar.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-fix.photoz.tar.gz </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 10:36:48</td>
+    <td>0.04</td>
+    <td>abell2744clu-grizli-v7.0-fix.zhist.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-fix.zhist.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-fix.zhist.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 10:36:48</td>
+    <td>0.1</td>
+    <td>abell2744clu-grizli-v7.0-fix.zphot_zspec.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-fix.zphot_zspec.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-fix.zphot_zspec.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 10:36:47</td>
+    <td>141.7</td>
+    <td>abell2744clu-grizli-v7.0-fix_phot.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-fix_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-fix_phot.fits </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 10:36:48</td>
+    <td>245.21</td>
+    <td>abell2744clu-grizli-v7.0-fix_phot_apcorr.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-fix_phot_apcorr.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/abell2744clu-grizli-v7.0-fix_phot_apcorr.fits </a></td>
+   </tr>
+   <tr>
     <td>2023-07-13 11:52:49</td>
     <td>27.13</td>
     <td>abell2744clu-grizli-v7.0-ir.cat.fits</td>
@@ -1517,6 +1562,36 @@ $(document).ready(function() {
     <td>0.04</td>
     <td>ceers-full-grizli-v7.0-f770w_wcs.csv</td>
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-f770w_wcs.csv" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-f770w_wcs.csv </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-14 16:43:35</td>
+    <td>342.33</td>
+    <td>ceers-full-grizli-v7.0-fix.photoz.tar.gz</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-fix.photoz.tar.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-fix.photoz.tar.gz </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-14 16:43:35</td>
+    <td>0.04</td>
+    <td>ceers-full-grizli-v7.0-fix.zhist.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-fix.zhist.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-fix.zhist.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-14 16:43:35</td>
+    <td>0.14</td>
+    <td>ceers-full-grizli-v7.0-fix.zphot_zspec.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-fix.zphot_zspec.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-fix.zphot_zspec.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-14 16:43:35</td>
+    <td>183.7</td>
+    <td>ceers-full-grizli-v7.0-fix_phot.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-fix_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-fix_phot.fits </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-14 16:43:35</td>
+    <td>311.93</td>
+    <td>ceers-full-grizli-v7.0-fix_phot_apcorr.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-fix_phot_apcorr.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/ceers-full-grizli-v7.0-fix_phot_apcorr.fits </a></td>
    </tr>
    <tr>
     <td>2023-07-13 13:37:38</td>
@@ -2617,32 +2692,62 @@ $(document).ready(function() {
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-f480m-clear_wcs.csv" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-f480m-clear_wcs.csv </a></td>
    </tr>
    <tr>
-    <td>2023-07-13 18:18:38</td>
-    <td>18.97</td>
+    <td>2023-07-14 17:04:52</td>
+    <td>235.58</td>
+    <td>gds-grizli-v7.0-fix.photoz.tar.gz</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-fix.photoz.tar.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-fix.photoz.tar.gz </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-14 17:04:51</td>
+    <td>0.04</td>
+    <td>gds-grizli-v7.0-fix.zhist.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-fix.zhist.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-fix.zhist.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-14 17:04:52</td>
+    <td>0.17</td>
+    <td>gds-grizli-v7.0-fix.zphot_zspec.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-fix.zphot_zspec.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-fix.zphot_zspec.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-14 17:04:52</td>
+    <td>157.14</td>
+    <td>gds-grizli-v7.0-fix_phot.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-fix_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-fix_phot.fits </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-14 17:04:52</td>
+    <td>270.03</td>
+    <td>gds-grizli-v7.0-fix_phot_apcorr.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-fix_phot_apcorr.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-fix_phot_apcorr.fits </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-14 16:36:22</td>
+    <td>29.7</td>
     <td>gds-grizli-v7.0-ir.cat.fits</td>
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-ir.cat.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-ir.cat.fits </a></td>
    </tr>
    <tr>
-    <td>2023-07-12 22:26:01</td>
-    <td>530.77</td>
+    <td>2023-07-14 16:36:22</td>
+    <td>572.13</td>
     <td>gds-grizli-v7.0-ir_drc_sci.fits.gz</td>
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-ir_drc_sci.fits.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-ir_drc_sci.fits.gz </a></td>
    </tr>
    <tr>
-    <td>2023-07-12 22:26:01</td>
-    <td>498.37</td>
+    <td>2023-07-14 16:36:22</td>
+    <td>537.68</td>
     <td>gds-grizli-v7.0-ir_drc_wht.fits.gz</td>
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-ir_drc_wht.fits.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-ir_drc_wht.fits.gz </a></td>
    </tr>
    <tr>
-    <td>2023-07-13 18:18:38</td>
-    <td>2.8</td>
+    <td>2023-07-14 16:36:22</td>
+    <td>4.28</td>
     <td>gds-grizli-v7.0-ir_seg.fits.gz</td>
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-ir_seg.fits.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0-ir_seg.fits.gz </a></td>
    </tr>
    <tr>
-    <td>2023-07-13 18:18:38</td>
-    <td>188.04</td>
+    <td>2023-07-14 16:36:22</td>
+    <td>294.36</td>
     <td>gds-grizli-v7.0_phot.fits</td>
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0_phot.fits </a></td>
    </tr>
@@ -3383,6 +3488,36 @@ $(document).ready(function() {
     <td>0.01</td>
     <td>macs0647-grizli-v7.0-f480m-clear_wcs.csv</td>
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-f480m-clear_wcs.csv" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-f480m-clear_wcs.csv </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:16:39</td>
+    <td>41.49</td>
+    <td>macs0647-grizli-v7.0-fix.photoz.tar.gz</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-fix.photoz.tar.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-fix.photoz.tar.gz </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:16:39</td>
+    <td>0.03</td>
+    <td>macs0647-grizli-v7.0-fix.zhist.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-fix.zhist.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-fix.zhist.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:16:39</td>
+    <td>0.09</td>
+    <td>macs0647-grizli-v7.0-fix.zphot_zspec.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-fix.zphot_zspec.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-fix.zphot_zspec.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:16:39</td>
+    <td>25.43</td>
+    <td>macs0647-grizli-v7.0-fix_phot.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-fix_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-fix_phot.fits </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:16:39</td>
+    <td>44.21</td>
+    <td>macs0647-grizli-v7.0-fix_phot_apcorr.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-fix_phot_apcorr.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/macs0647-grizli-v7.0-fix_phot_apcorr.fits </a></td>
    </tr>
    <tr>
     <td>2023-07-13 02:30:05</td>
@@ -4435,36 +4570,6 @@ $(document).ready(function() {
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-grizli-v7.0-f770w_wcs.csv" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-grizli-v7.0-f770w_wcs.csv </a></td>
    </tr>
    <tr>
-    <td>2023-07-13 14:49:25</td>
-    <td>3.88</td>
-    <td>rxcj0600-grizli-v7.0-ir.cat.fits</td>
-    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxcj0600-grizli-v7.0-ir.cat.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxcj0600-grizli-v7.0-ir.cat.fits </a></td>
-   </tr>
-   <tr>
-    <td>2023-07-13 14:49:25</td>
-    <td>89.41</td>
-    <td>rxcj0600-grizli-v7.0-ir_drc_sci.fits.gz</td>
-    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxcj0600-grizli-v7.0-ir_drc_sci.fits.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxcj0600-grizli-v7.0-ir_drc_sci.fits.gz </a></td>
-   </tr>
-   <tr>
-    <td>2023-07-13 14:49:25</td>
-    <td>83.6</td>
-    <td>rxcj0600-grizli-v7.0-ir_drc_wht.fits.gz</td>
-    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxcj0600-grizli-v7.0-ir_drc_wht.fits.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxcj0600-grizli-v7.0-ir_drc_wht.fits.gz </a></td>
-   </tr>
-   <tr>
-    <td>2023-07-13 14:49:25</td>
-    <td>1.13</td>
-    <td>rxcj0600-grizli-v7.0-ir_seg.fits.gz</td>
-    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxcj0600-grizli-v7.0-ir_seg.fits.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxcj0600-grizli-v7.0-ir_seg.fits.gz </a></td>
-   </tr>
-   <tr>
-    <td>2023-07-13 14:49:25</td>
-    <td>15.75</td>
-    <td>rxcj0600-grizli-v7.0_phot.fits</td>
-    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxcj0600-grizli-v7.0_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxcj0600-grizli-v7.0_phot.fits </a></td>
-   </tr>
-   <tr>
     <td>2023-07-11 21:39:04</td>
     <td>0.12</td>
     <td>rxj2129-grizli-v7.0-f115w-clear_drc_exp.fits.gz</td>
@@ -4643,6 +4748,36 @@ $(document).ready(function() {
     <td>0.01</td>
     <td>rxj2129-grizli-v7.0-f444w-clear_wcs.csv</td>
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-f444w-clear_wcs.csv" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-f444w-clear_wcs.csv </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:44:29</td>
+    <td>24.28</td>
+    <td>rxj2129-grizli-v7.0-fix.photoz.tar.gz</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-fix.photoz.tar.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-fix.photoz.tar.gz </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:44:29</td>
+    <td>0.03</td>
+    <td>rxj2129-grizli-v7.0-fix.zhist.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-fix.zhist.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-fix.zhist.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:44:29</td>
+    <td>0.08</td>
+    <td>rxj2129-grizli-v7.0-fix.zphot_zspec.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-fix.zphot_zspec.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-fix.zphot_zspec.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:44:29</td>
+    <td>9.15</td>
+    <td>rxj2129-grizli-v7.0-fix_phot.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-fix_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-fix_phot.fits </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:44:29</td>
+    <td>15.7</td>
+    <td>rxj2129-grizli-v7.0-fix_phot_apcorr.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-fix_phot_apcorr.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/rxj2129-grizli-v7.0-fix_phot_apcorr.fits </a></td>
    </tr>
    <tr>
     <td>2023-07-12 14:12:35</td>
@@ -5545,6 +5680,36 @@ $(document).ready(function() {
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-f770w_wcs.csv" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-f770w_wcs.csv </a></td>
    </tr>
    <tr>
+    <td>2023-07-17 14:35:11</td>
+    <td>41.66</td>
+    <td>smacs0723-grizli-v7.0-fix.photoz.tar.gz</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-fix.photoz.tar.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-fix.photoz.tar.gz </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:35:11</td>
+    <td>0.04</td>
+    <td>smacs0723-grizli-v7.0-fix.zhist.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-fix.zhist.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-fix.zhist.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:35:11</td>
+    <td>0.08</td>
+    <td>smacs0723-grizli-v7.0-fix.zphot_zspec.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-fix.zphot_zspec.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-fix.zphot_zspec.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:35:11</td>
+    <td>22.16</td>
+    <td>smacs0723-grizli-v7.0-fix_phot.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-fix_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-fix_phot.fits </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 14:35:11</td>
+    <td>37.92</td>
+    <td>smacs0723-grizli-v7.0-fix_phot_apcorr.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-fix_phot_apcorr.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/smacs0723-grizli-v7.0-fix_phot_apcorr.fits </a></td>
+   </tr>
+   <tr>
     <td>2023-07-13 03:11:52</td>
     <td>4.78</td>
     <td>smacs0723-grizli-v7.0-ir.cat.fits</td>
@@ -5815,6 +5980,36 @@ $(document).ready(function() {
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-f444w-clear_wcs.csv" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-f444w-clear_wcs.csv </a></td>
    </tr>
    <tr>
+    <td>2023-07-17 13:54:44</td>
+    <td>46.41</td>
+    <td>sunrise-grizli-v7.0-fix.photoz.tar.gz</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-fix.photoz.tar.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-fix.photoz.tar.gz </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 13:54:44</td>
+    <td>0.03</td>
+    <td>sunrise-grizli-v7.0-fix.zhist.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-fix.zhist.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-fix.zhist.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 13:54:44</td>
+    <td>0.08</td>
+    <td>sunrise-grizli-v7.0-fix.zphot_zspec.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-fix.zphot_zspec.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-fix.zphot_zspec.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 13:54:44</td>
+    <td>24.65</td>
+    <td>sunrise-grizli-v7.0-fix_phot.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-fix_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-fix_phot.fits </a></td>
+   </tr>
+   <tr>
+    <td>2023-07-17 13:54:44</td>
+    <td>41.82</td>
+    <td>sunrise-grizli-v7.0-fix_phot_apcorr.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-fix_phot_apcorr.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0-fix_phot_apcorr.fits </a></td>
+   </tr>
+   <tr>
     <td>2023-07-13 02:30:42</td>
     <td>5.8</td>
     <td>sunrise-grizli-v7.0-ir.cat.fits</td>
@@ -5845,7 +6040,7 @@ $(document).ready(function() {
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0_phot.fits </a></td>
    </tr>
   </table>
-
-<span style="font-size:x-small;"> Created: Fri Jul 14 12:21:00 2023 </span>
-
+<span style="font-size:x-small;"> Created: Wed Jul 19 17:21:26 2023 </span>
+ </body>
+</html>
 

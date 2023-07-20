@@ -7,8 +7,8 @@ tags: catalog gds
 author: Gabriel Brammer
 showOnHighlights: true
 ---
-{% include tags.html %}
-(This page is auto-generated from the Jupyter notebook [photometric-catalog-demo.ipynb](/dja/assets/post_files/2023-07-15-photometric-catalog-demo.ipynb).)
+{% include components/tags.html %}
+(This page is auto-generated from the Jupyter notebook [photometric-catalog-demo.ipynb]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo.ipynb).)
 
 Show how to interact with the DJA/grizli photometric catalogs.
 
@@ -49,6 +49,12 @@ print(f'eazy-py version: {eazy.__version__}')
 Currently available:
 - `gds` = GOODS-South
 - `gdn` = GOODS-North
+- `ceers-full` = CEERS EGS
+- `abell2744clu` = Abell 2744 GLASS + UNCOVER + DD-2756
+- `macs0647` = MACS 0647 cluster (Coe et al., GO-1433)
+- `rxj2129` = RXJ 2129 cluster (Kelly et al., DD-2767)
+- `sunrise` = "Sunrise Arc" (WHL0137, Coe et al., GO-2282)
+- `smacs0723` = SMACS 0723 cluster (Pontoppidan et al., DD-2736)
 - ...
 
 
@@ -269,7 +275,7 @@ for ax in axes:
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_14_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_14_0.png)
     
 
 
@@ -290,7 +296,7 @@ cb.set_label('raw depth, D=0.5" aperture')
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_15_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_15_0.png)
     
 
 
@@ -319,7 +325,7 @@ ax.set_ylabel('flux_radius')
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_17_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_17_1.png)
     
 
 
@@ -439,7 +445,7 @@ ax.set_ylabel(r'$\Delta Dec, arcsec')
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_22_2.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_22_2.png)
     
 
 
@@ -483,7 +489,7 @@ for ax in axes:
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_23_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_23_0.png)
     
 
 
@@ -630,13 +636,13 @@ fig.axes[0].set_title(f'Skelton (2014)')
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_28_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_28_1.png)
     
 
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_28_2.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_28_2.png)
     
 
 
@@ -658,7 +664,7 @@ _ = self.show_fit(cat_id, zr=[3,7])
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_30_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_30_0.png)
     
 
 
@@ -732,7 +738,7 @@ if 1:
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_31_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_31_1.png)
     
 
 
@@ -770,49 +776,49 @@ for i in np.argsort(z_jades):
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_1.png)
     
 
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_2.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_2.png)
     
 
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_3.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_3.png)
     
 
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_4.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_4.png)
     
 
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_5.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_5.png)
     
 
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_6.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_6.png)
     
 
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_7.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_7.png)
     
 
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_8.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_32_8.png)
     
 
 
@@ -828,6 +834,6 @@ id, fig, img = quick_cutout(_[1], pl=2, scl=8, sy=3, size=1, filters='f090w-clea
 
 
     
-![png](/dja/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_33_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2023-07-15-photometric-catalog-demo_files/photometric-catalog-demo_33_1.png)
     
 

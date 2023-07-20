@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Get timestamp of a previous post
+
+full_timestamp=`grep "date: " $1 | sed "s/date: //"`
+
+echo $full_timestamp

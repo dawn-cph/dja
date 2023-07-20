@@ -1,0 +1,23 @@
+<head>
+	<title>{{ site.title }} {{ site.tagline }}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    {% include components/og.html %}
+	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/highlight.css" />
+	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    
+    <style>
+    table.dataTable {width: auto !important; margin: 0 !important;}
+    .dataTables_filter, .dataTables_paginate {float: left !important; margin-left:1em}
+    td {font-size: 10pt;}
+        
+    select {display: inline; width:90px;}
+    input[type="search"] {display: inline; width:300px;}
+    </style>
+    
+    <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">    
+</head>
