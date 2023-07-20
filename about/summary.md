@@ -17,6 +17,12 @@ We also suggest to include references and DOIs to the grizli pipeline: [10.5281/
 
 Finally, we encourage that users acknowledge the *original program IDs and PIs* of the constituent HST and JWST datasets of the DJA data products, as well as to appropriately cite any papers those investigators have published. Please see [this table](https://grizli.readthedocs.io/en/latest/grizli/image-release-v6.html) for a list of programs included in the archive so far.
 
+### Questions / comments ?
+
+If you there are any topics you would like to suggest for discussion in additional pages or [posts]({{ site.baseurl}}/posts/), please consider filing an item at [https://github.com/dawn-cph/dja/issues](https://github.com/dawn-cph/dja/issues).
+
+For questions or comments with the [eazy-py](https://github.com/gbrammer/eazy-py/issues), [grizli](https://github.com/gbrammer/grizli/issues), or [msaexp](https://github.com/gbrammer/msaexp/issues) software modules please file an <i>Issue</i> on the respective GitHub repository pages.
+
 ### Acknowledgements
 
 We acknowledge the many developers and contributors to the [JWST Science Calibration Pipeline](https://jwst-pipeline.readthedocs.io/en/stable/jwst/introduction.html), which we use for the initial reduction steps of both imaging and spectroscopic datasets.
