@@ -26,10 +26,12 @@ File listing: [files.csv]({{ site.baseurl }}/data/nirspec-wavecal/files.csv)
 
 Notebook: [plot-wavecal-spectra.ipynb]({{ site.baseurl }}/data/nirspec-wavecal/plot-wavecal-spectra.ipynb)
 
+<span class="image fit"> <img src="{{site.baseurl}}/data/nirspec-wavecal/smp58_nirspec_full.png" alt="smp58 full spectrum"> </span>
+
 #### Broad wavelength range
 
-<span class="image fit"> <img src="{{site.baseurl}}/data/nirspec-wavecal/smp58_nirspec_full.png" alt="full spectrum"> </span>
+<span class="image fit"> <img src="{{site.baseurl}}/data/nirspec-wavecal/smp58_nirspec_zoom.png" alt="smp58 zoomed wavelength range"> </span>
 
 #### Radial velocity correction
 
-<span class="image fit"> <img src="{{site.baseurl}}/data/nirspec-wavecal/smp58_nirspec_dv.png" alt="full spectrum"> </span>
+<span class="image fit"> <img src="{{site.baseurl}}/data/nirspec-wavecal/smp58_nirspec_dv.png" alt="smp58 radial velocity"> </span>
