@@ -7,16 +7,13 @@ navigation_weight: 10
 
 <span class="image fit"> <img src="{{site.baseurl}}/images/fields.jpg" alt="v6 fields"> </span>
 
-On this website, you will find various ways to access the imaging data:
-<ul>
-    <li><a href="https://dawn-cph.github.io/dja/imaging/v7/">Table of images reduced in latest (v7) release</a></li>
-    A list of links to all images and catalogs released in v7 so far. *phot_apcorr.fits are aperture corrected photometric catalogs.
-    <li><a href="https://dawn-cph.github.io/dja/imaging/v6/">Table of images reduced in v6 release</a></li>
-    A list of links to all images and catalogs released in v6. *phot_apcorr.fits are aperture corrected photometric catalogs.
-    <li>For pannable images with various possible layers, including HST and JWST filters as well as spectral observations, please use the "Map Viewers" menu option to the left. To see individual spectra, pan over a source with that instrument layer turned on. </li>
-    
-</ul>
+Here you will find various ways to access the imaging data:
 
+- [v7]({{site.baseurl}}/imaging/v7/): Latest release of JWST mosaics (July 2023)
+- [v6]({{site.baseurl}}/imaging/v6/): Previous release, including some HST mosaics that were not regenerated for v7.
+- The [image-data-products]({{ site.baseurl }}/blog/2023/07/18/image-data-products/) post describes the image mosaics
+- The [photometric-catalog-demo]({{ site.baseurl }}/blog/2023/07/14/photometric-catalog-demo/) post describes the aperture photometry catalogs derived automatically from the mosaics
+- For pannable images with various possible layers, including HST and JWST filters as well as spectral observations, see the [Map View]({{ site.baseurl }}/general/mapview/) pages. To see individual spectra, pan over a source with the different *Spectra* overlays enabled.
 
 > More documentation is coming soon, but for now, the image reduction process is
 > described in [Valentino et
