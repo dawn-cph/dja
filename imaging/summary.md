@@ -5,7 +5,12 @@ showImageDataset: true
 navigation_weight: 10
 ---
 
-<span class="image fit"> <img src="{{site.baseurl}}/images/fields.jpg" alt="v6 fields"> </span>
+<div class="image fit caption">
+    <img src="{{site.baseurl}}/images/fields.jpg" alt="v6 fields">
+
+    Many JWST survey fields
+
+</div>
 
 Here you will find various ways to access the imaging data:
 

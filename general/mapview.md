@@ -5,7 +5,14 @@ showGeneralDataset: true
 navigation_weight: 11
 ---
 
-<span class="image fit"> <a href="https://s3.amazonaws.com/grizli-v2/ClusterTiles/Map/gds/jwst.html?coord=53.1633772,-27.7705924&zoom=5" target="_blank" rel="noopener noreferrer"> <img src="{{site.baseurl}}/images/map_demo.jpg" alt="map screenshot"> </a> </span>
+<div class="image fit caption">
+    <a href="https://s3.amazonaws.com/grizli-v2/ClusterTiles/Map/gds/jwst.html?coord=53.1633772,-27.7705924&zoom=5" target="_blank" rel="noopener noreferrer"> 
+        <img src="{{site.baseurl}}/images/map_demo.jpg" alt="map screenshot">
+    </a>
+
+    Screenshot of the GOODS-South map viewer, linked to the map itself
+
+ </div>
 
 Fully interactive pannable viewers are available for the fields linked below.  These include overlay layers showing footprints of additional archival datasets (e.g., VLT/MUSE and ALMA from the ESO Archive) and various DJA spectroscopic data products.
 

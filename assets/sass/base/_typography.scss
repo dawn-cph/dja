@@ -25,7 +25,13 @@
 			font-size: 9pt;
 		}
 	}
-
+    
+    .caption {
+        font-style: oblique;
+        font-size: small;
+        text-align: center;
+    }
+    
 	a {
 		@include vendor('transition', (
 			'color #{_duration(transition)} ease-in-out',

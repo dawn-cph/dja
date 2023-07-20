@@ -7,7 +7,12 @@ navigation_weight: 10
 
 <!--span class="image fit"> <img src="{{site.baseurl}}/images/spec_example.png" width="50%" alt="example spectrum"> </span-->
 
-<span class="image fit"> <img src="{{site.baseurl}}/images/spec_example.png" alt="example spectrum"> </span>
+<div class="image fit caption">
+    <img src="{{site.baseurl}}/images/gds-deep-lr-v1_prism-clear_1210_58975.fnu.png" alt="example spectrum">
+
+    JADES-DEEP Prism spectrum of GOODS-South #58975
+    
+</div>
 
 Here you can find various ways to access uniformly-reduced public NIRSpec datasets:
 
@@ -22,6 +27,9 @@ Here you can find various ways to access uniformly-reduced public NIRSpec datase
 
 ## Full visualization
 
-1051 NIRSpec prism spectra in one plot!
-
-<span class="image fit"> <img src="{{site.baseurl}}/images/nirspec_prism_compliation_restframe.jpg" alt="1051 prism spectra"> </span>
+<div class="image fit">
+    <div class="caption fit">
+        1051 NIRSpec prism spectra in one plot!
+    </div>
+    <img src="{{site.baseurl}}/images/nirspec_prism_compliation_restframe.jpg" alt="1051 prism spectra">
+</div>

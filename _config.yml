@@ -12,13 +12,13 @@ bannerImage: images/dja_logo.png
 bannerButton: true
 bannerButtonLink: about/summary
 
-contactTagline: For DJA questions, please use the <a href="https://github.com/dawn-cph/dja/discussions"> Discussions </a> or <a href="https://github.com/dawn-cph/dja/issues"> Issues </a> functionality on the <a href="https://github.com/dawn-cph/dja"> repository page </a>.  <br> <br> For <a href="https://github.com/gbrammer/grizli/issues"> grizli </a> or <a href="https://github.com/gbrammer/msaexp/issues"> msaexp </a> software questions or problems, please file an <i>Issue</i> on the respective GitHub repository pages.
+contactTagline: For DJA questions, please use the <a href="https://github.com/dawn-cph/dja/discussions"> Discussions </a> or <a href="https://github.com/dawn-cph/dja/issues"> Issues </a> functionality on the <a href="https://github.com/dawn-cph/dja"> repository page</a>.<br> <br> For <a href="https://github.com/gbrammer/grizli/issues"> grizli </a> or <a href="https://github.com/gbrammer/msaexp/issues"> msaexp </a> software questions or problems, please file an <i>Issue</i> on the respective GitHub repository pages.
 copyright: 2023 Cosmic Dawn Center
 
 # Contact
 email:
 phone:
-address: "Cosmic Dawn Center <br /> Niels Bohr Institute <br /> University of Copenhagen <br /> Rådmandsgade 62, 2200 København"
+address: <a href="https://cosmicdawn.dk/" /> Cosmic Dawn Center </a> <br /> Niels Bohr Institute <br /> University of Copenhagen <br /> Rådmandsgade 62, 2200 København
 twitter: DAWNCopenhagen
 facebook: 
 instagram: 
