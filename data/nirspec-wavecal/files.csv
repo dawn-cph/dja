@@ -1,10 +1,10 @@
 file, filter, grating
-{{ site.baseurl }}/data/nirspec-wavecal/calib_g140h-f070lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F070LP, G140H
-{{ site.baseurl }}/data/nirspec-wavecal/calib_g140h-f100lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F100LP, G140H
-{{ site.baseurl }}/data/nirspec-wavecal/calib_g140m-f070lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F070LP, G140M
-{{ site.baseurl }}/data/nirspec-wavecal/calib_g140m-f100lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F100LP, G140M
-{{ site.baseurl }}/data/nirspec-wavecal/calib_g235h-f170lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F170LP, G235H
-{{ site.baseurl }}/data/nirspec-wavecal/calib_g235m-f170lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F170LP, G235M
-{{ site.baseurl }}/data/nirspec-wavecal/calib_g395h-f290lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F290LP, G395H
-{{ site.baseurl }}/data/nirspec-wavecal/calib_g395m-f290lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F290LP, G395M
-{{ site.baseurl }}/data/nirspec-wavecal/calib_prism-clear_iras-05248-7007_s200a1.v1.spec.fits.gz , CLEAR , PRISM
+calib_g140h-f070lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F070LP, G140H
+calib_g140h-f100lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F100LP, G140H
+calib_g140m-f070lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F070LP, G140M
+calib_g140m-f100lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F100LP, G140M
+calib_g235h-f170lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F170LP, G235H
+calib_g235m-f170lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F170LP, G235M
+calib_g395h-f290lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F290LP, G395H
+calib_g395m-f290lp_iras-05248-7007_s200a1.v1.spec.fits.gz, F290LP, G395M
+calib_prism-clear_iras-05248-7007_s200a1.v1.spec.fits.gz , CLEAR , PRISM
