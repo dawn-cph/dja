@@ -16,14 +16,16 @@ contactTagline: For DJA questions, please use the <a href="https://github.com/da
 copyright: 2023 Cosmic Dawn Center
 
 # Contact
+
 email:
 phone:
-address: <a href="https://cosmicdawn.dk/" /> Cosmic Dawn Center </a> <br /> Niels Bohr Institute <br /> University of Copenhagen <br /> Rådmandsgade 62, 2200 København
+address: <a href="https://cosmicdawn.dk/" /> Cosmic Dawn Center </a> <br /> Niels Bohr Institute <br /> University of Copenhagen <br /> Jagtvej 128, 2200 København
+github: dawn-cph
 twitter: DAWNCopenhagen
-facebook: 
+facebook: cosmicdawncenter
+linkedin: the-cosmic-dawn-center
 instagram: 
 snapchat: 
-github: dawn-cph
 
 # Pagination
 paginate: 4
