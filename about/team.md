@@ -5,6 +5,13 @@ about: true
 navigation_weight: 12
 ---
 
+<div class="image fit caption">
+    <img src="{{site.baseurl}}/images/team.png" alt="DJA Team">
+
+    People involved with the DJA
+
+</div>
+
 Gabriel Brammer
 <br> Lise Christensen
 <br> Seiji Fujimoto
