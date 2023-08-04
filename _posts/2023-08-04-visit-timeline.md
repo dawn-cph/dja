@@ -9,4 +9,4 @@ showOnHighlights: false
 ---
 {% include components/tags.html %}
 
-A scrape of the Cycle 1 and 2 visit information pages is now available [here]({{site.baseurl}}/dja/general/timeline/).
+A scrape of the Cycle 1 and 2 visit information pages is now available [here]({{site.baseurl}}/general/timeline/).
