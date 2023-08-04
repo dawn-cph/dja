@@ -65,7 +65,22 @@ These are the public datasets in the [nirspec_graded.html](https://s3.amazonaws.
 
 <div class="image fit">
     <div class="caption fit">
-        1051 NIRSpec prism spectra in one plot!
+        1000 NIRSpec prism spectra in one plot!
     </div>
-    <img src="{{site.baseurl}}/images/nirspec_prism_compliation_restframe.jpg" alt="1051 prism spectra">
+    <img src="{{site.baseurl}}/images/nirspec_prism_compliation_restframe.png" />
+</div>
+
+### Spectral coverage comparison
+
+One aspect of the unique power of the NIRSpec PRISM mode is the broad wavelength coverage from 0.7 < &lambda; < 5.3 µm.  The comparisons below show the wavelength coverage from WFC3 G141 slitless spectroscopy or from a ground-based near-infrared spectrograph such as Keck/MOSFIRE with its attendant atmospheric windows.  Note that the comparison just shows the wavelength coverage, not differences in sensitivity and spectral resolution, which are significant between these observing modes.
+
+<div class="image fit">
+    <div class="caption fit">
+        <button onclick='$("#nirspec_flip").attr("src","{{site.baseurl}}/images/nirspec_prism_compliation_restframe.png");'>NIRSpec</button>
+        <button onclick='$("#nirspec_flip").attr("src","{{site.baseurl}}/images/nirspec_prism_compliation_restframe_g141.png");'>WFC3 G141</button>
+        <button onclick='$("#nirspec_flip").attr("src","{{site.baseurl}}/images/nirspec_prism_compliation_restframe_mauna_kea.png");'>Ground-based</button>
+        
+    </div>
+    <img src="{{site.baseurl}}/images/nirspec_prism_compliation_restframe.png"         
+         alt="spetrum comparison" id="nirspec_flip" />
 </div>
