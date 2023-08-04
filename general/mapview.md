@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Interactive Map Interface
-showGeneralDataset: true
+showGeneral: true
 navigation_weight: 11
 ---
 

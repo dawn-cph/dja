@@ -54,7 +54,7 @@
 			<ul>
                 {% assign navigation_pages = site.pages | sort: 'navigation_weight' %}
 				{% for a_page in navigation_pages %}
-					{% if a_page.showGeneralDataset == true %}
+					{% if a_page.showGeneral == true %}
 						<li><a href="{{ a_page.url | prepend: site.baseurl }}">{{ a_page.title }}</a></li>
 					{% endif %}
 				{% endfor %}

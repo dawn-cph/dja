@@ -1,7 +1,7 @@
 ---
 layout: page
 title: jwst-sources Repository
-showGeneralDataset: true
+showGeneral: true
 navigation_weight: 12
 ---
 
