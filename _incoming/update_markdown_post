@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Use this in the first raw line of a notebook
+
+usage="""
+Usage:
+
+./update_markdown_post this-is-a-new-post.md
+   
+"""
+
+mdfile=$1
+root=`echo $mdfile | sed "s/.md//"`
+
+if [ "$#" == "4" ]; then
+    date_timestamp="$2"
+    full_timestamp="$2 $3 $4"
+else
+    # Does the post already exist?
+    prev=`ls ../_posts/*${root}*md`
+    if [ ! -z "$prev" ]; then
+        full_timestamp=`grep "date: " $prev | awk '{print $2, $3, $4}'`
+        date_timestamp=`echo $full_timestamp | awk '{print $1}'`
+        echo "use original timestamp for $prev: ${full_timestamp}"
+    else
+        date_timestamp=`date -r $1 +'%Y-%m-%d'`
+        full_timestamp=`date -r $1 +'%Y-%m-%d %H:%M:%S %z'`
+    fi
+fi
+
+base_path="{{ site.baseurl }}\/"
+
+echo $mdfile
+
+outfile="${date_timestamp}-${root}.md"
+ 
+cp ${root}.md ./${outfile}
+
+# Auto timestamp
+perl -pi -e "s/{TIMESTAMP}/${full_timestamp}/" ${outfile}
+
+echo "=== Post added ==="
+echo "../_posts/${outfile}"
+
+mv ${outfile} ../_posts
