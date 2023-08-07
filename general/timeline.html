@@ -11,9 +11,11 @@ navigation_weight: 16
 <ul>
     <li> Scraped 7 August 2023
     <li> There is no special indication of visits that have already been executed, 
-         but those will have <i> win_start = win_end </i>
+         but those will have <code> win_start = win_end </code>
     <li> Time windows may not be parsed correctly for all visits
     <li> Programs that failed to parse won't be shown (e.g., pure parallels)
+    <li> Visits where the date failed to parse (i.e., those with status Implementation) are given a dummy date <code> win_start = 2029-01-01 </code>
+    
 </ul>
 
   <script>
