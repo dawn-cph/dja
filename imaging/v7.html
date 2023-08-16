@@ -78,7 +78,7 @@ navigation_weight: 12
                     <li> Individual Level1 NIRCam exposures reprocessed with improved treatment of the snowballs (<a href="https://github.com/gbrammer/grizli/blob/master/grizli/jwst_level1.py"> grizli.jwst_level1</a>)
                     <li> All PRIMER visits aligned to a new full astrometric catalog generated from the F444W mosaic, which itself was aligned to the HSC ultra-deep <i>i</i>-band catalog.
                 </ul>
-                        
+            <li> Added <code> eazy </code> photoz outputs for the new PRIMER mosaics (16 Aug 2023)
         </ul>
     </li>    
     <li> Added mosaics of the <code> elgordo </code> field (<a href="https://s3.amazonaws.com/grizli-v2/ClusterTiles/Map/j010256m4914/index.html?coord=15.7323208,-49.2522810&zoom=5"> ACT CLJ0102-49151</a>, GTO-1176)
@@ -103,7 +103,7 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 });
 
 $(document).ready(function() {
-    $('#table4384103968').dataTable({
+    $('#table4316458000').dataTable({
         order: [],
         pageLength: 50,
         dom: 'Blfrtip',
@@ -113,7 +113,7 @@ $(document).ready(function() {
         columnDefs: [{targets: [1], type: "optionalnum"}]
     });
 } );  </script>
-  <table class="display compact" id="table4384103968">
+  <table class="display compact" id="table4316458000">
    <thead>
     <tr>
      <th>date</th>
@@ -4161,8 +4161,8 @@ $(document).ready(function() {
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/gds-grizli-v7.0_phot.fits </a></td>
    </tr>
    <tr>
-    <td>2023-07-19 17:21:28</td>
-    <td>0.35</td>
+    <td>2023-08-16 11:13:43</td>
+    <td>0.64</td>
     <td>index.html</td>
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/index.html" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/index.html </a></td>
    </tr>
@@ -5829,6 +5829,36 @@ $(document).ready(function() {
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-f850lp_wcs.csv" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-f850lp_wcs.csv </a></td>
    </tr>
    <tr>
+    <td>2023-08-16 10:33:48</td>
+    <td>282.81</td>
+    <td>primer-cosmos-east-grizli-v7.0-fix.photoz.tar.gz</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-fix.photoz.tar.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-fix.photoz.tar.gz </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-16 10:33:47</td>
+    <td>0.04</td>
+    <td>primer-cosmos-east-grizli-v7.0-fix.zhist.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-fix.zhist.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-fix.zhist.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-16 10:33:48</td>
+    <td>0.13</td>
+    <td>primer-cosmos-east-grizli-v7.0-fix.zphot_zspec.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-fix.zphot_zspec.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-fix.zphot_zspec.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-16 10:33:48</td>
+    <td>169.99</td>
+    <td>primer-cosmos-east-grizli-v7.0-fix_phot.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-fix_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-fix_phot.fits </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-16 10:33:48</td>
+    <td>293.24</td>
+    <td>primer-cosmos-east-grizli-v7.0-fix_phot_apcorr.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-fix_phot_apcorr.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-east-grizli-v7.0-fix_phot_apcorr.fits </a></td>
+   </tr>
+   <tr>
     <td>2023-08-13 13:12:11</td>
     <td>33.81</td>
     <td>primer-cosmos-east-grizli-v7.0-ir.cat.fits</td>
@@ -7405,6 +7435,36 @@ $(document).ready(function() {
     <td>0.01</td>
     <td>primer-cosmos-west-grizli-v7.0-f850lp_wcs.csv</td>
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-f850lp_wcs.csv" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-f850lp_wcs.csv </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-16 11:12:28</td>
+    <td>274.53</td>
+    <td>primer-cosmos-west-grizli-v7.0-fix.photoz.tar.gz</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-fix.photoz.tar.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-fix.photoz.tar.gz </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-16 11:12:28</td>
+    <td>0.04</td>
+    <td>primer-cosmos-west-grizli-v7.0-fix.zhist.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-fix.zhist.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-fix.zhist.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-16 11:12:28</td>
+    <td>0.13</td>
+    <td>primer-cosmos-west-grizli-v7.0-fix.zphot_zspec.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-fix.zphot_zspec.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-fix.zphot_zspec.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-16 11:12:28</td>
+    <td>161.87</td>
+    <td>primer-cosmos-west-grizli-v7.0-fix_phot.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-fix_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-fix_phot.fits </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-16 11:12:28</td>
+    <td>278.27</td>
+    <td>primer-cosmos-west-grizli-v7.0-fix_phot_apcorr.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-fix_phot_apcorr.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-cosmos-west-grizli-v7.0-fix_phot_apcorr.fits </a></td>
    </tr>
    <tr>
     <td>2023-08-13 13:47:24</td>
@@ -9297,6 +9357,36 @@ $(document).ready(function() {
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-f850lp_wcs.csv" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-f850lp_wcs.csv </a></td>
    </tr>
    <tr>
+    <td>2023-08-14 18:00:12</td>
+    <td>315.59</td>
+    <td>primer-uds-south-grizli-v7.0-fix.photoz.tar.gz</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-fix.photoz.tar.gz" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-fix.photoz.tar.gz </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-14 18:00:13</td>
+    <td>0.03</td>
+    <td>primer-uds-south-grizli-v7.0-fix.zhist.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-fix.zhist.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-fix.zhist.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-14 18:00:13</td>
+    <td>0.1</td>
+    <td>primer-uds-south-grizli-v7.0-fix.zphot_zspec.png</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-fix.zphot_zspec.png" /> <img src="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-fix.zphot_zspec.png" height=200px /> </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-14 17:58:44</td>
+    <td>184.8</td>
+    <td>primer-uds-south-grizli-v7.0-fix_phot.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-fix_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-fix_phot.fits </a></td>
+   </tr>
+   <tr>
+    <td>2023-08-14 17:58:44</td>
+    <td>316.51</td>
+    <td>primer-uds-south-grizli-v7.0-fix_phot_apcorr.fits</td>
+    <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-fix_phot_apcorr.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/primer-uds-south-grizli-v7.0-fix_phot_apcorr.fits </a></td>
+   </tr>
+   <tr>
     <td>2023-08-14 13:55:07</td>
     <td>39.83</td>
     <td>primer-uds-south-grizli-v7.0-ir.cat.fits</td>
@@ -10815,7 +10905,5 @@ $(document).ready(function() {
     <td><a href="https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0_phot.fits" > https://s3.amazonaws.com/grizli-v2/JwstMosaics/v7/sunrise-grizli-v7.0_phot.fits </a></td>
    </tr>
   </table>
-<span style="font-size:x-small;"> Created: Mon Aug 14 15:10:44 2023 </span>
- </body>
-</html>
 
+<span style="font-size:x-small;"> Created: Wed Aug 16 15:27:33 2023 </span>
