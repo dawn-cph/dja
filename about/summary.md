@@ -15,7 +15,11 @@ We kindly request all scientific papers based on data or products downloaded fro
 
 We also suggest to include references and DOIs to the grizli pipeline: [10.5281/zenodo.1146904](https://doi.org/10.5281/zenodo.1146904). Basic details of the data reduction are presented in [Valentino et al., 2023.](https://ui.adsabs.harvard.edu/abs/2023ApJ...947...20V/abstract).
 
-Finally, we encourage that users acknowledge the *original program IDs and PIs* of the constituent HST and JWST datasets of the DJA data products, as well as to appropriately cite any papers those investigators have published. Please see [this table](https://grizli.readthedocs.io/en/latest/grizli/image-release-v6.html) for a list of programs included in the archive so far.
+Finally, we encourage that users acknowledge the *original program IDs and PIs* of the constituent HST and JWST datasets of the DJA data products, as well as to appropriately cite any papers those investigators have published. 
+
+[This table](https://grizli.readthedocs.io/en/latest/grizli/image-release-v6.html) is a recent summary of programs included in the archive so far.
+
+Example code for calculating a summary of observing programs that contribute to a particular DJA mosaic is provided [here](https://dawn-cph.github.io/dja/imaging/summary/#citing-imaging-programs).
 
 ### Questions / comments ?
 
