@@ -233,7 +233,7 @@ fig.tight_layout(pad=1)
 
 ## Compare gratings
 
-All `v2` extractions now have the same `root`, rather than being split in some cases.
+All `v2` extractions with different gratings for a particular source + program now have the same `root`, rather than being split in some cases.  For example, all of the CEERS (ERS-1345) spectra now have `root = ceers-v2` where they were split between the prisms (`ceers-lr-v1`) and gratings (`ceers-mr-v1`) before.
 
 *Note:* There remains an msaexp bug that causes the tick intervals on the automatic grating figures plotted below to look strange.  The minor ticks are evenly spaced in 0.05µm intervals, but the labels are rounded to a single decimal place (e.g., 3.75 becomes 3.8). 
 
