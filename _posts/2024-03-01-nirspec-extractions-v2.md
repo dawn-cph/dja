@@ -235,6 +235,8 @@ fig.tight_layout(pad=1)
 
 All `v2` extractions now have the same `root`, rather than being split in some cases.
 
+*Note:* There remains an msaexp bug that causes the tick intervals on the automatic grating figures plotted below to look strange.  The minor ticks are evenly spaced in 0.05µm intervals, but the labels are rounded to a single decimal place (e.g., 3.75 becomes 3.8). 
+
 
 ```python
 z, prism_file = 2.0611, 'https://s3.amazonaws.com/msaexp-nirspec/extractions/ceers-v2/ceers-v2_prism-clear_1345_3506.spec.fits'
