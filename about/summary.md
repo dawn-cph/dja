@@ -13,7 +13,9 @@ We kindly request all scientific papers based on data or products downloaded fro
 
 > (Some of) The data products presented herein were retrieved from the Dawn JWST Archive (DJA). DJA is an initiative of the Cosmic Dawn Center (DAWN), which is funded by the Danish National Research Foundation under grant DNRF140.
 
-We also suggest to include references and DOIs to the grizli pipeline: [10.5281/zenodo.1146904](https://doi.org/10.5281/zenodo.1146904). Basic details of the data reduction are presented in [Valentino et al., 2023.](https://ui.adsabs.harvard.edu/abs/2023ApJ...947...20V/abstract).
+When using the *imaging* data products, we also request to include references and DOIs to the grizli pipeline: [10.5281/zenodo.1146904](https://doi.org/10.5281/zenodo.1146904). Basic details of the NIRCam data reduction are presented in [Valentino et al., 2023.](https://ui.adsabs.harvard.edu/abs/2023ApJ...947...20V/abstract).
+
+For the NIRSpec *spectroscopic* data products, please cite the [msaexp](https://github.com/gbrammer/msaexp) DOI [10.5281/zenodo.7299500](https://doi.org/10.5281/zenodo.7299500) and [Heintz et al. 2023](https://ui.adsabs.harvard.edu/abs/2023arXiv230600647H/abstract), along with the general DJA acknowledgement above.
 
 Finally, we encourage that users acknowledge the *original program IDs and PIs* of the constituent HST and JWST datasets of the DJA data products, as well as to appropriately cite any papers those investigators have published. 
 
