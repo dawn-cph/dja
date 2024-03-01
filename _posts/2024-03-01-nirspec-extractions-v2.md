@@ -29,11 +29,11 @@ The redshift quality grades have been copied from those of the previous release 
 
 ## Note
 
-The `v2` spectra are affected by a bug that causes the uncertainties in the derived products to be too large by roughly a factor of ``Nexp**(1/4)``, i.e., most significantly affecting the deep programs.  For more information, see [msaexp PR#54](https://github.com/gbrammer/msaexp/pull/54).
+The `v2` spectra are affected by a bug that causes the uncertainties in the derived products to be too large by roughly a factor of $f=N^{1/4}$, where $N$ is the number of combined exposures grouped by ``source_name / detector / grating / filter / MSA plan``.  For a simple set of three exposures with the 3-Shutter-Nod dither pattern, $f=3^{1/4}\sim1.3$, i.e., the tabulated uncertainties are roughly $1.3\times$ too large.  The effect of the bug is larger for deeper programs; for typical UNCOVER extractions $f=18^{1/4}\sim2$.  For more information, see [msaexp PR#54](https://github.com/gbrammer/msaexp/pull/54).
 
 ## Observing programs
 
-| Program                                                                          | DJA root               |    n | grating      |
+| Program                                                                          | DJA root               |    N | Grating      |
 |:---------------------------------------------------------------------------------|:-----------------------|-----:|:-------------|
 | [2756](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2756&observatory=JWST) | abell2744-ddt-v2       |  118 | PRISM-CLEAR  |
 | [1810](https://www.stsci.edu/cgi-bin/get-proposal-info?id=1810&observatory=JWST) | bluejay-north-v2       |  519 | G140M-F100LP |
@@ -100,7 +100,7 @@ The `v2` spectra are affected by a bug that causes the uncertainties in the deri
 
 ```python
 import os
-if os.path.exists('gbrammer' in os.environ['HOME']):
+if os.path.exists('gbrammer' in os.environ['HOME']) & False:
     
     # Extract summary from database
     from grizli.aws import db
@@ -125,9 +125,6 @@ if os.path.exists('gbrammer' in os.environ['HOME']):
     pyperclip.copy('## Observing programs\n\n' +
                    nre['Program','DJA root','n','grating'].to_pandas(index=False).to_markdown(index=False))
 ```
-
-    Set ROOT_PATH=/Users/gbrammer/Documents/Sites/dja-web-master/_incoming
-
 
 
 ```python
