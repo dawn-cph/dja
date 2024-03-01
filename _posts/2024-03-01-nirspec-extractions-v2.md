@@ -29,7 +29,7 @@ The redshift quality grades have been copied from those of the previous release 
 
 ## Note
 
-The `v2` spectra are affected by a bug that causes the uncertainties in the derived products to be too large by roughly a factor of $f=N^{1/4}$, where $N$ is the number of combined exposures grouped by ``source_name / detector / grating / filter / MSA plan``.  For a simple set of three exposures with the 3-Shutter-Nod dither pattern, ``f = 3^{1/4} ~ 1.3``, i.e., the tabulated uncertainties are roughly 1.3× too large.  The effect of the bug is larger for deeper programs; for typical UNCOVER extractions ``f = 18^{1/4} ~ 2``.  For more information, see [msaexp PR#54](https://github.com/gbrammer/msaexp/pull/54).
+The `v2` spectra are affected by a bug that causes the uncertainties in the derived products to be too large by roughly a factor of ``f = N^{1/4}``, where ``N`` is the number of combined exposures grouped by ``source_name / detector / grating / filter / MSA plan``.  For a simple set of three exposures with the 3-Shutter-Nod dither pattern, ``f = 3^{1/4} ~ 1.3``, i.e., the tabulated uncertainties are roughly 1.3× too large.  The effect of the bug is larger for deeper programs; for typical UNCOVER extractions ``f = 18^{1/4} ~ 2``.  For more information, see [msaexp PR#54](https://github.com/gbrammer/msaexp/pull/54).
 
 ## Observing programs
 
