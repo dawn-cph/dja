@@ -7,4 +7,6 @@ navigation_weight: 14
 
 Are there more? Send them through a <a href="https://github.com/dawn-cph/dja/"> Pull Request </a>!
 
-{% bibliography %}
+<!-- Run `bash build.sh in _includes/bibliography/` to generate papers.md -->
+
+{% include bibliography/papers.md %}
