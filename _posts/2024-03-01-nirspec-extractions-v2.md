@@ -166,7 +166,9 @@ print(f'msaexp version: {msaexp.__version__}')
 
 
 ```python
-z, v2_file = 3.7616, 'https://s3.amazonaws.com/msaexp-nirspec/extractions/ceers-ddt-v2/ceers-ddt-v2_prism-clear_2750_1598.spec.fits'
+z = 3.7616 
+_prefix = 'https://s3.amazonaws.com/msaexp-nirspec/extractions/'
+v2_file = _prefix + 'ceers-ddt-v2/ceers-ddt-v2_prism-clear_2750_1598.spec.fits'
 
 v1_file = v2_file.replace('ceers-v2','ceers-lr-v1').replace('-v2','-v1')
 print(v1_file + '\n' + v2_file)
@@ -182,17 +184,9 @@ f2 = sp2.drizzled_hdu_figure(z=z, unit='fnu')
     https://s3.amazonaws.com/msaexp-nirspec/extractions/ceers-ddt-v2/ceers-ddt-v2_prism-clear_2750_1598.spec.fits
 
 
+<img src="{{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_6_1.png" style="max-width:100%;" />
 
-    
-![png]({{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_6_1.png)
-    
-
-
-
-    
-![png]({{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_6_2.png)
-    
-
+<img src="{{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_6_2.png" style="max-width:100%;" />
 
 
 ```python
@@ -226,9 +220,7 @@ fig.tight_layout(pad=1)
 ```
 
 
-    
-![png]({{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_7_0.png)
-    
+<img src="{{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_7_0.png" style="max-width:100%;" />
 
 
 ## Compare gratings
@@ -239,7 +231,9 @@ All `v2` extractions with different gratings for a particular source + program n
 
 
 ```python
-z, prism_file = 2.0611, 'https://s3.amazonaws.com/msaexp-nirspec/extractions/ceers-v2/ceers-v2_prism-clear_1345_3506.spec.fits'
+z = 2.0611
+_prefix = 'https://s3.amazonaws.com/msaexp-nirspec/extractions/'
+prism_file = _prefix + 'ceers-v2/ceers-v2_prism-clear_1345_3506.spec.fits'
 
 sp = {}
 for grating in ['prism-clear','g140m-f100lp','g235m-f170lp','g395m-f290lp']:
@@ -256,29 +250,13 @@ for grating in ['prism-clear','g140m-f100lp','g235m-f170lp','g395m-f290lp']:
     https://s3.amazonaws.com/msaexp-nirspec/extractions/ceers-v2/ceers-v2_g395m-f290lp_1345_3506.spec.fits
 
 
+<img src="{{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_9_1.png" style="max-width:100%;" />
 
-    
-![png]({{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_9_1.png)
-    
+<img src="{{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_9_2.png" style="max-width:100%;" />
 
+<img src="{{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_9_3.png" style="max-width:100%;" />
 
-
-    
-![png]({{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_9_2.png)
-    
-
-
-
-    
-![png]({{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_9_3.png)
-    
-
-
-
-    
-![png]({{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_9_4.png)
-    
-
+<img src="{{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_9_4.png" style="max-width:100%;" />
 
 
 ```python
@@ -307,8 +285,5 @@ for ax in axes:
 fig.tight_layout(pad=1)
 ```
 
-
-    
-![png]({{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_10_0.png)
-    
+<img src="{{ site.baseurl }}/assets/post_files/2024-03-01-nirspec-extractions-v2_files/nirspec-extractions-v2_10_0.png" style="max-width:100%;" />
 
