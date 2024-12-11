@@ -76,6 +76,7 @@ These are the public datasets in the [nirspec_graded_v3.html](https://s3.amazona
 | [6541](https://www.stsci.edu/cgi-bin/get-proposal-info?id=6541&observatory=JWST) |   |  gds-egami-ddt-v3 | PRISM-CLEAR ( 2.3) | 339 | 132 |
 | [6585](https://www.stsci.edu/cgi-bin/get-proposal-info?id=6585&observatory=JWST) |   |  cosmos-transients-v3 | PRISM-CLEAR ( 3.3) | 300 | 181 |
 
+- The ``root`` column is a general rootname simply indicating spectra that were reduced together.  For many programs that corresponds to individual MSA mask plans (e.g., RUBIES), but for some programs a single ``root`` name can correspond to multiple masks.  For those roots that contain multiple mask plans, all spectra of a particular source from potentially multiple plans were co-added.  This inconsistency of the co-addition treatment is due to the rolling nature of the processing of archival datasets as they became public and may be standardized in future reductions.
 - As below, exposure time per spectrum *t* (in hours) computed from `median(exptime)` in the spectra files, which isn't quite correct and double-counts exposure times for spectral extractions that overlap both NRS1 and NRS2 detectors
 - "*N* total" is the total number of estimated *unique sources* in that complation.
 
