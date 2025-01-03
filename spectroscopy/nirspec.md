@@ -23,7 +23,7 @@ Here you can find various ways to access uniformly-reduced public NIRSpec datase
 > More documentation coming soon. The spectroscopy reduction process is described in
 > [de Graaff et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024arXiv240905948D/abstract) and 
 > [Heintz et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv230600647H/abstract) 
-> and those should be cited if you use the DJA NIRSpec data products.
+> and those should be cited if you use the DJA NIRSpec data products, along with any relevant citations to the separate surveys and program IDs for specific spectra.
 > The [msaexp](https://github.com/gbrammer/msaexp) software used to process the
 > spectra is freely available.
 
