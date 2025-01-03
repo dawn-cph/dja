@@ -53,7 +53,7 @@ These are the public datasets in the [nirspec_graded_v3.html](https://s3.amazona
 | [1869](https://www.stsci.edu/cgi-bin/get-proposal-info?id=1869&observatory=JWST) |  LyC-22 |  lyc22-schaerer-03-v3 <br> lyc22-schaerer-12-v3 | G140M-F100LP (18.2) <br> G235M-F170LP (14.6) | 92 | 76 |
 | [1871](https://www.stsci.edu/cgi-bin/get-proposal-info?id=1871&observatory=JWST) |   |  gdn-chisholm-v3 | G235H-F170LP (29.2) <br> G395H-F290LP ( 5.3) | 22 | 12 |
 | [1879](https://www.stsci.edu/cgi-bin/get-proposal-info?id=1879&observatory=JWST) |   |  cosmos-curti-v3 | G140M-F100LP (30.8) <br> G235H-F170LP ( 5.8) <br> G235M-F170LP ( 7.3) | 75 | 69 |
-| [2028](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2028&observatory=JWST) |   |  j0910-wang-v3 | G395M-F290LP ( 3.6) <br> PRISM-CLEAR ( 1.1) | 264 | 114 |
+| [2028](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2028&observatory=JWST) |  [Wang et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024ApJ...962L..11W)  |  j0910-wang-v3 | G395M-F290LP ( 3.6) <br> PRISM-CLEAR ( 1.1) | 264 | 114 |
 | [2073](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2073&observatory=JWST) |   |  j0252m0503-hennawi-07-v3 <br> j1007p2115-hennawi-v3 | PRISM-CLEAR ( 1.3) | 434 | 161 |
 | [2110](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2110&observatory=JWST) |  SUSPENSE <br> [Slob et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024ApJ...973..131S) |  suspense-kriek-v3 | G140M-F100LP (16.2) | 43 | 39 |
 | [2198](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2198&observatory=JWST) |  [Barrufet et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024arXiv240408052B)  |  gds-barrufet-s156-v3 <br> gds-barrufet-s67-v3 | PRISM-CLEAR ( 0.7) | 139 | 130 |
