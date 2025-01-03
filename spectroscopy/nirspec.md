@@ -66,7 +66,7 @@ These are the public datasets in the [nirspec_graded_v3.html](https://s3.amazona
 | [2736](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2736&observatory=JWST) |  SMACS-0723 ERO |  smacs0723-ero-v3 | G235M-F170LP ( 9.7) <br> G395M-F290LP ( 9.7) | 62 | 26 |
 | [2750](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2750&observatory=JWST) |   [Arrabal Haro et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023Natur.622..707A) |  ceers-ddt-v3 | PRISM-CLEAR ( 5.1) | 154 | 125 |
 | [2756](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2756&observatory=JWST) |   |  abell2744-ddt-v3 | PRISM-CLEAR ( 0.6) | 123 | 68 |
-| [2767](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2767&observatory=JWST) |   |  rxj2129-ddt-v3 | G140M-F070LP ( 3.3) <br> PRISM-CLEAR ( 1.2) | 145 | 50 |
+| [2767](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2767&observatory=JWST) |  [Williams et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023Sci...380..416W)  |  rxj2129-ddt-v3 | G140M-F070LP ( 3.3) <br> PRISM-CLEAR ( 1.2) | 145 | 50 |
 | [3073](https://www.stsci.edu/cgi-bin/get-proposal-info?id=3073&observatory=JWST) |  [Castellano et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024ApJ...972..143C)  |  abell2744-castellano1-v3 | PRISM-CLEAR ( 1.8) | 281 | 132 |
 | [3215](https://www.stsci.edu/cgi-bin/get-proposal-info?id=3215&observatory=JWST) |  JADES Ultra-Deep <br> [Eisenstein et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv231012340E)|  gds-udeep-v3 | G140M-F070LP ( 6.9) <br> G395M-F290LP (37.0) <br> PRISM-CLEAR (27.7) | 226 | 145 |
 | [4106](https://www.stsci.edu/cgi-bin/get-proposal-info?id=4106&observatory=JWST) |   |  egs-nelsonx-v3 | G395M-F290LP ( 2.2) <br> PRISM-CLEAR ( 3.6) | 136 | 102 |
