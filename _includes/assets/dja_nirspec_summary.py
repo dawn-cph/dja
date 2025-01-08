@@ -101,7 +101,13 @@ for v in un.values:
         grating_summary.append(f'{gr} ({expt:4.1f})')
 
     survey = labels['survey'][labels['prog'] == int(v)][0] if int(v) in labels['prog'] else ''
-    row = [v, ' <br> '.join(roots.tolist()), ' <br> '.join(grating_summary), n_un, n_unz, survey]
+    root_links = [
+    f'[{root}](https://s3.amazonaws.com/msaexp-nirspec/extractions/{root}/index.html)'
+    for root in roots
+    ]
+    row = [
+        v,
+        ' <br> '.join(root_links), ' <br> '.join(grating_summary), n_un, n_unz, survey]
     
     line = rowstr.format(*row)
     lines.append(line)

@@ -36,6 +36,7 @@ These are the public datasets in the [nirspec_graded_v3.html](https://s3.amazona
 {% include assets/dja_nirspec_summary.md %}
 
 - The ``root`` column is a general rootname simply indicating spectra that were reduced together.  For many programs that corresponds to individual MSA mask plans (e.g., RUBIES), but for some programs a single ``root`` name can correspond to multiple masks.  For those roots that contain multiple mask plans, all spectra of a particular source from potentially multiple plans were co-added.  This inconsistency of the co-addition treatment is due to the rolling nature of the processing of archival datasets as they became public and may be standardized in future reductions.
+- The ``root`` values are linked to individual tables summarizing the sources in that mask.  Those tables have slightly different columns than the grade summary as they are generated before the redshifts are estimated from the spectra.
 - As below, exposure time per spectrum *t* (in hours) computed from `median(exptime)` in the spectra files, which isn't quite correct and double-counts exposure times for spectral extractions that overlap both NRS1 and NRS2 detectors
 - "*N* total" is the total number of estimated *unique sources* in that complation.
 
