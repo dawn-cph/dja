@@ -68,7 +68,7 @@ These are the public datasets in the [nirspec_graded_v3.html](https://s3.amazona
 | [2756](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2756&observatory=JWST) |   |  abell2744-ddt-v3 | PRISM-CLEAR ( 0.6) | 123 | 68 |
 | [2767](https://www.stsci.edu/cgi-bin/get-proposal-info?id=2767&observatory=JWST) |  [Williams et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023Sci...380..416W)  |  rxj2129-ddt-v3 | G140M-F070LP ( 3.3) <br> PRISM-CLEAR ( 1.2) | 145 | 50 |
 | [3073](https://www.stsci.edu/cgi-bin/get-proposal-info?id=3073&observatory=JWST) |  [Castellano et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024ApJ...972..143C)  |  abell2744-castellano1-v3 | PRISM-CLEAR ( 1.8) | 281 | 132 |
-| [3215](https://www.stsci.edu/cgi-bin/get-proposal-info?id=3215&observatory=JWST) |  JADES Ultra-Deep <br> [Eisenstein et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv231012340E)|  gds-udeep-v3 | G140M-F070LP ( 6.9) <br> G395M-F290LP (37.0) <br> PRISM-CLEAR (27.7) | 226 | 145 |
+| [3215](https://www.stsci.edu/cgi-bin/get-proposal-info?id=3215&observatory=JWST) |  JADES Ultra-Deep <br> [Eisenstein et al. (2023)](https://ui.adsabs.harvard.edu/abs/2023arXiv231012340E) |  gds-udeep-v3 | G140M-F070LP ( 6.9) <br> G395M-F290LP (37.0) <br> PRISM-CLEAR (27.7) | 226 | 145 |
 | [4106](https://www.stsci.edu/cgi-bin/get-proposal-info?id=4106&observatory=JWST) |   |  egs-nelsonx-v3 | G395M-F290LP ( 2.2) <br> PRISM-CLEAR ( 3.6) | 136 | 102 |
 | [4233](https://www.stsci.edu/cgi-bin/get-proposal-info?id=4233&observatory=JWST) |  RUBIES <br> [de Graaff et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024arXiv240905948D/abstract) |  rubies-egs51-v3 <br> rubies-egs52-v3 <br> rubies-egs53-v3 <br> rubies-egs61-v3 <br> rubies-egs62-v3 <br> rubies-egs63-v3 <br> rubies-uds1-v3 <br> rubies-uds2-v3 <br> rubies-uds3-v3 <br> rubies-uds31-v3 <br> rubies-uds32-v3 <br> rubies-uds33-v3 <br> rubies-uds41-v3 <br> rubies-uds42-v3 <br> rubies-uds43-v3 | G395M-F290LP ( 0.8) <br> PRISM-CLEAR ( 0.8) | 4158 | 2040 |
 | [4446](https://www.stsci.edu/cgi-bin/get-proposal-info?id=4446&observatory=JWST) |  [Frye et al. (2023)](https://ui.adsabs.harvard.edu/abs/arXiv:2309.07326) |  snh0pe-v3 | G140M-F100LP ( 2.4) <br> G235M-F170LP ( 3.6) <br> PRISM-CLEAR ( 0.2) | 42 | 24 |
@@ -79,6 +79,8 @@ These are the public datasets in the [nirspec_graded_v3.html](https://s3.amazona
 - The ``root`` column is a general rootname simply indicating spectra that were reduced together.  For many programs that corresponds to individual MSA mask plans (e.g., RUBIES), but for some programs a single ``root`` name can correspond to multiple masks.  For those roots that contain multiple mask plans, all spectra of a particular source from potentially multiple plans were co-added.  This inconsistency of the co-addition treatment is due to the rolling nature of the processing of archival datasets as they became public and may be standardized in future reductions.
 - As below, exposure time per spectrum *t* (in hours) computed from `median(exptime)` in the spectra files, which isn't quite correct and double-counts exposure times for spectral extractions that overlap both NRS1 and NRS2 detectors
 - "*N* total" is the total number of estimated *unique sources* in that complation.
+
+{% include assets/dja_nirspec_summary.md %}
 
 ## Public NIRSpec datasets (v1)
     
