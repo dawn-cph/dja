@@ -43,6 +43,5 @@
 | [4246](https://www.stsci.edu/jwst-program-info/program/?program=4246) |  (A. Abdurro'uf) |  macsj0647-hr-v3 | G395H-F290LP ( 1.9) | 134 | 44 |
 | [4446](https://www.stsci.edu/jwst-program-info/program/?program=4446) |  [Frye et al. (2023)](https://ui.adsabs.harvard.edu/abs/arXiv:2309.07326) |  snh0pe-v3 | G140M-F100LP ( 2.4) <br> G235M-F170LP ( 3.6) <br> PRISM-CLEAR ( 0.2) | 42 | 24 |
 | [4557](https://www.stsci.edu/jwst-program-info/program/?program=4557) |  (H. Yan) |  pearls-transients-v3 | PRISM-CLEAR ( 7.8) | 214 | 25 |
-| [6368](https://www.stsci.edu/jwst-program-info/program/?program=6368) |  CAPERS (M. Dickinson) |  capers-udsp1-v3 | PRISM-CLEAR ( 1.6) | 433 | 148 |
 | [6541](https://www.stsci.edu/jwst-program-info/program/?program=6541) |  (E. Egami) |  gds-egami-ddt-v3 | PRISM-CLEAR ( 2.3) | 339 | 132 |
 | [6585](https://www.stsci.edu/jwst-program-info/program/?program=6585) |  (D. Coulter) |  cosmos-transients-v3 | PRISM-CLEAR ( 3.3) | 300 | 181 |

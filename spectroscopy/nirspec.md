@@ -31,6 +31,8 @@ Here you can find various ways to access uniformly-reduced public NIRSpec datase
 
 These are the public datasets in the [nirspec_graded_v3.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/nirspec_graded_v3.html) compilation:
 
+<!-- python dja_nirspec_summary.py -->
+
 {% include assets/dja_nirspec_summary.md %}
 
 - The ``root`` column is a general rootname simply indicating spectra that were reduced together.  For many programs that corresponds to individual MSA mask plans (e.g., RUBIES), but for some programs a single ``root`` name can correspond to multiple masks.  For those roots that contain multiple mask plans, all spectra of a particular source from potentially multiple plans were co-added.  This inconsistency of the co-addition treatment is due to the rolling nature of the processing of archival datasets as they became public and may be standardized in future reductions.

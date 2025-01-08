@@ -81,7 +81,7 @@ print(lines[0])
 rowstr = '| [{0}](https://www.stsci.edu/jwst-program-info/program/?program={0}) |  {5} |  {1} | {2} | {3} | {4} |'
 
 for v in un.values:
-    if v in ['1208', '4318', '1635', '1226', '3567', '1835', '5224']:
+    if v in ['1208', '4318', '1635', '1226', '3567', '1835', '5224', '6368']:
         continue
         
     uv = un[v]
