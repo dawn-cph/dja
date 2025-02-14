@@ -31,7 +31,11 @@
         font-size: small;
         text-align: center;
     }
-    
+
+    td {
+        font-size: 0.9em;
+    }
+
 	a {
 		@include vendor('transition', (
 			'color #{_duration(transition)} ease-in-out',
