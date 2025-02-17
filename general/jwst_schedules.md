@@ -9,10 +9,15 @@ Reformatted views of the JWST Observing Schedules <a href="https://www.stsci.edu
 
 Table created with the script <a href="../../assets/python/schedule/"> here </a>.
 
+Schedules from previous cycles <a href="../jwst_schedules_past_cycles/#cycle-1"> 1 </a>
+and <a href="../jwst_schedules_past_cycles/#cycle-2"> 2 </a>.
+
+
+## Cycle 3
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250217_report_20250214.txt" > 20250217_report_20250214.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2025.02.23 | 23:44:20  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6675"> 6675 </a> |   7:1  |  <span style="color:#d4b9da;"> 00:39:19 </span>  | NIRCam Imaging                        | SDSSJ1326+4806                               |  Quasars                                          |
@@ -136,7 +141,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250210_report_20250211.txt" > 20250210_report_20250211.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2025.02.16 | 22:41:00  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5407"> 5407 </a> |   1:1  |  <span style="color:#d4b9da;"> 01:23:38 </span>  | MIRI Imaging                          | GOODS-N_new_1                                |  Infrared sources                                 |
@@ -235,7 +240,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250203_report_20250204.txt" > 20250203_report_20250204.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2025.02.09 | 22:33:55  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5846"> 5846 </a> |   2:1  |  <span style="color:#d4b9da;"> 03:36:39 </span>  | NIRSpec IFU              | SST2011-J081929.00+704219.3                  |  Compact binary stars,  High-mass X-ray binary stars,  X-ray binary stars |
@@ -350,7 +355,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250127_report_20250124.txt" > 20250127_report_20250124.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2025.02.02 | 21:11:14  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5804"> 5804 </a> |  33:1  |  <span style="color:#d4b9da;"> 03:07:49 </span>  | NIRSpec IFU              | HOPS-394                                     |  Protostars,  Young stellar objects               |
@@ -457,7 +462,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250120_report_20250123.txt" > 20250120_report_20250123.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2025.01.26 | 21:18:35  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4793"> 4793 </a> |  12:1  |  <span style="color:#d4b9da;"> 02:52:06 </span>  | NIRCam Imaging                        | NGC-4298                                     |  Disk galaxies,  Interacting galaxies,  Spiral galaxies |
@@ -585,7 +590,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250112_report_20250111.txt" > 20250112_report_20250111.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2025.01.19 | 09:10:21  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5073"> 5073 </a> |   1:1  |  <span style="color:#e155a6;"> 15:10:21 </span>  | NIRSpec IFU              | Uranus                                       |  Planet                                           |
@@ -695,7 +700,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250106_report_20250109.txt" > 20250106_report_20250109.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2025.01.12 | 23:16:51  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5645"> 5645 </a> |  92:1  |  <span style="color:#d4b9da;"> 00:59:15 </span>  | NIRSpec IFU              | P065-26                                      |  High-redshift galaxies,  Quasars                 |
@@ -801,7 +806,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241230_report_20250102.txt" > 20241230_report_20250102.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2025.01.05 | 23:27:16  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5594"> 5594 </a> | 138:1  |  <span style="color:#d4b9da;"> 00:46:58 </span>  | NIRCam Imaging                        | SPT-CLJ0617-5507                             |  Brightest cluster galaxies,  High-redshift clusters,  Rich clusters |
@@ -891,7 +896,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241223_report_20241219.txt" > 20241223_report_20241219.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.12.29 | 20:56:29  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5863"> 5863 </a> |   4:1  |  <span style="color:#d0add4;"> 04:22:08 </span>  | NIRSpec Bright Object Time Series     | TOI-3884b                                    |  Exoplanets,  M dwarfs                            |
@@ -961,7 +966,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241216_report_20241212.txt" > 20241216_report_20241212.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.12.22 | 23:29:52  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4516"> 4516 </a> |  12:1  |  <span style="color:#d4b9da;"> 00:55:47 </span>  | NIRSpec Fixed Slit       | SN2024GY                                     |  Supernovae,  Type Ia supernovae                  |
@@ -1074,7 +1079,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241209_report_20241212.txt" > 20241209_report_20241212.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.12.15 | 21:14:32  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5224"> 5224 </a> |   1:1  |  <span style="color:#ca98c9;"> 05:26:32 </span>  | NIRSpec MultiObject Spectroscopy      | grizli_v7.2.4_gaia_mom_pt0                   |                                                   |
@@ -1160,7 +1165,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241203_report_20241209.txt" > 20241203_report_20241209.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.12.09 | 02:44:45  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6618"> 6618 </a> |   3:1  |  <span style="color:#d4b9da;"> 01:46:00 </span>  | MIRI MRS IFU   | 1999XC173                                    |  Asteroid                                         |
@@ -1227,7 +1232,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241125_report_20241119.txt" > 20241125_report_20241119.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.12.03 | 03:19:51  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6511"> 6511 </a> |   3:1  |  <span style="color:#e155a6;"> 08:12:08 </span>  | MIRI Imaging                          | MIRI-XDF-new                                 |  Blank field                                      |
@@ -1371,7 +1376,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241118_report_20241118.txt" > 20241118_report_20241118.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.11.24 | 22:42:56  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6635"> 6635 </a> |   1:1  |  <span style="color:#d4b9da;"> 01:26:37 </span>  | NIRSpec Fixed Slit       | ECLIPTIC-RA00                                |  External flat field                              |
@@ -1484,7 +1489,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241111_report_20241107.txt" > 20241111_report_20241107.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.11.17 | 23:10:04  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5407"> 5407 </a> |  37:1  |  <span style="color:#d4b9da;"> 01:24:08 </span>  | MIRI Imaging                          | GOODS-S_new_7                                |  Infrared sources                                 |
@@ -1546,7 +1551,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241104_report_20241031.txt" > 20241104_report_20241031.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.11.10 | 16:34:24  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6053"> 6053 </a> |   1:1  |  <span style="color:#e155a6;"> 08:12:54 </span>  | NIRSpec MultiObject Spectroscopy      | msa_cat_v4                                   |                                                   |
@@ -1652,7 +1657,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241028_report_20241024.txt" > 20241028_report_20241024.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.11.04 | 01:25:09  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4541"> 4541 </a> |   3:1  |  <span style="color:#d4b9da;"> 00:44:51 </span>  | NIRCam Imaging                        | VARUNA                                       |  Asteroid                                         |
@@ -1751,7 +1756,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241021_report_20241017.txt" > 20241021_report_20241017.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.10.27 | 18:48:59  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4553"> 4553 </a> |   2:1  |  <span style="color:#cb8fc5;"> 05:49:47 </span>  | NIRSpec IFU              | Clumpy                                       |  High-redshift galaxies,  Irregular galaxies      |
@@ -1847,7 +1852,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241014_report_20241012.txt" > 20241014_report_20241012.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.10.21 | 08:39:19  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5645"> 5645 </a> | 297:1  |  <span style="color:#d4b9da;"> 00:59:15 </span>  | NIRSpec IFU              | P320-24                                      |  High-redshift galaxies,  Quasars                 |
@@ -1966,7 +1971,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20241007_report_20241003.txt" > 20241007_report_20241003.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.10.13 | 23:38:09  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6621"> 6621 </a> |   1:1  |  <span style="color:#d4b9da;"> 00:23:11 </span>  | MIRI LRS slit      | SMPLMC058                                    |  Planetary nebulae nuclei                         |
@@ -2079,7 +2084,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240930_report_20241001.txt" > 20240930_report_20241001.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.10.06 | 18:19:37  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5959"> 5959 </a> |  15:1  |  <span style="color:#da70b5;"> 07:02:01 </span>  | NIRSpec Bright Object Time Series     | CD-38-1467-copy, UCAC4-261-004415-copy       |  Exoplanet Systems,  Exoplanets,  G stars         |
@@ -2174,7 +2179,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240923_report_20240922.txt" > 20240923_report_20240922.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.09.29 | 19:56:57  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4126"> 4126 </a> | 101:1  |  <span style="color:#e155a6;"> 08:00:23 </span>  | NIRSpec Bright Object Time Series     | TOI-125, TOI-125-TA-STAR                     |  Exoplanet Systems,  K dwarfs,  K stars           |
@@ -2257,7 +2262,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240916_report_20240912.txt" > 20240916_report_20240912.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.09.22 | 10:26:44  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=3293"> 3293 </a> |   1:3  |  <span style="color:#e155a6;"> 18:11:35 </span>  | NIRCam Imaging                        | ACO-S-1063                                   |  Abell clusters                                   |
@@ -2352,7 +2357,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240909_report_20240905.txt" > 20240909_report_20240905.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.09.15 | 21:10:43  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5814"> 5814 </a> |   2:1  |  <span style="color:#d4b9da;"> 02:48:01 </span>  | NIRSpec Fixed Slit       | VCS2020-BDR-J1750+3809                       |  Brown dwarfs,  T dwarfs                          |
@@ -2481,7 +2486,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240901_report_20240903.txt" > 20240901_report_20240903.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.09.08 | 23:40:56  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5645"> 5645 </a> |  65:1  |  <span style="color:#d4b9da;"> 00:59:15 </span>  | NIRSpec IFU              | J0239-0045                                   |  High-redshift galaxies,  Quasars                 |
@@ -2580,7 +2585,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240826_report_20240822.txt" > 20240826_report_20240822.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.09.01 | 19:54:02  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6612"> 6612 </a> |   3:1  |  <span style="color:#d4b9da;"> 01:02:54 </span>  | MIRI External Flat                    | NAME-LMC                                     |  External flat field                              |
@@ -2690,7 +2695,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240819_report_20240821.txt" > 20240819_report_20240821.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.08.25 | 21:59:13  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4793"> 4793 </a> |  16:1  |  <span style="color:#d4b9da;"> 02:52:06 </span>  | NIRCam Imaging                        | NGC-6300                                     |  Active galactic nuclei,  Disk galaxies,  Spiral galaxies |
@@ -2817,7 +2822,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240811_report_20240813.txt" > 20240811_report_20240813.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.08.18 | 23:28:50  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6161"> 6161 </a> |   6:1  |  <span style="color:#d4b9da;"> 00:42:25 </span>  | NIRSpec IFU              | IRAS-15398-3359                              |  Protostars                                       |
@@ -2951,7 +2956,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240805_report_20240801.txt" > 20240805_report_20240801.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.08.11 | 09:38:22  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6693"> 6693 </a> | 116:1  |  <span style="color:#d4b9da;"> 00:33:58 </span>  | WFSC NIRCam Fine Phasing              | 2MASS-10590676-6906018                       |  Focus test                                       |
@@ -3079,7 +3084,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240729_report_20240725.txt" > 20240729_report_20240725.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.08.04 | 23:58:29  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6606"> 6606 </a> |  24:1  |  <span style="color:#d4b9da;"> 00:41:51 </span>  | NIRISS SOSS  | P330-E                                       |  G dwarfs                                         |
@@ -3185,7 +3190,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240722_report_20240722.txt" > 20240722_report_20240722.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.07.28 | 23:19:24  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=3189"> 3189 </a> |   1:1  |  <span style="color:#d4b9da;"> 00:45:42 </span>  | MIRI MRS IFU   | RZPSC                                        |  Circumstellar disks                              |
@@ -3302,7 +3307,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240715_report_20240712.txt" > 20240715_report_20240712.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.07.21 | 20:27:33  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4477"> 4477 </a> |   2:8  |  <span style="color:#d4b8d9;"> 03:51:33 </span>  | NIRISS WFSS  | 2MASSJ23035569-6256090                       |  A dwarfs                                         |
@@ -3472,7 +3477,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240708_report_20240712.txt" > 20240708_report_20240712.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.07.15 | 04:42:59  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4611"> 4611 </a> |   6:1  |  <span style="color:#d4b9da;"> 00:29:36 </span>  | NIRISS Aperture Masking Interferometry  | HD119164                                     |  Photometric,  Point spread function,  Target acquisition test, ... |
@@ -3586,7 +3591,7 @@ Table created with the script <a href="../../assets/python/schedule/"> here </a>
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20240701_report_20240627.txt" > 20240701_report_20240627.txt </a>
-    
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 | 2024.07.07 | 20:47:46  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6612"> 6612 </a> |   1:1  |  <span style="color:#d4b9da;"> 01:02:54 </span>  | MIRI External Flat                    | NAME-LMC                                     |  External flat field                              |

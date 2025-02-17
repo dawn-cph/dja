@@ -1,3 +1,4 @@
+import os
 import yaml
 import urllib3
 import json
@@ -19,8 +20,10 @@ class ScheduleEntry():
     category = None
     keywords = None
     parallels = []
-    
-    def __init__(self, text=None, **kwargs):
+
+    def __init__(self, text=None, file=None, cycle=3, **kwargs):
+        self.cycle = cycle
+        self.file = file
         if text is not None:
             self.parse_text(text, **kwargs)
 
@@ -83,10 +86,18 @@ def read_raw_schedule(schedule_file="20250210_report_20250211.txt"):
     return data.split("\n")
 
 
-def parse_schedule_file(schedule_file="20250210_report_20250211.txt", verbose=True):
+def parse_schedule_file(schedule_file="20250210_report_20250211.txt", cycle=3, verbose=True, read_json=True):
     """
     Read a schedule file and parse data
     """
+    json_file = os.path.join(f'Cycle{cycle}', schedule_file.replace(".txt", ".json"))
+    if os.path.exists(json_file) and read_json:
+        with open(json_file) as fp:
+            elist = json.load(fp)
+
+        print(f"Read {len(elist)} entries from {json_file}")
+        return elist
+
     lines = read_raw_schedule(schedule_file=schedule_file)
     
     # Header
@@ -99,7 +110,7 @@ def parse_schedule_file(schedule_file="20250210_report_20250211.txt", verbose=Tr
         if len(line.strip()) == 0:
             continue
 
-        entry = ScheduleEntry(text=line)
+        entry = ScheduleEntry(text=line, file=schedule_file, cycle=cycle)
         if entry.visit_type.strip() == '':
             # Multiple targets?
             last_entry.target += ", " + entry.target
@@ -110,8 +121,12 @@ def parse_schedule_file(schedule_file="20250210_report_20250211.txt", verbose=Tr
             entries.append(entry)
     
     print(f"Read {len(entries)} schedule entries from {schedule_file}")
-    
-    return entries
+    elist = [e.__dict__ for e in entries]
+
+    with open(json_file, "w") as fp:
+        json.dump(elist, fp)
+
+    return elist
 
 
 def get_duration_string(duration="00/00:35:38", cmap=plt.cm.PuRd, limits=[0, 15]):
@@ -127,16 +142,12 @@ def get_duration_string(duration="00/00:35:38", cmap=plt.cm.PuRd, limits=[0, 15]
     return duration_string
 
 
-def schedules_to_mardown(markdown_file="jwst_schedules.md"):
+def schedule_file_to_markdown(schedule_file="20250217_report_20250214.txt", cycle=3):
     """
     """
-    with open("schedule_files.txt") as fp:
-        schedules = [l.strip() for l in fp.readlines()]
-
-    schedules.sort()
-
-    header = """\n\n### <a href="{BASE_URL}/{schedule_file}" > {schedule_file} </a>
     
+    header = """\n\n### <a href="{BASE_URL}/{schedule_file}" > {schedule_file} </a>
+
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
 """
@@ -146,8 +157,97 @@ def schedules_to_mardown(markdown_file="jwst_schedules.md"):
     pure_line = "|  |  | <a href=\"https://www.stsci.edu/jwst-program-info/program/?program={program}\"> {program} </a> | {visit:>3}:{observation:<2} |  |  {instrument:<36}  | Pure Parallel  |   |"
 
     coord_line = "|  |  |  |   |  |  {instrument:<36}  | Coordinated Parallel  |   |"
+
     calib_line = "|  |  | <a href=\"https://www.stsci.edu/jwst-program-info/program/?program={program}\"> {program} </a> | {visit:>3}:{observation:<2} |  |  {instrument:<36}  | Internal Calibration  |   |"
 
+    text_lines = []
+    entries = parse_schedule_file(schedule_file=schedule_file, cycle=cycle)
+
+    text_lines.append(header.format(BASE_URL=BASE_URL, schedule_file=schedule_file))
+
+    for e in entries[::-1]:
+        # e = entry.__dict__
+        keys = e["keywords"].split(',')
+        if len(keys) > 3:
+             keys = keys[:3] + ["..."]
+        
+        e["keys"] = ", ".join(keys)
+        
+        duration_string = get_duration_string(e["duration"])
+        
+        text_lines.append(
+            primary_line.format(
+                duration_string=duration_string,
+                split_time=e["start_time"][:-1].replace('T', ' | ').replace('-','.'),
+                **e
+            ) + "\n"
+        )
+
+        if len(e["parallels"]) > 0:
+            for p in e["parallels"]:
+                if 'PURE' in p["visit_type"]:
+                    text_lines.append(pure_line.format(**p) + "\n")
+                elif "CALIB" in p["visit_type"]:
+                    text_lines.append(calib_line.format(**p) + "\n")
+                else:
+                    text_lines.append(coord_line.format(**p) + "\n")
+    
+    repl = {
+        'Wide Field Slitless Spectroscopy': 'WFSS',
+        'Single-Object Slitless Spectroscopy': 'SOSS',
+        'IFU Spectroscopy': 'IFU',
+        'Fixed Slit Spectroscopy': 'Fixed Slit',
+        'Low Resolution Spectroscopy': 'LRS slit',
+        'Medium Resolution Spectroscopy': 'MRS IFU',
+    }
+
+    cycle = entries[0]["cycle"]
+    md_file = os.path.join(f'Cycle{cycle}', schedule_file.replace(".txt", ".md"))
+
+    with open(md_file,"w") as fp:
+        for line in text_lines:
+            for rk in repl:
+                line = line.replace(rk, repl[rk])
+                
+            fp.write(line)
+
+    return entries, text_lines
+
+
+def read_schedule_summary(url="https://www.stsci.edu/jwst/science-execution/observing-schedules.html"):
+    """
+    """
+    http = urllib3.PoolManager()
+    
+    print(f'Fetch raw schedule from {url}')
+    
+    response = http.request('GET', url)
+    data = response.data.decode('utf-8').split("\n")
+    
+    schedule_files = {}
+    
+    for i, line in enumerate(data):
+        if "accordion__title-text" in line:
+            cycle = line.split(">")[1].split("<")[0].replace(' ', '')
+            print(f"Row {i} - {cycle}")
+            schedule_files[cycle] = []
+        elif "_report_" in line:
+            schedule_file  = os.path.basename(line.split("<a href")[1].split('"')[1])
+            if schedule_file.endswith(".txt"):
+                schedule_files[cycle].append(schedule_file)
+    
+    with open("observing-schedules.yaml", "w") as fp:
+        yaml.dump(schedule_files, fp)
+
+    return schedule_files
+
+def schedules_to_mardown(markdown_file="jwst_schedules.md", cycles=[3]):
+    """
+    """
+
+    with open("observing-schedules.yaml") as fp:
+        schedule_files = yaml.load(fp, Loader=yaml.Loader)
+        
     all_entries = {}
     
     post_header = """---
@@ -161,57 +261,39 @@ Reformatted views of the JWST Observing Schedules <a href="https://www.stsci.edu
 
 Table created with the script <a href="../../assets/python/schedule/"> here </a>.
 
+Schedules from previous cycles <a href="../jwst_schedules_past_cycles/#cycle-1"> 1 </a>
+and <a href="../jwst_schedules_past_cycles/#cycle-2"> 2 </a>.
+
 """
-    out = [post_header]
-        
-    for schedule_file in schedules[::-1]:
-        entries = parse_schedule_file(schedule_file=schedule_file)
+    text_lines = [post_header]
     
-        out.append(header.format(BASE_URL=BASE_URL, schedule_file=schedule_file))
+    for cycle in cycles:
+        key = f"Cycle{cycle}"
+        if key in schedule_files:
+            print(f"\n {key} \n")
+            if not os.path.exists(key):
+                os.mkdir(key)
 
-        for entry in entries[::-1]:
-            e = entry.__dict__
-            keys = e["keywords"].split(',')
-            if len(keys) > 3:
-                 keys = keys[:3] + ["..."]
+            text_lines.append(f"\n## Cycle {cycle}\n")
+
+            schedules = schedule_files[key]
+            for schedule_file in schedules:
+                md_file = os.path.join(f'Cycle{cycle}', schedule_file.replace(".txt", ".md"))
+                if os.path.exists(md_file):
+                    print(f"Read markdown from {md_file}")
+                    with open(md_file) as fp:
+                        _lines = fp.readlines()
+                else:
+                    entries, _lines = schedule_file_to_markdown(
+                        schedule_file=schedule_file,
+                        cycle=cycle
+                    )
             
-            e["keys"] = ", ".join(keys)
-            
-            duration_string = get_duration_string(e["duration"])
-            
-            out.append(
-                primary_line.format(
-                    duration_string=duration_string,
-                    split_time=e["start_time"][:-1].replace('T', ' | ').replace('-','.'),
-                    **e
-                ) + "\n"
-            )
-            if len(e["parallels"]) > 0:
-                for p in e["parallels"]:
-                    if 'PURE' in p["visit_type"]:
-                        out.append(pure_line.format(**p) + "\n")
-                    elif "CALIB" in p["visit_type"]:
-                        out.append(calib_line.format(**p) + "\n")
-                    else:
-                        out.append(coord_line.format(**p) + "\n")
+                text_lines += _lines
         
-        repl = {
-            'Wide Field Slitless Spectroscopy': 'WFSS',
-            'Single-Object Slitless Spectroscopy': 'SOSS',
-            'IFU Spectroscopy': 'IFU',
-            'Fixed Slit Spectroscopy': 'Fixed Slit',
-            'Low Resolution Spectroscopy': 'LRS slit',
-            'Medium Resolution Spectroscopy': 'MRS IFU',
-        }
+    with open(markdown_file,"w") as fp:
+        fp.writelines(text_lines)
 
-        with open(markdown_file,"w") as fp:
-            for line in out:
-                for rk in repl:
-                    line = line.replace(rk, repl[rk])
-                    
-                fp.write(line)
-        # all_entries[schedule_file] = [e.__dict__ for e in entries]
-    
     return all_entries
 
 
