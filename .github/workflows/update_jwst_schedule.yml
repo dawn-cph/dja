@@ -8,7 +8,7 @@ on:
     - cron: "0 05 * * *" # runs at 05:00 UTC every day
 
 jobs:
-  UpdateFeed:
+  UpdateJWSTSchedule:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,11 +23,11 @@ jobs:
         with:
           python-version: '3.10'
           cache: 'pip' # caching pip dependencies
-      - run: pip install numpy matplotlib urllib3 pyyaml
+      - run: pip install -r requirements.txt
 
       - name: Run script
         shell: bash
-        run: cd assets/schedule; python queries_to_feeds.py
+        run: cd assets/schedule; python parse_jwst_schedule.py
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
