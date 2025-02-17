@@ -1,7 +1,9 @@
 import os
 import yaml
+import glob
 import urllib3
 import json
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -241,6 +243,26 @@ def read_schedule_summary(url="https://www.stsci.edu/jwst/science-execution/obse
 
     return schedule_files
 
+
+def make_merged_json():
+    """
+    """
+    for cycle in [1,2,3]:
+        files = glob.glob(f"Cycle{cycle}/*json")
+        print(f"Make merged Cycle {cycle} json file from N={len(files)} separate files")
+        entries = []
+        for file in files:
+            with open(file) as fp:
+                entries += json.load(fp)
+        
+        timestamps = [e['start_time'] for e in entries]
+        so = np.argsort(timestamps)
+        sorted_entries = [entries[i] for i in so]
+        
+        with open(f'jwst-schedule-cycle{cycle}.json', 'w') as fp:
+            json.dump(sorted_entries, fp)
+
+
 def schedules_to_mardown(markdown_file="jwst_schedules.md", cycles=[3]):
     """
     """
@@ -259,10 +281,15 @@ navigation_weight: 12
 
 Reformatted views of the JWST Observing Schedules <a href="https://www.stsci.edu/jwst/science-execution/observing-schedules">posted by STScI</a>.
 
-Table created with the script <a href="../../assets/python/schedule/"> here </a>.
+Table created with the script <a href="../../assets/schedule/"> here </a>.
 
 Schedules from previous cycles <a href="../jwst_schedules_past_cycles/#cycle-1"> 1 </a>
 and <a href="../jwst_schedules_past_cycles/#cycle-2"> 2 </a>.
+
+JSON files with full parsed schedule entries:
+<a href="../../assets/schedule/jwst-schedule-cycle3.json"> jwst-schedule-cycle3.json </a>,
+<a href="../../assets/schedule/jwst-schedule-cycle2.json"> jwst-schedule-cycle2.json </a>,
+<a href="../../assets/schedule/jwst-schedule-cycle1.json"> jwst-schedule-cycle1.json </a>.
 
 """
     text_lines = [post_header]
@@ -294,10 +321,12 @@ and <a href="../jwst_schedules_past_cycles/#cycle-2"> 2 </a>.
     with open(markdown_file,"w") as fp:
         fp.writelines(text_lines)
 
+    make_merged_json()
+    
     return all_entries
 
 
 if __name__ == "__main__":
-    schedules_to_mardown(markdown_file="../../../general/jwst_schedules.md")
+    schedules_to_mardown(markdown_file="../../general/jwst_schedules.md")
 
     

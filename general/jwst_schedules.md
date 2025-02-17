@@ -7,10 +7,15 @@ navigation_weight: 12
 
 Reformatted views of the JWST Observing Schedules <a href="https://www.stsci.edu/jwst/science-execution/observing-schedules">posted by STScI</a>.
 
-Table created with the script <a href="../../assets/python/schedule/"> here </a>.
+Table created with the script <a href="../../assets/schedule/"> here </a>.
 
 Schedules from previous cycles <a href="../jwst_schedules_past_cycles/#cycle-1"> 1 </a>
 and <a href="../jwst_schedules_past_cycles/#cycle-2"> 2 </a>.
+
+JSON files with full parsed schedule entries:
+<a href="../../assets/schedule/jwst-schedule-cycle3.json"> jwst-schedule-cycle3.json </a>,
+<a href="../../assets/schedule/jwst-schedule-cycle2.json"> jwst-schedule-cycle2.json </a>,
+<a href="../../assets/schedule/jwst-schedule-cycle1.json"> jwst-schedule-cycle1.json </a>.
 
 
 ## Cycle 3
