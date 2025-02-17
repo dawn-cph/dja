@@ -7,11 +7,11 @@ navigation_weight: 12
 
 Reformatted views of the JWST Observing Schedules <a href="https://www.stsci.edu/jwst/science-execution/observing-schedules">posted by STScI</a>.
 
-Table created with the script <a href="../../assets/python/schedule/"> here </a>.
+Table created with <a href="../../assets/schedule/parse_jwst_schedule.py"> parse_jwst_schedule.py </a>.
 
 Past observing cycles:
 <br> <a href="#cycle-2"> Cycle 2 </a>
-<br> <a href="#cycle-2"> Cycle 1 </a>
+<br> <a href="#cycle-1"> Cycle 1 </a>
 
 ## Cycle 2
 
