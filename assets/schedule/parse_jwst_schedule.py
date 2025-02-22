@@ -325,6 +325,7 @@ JSON files with full parsed schedule entries:
         'Fixed Slit Spectroscopy': 'Fixed Slit',
         'Low Resolution Spectroscopy': 'LRS slit',
         'Medium Resolution Spectroscopy': 'MRS IFU',
+        'MultiObject Spectroscopy': 'MOS',
     }
 
     with open(markdown_file,"w") as fp:
