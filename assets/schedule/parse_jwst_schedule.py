@@ -327,6 +327,9 @@ JSON files with full parsed schedule entries:
 
 
 if __name__ == "__main__":
+
+    read_schedule_summary()
+
     schedules_to_mardown(markdown_file="../../general/jwst_schedules.md")
 
     
