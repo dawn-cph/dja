@@ -306,20 +306,34 @@ JSON files with full parsed schedule entries:
             schedules = schedule_files[key]
             for schedule_file in schedules:
                 md_file = os.path.join(f'Cycle{cycle}', schedule_file.replace(".txt", ".md"))
-                if os.path.exists(md_file):
-                    print(f"Read markdown from {md_file}")
-                    with open(md_file) as fp:
-                        _lines = fp.readlines()
-                else:
+                if not os.path.exists(md_file):
                     entries, _lines = schedule_file_to_markdown(
                         schedule_file=schedule_file,
                         cycle=cycle
                     )
-            
+
+                print(f"Read markdown from {md_file}")
+                with open(md_file) as fp:
+                    _lines = fp.readlines()
+
                 text_lines += _lines
-        
+
+    repl = {
+        'Wide Field Slitless Spectroscopy': 'WFSS',
+        'Single-Object Slitless Spectroscopy': 'SOSS',
+        'IFU Spectroscopy': 'IFU',
+        'Fixed Slit Spectroscopy': 'Fixed Slit',
+        'Low Resolution Spectroscopy': 'LRS slit',
+        'Medium Resolution Spectroscopy': 'MRS IFU',
+    }
+
     with open(markdown_file,"w") as fp:
-        fp.writelines(text_lines)
+        # fp.writelines(text_lines)
+        for line in text_lines:
+            for rk in repl:
+                line = line.replace(rk, repl[rk])
+                
+            fp.write(line)
 
     make_merged_json()
     
