@@ -21,7 +21,7 @@ JSON files with full parsed schedule entries:
 ## Cycle 3
 
 
-### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250414_report_20250410.txt" > 20250414_report_20250410.txt </a>
+### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250414_report_20250417.txt" > 20250414_report_20250417.txt </a>
 
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
@@ -75,6 +75,7 @@ JSON files with full parsed schedule entries:
 | 2025.04.18 | 00:32:35  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5959"> 5959 </a> |  10:1  |  <span style="color:#da70b5;"> 07:04:23 </span>  | NIRISS SOSS  | BD+40-2790                                   |  Exoplanet Systems,  Exoplanets,  G stars         |
 | 2025.04.17 | 21:58:48  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5893"> 5893 </a> |  15:8  |  <span style="color:#d4b9da;"> 01:14:05 </span>  | NIRCam WFSS  | C3D-15_CWEBTILE-2-11                         |  Field galaxies                                   |
 |  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.04.17 | 21:30:00  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6384"> 6384 </a> |   6:1  |  <span style="color:#d4b9da;"> 01:10:21 </span>  | NIRSpec IFU              | 163                                          |  Asteroid                                         |
 | 2025.04.17 | 20:39:09  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5893"> 5893 </a> |  15:7  |  <span style="color:#d4b9da;"> 01:14:05 </span>  | NIRCam WFSS  | C3D-15_CWEBTILE-2-11                         |  Field galaxies                                   |
 |  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
 | 2025.04.17 | 19:18:20  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5893"> 5893 </a> |  15:3  |  <span style="color:#d4b9da;"> 01:14:05 </span>  | NIRCam WFSS  | C3D-15_CWEBTILE-2-11                         |  Field galaxies                                   |
