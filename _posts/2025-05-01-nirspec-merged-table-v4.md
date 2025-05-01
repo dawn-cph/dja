@@ -17,7 +17,8 @@ Demo of full merged table of NIRSpec spectra reduced with [msaexp](http://github
 - `nirspec_redshifts_manual` - Grades and comments from visual inspection
 - `nirspec_integrated` - Observed- and rest-frame filters integrated through the spectra at the derived redshift
 - `grizli_photometry` - Photometry and some eazy outputs of the nearest counterpart in the DJA/grizli photometric catalogs
-  
+
+The public spectra are shown in a large overview table at [public_prelim_v4.2.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/public_prelim_v4.2.html).
 
 
 ```python
@@ -695,6 +696,169 @@ _ = eazy.utils.zphot_zspec(tab['z_phot'][test], tab['z_best'][test], zmax=14)
     
 
 
+
+```python
+# Counts by mask / program
+utils.Unique(tab['root'])
+```
+
+       N  value     
+    ====  ==========
+     309  abell2744-castellano1-v4
+     111  abell2744-ddt-v4
+     230  abell2744-glass-v4
+     137  aurora-gdn01-v4
+     147  aurora-gdn02-v4
+       9  bd-ic348-gto-v4
+      25  bd-orion-gto-v4
+     219  bluejay-north-v4
+     223  bluejay-south-v4
+      50  borg-0037m3337-v4
+      38  borg-0314m6712-v4
+      37  borg-0409m5317-v4
+      36  borg-0440m5244-v4
+      37  borg-0859p4114-v4
+      45  borg-0955p4528-v4
+      38  borg-1033p5051-v4
+      43  borg-1437p5044-v4
+      30  borg-2203p1851-v4
+       5  cantalupo-filament-02-v4
+     333  capers-cos01-v4
+     416  capers-cos10-v4
+     290  capers-cos13-v4
+     372  capers-egs44-v4
+     395  capers-egs47-v4
+     404  capers-egs49-v4
+     413  capers-egs53-v4
+     324  capers-egs55-v4
+     381  capers-egs61-v4
+     343  capers-udsp1-v4
+     299  capers-udsp2-v4
+     278  capers-udsp3-v4
+     168  capers-udsp5-v4
+     102  cecilia-v4
+     151  ceers-ddt-v4
+    1720  ceers-v4  
+     340  cosmos-curti-v4
+       1  cosmos-lae-martin-v4
+     301  cosmos-transients-v4
+     230  egs-mason-v4
+     237  egs-nelsonx-v4
+     125  excels-uds01-v4
+     125  excels-uds02-v4
+     135  excels-uds03-v4
+     140  excels-uds04-v4
+      26  gdn-chisholm-v4
+     187  gdn-pah123-v4
+      65  gdn-pah4-v4
+      56  gds-barrufet-s156-v4
+      82  gds-barrufet-s67-v4
+     971  gds-deep-v4
+     328  gds-egami-ddt-v4
+     236  gds-maseda-v4
+     599  gds-rieke-v4
+     641  gds-udeep-v4
+      96  glazebrook-cos-obs1-v4
+     107  glazebrook-cos-obs2-v4
+     107  glazebrook-cos-obs3-v4
+     119  glazebrook-egs-v4
+     236  glazebrook-v4
+     190  goodsn-wide-v4
+     405  goodsn-wide0-v4
+     192  goodsn-wide1-v4
+     393  goodsn-wide2-v4
+     347  goodsn-wide3-v4
+     389  goodsn-wide6-v4
+     324  goodsn-wide66-v4
+     371  goodsn-wide7-v4
+     388  goodsn-wide8-v4
+     345  gto-wide-cos01-v4
+     380  gto-wide-cos02-v4
+     362  gto-wide-cos03-v4
+     362  gto-wide-cos04-v4
+     378  gto-wide-cos05-v4
+    1403  gto-wide-egs1-v4
+     344  gto-wide-egs2-v4
+     384  gto-wide-uds10-v4
+     378  gto-wide-uds11-v4
+     330  gto-wide-uds12-v4
+     370  gto-wide-uds13-v4
+     382  gto-wide-uds14-v4
+     507  j0226-wang-v4
+     155  j0252m0503-hennawi-02-v4
+     158  j0252m0503-hennawi-07-v4
+     387  j0910-wang-v4
+     232  j1007p2115-hennawi-v4
+     548  jades-gdn-v4
+     967  jades-gdn09-v4
+     961  jades-gdn10-v4
+     958  jades-gdn11-v4
+    2909  jades-gdn2-v4
+     189  jades-gds-w03-v4
+     376  jades-gds-w04-v4
+     198  jades-gds-w05-v4
+     185  jades-gds-w06-v4
+     185  jades-gds-w07-v4
+     194  jades-gds-w08-v4
+     278  jades-gds-w09-v4
+    2004  jades-gds-wide-v4
+    1305  jades-gds-wide2-v4
+     762  jades-gds-wide3-v4
+     744  jades-gds02-v4
+     681  jades-gds03-v4
+     758  jades-gds04-v4
+     818  jades-gds05-v4
+     739  jades-gds06-v4
+     715  jades-gds07-v4
+     766  jades-gds08-v4
+     649  jades-gds1-v4
+     635  jades-gds10-v4
+     100  lyc22-schaerer-01-v4
+      80  lyc22-schaerer-03-v4
+     104  lyc22-schaerer-12-v4
+     386  macs1149-stiavelli-v4
+      22  macsj0647-hr-v4
+      82  macsj0647-single-v4
+     133  macsj0647-v4
+      27  pearls-transients-v4
+     289  rubies-egs51-v4
+     386  rubies-egs52-v4
+     406  rubies-egs53-v4
+     359  rubies-egs61-v4
+     445  rubies-egs62-v4
+     425  rubies-egs63-v4
+     456  rubies-uds1-v4
+     415  rubies-uds2-v4
+     361  rubies-uds21-v4
+     371  rubies-uds22-v4
+     347  rubies-uds23-v4
+     425  rubies-uds3-v4
+     365  rubies-uds31-v4
+     432  rubies-uds32-v4
+     425  rubies-uds33-v4
+     438  rubies-uds41-v4
+     408  rubies-uds42-v4
+     403  rubies-uds43-v4
+     203  rxj2129-ddt-v4
+      86  smacs0723-ero-v4
+      93  snh0pe-v4 
+      92  stark-a1703-v4
+     147  stark-rxcj2248-v4
+      61  suspense-kriek-v4
+     192  ulas-j1120-gto-v4
+     152  uncover-61-v4
+     180  uncover-62-v4
+     557  uncover-v4
+     300  whl0137-v4
+
+
+
+
+
+    <grizli.utils.Unique at 0x12770d940>
+
+
+
 ## Source counts
 
 Show magnitude, color, redshift distribution as a function of "grade":
@@ -815,7 +979,7 @@ fig.tight_layout(pad=1)
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_9_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_10_1.png)
     
 
 
@@ -879,7 +1043,7 @@ if 1:
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_13_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_14_1.png)
     
 
 
@@ -930,7 +1094,7 @@ plt.ylabel(r'$\log M = \log L_V + \log M/L_V$' + '\n' + r'$\log M/L_V \propto (B
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_16_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_17_1.png)
     
 
 
@@ -971,7 +1135,7 @@ fig.tight_layout(pad=1)
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_17_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_18_0.png)
     
 
 
@@ -999,7 +1163,7 @@ plt.ylabel('rough stellar mass')
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_18_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_19_1.png)
     
 
 
@@ -1105,8 +1269,44 @@ plt.plot(spec['wave'], spec['flux'])
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_24_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_25_1.png)
     
+
+
+
+```python
+# Thumbnail API
+
+from IPython.display import Image
+print(RGB_URL.format(**row))
+Image(url=RGB_URL.format(**row), height=300, width=300)
+
+```
+
+    https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.91554591%2C52.94901831
+
+
+
+
+
+<img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.91554591%2C52.94901831" width="300" height="300"/>
+
+
+
+
+```python
+print(SLIT_URL.format(**row))
+Image(url=SLIT_URL.format(**row), height=300, width=300)
+```
+
+    https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.91554591%2C52.94901831&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233006001
+
+
+
+
+
+<img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.91554591%2C52.94901831&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233006001" width="300" height="300"/>
+
 
 
 
