@@ -22,7 +22,7 @@ tags: HST
    to aattach to the post.
    
    ```bash
-   ./update_post.sh this-is-a-new-post.ipynb
+   ./update_post this-is-a-new-post.ipynb
    ```
 
 4) Commit the `md` version of the notebook and any image assets created to the repo
