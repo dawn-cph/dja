@@ -20,6 +20,33 @@ Demo of full merged table of NIRSpec spectra reduced with [msaexp](http://github
 
 The public spectra are shown in a large overview table at [public_prelim_v4.2.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/public_prelim_v4.2.html).
 
+<a href="https://colab.research.google.com/github/dawn-cph/dja/blob/master/assets/post_files/2025-05-01-nirspec-merged-table-v4.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg"> </a>
+
+
+
+```python
+import msaexp
+import eazy
+eazy.fetch_eazy_photoz()
+
+```
+
+
+```python
+# Install dependencies, e.g., on Google Colab
+try:
+    import msaexp
+
+except ImportError:
+
+    ! pip install msaexp
+    ! pip install git+https://github.com/karllark/dust_attenuation.git
+    
+    import eazy
+    eazy.fetch_eazy_photoz()
+
+```
+
 
 ```python
 %matplotlib inline
@@ -675,6 +702,45 @@ tab.info()
             beta_cov_11 float64                                                                                                        MaskedColumn 27683
 
 
+## Add some preview columns to the table
+
+
+```python
+RGB_URL = "https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord={ra}%2C{dec}"
+tab['metafile'] = [m.split('_')[0] for m in tab['msamet']]
+SLIT_URL = "https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord={ra}%2C{dec}&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile={metafile}"
+FITS_URL = "https://s3.amazonaws.com/msaexp-nirspec/extractions/{root}/{file}"
+
+tab['Thumb'] = [
+    "<img src=\"{0}\" height=200px>".format(
+        RGB_URL.format(**row['ra','dec'])
+    )
+    for row in tab
+]
+
+tab['Slit_Thumb'] = [
+    "<img src=\"{0}\" height=200px>".format(
+        SLIT_URL.format(**row['ra','dec','metafile'])
+    )
+    for row in tab
+]
+
+tab['Spectrum_fnu'] = [
+    "<img src=\"{0}\" height=200px>".format(
+        FITS_URL.format(**row['root','file']).replace('.spec.fits', '.fnu.png')
+    )
+    for row in tab
+]
+
+tab['Spectrum_flam'] = [
+    "<img src=\"{0}\" height=200px>".format(
+        FITS_URL.format(**row['root','file']).replace('.spec.fits', '.flam.png')
+    )
+    for row in tab
+]
+
+```
+
 # zphot - zspec
 
 
@@ -692,7 +758,7 @@ _ = eazy.utils.zphot_zspec(tab['z_phot'][test], tab['z_best'][test], zmax=14)
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_7_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_11_1.png)
     
 
 
@@ -855,7 +921,7 @@ utils.Unique(tab['root'])
 
 
 
-    <grizli.utils.Unique at 0x12770d940>
+    <grizli.utils.Unique at 0x165f0ee70>
 
 
 
@@ -979,7 +1045,7 @@ fig.tight_layout(pad=1)
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_10_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_14_1.png)
     
 
 
@@ -1043,11 +1109,15 @@ if 1:
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_14_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_18_1.png)
     
 
 
-# Rest-frame colors
+# Stellar population properties
+
+- Rest-frame colors
+- Stellar masses
+- ...
 
 
 ```python
@@ -1094,9 +1164,15 @@ plt.ylabel(r'$\log M = \log L_V + \log M/L_V$' + '\n' + r'$\log M/L_V \propto (B
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_17_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_21_1.png)
     
 
+
+## Compare rest-frame colors
+
+The table includes rest-frame bandpass flux densities 1) estimated from the broad-band photometry (at the photo-z) and 2) integrated directly through the spectra at the measured redshift.  
+
+The colors derived from the  grizli/DJA *photometry* are those of the best-fit photo-z template combination, not a noisy interpolation, so they can show banding effects resulting from the discrete combination of templates.
 
 
 ```python
@@ -1135,7 +1211,7 @@ fig.tight_layout(pad=1)
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_18_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_23_0.png)
     
 
 
@@ -1163,49 +1239,13 @@ plt.ylabel('rough stellar mass')
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_19_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_24_1.png)
     
 
 
 
 ```python
-RGB_URL = "https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord={ra}%2C{dec}"
-tab['metafile'] = [m.split('_')[0] for m in tab['msamet']]
-SLIT_URL = "https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord={ra}%2C{dec}&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile={metafile}"
-FITS_URL = "https://s3.amazonaws.com/msaexp-nirspec/extractions/{root}/{file}"
-
-tab['Thumb'] = [
-    "<img src=\"{0}\" height=200px>".format(
-        RGB_URL.format(**row['ra','dec'])
-    )
-    for row in tab
-]
-
-tab['Slit_Thumb'] = [
-    "<img src=\"{0}\" height=200px>".format(
-        SLIT_URL.format(**row['ra','dec','metafile'])
-    )
-    for row in tab
-]
-
-tab['Spectrum_fnu'] = [
-    "<img src=\"{0}\" height=200px>".format(
-        FITS_URL.format(**row['root','file']).replace('.spec.fits', '.fnu.png')
-    )
-    for row in tab
-]
-
-tab['Spectrum_flam'] = [
-    "<img src=\"{0}\" height=200px>".format(
-        FITS_URL.format(**row['root','file']).replace('.spec.fits', '.flam.png')
-    )
-    for row in tab
-]
-
-```
-
-
-```python
+# Make a preview table
 massive = sample & (tab['z_best'] > 2.) & (MassV > 10.8)
 
 tab['root','file','z_best','Mass','ha_eqw_with_limits','Thumb','Slit_Thumb','Spectrum_fnu', 'Spectrum_flam'][massive].write_sortable_html(
@@ -1222,7 +1262,8 @@ tab['root','file','z_best','Mass','ha_eqw_with_limits','Thumb','Slit_Thumb','Spe
 
 ```python
 import msaexp.spectrum
-row = tab[tab['file'] == 'rubies-egs61-v4_prism-clear_4233_75646.spec.fits'][0]
+spec_file = 'rubies-egs61-v4_prism-clear_4233_75646.spec.fits'
+row = tab[tab['file'] == spec_file][0]
 spec = msaexp.spectrum.SpectrumSampler(FITS_URL.format(**row))
 ```
 
@@ -1257,26 +1298,160 @@ spec.spec.info
 
 
 ```python
-plt.plot(spec['wave'], spec['flux'])
+plt.plot(spec['wave'], spec['flux'],
+         label="{file}\nz={z_best:.3f}".format(**row))
+plt.legend()
 ```
 
 
 
 
-    [<matplotlib.lines.Line2D at 0x177af7050>]
+    <matplotlib.legend.Legend at 0x176c06510>
 
 
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_25_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_29_1.png)
+    
+
+
+# All `msaexp` PRISM spectra in a single table
+
+
+```python
+combined_spectra_file = "dja_msaexp_emission_lines_v4.0.prism_spectra.fits"
+
+if os.path.exists(combined_spectra_file):
+    prism_spectra = utils.read_catalog(combined_spectra_file)
+else:
+    # Combined prism spectra in a single big table (595 Mb)
+    prism_spectra = utils.read_catalog(
+        download_file(
+            f"https://s3.amazonaws.com/msaexp-nirspec/extractions/{combined_spectra_file}",
+            cache=True
+        ),
+        format='fits',
+    )
+```
+
+
+```python
+is_prism = tab['grating'] == 'PRISM'
+tab['prism_idx'] = 0
+tab['prism_idx'][is_prism] = np.arange(is_prism.sum())
+
+print(f"""
+PRISM spectra in the merged catalog: {is_prism.sum()}
+PRISM spectra in the combined table: {prism_spectra['flux'].shape[1]}
+""")
+```
+
+    
+    PRISM spectra in the merged catalog: 26913
+    PRISM spectra in the combined table: 26913
     
 
 
 
 ```python
-# Thumbnail API
+valid_count = prism_spectra['valid'].sum(axis=0)
+valid_spec = valid_count > (valid_count.max() - 8)
+```
 
+
+```python
+row = tab[tab['file'] == spec_file][0]
+
+plt.plot(
+    spec['wave'], spec['flux'],
+    lw=2, label='Single spectrum'
+)
+
+plt.plot(
+    prism_spectra['wave'], prism_spectra['flux'][:, row['prism_idx']],
+    alpha=0.5, label='From combined table'
+)
+
+plt.legend()
+```
+
+
+
+
+    <matplotlib.legend.Legend at 0x37707c0b0>
+
+
+
+
+    
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_34_1.png)
+    
+
+
+## "Stacked" spectrum
+
+Stacking prism spectra isn't trivial due to the variable dispersion and wavelength sampling.  Here just plot a subset on top of eachother.
+
+
+```python
+norm_column = 'rest_416_flux'
+print(f"Normalization column: '{norm_column}' = {tab[norm_column].description}")
+
+flux_norm = prism_spectra['flux'] / tab[norm_column][is_prism]
+
+# Subset
+zi = row['z_best']
+dz = 0.05
+
+sample = (tab['z_best'] > zi - dz) & (tab['z_best'] < zi + dz)
+
+sub_sample = sample[is_prism] & valid_spec
+sub_idx = np.where(sub_sample)[0]
+
+z_sample = tab['z_best'][is_prism][sample[is_prism] & valid_spec]
+
+fig, axes = plt.subplots(2,1,figsize=(10,7), sharex=False, sharey=True)
+
+for j, z in enumerate(z_sample):
+    axes[0].plot(
+        prism_spectra['wave'],
+        flux_norm[:, sub_idx[j]],
+        alpha=0.1
+    )
+    
+    axes[1].plot(
+        prism_spectra['wave'] / (1 + z),
+        flux_norm[:, sub_idx[j]],
+        alpha=0.1
+    )
+
+
+axes[0].set_ylim(-1, 10)
+```
+
+    Normalization column: 'rest_416_flux' = Spectrum flux in synthetic_i
+
+
+
+
+
+    (-1.0, 10.0)
+
+
+
+
+    
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_36_2.png)
+    
+
+
+## Thumbnail API
+
+The DJA thumbnail API can create thumbnail figures and FITS cutouts of a requested set of filters at a particular coordinate.M
+
+
+```python
 from IPython.display import Image
 print(RGB_URL.format(**row))
 Image(url=RGB_URL.format(**row), height=300, width=300)
@@ -1308,8 +1483,3 @@ Image(url=SLIT_URL.format(**row), height=300, width=300)
 <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.91554591%2C52.94901831&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233006001" width="300" height="300"/>
 
 
-
-
-```python
-
-```
