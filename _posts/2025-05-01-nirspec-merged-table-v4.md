@@ -25,14 +25,6 @@ The public spectra are shown in a large overview table at [public_prelim_v4.2.ht
 
 
 ```python
-import msaexp
-import eazy
-eazy.fetch_eazy_photoz()
-
-```
-
-
-```python
 # Install dependencies, e.g., on Google Colab
 try:
     import msaexp
@@ -758,7 +750,7 @@ _ = eazy.utils.zphot_zspec(tab['z_phot'][test], tab['z_best'][test], zmax=14)
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_11_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_10_1.png)
     
 
 
@@ -1045,7 +1037,7 @@ fig.tight_layout(pad=1)
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_14_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_13_1.png)
     
 
 
@@ -1109,7 +1101,7 @@ if 1:
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_18_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_17_1.png)
     
 
 
@@ -1164,7 +1156,7 @@ plt.ylabel(r'$\log M = \log L_V + \log M/L_V$' + '\n' + r'$\log M/L_V \propto (B
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_21_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_20_1.png)
     
 
 
@@ -1211,7 +1203,7 @@ fig.tight_layout(pad=1)
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_23_0.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_22_0.png)
     
 
 
@@ -1239,7 +1231,7 @@ plt.ylabel('rough stellar mass')
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_24_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_23_1.png)
     
 
 
@@ -1312,7 +1304,7 @@ plt.legend()
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_29_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_28_1.png)
     
 
 
@@ -1385,7 +1377,7 @@ plt.legend()
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_34_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_33_1.png)
     
 
 
@@ -1442,7 +1434,7 @@ axes[0].set_ylim(-1, 10)
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_36_2.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_35_2.png)
     
 
 
