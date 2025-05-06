@@ -36,7 +36,6 @@ except ImportError:
     
     import eazy
     eazy.fetch_eazy_photoz()
-
 ```
 
 
@@ -913,7 +912,7 @@ utils.Unique(tab['root'])
 
 
 
-    <grizli.utils.Unique at 0x165f0ee70>
+    <grizli.utils.Unique at 0x1314c80b0>
 
 
 
@@ -1050,8 +1049,15 @@ sample &= tab['z_best'] < 7
 sample &= tab['rest_153_frac'] > 0.8
 sample &= tab['rest_154_frac'] > 0.8
 sample &= tab['rest_155_frac'] > 0.8
-
+sample.sum()
 ```
+
+
+
+
+    12708
+
+
 
 ## Interpolate Halpha EQW from nearby filters
 
@@ -1120,12 +1126,34 @@ UVs = -2.5*np.log10(tab['rest_153_flux'] / tab['rest_155_flux'])
 BVs = -2.5*np.log10(tab['rest_154_flux'] / tab['rest_155_flux'])
 VJs = -2.5*np.log10(tab['rest_155_flux'] / tab['rest_161_flux'])
 
+eBVs = 2.5/np.log(10) * np.sqrt(
+    (tab['rest_154_full_err'] / tab['rest_154_flux'])**2
+    + (tab['rest_155_full_err'] / tab['rest_155_flux'])**2
+)
+
+ugs = -2.5*np.log10(tab['rest_414_flux'] / tab['rest_415_flux'])
+gis = -2.5*np.log10(tab['rest_415_flux'] / tab['rest_416_flux'])
+
+ok_BVs = (tab['rest_154_frac'] > 0.8) & (tab['rest_155_frac'] > 0.8)
+ok_gis = (tab['rest_415_frac'] > 0.8) & (tab['rest_416_frac'] > 0.8)
+
+ok_BVs &= eBVs < 0.1
+
 dL = WMAP9.luminosity_distance(tab['zrf']).to('cm')
-fV = (tab['rest_155_flux']*u.microJansky).to(
+
+rest_fV = (tab['rest_155_flux']*u.microJansky).to(
     u.erg/u.second/u.cm**2/u.Angstrom,
     equivalencies=u.spectral_density(5500.*(1+tab['zrf'])*u.Angstrom)
 )
-LV = (fV * 5500. * u.Angstrom * (1 + tab['zrf']) * 4 * np.pi * dL**2).to(u.Lsun)
+
+rest_fi = (tab['rest_416_flux']*u.microJansky).to(
+    u.erg/u.second/u.cm**2/u.Angstrom,
+    equivalencies=u.spectral_density(RES[416].pivot * (1+tab['zrf'])*u.Angstrom)
+)
+
+LV = (rest_fV * 5500. * u.Angstrom * (1 + tab['zrf']) * 4 * np.pi * dL**2).to(u.Lsun)
+Li = (rest_fi * RES[416].pivot * u.Angstrom * (1 + tab['zrf']) * 4 * np.pi * dL**2).to(u.Lsun)
+
 ```
 
 
@@ -1136,9 +1164,16 @@ log_MLv = -0.734 + 1.404 * (BVs + 0.084)
 MassV = log_MLv + np.log10(LV.value)
 
 tab['Mass'] = MassV
-tab['Mass'].format = '.3f'
+tab['Mass'].format = '.2f'
+tab['ok_Mass'] = ok_BVs
 
-plt.scatter(np.log10(tab['phot_mass'][sample]), MassV[sample], alpha=0.1, c=tab['phot_Av'][sample])
+plt.scatter(
+    np.log10(tab['phot_mass'][sample & ok_BVs]),
+    MassV[sample & ok_BVs],
+    alpha=0.1,
+    c=tab['phot_Av'][sample & ok_BVs]
+)
+
 plt.plot([5, 12], [5, 12], color='magenta')
 plt.grid()
 plt.xlim(6, 12)
@@ -1238,14 +1273,69 @@ plt.ylabel('rough stellar mass')
 
 ```python
 # Make a preview table
-massive = sample & (tab['z_best'] > 2.) & (MassV > 10.8)
+massive = sample & (tab['z_best'] > 4.) & (MassV > 10.5) & (tab['grating'] == 'PRISM') & ok_BVs
 
-tab['root','file','z_best','Mass','ha_eqw_with_limits','Thumb','Slit_Thumb','Spectrum_fnu', 'Spectrum_flam'][massive].write_sortable_html(
-    '/tmp/massive.html',
-    max_lines=1000,
-    localhost=False,
-)
+if 0:
+    tab['root','file','z_best','Mass','ha_eqw_with_limits','Thumb','Slit_Thumb','Spectrum_fnu', 'Spectrum_flam'][massive].write_sortable_html(
+        '/tmp/massive.html',
+        max_lines=1000,
+        localhost=False,
+    )
+    
+print(f"massive test sample: {massive.sum()}")
 ```
+
+    massive test sample: 69
+
+
+
+```python
+from IPython.display import display, Markdown, Latex
+
+so = np.argsort(tab['Mass'][massive])[::-1]
+so = so[:32]
+
+df = tab['root','file','z_best','Mass','ha_eqw_with_limits','Thumb','Slit_Thumb','Spectrum_fnu', 'Spectrum_flam'][massive][so].to_pandas()
+
+display(Markdown(df.to_markdown()))
+```
+
+
+|    | root                | file                                                |   z_best |    Mass |   ha_eqw_with_limits | Thumb                                                                                                                                                                                                         | Slit_Thumb                                                                                                                                                                                                                                                  | Spectrum_fnu                                                                                                                                       | Spectrum_flam                                                                                                                                       |
+|---:|:--------------------|:----------------------------------------------------|---------:|--------:|---------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+|  0 | j0910-wang-v4       | j0910-wang-v4_prism-clear_2028_12910.spec.fits      |  6.62142 | 12.0515 |             54.4902  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=137.72721162%2C-4.23520691" height=200px> | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=137.72721162%2C-4.23520691&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw02028001001" height=200px> | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/j0910-wang-v4/j0910-wang-v4_prism-clear_2028_12910.fnu.png" height=200px>            | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/j0910-wang-v4/j0910-wang-v4_prism-clear_2028_12910.flam.png" height=200px>            |
+|  1 | rubies-uds23-v4     | rubies-uds23-v4_prism-clear_4233_166691.spec.fits   |  4.06673 | 11.9254 |             11.4969  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.36378034%2C-5.11191402" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.36378034%2C-5.11191402&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233002003" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds23-v4/rubies-uds23-v4_prism-clear_4233_166691.fnu.png" height=200px>       | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds23-v4/rubies-uds23-v4_prism-clear_4233_166691.flam.png" height=200px>       |
+|  2 | uncover-61-v4       | uncover-61-v4_prism-clear_2561_13416.spec.fits      |  4.02262 | 11.7896 |            114.235   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.57556471%2C-30.42438021" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.57556471%2C-30.42438021&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw02561006001" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-61-v4/uncover-61-v4_prism-clear_2561_13416.fnu.png" height=200px>            | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-61-v4/uncover-61-v4_prism-clear_2561_13416.flam.png" height=200px>            |
+|  3 | rubies-egs52-v4     | rubies-egs52-v4_prism-clear_4233_9809.spec.fits     |  5.68123 | 11.6563 |            197.61    | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=215.01729764%2C52.88015836" height=200px> | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=215.01729764%2C52.88015836&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233005002" height=200px> | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-egs52-v4/rubies-egs52-v4_prism-clear_4233_9809.fnu.png" height=200px>         | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-egs52-v4/rubies-egs52-v4_prism-clear_4233_9809.flam.png" height=200px>         |
+|  4 | jades-gdn-v4        | jades-gdn-v4_prism-clear_1181_68797.spec.fits       |  5.03971 | 11.6303 |           1054.65    | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=189.2291371%2C62.1461898" height=200px>   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=189.2291371%2C62.1461898&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw01181098001" height=200px>   | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/jades-gdn-v4/jades-gdn-v4_prism-clear_1181_68797.fnu.png" height=200px>              | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/jades-gdn-v4/jades-gdn-v4_prism-clear_1181_68797.flam.png" height=200px>              |
+|  5 | rubies-uds22-v4     | rubies-uds22-v4_prism-clear_4233_114988.spec.fits   |  4.36474 | 11.5051 |             94.5801  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.29794136%2C-5.18436854" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.29794136%2C-5.18436854&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233002002" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds22-v4/rubies-uds22-v4_prism-clear_4233_114988.fnu.png" height=200px>       | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds22-v4/rubies-uds22-v4_prism-clear_4233_114988.flam.png" height=200px>       |
+|  6 | gto-wide-uds13-v4   | gto-wide-uds13-v4_prism-clear_1215_1472.spec.fits   |  4.55596 | 11.4348 |             14.736   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.33731548%2C-5.1436736" height=200px>   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.33731548%2C-5.1436736&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw01215013001" height=200px>   | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/gto-wide-uds13-v4/gto-wide-uds13-v4_prism-clear_1215_1472.fnu.png" height=200px>     | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/gto-wide-uds13-v4/gto-wide-uds13-v4_prism-clear_1215_1472.flam.png" height=200px>     |
+|  7 | uncover-v4          | uncover-v4_prism-clear_2561_45924.spec.fits         |  4.4673  | 11.3522 |            104.309   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.58476007%2C-30.34362753" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.58476007%2C-30.34362753&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw02561002004" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-v4/uncover-v4_prism-clear_2561_45924.fnu.png" height=200px>                  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-v4/uncover-v4_prism-clear_2561_45924.flam.png" height=200px>                  |
+|  8 | uncover-62-v4       | uncover-62-v4_prism-clear_2561_58453.spec.fits      |  4.4673  | 11.2252 |            969.994   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.58475839%2C-30.34362894" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.58475839%2C-30.34362894&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw02561006002" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-62-v4/uncover-62-v4_prism-clear_2561_58453.fnu.png" height=200px>            | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-62-v4/uncover-62-v4_prism-clear_2561_58453.flam.png" height=200px>            |
+|  9 | gds-barrufet-s67-v4 | gds-barrufet-s67-v4_prism-clear_2198_1260.spec.fits |  4.4319  | 11.2251 |             72.7017  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=53.07485578%2C-27.87589702" height=200px> | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=53.07485578%2C-27.87589702&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw02198003001" height=200px> | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/gds-barrufet-s67-v4/gds-barrufet-s67-v4_prism-clear_2198_1260.fnu.png" height=200px> | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/gds-barrufet-s67-v4/gds-barrufet-s67-v4_prism-clear_2198_1260.flam.png" height=200px> |
+| 10 | rubies-egs63-v4     | rubies-egs63-v4_prism-clear_4233_49140.spec.fits    |  6.68959 | 11.1816 |            657.49    | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.89224786%2C52.87740968" height=200px> | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.89224786%2C52.87740968&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233006003" height=200px> | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-egs63-v4/rubies-egs63-v4_prism-clear_4233_49140.fnu.png" height=200px>        | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-egs63-v4/rubies-egs63-v4_prism-clear_4233_49140.flam.png" height=200px>        |
+| 11 | rubies-uds42-v4     | rubies-uds42-v4_prism-clear_4233_807469.spec.fits   |  6.77538 | 11.1462 |           4951.05    | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.3761391%2C-5.3103658" height=200px>    | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.3761391%2C-5.3103658&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233004002" height=200px>    | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds42-v4/rubies-uds42-v4_prism-clear_4233_807469.fnu.png" height=200px>       | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds42-v4/rubies-uds42-v4_prism-clear_4233_807469.flam.png" height=200px>       |
+| 12 | rubies-egs61-v4     | rubies-egs61-v4_prism-clear_4233_55604.spec.fits    |  6.98435 | 11.1174 |           2762.98    | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.98302557%2C52.9560013" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.98302557%2C52.9560013&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233006001" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-egs61-v4/rubies-egs61-v4_prism-clear_4233_55604.fnu.png" height=200px>        | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-egs61-v4/rubies-egs61-v4_prism-clear_4233_55604.flam.png" height=200px>        |
+| 13 | uncover-62-v4       | uncover-62-v4_prism-clear_2561_59554.spec.fits      |  4.47252 | 11.0693 |            155.997   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.57201994%2C-30.34249594" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.57201994%2C-30.34249594&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw02561006002" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-62-v4/uncover-62-v4_prism-clear_2561_59554.fnu.png" height=200px>            | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-62-v4/uncover-62-v4_prism-clear_2561_59554.flam.png" height=200px>            |
+| 14 | rubies-uds31-v4     | rubies-uds31-v4_prism-clear_4233_149494.spec.fits   |  4.62235 | 11.0691 |              5.34271 | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.39967589%2C-5.13634805" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.39967589%2C-5.13634805&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233003001" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds31-v4/rubies-uds31-v4_prism-clear_4233_149494.fnu.png" height=200px>       | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds31-v4/rubies-uds31-v4_prism-clear_4233_149494.flam.png" height=200px>       |
+| 15 | capers-egs49-v4     | capers-egs49-v4_prism-clear_6368_11585.spec.fits    |  6.68959 | 10.9733 |            480.117   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.8922488%2C52.8774032" height=200px>   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.8922488%2C52.8774032&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw06368049001" height=200px>   | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/capers-egs49-v4/capers-egs49-v4_prism-clear_6368_11585.fnu.png" height=200px>        | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/capers-egs49-v4/capers-egs49-v4_prism-clear_6368_11585.flam.png" height=200px>        |
+| 16 | rubies-uds23-v4     | rubies-uds23-v4_prism-clear_4233_140707.spec.fits   |  4.62    | 10.908  |             10.0372  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.36508449%2C-5.14884841" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.36508449%2C-5.14884841&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233002003" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds23-v4/rubies-uds23-v4_prism-clear_4233_140707.fnu.png" height=200px>       | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds23-v4/rubies-uds23-v4_prism-clear_4233_140707.flam.png" height=200px>       |
+| 17 | rubies-uds23-v4     | rubies-uds23-v4_prism-clear_4233_148866.spec.fits   |  5.22256 | 10.9076 |            262.927   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.32643349%2C-5.13738186" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.32643349%2C-5.13738186&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233002003" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds23-v4/rubies-uds23-v4_prism-clear_4233_148866.fnu.png" height=200px>       | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds23-v4/rubies-uds23-v4_prism-clear_4233_148866.flam.png" height=200px>       |
+| 18 | egs-nelsonx-v4      | egs-nelsonx-v4_prism-clear_4106_57146.spec.fits     |  6.68959 | 10.8953 |            471.6     | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.89224643%2C52.87740951" height=200px> | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.89224643%2C52.87740951&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04106006001" height=200px> | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/egs-nelsonx-v4/egs-nelsonx-v4_prism-clear_4106_57146.fnu.png" height=200px>          | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/egs-nelsonx-v4/egs-nelsonx-v4_prism-clear_4106_57146.flam.png" height=200px>          |
+| 19 | gto-wide-uds13-v4   | gto-wide-uds13-v4_prism-clear_1215_6001.spec.fits   |  4.58301 | 10.8825 |            716.686   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.36424834%2C-5.1977302" height=200px>   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.36424834%2C-5.1977302&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw01215013001" height=200px>   | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/gto-wide-uds13-v4/gto-wide-uds13-v4_prism-clear_1215_6001.fnu.png" height=200px>     | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/gto-wide-uds13-v4/gto-wide-uds13-v4_prism-clear_1215_6001.flam.png" height=200px>     |
+| 20 | rubies-uds2-v4      | rubies-uds2-v4_prism-clear_b28.spec.fits            |  4.36275 | 10.8802 |              5.61715 | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.2805153%2C-5.21721404" height=200px>   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.2805153%2C-5.21721404&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233001002" height=200px>   | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds2-v4/rubies-uds2-v4_prism-clear_b28.fnu.png" height=200px>                 | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds2-v4/rubies-uds2-v4_prism-clear_b28.flam.png" height=200px>                 |
+| 21 | rubies-uds2-v4      | rubies-uds2-v4_prism-clear_4233_b28.spec.fits       |  4.36275 | 10.8801 |              5.59212 | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.2805153%2C-5.21721404" height=200px>   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.2805153%2C-5.21721404&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233001002" height=200px>   | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds2-v4/rubies-uds2-v4_prism-clear_4233_b28.fnu.png" height=200px>            | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds2-v4/rubies-uds2-v4_prism-clear_4233_b28.flam.png" height=200px>            |
+| 22 | rubies-egs61-v4     | rubies-egs61-v4_prism-clear_4233_75646.spec.fits    |  4.90002 | 10.874  |             24.3336  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.91554591%2C52.94901831" height=200px> | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.91554591%2C52.94901831&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233006001" height=200px> | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-egs61-v4/rubies-egs61-v4_prism-clear_4233_75646.fnu.png" height=200px>        | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-egs61-v4/rubies-egs61-v4_prism-clear_4233_75646.flam.png" height=200px>        |
+| 23 | goodsn-wide2-v4     | goodsn-wide2-v4_prism-clear_1211_10.spec.fits       |  4.14019 | 10.8389 |            236.904   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=189.14356704%2C62.16166621" height=200px> | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=189.14356704%2C62.16166621&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw01211014001" height=200px> | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/goodsn-wide2-v4/goodsn-wide2-v4_prism-clear_1211_10.fnu.png" height=200px>           | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/goodsn-wide2-v4/goodsn-wide2-v4_prism-clear_1211_10.flam.png" height=200px>           |
+| 24 | uncover-61-v4       | uncover-61-v4_prism-clear_2561_21547.spec.fits      |  5.05789 | 10.8387 |            553.345   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.55083778%2C-30.40659783" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.55083778%2C-30.40659783&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw02561006001" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-61-v4/uncover-61-v4_prism-clear_2561_21547.fnu.png" height=200px>            | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-61-v4/uncover-61-v4_prism-clear_2561_21547.flam.png" height=200px>            |
+| 25 | jades-gdn2-v4       | jades-gdn2-v4_prism-clear_1181_954.spec.fits        |  6.76117 | 10.8335 |           1997.48    | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=189.1519657%2C62.2596352" height=200px>   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=189.1519657%2C62.2596352&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw01181007001" height=200px>   | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/jades-gdn2-v4/jades-gdn2-v4_prism-clear_1181_954.fnu.png" height=200px>              | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/jades-gdn2-v4/jades-gdn2-v4_prism-clear_1181_954.flam.png" height=200px>              |
+| 26 | rubies-egs53-v4     | rubies-egs53-v4_prism-clear_4233_42046.spec.fits    |  5.27719 | 10.8159 |           1213.54    | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.79536781%2C52.78884663" height=200px> | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=214.79536781%2C52.78884663&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233005003" height=200px> | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-egs53-v4/rubies-egs53-v4_prism-clear_4233_42046.fnu.png" height=200px>        | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-egs53-v4/rubies-egs53-v4_prism-clear_4233_42046.flam.png" height=200px>        |
+| 27 | snh0pe-v4           | snh0pe-v4_prism-clear_4446_274.spec.fits            |  4.10583 | 10.8132 |              4.80224 | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=171.82361288%2C42.46963868" height=200px> | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=171.82361288%2C42.46963868&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04446001001" height=200px> | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/snh0pe-v4/snh0pe-v4_prism-clear_4446_274.fnu.png" height=200px>                      | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/snh0pe-v4/snh0pe-v4_prism-clear_4446_274.flam.png" height=200px>                      |
+| 28 | rubies-uds23-v4     | rubies-uds23-v4_prism-clear_4233_155916.spec.fits   |  4.09409 | 10.7958 |             47.1011  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.3170308%2C-5.12761145" height=200px>   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.3170308%2C-5.12761145&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233002003" height=200px>   | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds23-v4/rubies-uds23-v4_prism-clear_4233_155916.fnu.png" height=200px>       | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds23-v4/rubies-uds23-v4_prism-clear_4233_155916.flam.png" height=200px>       |
+| 29 | uncover-v4          | uncover-v4_prism-clear_2561_4286.spec.fits          |  5.83522 | 10.7673 |            730.932   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.61920101%2C-30.42327034" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=3.61920101%2C-30.42327034&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw02561002002" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-v4/uncover-v4_prism-clear_2561_4286.fnu.png" height=200px>                   | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/uncover-v4/uncover-v4_prism-clear_2561_4286.flam.png" height=200px>                   |
+| 30 | jades-gds-w07-v4    | jades-gds-w07-v4_prism-clear_1212_6071.spec.fits    |  5.55195 | 10.7579 |           1022.83    | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=53.16270355%2C-27.8731285" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=53.16270355%2C-27.8731285&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw01212007001" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/jades-gds-w07-v4/jades-gds-w07-v4_prism-clear_1212_6071.fnu.png" height=200px>       | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/jades-gds-w07-v4/jades-gds-w07-v4_prism-clear_1212_6071.flam.png" height=200px>       |
+| 31 | rubies-uds43-v4     | rubies-uds43-v4_prism-clear_4233_19735.spec.fits    |  4.8047  | 10.7567 |            241.777   | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=2.0&asinh=True&filters=f115w-clear%2Cf277w-clear%2Cf444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.30109423%2C-5.28798532" height=200px>  | <img src="https://grizli-cutout.herokuapp.com/thumb?size=1.5&scl=4.0&invert=True&filters=f444w-clear&rgb_scl=1.5%2C0.74%2C1.3&pl=2&coord=34.30109423%2C-5.28798532&nirspec=True&dpi_scale=6&nrs_lw=0.5&nrs_alpha=0.8&metafile=jw04233004003" height=200px>  | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds43-v4/rubies-uds43-v4_prism-clear_4233_19735.fnu.png" height=200px>        | <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds43-v4/rubies-uds43-v4_prism-clear_4233_19735.flam.png" height=200px>        |
+
 
 ## Read a spectrum
 
@@ -1258,6 +1348,18 @@ spec_file = 'rubies-egs61-v4_prism-clear_4233_75646.spec.fits'
 row = tab[tab['file'] == spec_file][0]
 spec = msaexp.spectrum.SpectrumSampler(FITS_URL.format(**row))
 ```
+
+
+```python
+row['Mass']
+```
+
+
+
+
+    10.873998434439217
+
+
 
 
 ```python
@@ -1298,13 +1400,13 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x176c06510>
+    <matplotlib.legend.Legend at 0x150bd3da0>
 
 
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_28_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_30_1.png)
     
 
 
@@ -1371,13 +1473,13 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x37707c0b0>
+    <matplotlib.legend.Legend at 0x15369dc10>
 
 
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_33_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_35_1.png)
     
 
 
@@ -1434,7 +1536,7 @@ axes[0].set_ylim(-1, 10)
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_35_2.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-05-01-nirspec-merged-table-v4_files/nirspec-merged-table-v4_37_2.png)
     
 
 
