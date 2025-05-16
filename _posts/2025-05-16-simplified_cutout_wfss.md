@@ -14,6 +14,8 @@ Simplified extraction of the grism spectrum for an arbitrary sky position within
 
 Totally ignore the full-field contamination model and fit the 2D spectra with flexible spline components to model out continuum / contamination and isolate emission lines.  **No detection image, catalog, segmentation image required!.**
 
+[2025-05-16-simplified_cutout_wfss.ipynb](https://github.com/dawn-cph/dja/blob/master/assets/post_files/2025-05-16-simplified_cutout_wfss.ipynb) Notebook
+
 <a href="https://colab.research.google.com/github/dawn-cph/dja/blob/master/assets/post_files/2025-05-16-simplified_cutout_wfss.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg"> </a>
 
 
