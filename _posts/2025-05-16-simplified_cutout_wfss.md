@@ -44,7 +44,7 @@ except ImportError:
 
 ## Environment variables
 
-Requires an AWS account for downloading exposures, though the functionality shouldn't generate any charges.
+Requires an AWS account for downloading exposures, though the functionality shouldn't generate any charges.  If running in Google Colab, set the AWS credentials variables in the "Secrets" tab at the left with the key icon.
 
 
 ```python
