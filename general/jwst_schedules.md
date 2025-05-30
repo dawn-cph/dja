@@ -21,6 +21,112 @@ JSON files with full parsed schedule entries:
 ## Cycle 3
 
 
+### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250602_report_20250529.txt" > 20250602_report_20250529.txt </a>
+
+|  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
+| :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
+| 2025.06.08 | 17:48:30  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5311"> 5311 </a> |   2:1  |  <span style="color:#e155a6;"> 10:22:53 </span>  | NIRCam Grism Time Series              | AU-MIC                                       |  Exoplanet Systems,  Exoplanets,  M stars         |
+| 2025.06.08 | 15:42:20  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6696"> 6696 </a> |  84:1  |  <span style="color:#d4b9da;"> 00:34:07 </span>  | WFSC NIRCam Fine Phasing              | 2MASS-17505832+6914281                       |  Focus test                                       |
+| 2025.06.08 | 14:06:37  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:17 |  <span style="color:#d4b9da;"> 01:23:29 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.08 | 12:37:36  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:16 |  <span style="color:#d4b9da;"> 01:23:29 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.08 | 11:05:32  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:15 |  <span style="color:#d4b9da;"> 01:26:32 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.08 | 09:31:41  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:14 |  <span style="color:#d4b9da;"> 01:26:32 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.08 | 07:57:59  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:13 |  <span style="color:#d4b9da;"> 01:26:32 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.08 | 06:21:51  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:12 |  <span style="color:#d4b9da;"> 01:26:32 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.07 | 22:34:42  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6625"> 6625 </a> |   1:1  |  <span style="color:#d776b8;"> 06:50:40 </span>  | MIRI External Flat                    | NGC-5139                                     |  Globular star clusters                           |
+| 2025.06.07 | 20:14:42  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:11 |  <span style="color:#d4b9da;"> 01:23:29 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.07 | 18:42:38  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:10 |  <span style="color:#d4b9da;"> 01:26:32 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.07 | 17:11:59  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:9  |  <span style="color:#d4b9da;"> 01:23:29 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.07 | 15:39:55  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:8  |  <span style="color:#d4b9da;"> 01:26:32 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.06 | 22:32:40  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5328"> 5328 </a> |   4:1  |  <span style="color:#e155a6;"> 16:27:12 </span>  | NIRSpec MOS      | science+ref-full-unique-05mar25              |                                                   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6434"> 6434 </a> | 371:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6434"> 6434 </a> | 372:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6434"> 6434 </a> | 373:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6434"> 6434 </a> | 374:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+| 2025.06.06 | 21:01:03  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4564"> 4564 </a> |   4:1  |  <span style="color:#d4b9da;"> 00:46:25 </span>  | MIRI MRS IFU   | V-SZ-CHA                                     |  Pre-main sequence stars,  Protoplanetary disks,  T Tauri stars |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6634"> 6634 </a> | 388:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6634"> 6634 </a> | 389:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6634"> 6634 </a> | 390:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
+| 2025.06.06 | 18:29:50  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:7  |  <span style="color:#d4b9da;"> 01:26:32 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.06 | 16:27:07  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4678"> 4678 </a> |   7:1  |  <span style="color:#d4b9da;"> 00:56:57 </span>  | MIRI MRS IFU   | IRAS05360-7121                               |  Carbon stars,  Post-asymptotic giant branch      |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 477:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 478:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 479:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+| 2025.06.06 | 14:46:14  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4678"> 4678 </a> |   6:1  |  <span style="color:#d4b9da;"> 01:27:31 </span>  | MIRI MRS IFU   | IRAS05110-6616                               |  Carbon stars,  Post-asymptotic giant branch      |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 465:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 466:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 467:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+| 2025.06.06 | 12:17:29  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:6  |  <span style="color:#d4b9da;"> 01:23:29 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.06 | 10:48:28  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:5  |  <span style="color:#d4b9da;"> 01:23:29 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.06 | 09:16:24  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:4  |  <span style="color:#d4b9da;"> 01:26:32 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.06 | 07:42:42  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:3  |  <span style="color:#d4b9da;"> 01:26:32 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.06 | 07:03:15  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4931"> 4931 </a> |   2:1  |  <span style="color:#d4b9da;"> 00:10:55 </span>  | MIRI LRS slit      | TOI-4481-BKG                                 |  Exoplanets                                       |
+| 2025.06.06 | 03:12:32  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4931"> 4931 </a> |   1:1  |  <span style="color:#d4b9da;"> 03:42:39 </span>  | MIRI LRS slit      | TOI-4481                                     |  Exoplanets                                       |
+| 2025.06.06 | 00:09:14  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5491"> 5491 </a> |   6:1  |  <span style="color:#d4b9da;"> 01:33:43 </span>  | MIRI MRS IFU   | BACKGROUND-PKS1413+135                       |  Telescope/sky background                         |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 387:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 388:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 389:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+| 2025.06.05 | 21:04:04  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5491"> 5491 </a> |   5:1  |  <span style="color:#d4b9da;"> 02:58:05 </span>  | MIRI MRS IFU   | PKS1413+135                                  |  Active galactic nuclei,  Quasars                 |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 384:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 385:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 386:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+| 2025.06.05 | 13:22:10  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6456"> 6456 </a> |   4:1  |  <span style="color:#d679ba;"> 06:42:39 </span>  | NIRSpec Bright Object Time Series     | TRAPPIST-1                                   |  Exoplanet Systems,  Exoplanets,  M stars         |
+| 2025.06.05 | 10:20:43  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:2  |  <span style="color:#d4b9da;"> 01:26:32 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.05 | 08:56:49  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4678"> 4678 </a> |  15:1  |  <span style="color:#d4b9da;"> 00:22:45 </span>  | NIRSpec Fixed Slit       | 2MASSJ004441-7321                            |  Carbon stars,  Post-asymptotic giant branch      |
+| 2025.06.05 | 06:29:09  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5105"> 5105 </a> |  14:1  |  <span style="color:#d4b9da;"> 01:26:32 </span>  | NIRCam WFSS  | NEXUS-Center                                 |  High Latitude Field                              |
+|  |  |  |   |  |  MIRI Imaging                          | Coordinated Parallel  |   |
+| 2025.06.05 | 04:26:52  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6612"> 6612 </a> |  12:1  |  <span style="color:#d4b9da;"> 00:56:48 </span>  | MIRI External Flat                    | NAME-LMC                                     |  External flat field                              |
+| 2025.06.04 | 21:05:12  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6368"> 6368 </a> |  65:1  |  <span style="color:#d282be;"> 06:21:29 </span>  | NIRSpec MOS      | EGS_cat_2nd_half                             |                                                   |
+|  |  |  |   |  |  NIRCam Imaging                        | Coordinated Parallel  |   |
+| 2025.06.04 | 15:30:00  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=1547"> 1547 </a> |  29:1  |  <span style="color:#cda0cd;"> 05:00:00 </span>  | Station Keeping                       |                                              |                                                   |
+| 2025.06.04 | 12:55:58  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6005"> 6005 </a> | 112:1  |  <span style="color:#d4b9da;"> 01:02:00 </span>  | NIRCam Coronagraphic Imaging          | 15071805+2452094                             |  Exoplanet Systems,  Exoplanets,  F dwarfs        |
+| 2025.06.04 | 11:34:38  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4529"> 4529 </a> |   2:1  |  <span style="color:#d4b9da;"> 00:35:27 </span>  | MIRI Imaging                          | CENA-NUC                                     |  Active galactic nuclei                           |
+| 2025.06.04 | 10:50:49  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4529"> 4529 </a> |   1:1  |  <span style="color:#d4b9da;"> 00:38:30 </span>  | MIRI Imaging                          | CENA-WEST                                    |  Active galactic nuclei                           |
+| 2025.06.04 | 05:45:55  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5354"> 5354 </a> |   1:1  |  <span style="color:#cea4cf;"> 04:49:46 </span>  | NIRSpec IFU              | NGC4696                                      |  Brightest cluster galaxies,  Intracluster medium |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 376:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 377:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
+| 2025.06.04 | 03:40:10  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4979"> 4979 </a> |   2:1  |  <span style="color:#d4b9da;"> 01:13:12 </span>  | NIRSpec Bright Object Time Series     | Gaia14aae                                    |  Compact binary stars                             |
+| 2025.06.04 | 02:54:15  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6695"> 6695 </a> | 187:1  |  <span style="color:#d4b9da;"> 00:34:07 </span>  | WFSC NIRCam Fine Phasing              | 2MASS-16491200+6247177                       |  Focus test                                       |
+| 2025.06.04 | 01:46:46  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4668"> 4668 </a> |  24:1  |  <span style="color:#d4b9da;"> 00:25:16 </span>  | MIRI LRS slit      | J1256-0224                                   |  Brown dwarfs,  L subdwarfs,  Population II stars |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6648"> 6648 </a> |  88:1  |  |  NIRSpec Internal Lamp                 | Internal Calibration  |   |
+| 2025.06.03 | 13:49:46  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4552"> 4552 </a> |   1:1  |  <span style="color:#e155a6;"> 11:28:43 </span>  | NIRSpec MOS      | m1149_1150+2224_msa_GTO4552_3                |                                                   |
+|  |  |  |   |  |  NIRCam Imaging                        | Coordinated Parallel  |   |
+| 2025.06.03 | 10:44:56  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5791"> 5791 </a> |   6:4  |  <span style="color:#d4b9da;"> 02:22:11 </span>  | NIRSpec MOS      | Tr14_RefVetted                               |                                                   |
+| 2025.06.03 | 04:44:20  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5791"> 5791 </a> |   6:3  |  <span style="color:#cd8cc3;"> 05:55:22 </span>  | NIRSpec MOS      | Tr14_RefVetted                               |                                                   |
+| 2025.06.03 | 00:09:10  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5866"> 5866 </a> |   3:1  |  <span style="color:#d3b6d9;"> 03:54:28 </span>  | NIRISS SOSS  | WOLF-437                                     |  Exoplanet Systems,  Exoplanets,  M dwarfs        |
+| 2025.06.02 | 20:01:55  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4912"> 4912 </a> |   3:1  |  <span style="color:#d4b9da;"> 03:20:48 </span>  | NIRSpec IFU              | J1319+0950                                   |  Active galactic nuclei,  Quasars                 |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6651"> 6651 </a> |  37:1  |  |  NIRISS Dark                           | Internal Calibration  |   |
+| 2025.06.02 | 19:13:13  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6665"> 6665 </a> |  11:1  |  <span style="color:#d4b9da;"> 00:30:48 </span>  | NIRCam Imaging                        | J133254.51+005250.6                          |  Blank field                                      |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6648"> 6648 </a> |  87:1  |  |  NIRSpec Internal Lamp                 | Internal Calibration  |   |
+| 2025.06.02 | 14:24:00  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5791"> 5791 </a> |   6:2  |  <span style="color:#d2b2d6;"> 04:08:10 </span>  | NIRSpec MOS      | Tr14_RefVetted                               |                                                   |
+|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=1520"> 1520 </a> | 153:1  |  |  MIRI Anneal                           | Internal Calibration  |   |
+| 2025.06.02 | 08:01:22  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5799"> 5799 </a> |   1:1  |  <span style="color:#ca92c6;"> 05:42:13 </span>  | NIRISS SOSS  | TOI-3884                                     |  M dwarfs                                         |
+| 2025.06.02 | 06:24:34  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5989"> 5989 </a> |  29:1  |  <span style="color:#d4b9da;"> 00:29:00 </span>  | NIRCam Imaging                        | NGC-4927                                     |  Elliptical galaxies                              |
+|  |  |  |   |  |  NIRISS Imaging                        | Coordinated Parallel  |   |
+| 2025.06.02 | 05:30:01  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6616"> 6616 </a> |  25:1  |  <span style="color:#d4b9da;"> 00:19:09 </span>  | MIRI MRS IFU   | Clean_North_CVZ_IMA_back                     |  Stray light test,  Telescope/sky background      |
+| 2025.06.02 | 04:27:43  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6616"> 6616 </a> |  24:1  |  <span style="color:#d4b9da;"> 00:56:19 </span>  | MIRI MRS IFU   | Clean_North_CVZ_MRS                          |  Stray light test,  Telescope/sky background      |
+| 2025.06.02 | 03:32:34  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4453"> 4453 </a> |  18:1  |  <span style="color:#d4b9da;"> 00:35:38 </span>  | NIRCam Grism Time Series              | 2MASS-J17430448+6655015                      |  A stars                                          |
+| 2025.06.02 | 03:02:10  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4453"> 4453 </a> |  17:1  |  <span style="color:#d4b9da;"> 00:25:35 </span>  | NIRCam Engineering Imaging            | 2MASS-J17430448+6655015                      |  A stars                                          |
+| 2025.06.02 | 02:21:20  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4453"> 4453 </a> |  16:1  |  <span style="color:#d4b9da;"> 00:35:38 </span>  | NIRCam Grism Time Series              | 2MASS-J17430448+6655015                      |  A stars                                          |
+| 2025.06.02 | 01:47:35  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4453"> 4453 </a> |  15:1  |  <span style="color:#d4b9da;"> 00:28:38 </span>  | NIRCam Engineering Imaging            | 2MASS-J17430448+6655015                      |  A stars                                          |
+
+
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250527_report_20250523.txt" > 20250527_report_20250523.txt </a>
 
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
