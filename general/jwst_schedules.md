@@ -21,29 +21,28 @@ JSON files with full parsed schedule entries:
 ## Cycle 3
 
 
-### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250616_report_20250612.txt" > 20250616_report_20250612.txt </a>
+### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20250616_report_20250616.txt" > 20250616_report_20250616.txt </a>
 
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
-| 2025.06.22 | 09:16:04  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5943"> 5943 </a> |  15:1  |  <span style="color:#e155a6;"> 19:33:41 </span>  | NIRSpec MOS      | pointing2_pa268_c1                           |                                                   |
+| 2025.06.22 | 08:16:39  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5943"> 5943 </a> |  15:1  |  <span style="color:#e155a6;"> 19:33:41 </span>  | NIRSpec MOS      | pointing2_pa268_c1                           |                                                   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 483:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 484:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 485:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 486:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 487:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 488:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
-| 2025.06.22 | 05:17:15  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5743"> 5743 </a> |   2:1  |  <span style="color:#d4b9da;"> 02:55:16 </span>  | NIRSpec Fixed Slit       | Offset_pointing_star, FRBHost                |  M stars                                          |
+| 2025.06.22 | 04:17:57  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5743"> 5743 </a> |   2:1  |  <span style="color:#d4b9da;"> 02:55:16 </span>  | NIRSpec Fixed Slit       | Offset_pointing_star, FRBHost                |  M stars                                          |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6651"> 6651 </a> |  36:1  |  |  NIRISS Dark                           | Internal Calibration  |   |
-| 2025.06.22 | 01:27:26  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5718"> 5718 </a> |   1:2  |  <span style="color:#d4b9da;"> 02:46:08 </span>  | NIRSpec MOS      | Skyfire_Primary_wFillers+Stars               |                                                   |
+| 2025.06.22 | 00:28:15  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5718"> 5718 </a> |   1:2  |  <span style="color:#d4b9da;"> 02:46:08 </span>  | NIRSpec MOS      | Skyfire_Primary_wFillers+Stars               |                                                   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6434"> 6434 </a> | 522:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
-| 2025.06.21 | 05:43:25  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5943"> 5943 </a> |  20:1  |  <span style="color:#e155a6;"> 19:33:41 </span>  | NIRSpec MOS      | pointing1_pa271_c1                           |                                                   |
+| 2025.06.21 | 04:44:14  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5943"> 5943 </a> |  20:1  |  <span style="color:#e155a6;"> 19:33:41 </span>  | NIRSpec MOS      | pointing1_pa271_c1                           |                                                   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 489:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 490:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 491:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 492:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 493:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5398"> 5398 </a> | 494:1  |  |  NIRCam WFSS  | Pure Parallel  |   |
-| 2025.06.21 | 04:59:36  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6605"> 6605 </a> | 119:1  |  <span style="color:#d4b9da;"> 00:14:11 </span>  | NIRCam Imaging                        | GD153                                        |  White dwarfs                                     |
 | 2025.06.21 | 02:58:18  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=6005"> 6005 </a> | 120:1  |  <span style="color:#d4b9da;"> 01:04:44 </span>  | NIRCam Coronagraphic Imaging          | 20395460+0620118                             |  Exoplanet Systems,  Exoplanets,  K dwarfs        |
 | 2025.06.21 | 01:03:56  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5645"> 5645 </a> | 197:1  |  <span style="color:#d4b9da;"> 00:59:02 </span>  | NIRSpec IFU              | J1250+3130                                   |  High-redshift galaxies,  Quasars                 |
 | 2025.06.20 | 23:50:50  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5645"> 5645 </a> | 196:1  |  <span style="color:#d4b9da;"> 00:59:02 </span>  | NIRSpec IFU              | J1243+2529                                   |  High-redshift galaxies,  Quasars                 |
