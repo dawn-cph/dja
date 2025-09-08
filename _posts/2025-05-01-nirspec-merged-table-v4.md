@@ -2,8 +2,6 @@
 layout: post
 title:   NIRSpec Merged Table
 date:   2025-05-01 10:11:28 +0200
-5 September 
-Update: 5 September
 categories: spectroscopy
 tags: nirspec release catalog
 author: Gabriel Brammer
@@ -24,7 +22,7 @@ Demo of full merged table of NIRSpec spectra reduced with [msaexp](http://github
 
 The public spectra are shown in a large overview table at [public_prelim_v4.2.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/public_prelim_v4.2.html).
 
-## Update: 5 September 2025
+## 5 September 2025
 
 The notebook has been updated to use a new version ``v4.4`` of the merged table.
 
@@ -33,7 +31,6 @@ The notebook has been updated to use a new version ``v4.4`` of the merged table.
 - The summary table and tables of compiled spectra now include *all* available spectra, whether or not they had been processed with the redshift fit algorithm.
 - Companion overview table at [nirspec_public_v4.4.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/nirspec_public_v4.4.html?&grade_min=2.5&grade_max=3.5).  (Now has the same length as the summary table here.)
 - All files provided at the static [DOI 10.5281/zenodo.1547235](https://zenodo.org/records/15472354).  See README.md at the zenodo page for more information on the release contents.
-
 
 # README
 
@@ -880,7 +877,7 @@ for j in tqdm(np.where(canucs)[0]):
         )
 ```
 
-    100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 1534/1534 [00:00<00:00, 100148.84it/s]
+    100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 1534/1534 [00:00<00:00, 97100.33it/s]
 
 
 ## zphot - zspec
@@ -1109,7 +1106,7 @@ utils.Unique(tab['root'], sort_counts=False)
 
 
 
-    <grizli.utils.Unique at 0x15f744d70>
+    <grizli.utils.Unique at 0x307cc9130>
 
 
 
@@ -1629,7 +1626,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x169c34890>
+    <matplotlib.legend.Legend at 0x1046e1940>
 
 
 
@@ -1741,7 +1738,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x3b74cabd0>
+    <matplotlib.legend.Legend at 0x3baa4ea50>
 
 
 
@@ -1886,7 +1883,7 @@ rest_flux_norm[~np.isfinite(rest_flux_norm)] = 0
     (2838,)
 
 
-    34949it [00:02, 14581.32it/s]
+    34949it [00:02, 14248.53it/s]
 
 
 
@@ -2354,7 +2351,7 @@ ax.grid()
     
 
 
-## Stellar mass vs grating [NII] / H𝛼
+## Stellar mass vs grating [NII] / H$\alpha$
 
 Rough tracer of the mass-metallicity relation.
 
