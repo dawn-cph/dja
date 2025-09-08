@@ -2,6 +2,8 @@
 layout: post
 title:   NIRSpec Merged Table
 date:   2025-05-01 10:11:28 +0200
+Update: 12 August
+Update: 5 September
 categories: spectroscopy
 tags: nirspec release catalog
 author: Gabriel Brammer
@@ -22,19 +24,12 @@ Demo of full merged table of NIRSpec spectra reduced with [msaexp](http://github
 
 The public spectra are shown in a large overview table at [public_prelim_v4.2.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/public_prelim_v4.2.html).
 
-## Update: 12 August 2025
-
-The notebook has been updated to use a new version ``v4.3`` of the merged table.
-
-- Includes PRISM spectra from the [CANUCS GTO](https://niriss.github.io/data_release1.html) program, along with a number of additional public datasets
-- Merged files of the 1D spectra in all gratings are now available
-- Companion overview table at [nirspec_public_v4.3.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/nirspec_public_v4.3.html)
-
 ## Update: 5 September 2025
 
-The notebook has been updated to use a new version ``v4.3`` of the merged table.
+The notebook has been updated to use a new version ``v4.4`` of the merged table.
 
-- Includes a few additional recent public masks
+- Includes PRISM spectra from the [CANUCS GTO](https://niriss.github.io/data_release1.html) program, along with a number of additional public datasets
+- Merged files of the 1D spectra in all gratings are now available, with some [grating examples](#Merged-1D-grating-spectra) added at the end of the demo.
 - The summary table and tables of compiled spectra now include *all* available spectra, whether or not they had been processed with the redshift fit algorithm.
 - Companion overview table at [nirspec_public_v4.4.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/nirspec_public_v4.4.html?&grade_min=2.5&grade_max=3.5).  (Now has the same length as the summary table here.)
 - All files provided at the static [DOI 10.5281/zenodo.1547235](https://zenodo.org/records/15472354).  See README.md at the zenodo page for more information on the release contents.
