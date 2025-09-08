@@ -16,9 +16,12 @@ navigation_weight: 10
 
 Here you can find various ways to access uniformly-reduced public NIRSpec datasets:
 
-- [nirspec_graded_v3.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/nirspec_graded_v3.html): Searchable table of all public spectra reduced so far
+<!-- - [nirspec_graded_v3.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/nirspec_graded_v3.html): Searchable table of all public spectra reduced so far -->
+- [nirspec_public_v4.4.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/nirspec_public_v4.4.html):Searchable table of all public spectra reduced so far
+- See the [nirspec-merged-table-v4]({{ site.baseurl }}/blog/2025/05/01/nirspec-merged-table-v4/) post for information on working with summary tables of all of the reduced spectra and metadata
 - For pannable images with various possible layers, including HST and JWST filters as well as spectral observations, see the [Map View]({{ site.baseurl }}/general/mapview/) pages. To see individual spectra, pan over a source with the different *Spectra* overlays enabled.
 - See the [nirspec-data-products]({{ site.baseurl }}/blog/2023/07/18/nirspec-data-products/) post for examples on working directly with the catalog and individual extracted spectra
+- The ``root`` column below is a general rootname simply indicating spectra that were reduced together.  For many programs that corresponds to individual MSA mask plans (e.g., RUBIES), but for some programs a single ``root`` name can correspond to multiple masks.  For those roots that contain multiple mask plans, all spectra of a particular source from potentially multiple plans were co-added.  This inconsistency of the co-addition treatment is due to the rolling nature of the processing of archival datasets as they became public and may be standardized in future reductions.
 
 > More documentation coming soon. The spectroscopy reduction process is described in
 > [de Graaff et al. (2024)](https://ui.adsabs.harvard.edu/abs/2024arXiv240905948D/abstract) and 
@@ -27,13 +30,26 @@ Here you can find various ways to access uniformly-reduced public NIRSpec datase
 > The [msaexp](https://github.com/gbrammer/msaexp) software used to process the
 > spectra is freely available.
 
+
+## Public NIRSpec datasets (v4)
+
+<!-- python dja_nirspec_summary.py -->
+
+These are the public datasets in the [nirspec_public_v4.4.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/nirspec_public_v4.4.html?&grade_min=2.5) compilation also described in [nirspec-merged-table-v4]({{ site.baseurl }}/blog/2025/05/01/nirspec-merged-table-v4/).
+
+- The ``v4`` reductions significantly extend the wavelength range of the extracted spectra to regions that may suffer contamination of overlapping spectral orders. The sensitivity of the higher orders is strongly weighted toward the blue side of the spectrum for all gratings, so, in practice, relatively red galaxies often suffer relatively minor order contamination.
+- As below, exposure time per spectrum *t* (in hours) computed from `median(exptime)` in the spectra files, which isn't quite correct and double-counts exposure times for spectral extractions that overlap both NRS1 and NRS2 detectors
+- "*N* total" is the total number of estimated *unique sources* in that complation.
+
+{% include assets/dja_nirspec_summary_v4.md %}
+
 ## Public NIRSpec datasets (v3)
 
 These are the public datasets in the [nirspec_graded_v3.html](https://s3.amazonaws.com/msaexp-nirspec/extractions/nirspec_graded_v3.html) compilation:
 
 <!-- python dja_nirspec_summary.py -->
 
-{% include assets/dja_nirspec_summary.md %}
+{% include assets/dja_nirspec_summary_v3.md %}
 
 - The ``root`` column is a general rootname simply indicating spectra that were reduced together.  For many programs that corresponds to individual MSA mask plans (e.g., RUBIES), but for some programs a single ``root`` name can correspond to multiple masks.  For those roots that contain multiple mask plans, all spectra of a particular source from potentially multiple plans were co-added.  This inconsistency of the co-addition treatment is due to the rolling nature of the processing of archival datasets as they became public and may be standardized in future reductions.
 - The ``root`` values are linked to individual tables summarizing the sources in that mask.  Those tables have slightly different columns than the grade summary as they are generated before the redshifts are estimated from the spectra.
