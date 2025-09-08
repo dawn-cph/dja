@@ -2,7 +2,6 @@
 layout: post
 title:   NIRSpec Merged Table
 date:   2025-05-01 10:11:28 +0200
-12 August 
 5 September 
 Update: 5 September
 categories: spectroscopy
@@ -209,7 +208,12 @@ version = "v4.4" # Updated September 5, 2025.  Include all public spectra even w
 
 URL_PREFIX = "https://s3.amazonaws.com/msaexp-nirspec/extractions"
 
+# Use the Zenodo release
+if version == "v4.4":
+    URL_PREFIX = "https://zenodo.org/records/15472354/files/"
+
 table_url = f"{URL_PREFIX}/dja_msaexp_emission_lines_{version}.csv.gz"
+
 tab = utils.read_catalog(download_file(table_url, cache=CACHE_DOWNLOADS), format='csv')
 ```
 
@@ -876,7 +880,7 @@ for j in tqdm(np.where(canucs)[0]):
         )
 ```
 
-    100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 1534/1534 [00:00<00:00, 92828.88it/s]
+    100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████| 1534/1534 [00:00<00:00, 100148.84it/s]
 
 
 ## zphot - zspec
