@@ -1,4 +1,4 @@
-name: Run parse_jwst_schedule.py
+name: Run generate_data_dashboard.py
 
 on:
   workflow_dispatch:
