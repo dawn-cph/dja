@@ -205,7 +205,7 @@ def dashboard_nirspec():
 
         res = res[unique_indices]
 
-    skip = np.in1d(res["filter"], ["OPAQUE"])
+    skip = np.isin(res["filter"], ["OPAQUE"])
     skip |= np.isin(
         res["scicat"], ["Solar System Astronomy", "Exoplanets and Exoplanet Formation"]
     )
@@ -283,7 +283,7 @@ def dashboard_imaging():
     res["release"] = astropy.time.Time(res["publicReleaseDate_mjd"], format="mjd").iso
     res["observed"] = astropy.time.Time(res["expstart"], format="mjd").iso
 
-    res = res[np.in1d(res["instrument_name"], ["NIRISS", "NIRCAM", "MIRI"])]
+    res = res[np.isin(res["instrument_name"], ["NIRISS", "NIRCAM", "MIRI"])]
 
     # No MIRI spec
     res = res[res["inst-mode"] != "MIRI-None"]
