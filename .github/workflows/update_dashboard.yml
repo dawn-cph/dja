@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   schedule:
     # https://crontab.guru/#40_9_*_*_0
-    # Run at 07:00 UTC every day
-    - cron: "00 7 * * *" 
+    # At 05:00 on Monday, Wednesday, and Friday.
+    - cron: "00 5 * * 1,3,5" 
 
 jobs:
   UpdateDataDashboard:
@@ -23,11 +23,11 @@ jobs:
         with:
           python-version: '3.10'
           cache: 'pip' # caching pip dependencies
-      - run: pip install -r _includes/assets/dashboard/requirements.txt
+      - run: pip install -r assets/dashboard/requirements.txt
 
       - name: Run script
         shell: bash
-        run: cd _includes/assets/dashboard; python generate_data_dashboard.py
+        run: cd _includes/assets/dashboard; python ../../../assets/dashboard/generate_data_dashboard.py
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9

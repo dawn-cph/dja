@@ -117,7 +117,13 @@ def query_summary(res):
     pub_split = summ['release'] > now_iso
     if pub_split.sum() > 0:
         j = np.where(pub_split)[0][0]
-        summ.insert_row(j, vals={"observed": "**Now**", "release": "**" + now_iso[:len("2025-09-01 01:18")] + "**"})
+        summ.insert_row(
+            j,
+            vals={
+                "observed": "**Query**",
+                "release": "**" + now_iso[:len("2025-09-01 01:18")] + "**"
+            }
+        )
         
     return summ
 
@@ -242,7 +248,7 @@ def dashboard_nirspec():
     if len(res) > 0:
         with open("nirspec.md","w") as fp:
             fp.write(f"""
-*xxx query executed {now_iso}*
+xxx query: *{now_iso[:len("2025-09-01 01:18")]} ± {dt} days*
 
 """.replace("xxx","[nirspec.csv]( {{ site.baseurl }}{% link assets/dashboard/nirspec.csv %} )"))
             fp.write(query_summary(res).to_pandas().to_markdown(index=False))
@@ -351,7 +357,7 @@ def dashboard_imaging():
     if len(res) > 0:
         with open("imaging.md","w") as fp:
             fp.write(f"""
-*xxx query executed {now_iso}*
+xxx query: *{now_iso[:len("2025-09-01 01:18")]} ± {dt} days*
 
 """.replace("xxx","[imaging.csv]( {{ site.baseurl }}{% link assets/dashboard/imaging.csv %} )"))
             fp.write(query_summary(res).to_pandas().to_markdown(index=False))
