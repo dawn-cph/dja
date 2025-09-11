@@ -1,0 +1,36 @@
+name: Run parse_jwst_schedule.py
+
+on:
+  workflow_dispatch:
+  schedule:
+    # https://crontab.guru/#40_9_*_*_0
+    # Run at 07:00 UTC every day
+    - cron: "00 7 * * *" 
+
+jobs:
+  UpdateJWSTSchedule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Build python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip' # caching pip dependencies
+      - run: pip install -r _includes/assets/dashboard/requirements.txt
+
+      - name: Run script
+        shell: bash
+        run: cd _includes/assets/dashboard; python generate_data_dashboard.py
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: 'Update JWST schedules from the GH Action'
