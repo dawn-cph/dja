@@ -8,7 +8,7 @@ on:
     - cron: "00 7 * * *" 
 
 jobs:
-  UpdateJWSTSchedule:
+  UpdateDataDashboard:
     runs-on: ubuntu-latest
 
     steps:
