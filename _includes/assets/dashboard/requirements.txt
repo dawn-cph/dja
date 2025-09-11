@@ -4,3 +4,4 @@ urllib3
 pyyaml
 grizli
 mastquery
+pandas
