@@ -78,7 +78,7 @@
 				border-bottom: 0;
 				margin: ($pad * -1) 0 ($pad * 2) ($pad * -1);
 				padding: $pad;
-				width: 100% + #{$pad * 2};
+				width: calc(100% + #{$pad * 2});
 			}
 		}
 

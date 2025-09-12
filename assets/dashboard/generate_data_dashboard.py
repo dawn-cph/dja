@@ -13,7 +13,7 @@ now = utils.nowtime().mjd
 now_iso = utils.nowtime().iso
 print(now_iso)
 
-dt = 14
+dt = 30
 
 def query_summary(res):
     # uni = utils.Unique(res['program'], verbose=False)
@@ -39,7 +39,7 @@ def query_summary(res):
         so = np.argsort(res["release"][pi])
 
         row = {
-            "count": pi.sum(),
+            "count": f'{pi.sum()}',
             "proposal_id": "[{category}-{program}](https://www.stsci.edu/jwst-program-info/visits/?program={program})".format(
                 **row_i
             ),
@@ -49,6 +49,7 @@ def query_summary(res):
             "exp_type": " ".join(np.unique(res["exp_type"][pi]).tolist())
             .replace("NRS_", "")
             .replace("FIXEDSLIT", "FS")
+            .replace("LRS-FS", "LRS")
             .replace("MSASPEC", "MSA"),
             "observed": res["observed"][pi][so[0]][: len("2025-09-01 01:18")],
             "release": res["release"][pi][so[0]][: len("2025-09-01 01:18")],
@@ -120,6 +121,7 @@ def query_summary(res):
         summ.insert_row(
             j,
             vals={
+                "count":"",
                 "observed": "**Query**",
                 "release": "**" + now_iso[:len("2025-09-01 01:18")] + "**"
             }
@@ -260,19 +262,22 @@ def dashboard_imaging():
 
     filters = []
 
-    filters += mastquery.jwst.make_query_filter("subarray", values=["FULL"])
     filters += mastquery.jwst.make_query_filter(
         "publicReleaseDate_mjd", range=[now - dt, now + dt]
     )
     filters += mastquery.jwst.make_query_filter(
         "productLevel", values=["1a", "1b", "2a", "2b"]
     )
+
+    filters += mastquery.jwst.make_query_filter("subarray", values=["FULL"])
+
     filters += mastquery.jwst.make_query_filter(
         "detector", values=["MIRIMAGE", "NIS", "NRCA1", "NRCALONG", "NRCB1", "NRCBLONG"]
     )
     filters += mastquery.jwst.make_query_filter(
-        "exp_type", values=["MIR_IMAGE", "NIS_IMAGE", "NIS_WFSS", "NRC_WFSS"]
+        "exp_type", values=["MIR_IMAGE", "NIS_IMAGE", "NRC_IMAGE", "NIS_WFSS", "NRC_WFSS"]
     )
+
     filters += mastquery.jwst.make_query_filter("patt_num", values=[1])
 
     extensions = ["rate", "cal", "rateints", "uncal"]
@@ -363,9 +368,101 @@ xxx query: *{now_iso[:len("2025-09-01 01:18")]} ± {dt} days*
             fp.write(query_summary(res).to_pandas().to_markdown(index=False))
 
 
+def dashboard_mirispec():
+    ### MIRI Spectroscopy
+    extra_filters = []
+
+    extra_filters += mastquery.jwst.make_query_filter(
+        "exp_type", values=["MIR_LRS-FIXEDSLIT", "MIR_MRS"]
+    )
+
+    extra_filters += mastquery.jwst.make_query_filter(
+        "instrume", values=["MIRI"]
+    )
+
+    extra_filters += mastquery.jwst.make_query_filter(
+        "productLevel",
+        values=["3"],
+    )
+
+    # Public
+    extra_filters += mastquery.jwst.make_query_filter(
+        "publicReleaseDate_mjd", range=[now - dt, now + dt]
+    )
+
+    extensions = ["rate", "uncal", "cal", 's2d','s3d']
+
+    query = []
+
+    print("Query: ")
+    for q in query + extra_filters:
+        print(q)
+
+    res = mastquery.jwst.query_jwst(
+        instrument="MIR",
+        filters=query + extra_filters,
+        extensions=extensions,
+        # recent_days=2000,
+        rates_and_cals=False,
+    )
+
+
+    # Unique rows
+    rates = []
+    unique_indices = []
+
+    skip = np.isin(res["filter"], ["OPAQUE"])
+    skip |= np.isin(
+        res["scicat"], ["Solar System Astronomy", "Exoplanets and Exoplanet Formation"]
+    )
+
+    if "is_imprt" in res.colnames:
+        for j, imp in enumerate(res["is_imprt"]):
+            skip[j] |= imp == "t"
+ 
+    if skip.sum() > 0:
+        print(f"Remove {skip.sum()} rows")
+        res = res[~skip]
+
+    res["release"] = astropy.time.Time(res["publicReleaseDate_mjd"], format="mjd").iso
+
+    res["observed"] = astropy.time.Time(res["expstart"], format="mjd").iso
+
+    so = np.argsort(res["publicReleaseDate_mjd"])
+    res = utils.GTable(res[so])
+
+    un = utils.Unique(res["filename"], verbose=False)
+    res = res[un.unique_index(0)]
+
+    so = np.argsort(res["date_beg_mjd"])
+    res = utils.GTable(res[so])
+    
+    mode = []
+    for i, row in enumerate(res):
+        if row['exp_type'] == 'MIR_LRS-FIXEDSLIT':
+            mode.append(row['filter'])
+        else:
+            mode.append('{channel}{band}'.format(**row["channel","band"])[:2])
+
+    res['filter-pupil'] = mode
+
+    print(f"MIRI spec: {len(res)} rows")
+    
+    res.write("../../../assets/dashboard/mirispec.csv", overwrite=True)
+
+    if len(res) > 0:
+        with open("mirispec.md","w") as fp:
+            fp.write(f"""
+xxx query: *{now_iso[:len("2025-09-01 01:18")]} ± {dt} days*
+
+""".replace("xxx","[mirispec.csv]( {{ site.baseurl }}{% link assets/dashboard/mirispec.csv %} )"))
+            fp.write(query_summary(res).to_pandas().to_markdown(index=False))
+
+
 if __name__ == "__main__":
     
     dashboard_nirspec()
     dashboard_imaging()
+    dashboard_mirispec()
 
     
