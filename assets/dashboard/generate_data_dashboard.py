@@ -13,7 +13,7 @@ now = utils.nowtime().mjd
 now_iso = utils.nowtime().iso
 print(now_iso)
 
-dt = 30
+dt = 14
 
 def query_summary(res):
     # uni = utils.Unique(res['program'], verbose=False)
@@ -118,14 +118,15 @@ def query_summary(res):
     pub_split = summ['release'] > now_iso
     if pub_split.sum() > 0:
         j = np.where(pub_split)[0][0]
-        summ.insert_row(
-            j,
-            vals={
-                "count":"",
-                "observed": "**Query**",
-                "release": "**" + now_iso[:len("2025-09-01 01:18")] + "**"
-            }
-        )
+        
+        vals = {}
+        for c in cols:
+            vals[c] = "—"
+
+        vals["observed"] = "**Query**"
+        vals["release"] = "**" + now_iso[:len("2025-09-01 01:18")] + "**"
+
+        summ.insert_row(j, vals=vals)
         
     return summ
 
@@ -461,8 +462,12 @@ xxx query: *{now_iso[:len("2025-09-01 01:18")]} ± {dt} days*
 
 if __name__ == "__main__":
     
-    dashboard_nirspec()
-    dashboard_imaging()
-    dashboard_mirispec()
+    for func in [dashboard_nirspec, dashboard_imaging, dashboard_mirispec]:
+        for retry in range(3):
+            try:
+                func()
+                break
+            except ValueError:
+                pass
 
     
