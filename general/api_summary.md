@@ -187,7 +187,7 @@ The overlap data can be retrieved programmatically with [&output=json](https://g
 
 The closest trace to that of the primary source (*4233_50352*) is *4233_47720*, about 5 pixels ~ 1 shutter away.  Source *4233_47720* is significantly fainter than *4233_50352*, and indeed there is an apparent signature of the latter contaminating the fainter source in its own diagnostic figure:
 
-| <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds3-v4/rubies-uds3-v4_g395m-f290lp_4233_47720.fnu.png" height=200px> | <img src="https://grizli-cutout.herokuapp.com/nirspec_trace_overlap?spec_file=rubies-uds3-v4_g395m-f290lp_4233_47720.spec.fits&exposure=2" height=200px> |
+| <img src="https://s3.amazonaws.com/msaexp-nirspec/extractions/rubies-uds3-v4/rubies-uds3-v4_g395m-f290lp_4233_47720.fnu.png" height=250px> | <img src="https://grizli-cutout.herokuapp.com/nirspec_trace_overlap?spec_file=rubies-uds3-v4_g395m-f290lp_4233_47720.spec.fits&exposure=2" height=250px> |
 
 
 ## Legacy MOSFIRE spectra
@@ -233,5 +233,5 @@ Much of the archival MOSFIRE data were processed prior to JWST launch and are av
  ]
 ```
 
-The *file* entries listed there are available at *https://s3.amazonaws.com/mosfire-pipeline/Spectra/**{file}***.
+The *file* entries listed in the query result are available at *https://s3.amazonaws.com/mosfire-pipeline/Spectra/**{file}***.
  
