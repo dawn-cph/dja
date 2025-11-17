@@ -22,7 +22,7 @@ JSON files with full parsed schedule entries:
 ## Cycle 4
 
 
-### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20251117_report_20251114.txt" > 20251117_report_20251114.txt </a>
+### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20251116_report_20251115.txt" > 20251116_report_20251115.txt </a>
 
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
@@ -119,11 +119,13 @@ JSON files with full parsed schedule entries:
 | 2025.11.18 | 07:16:22  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9320"> 9320 </a> |   1:6  |  <span style="color:#d4b9da;"> 00:24:55 </span>  | NIRCam Imaging                        | CXOU-J005510.0-374212                        |  Wolf-Rayet stars,  X-ray binary stars            |
 | 2025.11.17 | 13:07:19  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=8544"> 8544 </a> |   3:1  |  <span style="color:#e155a6;"> 17:38:57 </span>  | MIRI LRS slit      | JADES-GS-z14-0, Target-Acquisition-Star      |  High-redshift galaxies                           |
 | 2025.11.17 | 06:21:05  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9256"> 9256 </a> |  11:1  |  <span style="color:#cf88c1;"> 06:05:50 </span>  | NIRSpec Bright Object Time Series     | TRAPPIST-1                                   |  Exoplanet Systems,  Exoplanets,  M stars         |
-| 2025.11.17 | 03:28:21  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=8960"> 8960 </a> |   2:1  |  <span style="color:#d4b9da;"> 01:18:53 </span>  | NIRCam Imaging                        | NGC-288                                      |  Globular star clusters                           |
+| 2025.11.17 | 04:41:11  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7487"> 7487 </a> | 110:1  |  <span style="color:#d4b9da;"> 00:29:10 </span>  | MIRI LRS slit      | HD-2811-lrs_wbkg                             |  A dwarfs                                         |
+| 2025.11.17 | 04:14:16  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7487"> 7487 </a> | 109:1  |  <span style="color:#d4b9da;"> 00:10:09 </span>  | MIRI LRS slit      | HD-2811-lrs_bkg                              |  A dwarfs                                         |
+| 2025.11.17 | 02:31:17  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=8960"> 8960 </a> |   2:1  |  <span style="color:#d4b9da;"> 01:18:53 </span>  | NIRCam Imaging                        | NGC-288                                      |  Globular star clusters                           |
 |  |  |  |   |  |  NIRISS Imaging                        | Coordinated Parallel  |   |
-| 2025.11.17 | 02:05:00  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=8960"> 8960 </a> |   1:1  |  <span style="color:#d4b9da;"> 01:21:56 </span>  | NIRCam Imaging                        | NGC-288                                      |  Globular star clusters                           |
+| 2025.11.17 | 01:07:56  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=8960"> 8960 </a> |   1:1  |  <span style="color:#d4b9da;"> 01:21:56 </span>  | NIRCam Imaging                        | NGC-288                                      |  Globular star clusters                           |
 |  |  |  |   |  |  NIRISS Imaging                        | Coordinated Parallel  |   |
-| 2025.11.17 | 00:17:52  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=2760"> 2760 </a> |   2:1  |  <span style="color:#d4b9da;"> 01:18:46 </span>  | NIRSpec IFU              | TITAN-NIRSPEC                                |  Satellite                                        |
+| 2025.11.16 | 23:20:48  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=2760"> 2760 </a> |   2:1  |  <span style="color:#d4b9da;"> 01:18:46 </span>  | NIRSpec IFU              | TITAN-NIRSPEC                                |  Satellite                                        |
 
 
 ### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20251110_report_20251112.txt" > 20251110_report_20251112.txt </a>
