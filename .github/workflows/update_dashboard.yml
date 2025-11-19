@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   schedule:
     # https://crontab.guru/#40_9_*_*_0
-    # At 05:00 on Monday, Wednesday, and Friday.
-    - cron: "00 5 * * 1,3,5" 
+    # At 05:00 Monday-Friday.
+    - cron: "00 5 * * 1-5" 
 
 jobs:
   UpdateDataDashboard:
