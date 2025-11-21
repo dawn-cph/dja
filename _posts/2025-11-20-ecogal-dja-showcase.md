@@ -12,15 +12,17 @@ showOnHighlights: true
   
 
 ## Short description of the project: 
-ECOGAL (**ECO**ology for **G**alaxies using **A**LMA archive and **L**egacy surveys) is a ALMA data mining project that reduces and produces images and combining ancillary information in the legacy fields (mainly data obtained by JWST/HST) available. 
+ECOGAL (**ECO**ology for **G**alaxies using **A**LMA archive and **L**egacy surveys) is an ALMA data-mining effort that uniformly reduces archival data, creates science-ready ALMA images, and links them to JWST/HST legacy datasets in well-studied survey fields.
 
-This note book shows how to retrieve cutout images for the ECOGAL detection catalogue and how to query sources based on the coordiates that are coordinated with the JWST/HST DJA database. The catalogue shared along with this DJA post only include galaxies with available JWST spectra with ALMA coverage in the southern hemisphere CANDELS field (3D-HST coverage) where the JWST imagery is also available. 
+This notebook provides an introduction to the ECOGAL catalogue, including how to query sources by position and retrieve the summary plots available for ALMA-detected galaxies with DJA spectra. The catalogue released with this post covers galaxies in the three ALMA-accessible CANDELS fields: COSMOS, GOODS-S, and UDS.
 
-- this notebook was tested on python3.9.23 and python 3.12 version
-- the plot functionality can be installed from : https://github.com/mjastro/ecogal
+- This notebook was tested on python 3.12 version
+- Some functions that are used in this notebook can be installed from : [https://github.com/mjastro/ecogal](https://github.com/mjastro/ecogal)
     * or on terminal: 
     
     `python -m pip install git+https://github.com/mjastro/ecogal.git`
+
+> Additional documentation will be released soon. A complete description of the ALMA data reduction and catalogue construction will appear in **Lee et al. (2025; submitted)**, and should be cited when using the ECOGAL data products. Users should also cite the appropriate survey references (including ALMA project IDs) when making use of the DJA data products.
 
 
 
@@ -35,6 +37,7 @@ This note book shows how to retrieve cutout images for the ECOGAL detection cata
 if 0:
     !python -m pip install git+https://github.com/mjastro/ecogal.git
     !pip install tabulate
+    !pip install git+https://github.com/karllark/dust_attenuation.git
 ```
 
 
@@ -57,6 +60,11 @@ import cmasher as cmr
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from astropy.coordinates import Angle
+
+
+import shapely
+from shapely import Point, Polygon
+
 
 import warnings
 from astropy.io import fits
@@ -82,19 +90,7 @@ print(f'astropy version: {astropy.__version__}')
 
 
 ```python
-ecogal.__path__
-```
-
-
-
-
-    ['/opt/homebrew/Caskroom/miniforge/base/envs/ecogal_test/lib/python3.12/site-packages/ecogal']
-
-
-
-
-```python
-# set plotting style
+# Set plotting style
 mpl.rcParams['axes.linewidth'] = 2
 mpl.rcParams['axes.labelsize'] = 20
 mpl.rcParams.update({'font.family':'serif'})
@@ -129,20 +125,16 @@ from urllib import request
 import msaexp
 import msaexp.spectrum
 
-
 #to get DJA slit information
-import PIL
-import urllib
+
 import grizli
 from grizli import utils
-from regions import PixCoord, PolygonPixelRegion
+
 
 print(f'grizli version: {grizli.__version__}')
 
 ```
 
-    Failed to `import dust_attenuation`
-    Install from the repo with $ pip install git+https://github.com/karllark/dust_attenuation.git
     grizli version: 1.13.2
 
 
@@ -152,17 +144,19 @@ print(f'grizli version: {grizli.__version__}')
 
 
 ```python
-# the detection catalogue
+# prior catalogue which includes all sources with flux constraints (including non-detection) based on the source positions determined by JWST/HST detection
+
 version ='v1' #initial data release
 
-URL_PREFIX = "https://s3.amazonaws.com/alma-ecogal/dr1/catalogue"
+URL_PREFIX = "https://s3.amazonaws.com/alma-ecogal/dr1"
 file_cat = "ecogal_all_priors_"+version+".csv"
 
 if 0:
-    # the latest zenodo (frozen) catalogue is available here:  TBE
+    # the latest zenodo (frozen) catalogue is available here (TBD)
+    # this include blind catalogue, and detection catalogue
     URL_PREFIX = "https://zenodo.org/records/XXX"
 
-table_url = f"{URL_PREFIX}/{file_cat}"
+table_url = f"{URL_PREFIX}/catalogue/{file_cat}"
 
 tab = utils.read_catalog(download_file(table_url, cache=CACHE_DOWNLOADS), format='csv')
 
@@ -172,7 +166,7 @@ tab = utils.read_catalog(download_file(table_url, cache=CACHE_DOWNLOADS), format
 
 
 ```python
-columns_url = f"{URL_PREFIX}/ecogal_{version}.columns.csv"
+columns_url = f"{URL_PREFIX}/catalogue/ecogal_{version}.columns.csv"
 tab_columns = utils.read_catalog(download_file(columns_url, cache=CACHE_DOWNLOADS), format='csv')
 
 # Set column metadata
@@ -270,15 +264,10 @@ tab.info()
 
 ## zphot-zspec
 
+
+```python
 ### -- getting the unique source and spec-z sources
-
-
-```python
 con_dup = np.array(tab.to_pandas()['id_new'].duplicated())
-```
-
-
-```python
 tab0 = tab[~con_dup]
 len(tab0)
 ```
@@ -309,39 +298,110 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x16d91b380>
+    <matplotlib.legend.Legend at 0x331825df0>
 
 
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-11-20-ecogal-dja-showcase_files/ecogal-dja-showcase_18_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-11-20-ecogal-dja-showcase_files/ecogal-dja-showcase_15_1.png)
     
+
+
+# Query if there is any ALMA coverage given the position
+
+* ALMA/ECOGAL metadata includes information of individual ALMA images such as regions, pixel scales, phase center position, etc.
+
+* This will allow you to check the ALMA/ECOGAL coverage for your source of interest.
+
+
+```python
+# A complete version of the metadata
+
+version='v1'
+meta_file = "ecogal_"+version+"_metadata.fits"
+
+table_url = f"{URL_PREFIX}/ancillary/{meta_file}"
+meta = utils.read_catalog(download_file(table_url, cache=CACHE_DOWNLOADS), format='fits')
+meta[:3]
+```
+
+
+
+
+<div><i>GTable length=3</i>
+<table id="table13186731280" class="table-striped table-bordered table-condensed">
+<thead><tr><th>file_alma</th><th>version</th><th>simple</th><th>bitpix</th><th>naxis</th><th>naxis1</th><th>naxis2</th><th>naxis3</th><th>extend</th><th>bscale</th><th>bzero</th><th>bmaj</th><th>bmin</th><th>bpa</th><th>btype</th><th>object</th><th>bunit</th><th>equinox</th><th>radesys</th><th>lonpole</th><th>latpole</th><th>pc1_1</th><th>pc2_1</th><th>pc3_1</th><th>pc1_2</th><th>pc2_2</th><th>pc3_2</th><th>pc1_3</th><th>pc2_3</th><th>pc3_3</th><th>ctype1</th><th>crval1</th><th>cdelt1</th><th>crpix1</th><th>cunit1</th><th>ctype2</th><th>crval2</th><th>cdelt2</th><th>crpix2</th><th>cunit2</th><th>ctype3</th><th>crval3</th><th>cdelt3</th><th>crpix3</th><th>cunit3</th><th>pv2_1</th><th>pv2_2</th><th>restfrq</th><th>specsys</th><th>altrval</th><th>altrpix</th><th>velref</th><th>telescop</th><th>observer</th><th>date-obs</th><th>timesys</th><th>obsra</th><th>obsdec</th><th>obsgeo-x</th><th>obsgeo-y</th><th>obsgeo-z</th><th>instrume</th><th>distance</th><th>mpiprocs</th><th>chnchnks</th><th>memreq</th><th>memavail</th><th>useweigh</th><th>date</th><th>origin</th><th>almaid</th><th>is_mosaic</th><th>band</th><th>footprint</th><th>release</th><th>is_available</th><th>ra_center</th><th>dec_center</th><th>noise_fit</th><th>noise_tot</th><th>FoV_sigma</th></tr></thead>
+<thead><tr><th>bytes137</th><th>bytes4</th><th>bool</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>bool</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>bytes9</th><th>bytes26</th><th>bytes7</th><th>float64</th><th>bytes4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>bytes8</th><th>float64</th><th>float64</th><th>float64</th><th>bytes3</th><th>bytes8</th><th>float64</th><th>float64</th><th>float64</th><th>bytes3</th><th>bytes4</th><th>float64</th><th>float64</th><th>float64</th><th>bytes2</th><th>float64</th><th>float64</th><th>float64</th><th>bytes4</th><th>float64</th><th>float64</th><th>int64</th><th>bytes4</th><th>bytes15</th><th>bytes26</th><th>bytes3</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>bytes4</th><th>float64</th><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>bool</th><th>bytes26</th><th>bytes30</th><th>bytes14</th><th>bool</th><th>int64</th><th>bytes461</th><th>bytes3</th><th>bool</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
+<tr><td>2011.0.00064.S___concat_all_6_AzTEC-3_0_b7_cont_noninter2sig.image.pbcor.fits</td><td>v1.0</td><td>True</td><td>-32</td><td>3</td><td>1600</td><td>1600</td><td>1</td><td>True</td><td>1.0</td><td>0.0</td><td>0.0002005813188023</td><td>0.0001579564147525</td><td>-53.50122070312</td><td>Intensity</td><td>AzTEC-3</td><td>Jy/beam</td><td>2000.0</td><td>FK5</td><td>180.0</td><td>2.586833336311</td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>RA---SIN</td><td>150.0890000048</td><td>-2.777777777778e-05</td><td>801.0</td><td>deg</td><td>DEC--SIN</td><td>2.586833336311</td><td>2.777777777778e-05</td><td>801.0</td><td>deg</td><td>FREQ</td><td>296763686486.8</td><td>15646751913.56</td><td>1.0</td><td>Hz</td><td>0.0</td><td>0.0</td><td>296763686486.8</td><td>LSRK</td><td>-0.0</td><td>1.0</td><td>257</td><td>ALMA</td><td>riechers</td><td>2012-04-11T01:22:13.632000</td><td>UTC</td><td>150.0890000048</td><td>2.586833336311</td><td>2225142.180269</td><td>-5440307.370349</td><td>-2481029.851874</td><td>ALMA</td><td>0.0</td><td>1</td><td>1</td><td>0.12359619</td><td>150.23436</td><td>False</td><td>2023-11-14T12:19:42.442402</td><td>CASA 6.5.6-22 CASAtools:v1.0.0</td><td>2011.0.00064.S</td><td>False</td><td>7</td><td>((150.088583,2.582778),(150.085914,2.584167),(150.084940,2.587250),(150.086331,2.589917),(150.089417,2.590889),(150.092086,2.589500),(150.093060,2.586417),(150.091669,2.583750),(150.088583,2.582778))</td><td>N/A</td><td>True</td><td>150.0890000048</td><td>2.5868333363110025</td><td>4.46259777172499e-05</td><td>5.5606829846510664e-05</td><td>8.332485222950787</td></tr>
+<tr><td>2011.0.00064.S___concat_all_6_AzTEC-3_1_b7_cont_noninter2sig.image.pbcor.fits</td><td>v1.0</td><td>True</td><td>-32</td><td>3</td><td>1600</td><td>1600</td><td>1</td><td>True</td><td>1.0</td><td>0.0</td><td>0.0002007880806923</td><td>0.0001580240825812</td><td>-53.53054428101</td><td>Intensity</td><td>AzTEC-3</td><td>Jy/beam</td><td>2000.0</td><td>FK5</td><td>180.0</td><td>2.588527777932</td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>RA---SIN</td><td>150.0868750002</td><td>-2.777777777778e-05</td><td>801.0</td><td>deg</td><td>DEC--SIN</td><td>2.588527777932</td><td>2.777777777778e-05</td><td>801.0</td><td>deg</td><td>FREQ</td><td>296763687761.7</td><td>15646752334.74</td><td>1.0</td><td>Hz</td><td>0.0</td><td>0.0</td><td>296763687761.7</td><td>LSRK</td><td>-0.0</td><td>1.0</td><td>257</td><td>ALMA</td><td>riechers</td><td>2012-04-11T01:22:54.720000</td><td>UTC</td><td>150.0868750002</td><td>2.588527777932</td><td>2225142.180269</td><td>-5440307.370349</td><td>-2481029.851874</td><td>ALMA</td><td>0.0</td><td>1</td><td>1</td><td>0.12359619</td><td>150.1451</td><td>False</td><td>2023-11-14T13:30:14.601414</td><td>CASA 6.5.6-22 CASAtools:v1.0.0</td><td>2011.0.00064.S</td><td>False</td><td>7</td><td>((150.086458,2.584472),(150.083789,2.585861),(150.082815,2.588944),(150.084206,2.591611),(150.087292,2.592583),(150.089961,2.591194),(150.090935,2.588111),(150.089544,2.585444),(150.086458,2.584472))</td><td>N/A</td><td>True</td><td>150.0868750002</td><td>2.5885277779320006</td><td>6.49289000021855e-05</td><td>0.00011714215361280367</td><td>8.33248518715434</td></tr>
+<tr><td>2011.0.00097.S___concat_all_10_COSMOSLowz_64_29_b7_cont_noninter2sig.image.pbcor.fits</td><td>v1.0</td><td>True</td><td>-32</td><td>3</td><td>1844</td><td>1844</td><td>1</td><td>True</td><td>1.0</td><td>0.0</td><td>0.0001445855862565</td><td>0.0001385951704449</td><td>32.57455062866</td><td>Intensity</td><td>COSMOSLowz_64</td><td>Jy/beam</td><td>2000.0</td><td>FK5</td><td>180.0</td><td>2.193778888889</td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>RA---SIN</td><td>150.0951</td><td>-2.777777777778e-05</td><td>923.0</td><td>deg</td><td>DEC--SIN</td><td>2.193778888889</td><td>2.777777777778e-05</td><td>923.0</td><td>deg</td><td>FREQ</td><td>341959206917.1</td><td>15956638554.12</td><td>1.0</td><td>Hz</td><td>0.0</td><td>0.0</td><td>341959206917.1</td><td>LSRK</td><td>-0.0</td><td>1.0</td><td>257</td><td>ALMA</td><td>nscoville</td><td>2012-04-22T02:13:22.032000</td><td>UTC</td><td>150.0951</td><td>2.193778888889</td><td>2225142.180269</td><td>-5440307.370349</td><td>-2481029.851874</td><td>ALMA</td><td>0.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>False</td><td>2022-01-18T10:06:48.750999</td><td>CASA 5.6.1-8</td><td>2011.0.00097.S</td><td>True</td><td>7</td><td>((150.094822,2.190251),(150.092487,2.191390),(150.091570,2.194057),(150.092709,2.196390),(150.095378,2.197307),(150.097713,2.196168),(150.098630,2.193501),(150.097491,2.191168),(150.094822,2.190251))</td><td>dr1</td><td>True</td><td>150.0951</td><td>2.1937788888889997</td><td>0.00013968738028111863</td><td>0.00014185431064106524</td><td>7.231210572315804</td></tr>
+</table></div>
+
+
+
+### Use `ecogal` function : query metata data based on the coordinates
+
+Use [visualcheck.get_footprint](https://github.com/mjastro/ecogal/blob/7afe6412e2309356766ab7fd702a1831214abf5e/ecogal/visualcheck.py#L34) function.
+
+
+```python
+import ecogal.visualcheck as visualcheck
+```
+
+
+```python
+# get the metadata via DJA
+ra, dec = 34.41887, -5.21965
+fp,_ = visualcheck.get_footprint(ra,dec)
+```
+
+    There are #15 ALMA projects overlapping
 
 
 
 ```python
-
+fp['file_alma','almaid','object','band']
 ```
 
-# Getting ALMA/ECOGAL footprint based on coordinates through API
 
-* For ECOGAL data product, ALMA coverage can be retrieved through DJA API: https://grizli-cutout.herokuapp.com/
-    * See also the instructions for accessing API : https://dawn-cph.github.io/dja/general/api_summary/
-* For extraction of the coverage, the identifier for ECOCAL is **ecogal**, followed by the output mode and coordinate information ?ra=&dec=
-namely, for ra = 34.41887, dec =-5.21965, we can query the footprint and meta data 
 
-https://grizli-cutout.herokuapp.com/ecogal?output=footprint&ra=34.41887&dec=-5.21965
 
-There are three different output modes:
+<div><i>GTable length=15</i>
+<table id="table13202810800" class="table-striped table-bordered table-condensed">
+<thead><tr><th>file_alma</th><th>almaid</th><th>object</th><th>band</th></tr></thead>
+<thead><tr><th>bytes137</th><th>bytes14</th><th>bytes26</th><th>int64</th></tr></thead>
+<tr><td>2012.1.00245.S__all_SXDF-NB2315-2_b7_cont_noninter2sig.image.pbcor.fits</td><td>2012.1.00245.S</td><td>SXDF-NB2315-2</td><td>7</td></tr>
+<tr><td>2012.1.00245.S__all_SXDF-NB2315-3_b7_cont_noninter2sig.image.pbcor.fits</td><td>2012.1.00245.S</td><td>SXDF-NB2315-3</td><td>7</td></tr>
+<tr><td>2013.1.00742.S__all_SXDF-B3-NB2315-FoV1_b3_cont_noninter2sig.image.pbcor.fits</td><td>2013.1.00742.S</td><td>SXDF-B3-NB2315-FoV1</td><td>3</td></tr>
+<tr><td>2013.1.00781.S__all_SXDS-AzTEC23_b6_cont_noninter2sig.image.pbcor.fits</td><td>2013.1.00781.S</td><td>SXDS-AzTEC23</td><td>6</td></tr>
+<tr><td>2015.1.00442.S__all_SXDS-AzTEC28_b6_cont_noninter2sig.image.pbcor.fits</td><td>2015.1.00442.S</td><td>SXDS-AzTEC28</td><td>6</td></tr>
+<tr><td>2015.1.01074.S__all_UDSp_17_b7_cont_noninter2sig.image.pbcor.fits</td><td>2015.1.01074.S</td><td>UDSp_17</td><td>7</td></tr>
+<tr><td>2015.1.01528.S__all_UDS.0113_b7_cont_noninter2sig.image.pbcor.fits</td><td>2015.1.01528.S</td><td>UDS.0113</td><td>7</td></tr>
+<tr><td>2016.1.00434.S__all_UDS.0113_b7_cont_noninter2sig.image.pbcor.fits</td><td>2016.1.00434.S</td><td>UDS.0113</td><td>7</td></tr>
+<tr><td>2017.1.00562.S__all_NB2315_b3_cont_noninter2sig.image.pbcor.fits</td><td>2017.1.00562.S</td><td>NB2315</td><td>3</td></tr>
+<tr><td>2017.1.00562.S__all_NB2315_b6_cont_noninter2sig.image.pbcor.fits</td><td>2017.1.00562.S</td><td>NB2315</td><td>6</td></tr>
+<tr><td>2017.1.00562.S__all_U4-16795_b9_cont_noninter2sig.image.pbcor.fits</td><td>2017.1.00562.S</td><td>U4-16795</td><td>9</td></tr>
+<tr><td>2017.1.01027.S__all_U4-16504_b7_cont_noninter2sig.image.pbcor.fits</td><td>2017.1.01027.S</td><td>U4-16504</td><td>7</td></tr>
+<tr><td>2017.1.01027.S__all_U4-16795_b7_cont_noninter2sig.image.pbcor.fits</td><td>2017.1.01027.S</td><td>U4-16795</td><td>7</td></tr>
+<tr><td>2019.1.00337.S__all_AS2UDS0113.1_b3_cont_noninter2sig.image.pbcor.fits</td><td>2019.1.00337.S</td><td>AS2UDS0113.1</td><td>3</td></tr>
+<tr><td>2021.1.00705.S__all_UDS.0113_b4_cont_noninter2sig.image.pbcor.fits</td><td>2021.1.00705.S</td><td>UDS.0113</td><td>4</td></tr>
+</table></div>
 
-* output=footprint : footprint for ALMA coverage
-* output=csv : giving the metadata
-* output=cutout : making a cutout images
-    * for cutout module: you might want to specify ALMA specific ALMA file names, in this case use: **file_alma**
-    * otherwise, it will query all the ALMA cutout images available in the DJA-ECOGAL repository
 
-If you want to plot the JWST cutout + ALMA map, you can do the following things, given the ALMA file name, see also the following instructions
+
+# Get ALMA/ECOGAL cutouts
+
+## Method 1. Using `ecogal`
+
+Use [ecogal.pbcor.show_all_cutouts](https://github.com/mjastro/ecogal/blob/b8f1f842a3447aecc3ed365953184cd66a9bab98/ecogal/pbcor.py#L95) function.
+
+
+```python
+import ecogal.pbcor as ecogal_plot
+```
+
+### [1] JWST RGB + ALMA cutout
 
 
 ```python
@@ -351,27 +411,8 @@ ra, dec = 34.41887, -5.21965
 
 
 ```python
-cord = SkyCoord(ra,dec, unit=(u.degree, u.degree))
-ara = tab['RA_peak_alma']
-adec = tab['Dec_peak_alma']
-acord = SkyCoord(ara, adec, unit=(u.degree, u.degree))
-#search for the matching source within 0.1 arcsec
-con_pos = acord.separation(cord).arcsec<0.1
-filename = np.unique(tab[con_pos]['file_alma'])[-1]
-filename
-```
-
-
-
-
-    '2017.1.01027.S__all_U4-16795_b7_cont_noninter2sig.image.pbcor.fits'
-
-
-
-
-```python
 # this example can take a while because it downloads a lot of fits files
-summary_cutouts = ecogal.pbcor.show_all_cutouts(ra,dec)
+summary_cutouts = ecogal_plot.show_all_cutouts(ra,dec)
 ```
 
     N=15
@@ -394,121 +435,121 @@ summary_cutouts = ecogal.pbcor.show_all_cutouts(ra,dec)
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-11-20-ecogal-dja-showcase_files/ecogal-dja-showcase_24_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-11-20-ecogal-dja-showcase_files/ecogal-dja-showcase_29_1.png)
     
 
 
-### this will give you one ALMA cutout map given the ALMA file name
 
-https://grizli-cutout.herokuapp.com/ecogal?output=cutout&sx=3.&cutout_size=2.0&ra=34.41887&dec=-5.21965&file_alma=2017.1.01027.S__all_U4-16795_b7_cont_noninter2sig.image.pbcor.fits
+### [2] Ready-made summary file 
 
-# Getting ALMA+JWST cutout through the ECOGAL functionality : 
-## [1] a ready-made summary file for detected sources with DJA spectra
-* the name of the function is :
-
-    `ecogal.visualcheck.get_summary(ra,dec)`
+There are some summary png files in the repository made for sources with ALMA detection and DJA spectra (~120 unique sources in total with the first data release), which can be queried by the source position. 
 
 * the default searching area is 0.4 arcsec, that you can change with `r_search`
 
 
 ```python
-
 ra, dec = 150.14325, 2.35599	
-ecogal.visualcheck.get_summary(ra,dec, r_search=0.5)
+_ = visualcheck.get_summary(ra,dec, r_search=0.5)
 ```
 
+    There are #10 ALMA projects overlapping
     There are 9 ECOGAL+DJA cross-match!
     https://s3.amazonaws.com/alma-ecogal/dr1/pngs/ecogal__0_all_filters_COSMOS.60520.png
     A source found at a distance of = 0.13 arcsec
 
 
-
-
-
-    'https://s3.amazonaws.com/alma-ecogal/dr1/pngs/ecogal__0_all_filters_COSMOS.60520.png'
-
-
-
-<img src = "https://s3.amazonaws.com/alma-ecogal/dr1/pngs/ecogal__0_all_filters_COSMOS.60520.png" width=70%>
-
-
-```python
-ra, dec = 150.06668, 2.38235
-_ = ecogal.visualcheck.get_summary(ra,dec)
-```
-
-    There are 10 ECOGAL+DJA cross-match!
-    https://s3.amazonaws.com/alma-ecogal/dr1/pngs/ecogal__0_all_filters_COSMOS.23628.png
-    A source found at a distance of = 0.04 arcsec
-
-
-<img src = "https://s3.amazonaws.com/alma-ecogal/dr1/pngs/ecogal__0_all_filters_COSMOS.23628.png" width=70%>
+<img src="https://s3.amazonaws.com/alma-ecogal/dr1/pngs/ecogal__0_all_filters_COSMOS.60520.png" width="70%">
 
 
 ```python
 ra, dec = 34.27751, -5.22819
-_ = ecogal.visualcheck.get_summary(ra,dec)
+_ = visualcheck.get_summary(ra,dec)
 ```
 
+    There are #1 ALMA projects overlapping
     There are 1 ECOGAL+DJA cross-match!
     https://s3.amazonaws.com/alma-ecogal/dr1/pngs/ecogal__0_all_filters_UDS.104633.png
     A source found at a distance of = 0.13 arcsec
 
 
-<img src = "https://s3.amazonaws.com/alma-ecogal/dr1/pngs/ecogal__0_all_filters_UDS.104633.png" width=70%>
+<img src="https://s3.amazonaws.com/alma-ecogal/dr1/pngs/ecogal__0_all_filters_UDS.104633.png" width="70%">
 
-## [2] Accessing the image fits files
-* All fits files (primary beam corrected) are availalbe in the AWS DJA repository and a frozen version is available on Zenodo.
+## Method 2: Getting cutouts and footprint via DJA API
 
+* ALMA footprint can also be retrieved via DJA API: [https://grizli-cutout.herokuapp.com/](https://grizli-cutout.herokuapp.com/)
+    * See also the instructions for accessing API (for other projects) : [https://dawn-cph.github.io/dja/general/api_summary/](https://dawn-cph.github.io/dja/general/api_summary/)
+* The identifier for ECOCAL is `ecogal`, followed by the output mode and coordinate information `?ra=&dec=`.
 
-To get the fits file available in the AWS you can download by using the following function
+There are three different output modes:
 
+* `output=footprint` : footprint for ALMA coverage
+* `output=csv` : metadata
+* `output=cutout` : making a cutout image
+    * for cutout module: specify ALMA file names. The file name is available in the ECOGAL catalogue or from the metadata, and the column name is `file_alma` 
 
-```python
-cord = SkyCoord(ra, dec, unit=(u.degree, u.degree))
-con_pos = acord.separation(cord).arcsec<0.3
-filelist = np.unique(tab[con_pos]['file_alma'])
-filelist
-```
+### `footprint` mode
+[https://grizli-cutout.herokuapp.com/ecogal?output=footprint&ra=34.48016&dec=-5.11252](https://grizli-cutout.herokuapp.com/ecogal?output=footprint&ra=34.48016&dec=-5.11252)
+### `cutout` mode
+Given the ALMA file name of 2015.1.01528.S__all_UDS.0424_b7_cont_noninter2sig.image.pbcor.fits
 
-
-
-
-&lt;Column name=&apos;file_alma&apos; dtype=&apos;str137&apos; description=&apos;ECOGAL ALMA fits file name (primary beam corrected)&apos; length=1&gt;
-<table>
-<tr><td>2017.1.01027.S__all_U4-14996_b7_cont_noninter2sig.image.pbcor.fits</td></tr>
-</table>
-
-
+[https://grizli-cutout.herokuapp.com/ecogal?output=cutout&sx=3.&cutout_size=2.0&ra=34.48016&dec=-5.11252&file_alma=2015.1.01528.S__all_UDS.0424_b7_cont_noninter2sig.image.pbcor.fits](https://grizli-cutout.herokuapp.com/ecogal?output=cutout&sx=3.&cutout_size=2.0&ra=34.48016&dec=-5.11252&file_alma=2015.1.01528.S__all_UDS.0424_b7_cont_noninter2sig.image.pbcor.fits)
 
 
 ```python
-tab[con_pos]
-```
-
-
-
-
-<div><i>GTable length=1</i>
-<table id="table14228382272" class="table-striped table-bordered table-condensed">
-<thead><tr><th>projectID</th><th>target_alma</th><th>small_mosaic_idx</th><th>field</th><th>id_ecogal</th><th>id_new</th><th>frequency</th><th>band</th><th>beam_maj</th><th>frame</th><th>RA_parent</th><th>Dec_parent</th><th>RA_peak_alma</th><th>Dec_peak_alma</th><th>separation_prior</th><th>flux_peak</th><th>noise</th><th>sn</th><th>flux_aper</th><th>eflux_aper</th><th>flux_peak_imfit</th><th>flux_imfit</th><th>eflux_imfit</th><th>fac_pbcor</th><th>id_3dhst_v4</th><th>ecogal_ver</th><th>zsp_best_avail</th><th>zsp_best_survey</th><th>z_ver</th><th>objid</th><th>srcid</th><th>file</th><th>grating</th><th>file_phot</th><th>id_phot</th><th>valid</th><th>z_phot_eazy</th><th>restU</th><th>restU_err</th><th>restV</th><th>restV_err</th><th>restJ</th><th>restJ_err</th><th>mass_ez</th><th>sfr_ez</th><th>Av_ez</th><th>lmass</th><th>l68_lmass</th><th>u68_lmass</th><th>lsfr</th><th>l68_lsfr</th><th>u68_lsfr</th><th>file_alma</th><th>RA_bdsf</th><th>DEC_bdsf</th><th>Total_flux_pbcor</th><th>E_Total_flux_pbcor</th><th>pbfac</th><th>Peak_flux</th><th>E_Peak_flux</th><th>Maj</th><th>E_Maj</th><th>Min</th><th>E_Min</th><th>PA</th><th>E_PA</th><th>Maj_img_plane</th><th>E_Maj_img_plane</th><th>Min_img_plane</th><th>E_Min_img_plane</th><th>PA_img_plane</th><th>E_PA_img_plane</th><th>Isl_Total_flux</th><th>E_Isl_Total_flux</th><th>Isl_rms</th><th>S_Code</th><th>Separation_bdsf</th></tr></thead>
-<thead><tr><th></th><th></th><th></th><th></th><th></th><th></th><th>GHz</th><th></th><th>arcsec</th><th></th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th>arcsec</th><th>Jy</th><th>Jy</th><th></th><th>Jy</th><th>Jy</th><th>Jy</th><th>Jy</th><th>Jy</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th>solMass</th><th>solMass / yr</th><th>mag</th><th>solMass</th><th>solMass</th><th>solMass</th><th>solMass / yr</th><th>solMass / yr</th><th>solMass / yr</th><th></th><th>deg</th><th>deg</th><th>Jy</th><th>Jy</th><th></th><th>Jy</th><th>Jy</th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th>deg</th><th>Jy</th><th>Jy</th><th>Jy / beam</th><th></th><th>arcsec</th></tr></thead>
-<thead><tr><th>str14</th><th>str23</th><th>int64</th><th>str6</th><th>int64</th><th>str13</th><th>float64</th><th>str2</th><th>float64</th><th>str4</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str4</th><th>float64</th><th>str9</th><th>str4</th><th>float64</th><th>float64</th><th>str55</th><th>str5</th><th>str44</th><th>float64</th><th>str5</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str137</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str1</th><th>float64</th></tr></thead>
-<tr><td>2017.1.01027.S</td><td>U4-14996</td><td>-999</td><td>uds</td><td>104633</td><td>UDS.104633</td><td>343.48</td><td>b7</td><td>0.4</td><td>icrs</td><td>34.27748</td><td>-5.22817</td><td>34.27751</td><td>-5.22819</td><td>0.12</td><td>0.00091</td><td>7.04e-05</td><td>12.93</td><td>0.00184</td><td>0.000314</td><td>0.000801</td><td>0.00175</td><td>0.000233</td><td>0.614</td><td>14449.0</td><td>v1.0</td><td>2.0809</td><td>dja</td><td>v4.3</td><td>150845.0</td><td>50352.0</td><td>rubies-uds2-v4_prism-clear_4233_50352.spec.fits</td><td>PRISM</td><td>primer-uds-south-grizli-v7.2-fix_phot.fits</td><td>56317.0</td><td>True</td><td>1.6355758</td><td>0.57638</td><td>0.03456667</td><td>2.2247183</td><td>0.06068909</td><td>10.393879</td><td>0.2005434</td><td>90318268622.22356</td><td>223.64513631969336</td><td>2.677636460056475</td><td>10.87</td><td>10.87</td><td>10.87</td><td>1.58</td><td>1.58</td><td>1.58</td><td>2017.1.01027.S__all_U4-14996_b7_cont_noninter2sig.image.pbcor.fits</td><td>34.27749479459568</td><td>-5.228177088590718</td><td>0.0016495172894726</td><td>0.0002064258855741</td><td>0.6133</td><td>0.0005192699033453</td><td>4.553493060844e-05</td><td>0.0001606922222385</td><td>1.5111242503332278e-05</td><td>0.0001308093823622</td><td>1.069637528052671e-05</td><td>82.20543045169951</td><td>19.641063961465782</td><td>0.0001606922222068</td><td>1.5111242503332278e-05</td><td>0.0001308093822966</td><td>1.069637528052671e-05</td><td>82.20530617308123</td><td>19.641063961465782</td><td>0.0009483286429391</td><td>6.207724452038203e-05</td><td>4.212970088701695e-05</td><td>S</td><td>0.038643643260326</td></tr>
-</table></div>
-
-
-
-
-```python
-#get the noise of the map (after pb-correction)
-noise = tab[con_pos]['noise']
+from IPython.display import display, Markdown, Latex
 ```
 
 
 ```python
-file_alma = filelist[0]
-## -- note on issue with + mark
+# getting the summary of the footprint for a given ra, dec
+ra, dec = 34.48016,-5.11252
+cord = SkyCoord(ra,dec, unit=(u.degree, u.degree))
+ara = tab['RA_peak_alma']
+adec = tab['Dec_peak_alma']
+acord = SkyCoord(ara, adec, unit=(u.degree, u.degree))
+#search for the matching source within 0.1 arcsec
+con_pos = acord.separation(cord).arcsec<0.15
+ecotb=tab[con_pos]
+```
+
+
+```python
+
+#  see also the description in the https://dawn-cph.github.io/dja/blog/2025/05/01/nirspec-merged-table-v4/
+#  
+cutout_URL = f"https://grizli-cutout.herokuapp.com/ecogal?output=footprint&ra={ra}&dec={dec}"
+
+ecotb['Thumb'] = [
+    "<img src=\"{0}\" height=200px>".format(
+        cutout_URL.format(ra,dec)
+    )
+    for row in ecotb
+]
+
+df = ecotb['projectID','target_alma','id_new','band','beam_maj','sn','separation_prior','zsp_best_avail','z_phot_eazy','Thumb','file_alma'].to_pandas()
+
+display(Markdown(df.to_markdown()))
+```
+
+
+|    | projectID      | target_alma   | id_new     | band   |   beam_maj |    sn |   separation_prior |   zsp_best_avail |   z_phot_eazy | Thumb                                                                                                         | file_alma                                                              |
+|---:|:---------------|:--------------|:-----------|:-------|-----------:|------:|-------------------:|-----------------:|--------------:|:--------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+|  0 | 2023.1.01520.S | 0424.0        | UDS.105062 | b4     |       0.69 |  7.08 |               0.09 |           3.5433 |       3.47313 | <img src="https://grizli-cutout.herokuapp.com/ecogal?output=footprint&ra=34.48016&dec=-5.11252" height=200px> | 2023.1.01520.S__all_0424.0_b4_cont_noninter2sig.image.pbcor.fits       |
+|  1 | 2015.1.01528.S | UDS.0424      | UDS.105062 | b7     |       0.21 | 19.15 |               0.05 |           3.5433 |       3.47313 | <img src="https://grizli-cutout.herokuapp.com/ecogal?output=footprint&ra=34.48016&dec=-5.11252" height=200px> | 2015.1.01528.S__all_UDS.0424_b7_cont_noninter2sig.image.pbcor.fits     |
+|  2 | 2013.1.00781.S | SXDS-AzTEC28  | UDS.105062 | b6     |       0.32 | 18.72 |               0.06 |           3.5433 |       3.47313 | <img src="https://grizli-cutout.herokuapp.com/ecogal?output=footprint&ra=34.48016&dec=-5.11252" height=200px> | 2013.1.00781.S__all_SXDS-AzTEC28_b6_cont_noninter2sig.image.pbcor.fits |
+
+
+# Access the ALMA/ECOGAL image fits files
+* All fits files (primary beam corrected) are available from the DJA repository (on AWS server) and a frozen version will be available on Zenodo.
+
+
+```python
+#getting the corresponding file name from the catalogue
+#some times the file name includes special string like "+", which should be parsed to download the fits file
+
+idx = 2
+file_alma = ecotb['file_alma'][idx]
+encoded_filename = file_alma.replace("+", "%2B")
 ```
 
 
@@ -516,7 +557,7 @@ file_alma = filelist[0]
 fits_URL = "https://s3.amazonaws.com/alma-ecogal/dr1/pbcor/"
 
 almafits = fits.open(
-    download_file(str(os.path.join(fits_URL, file_alma)), cache=True)
+    download_file(str(os.path.join(fits_URL, encoded_filename)), cache=True)
                     )
 ```
 
@@ -525,11 +566,15 @@ almafits = fits.open(
 img = almafits[0].data[0]
 hdr = almafits[0].header
 wcs_alma = WCS(hdr)
-gid = tab[con_pos]['id_new'][0]
-band = tab[con_pos]['band'][0]
-zgal = tab[con_pos]['zsp_best_avail'][0]
-lmass = np.log10(tab[con_pos]['mass_ez'][0])
-sfr = tab[con_pos]['sfr_ez'][0]
+
+gid = tab[con_pos]['id_new'][idx]
+band = tab[con_pos]['band'][idx]
+zgal = tab[con_pos]['zsp_best_avail'][idx]
+lmass = np.log10(tab[con_pos]['mass_ez'][idx])
+sfr = tab[con_pos]['sfr_ez'][idx]
+
+#get the noise of the map (after pb-correction)
+noise = tab[con_pos]['noise'][idx]
 ```
 
 
@@ -542,7 +587,7 @@ x,y,_= wcs_alma.wcs_world2pix(ra,dec,0,0)
 pixsz = np.abs(hdr['CDELT1']*3600)
 imsz = 1/pixsz
 
-noise_array = noise*np.linspace(3,10,5)
+noise_array = noise*np.arange(4,30,3)
 cutout = img[int(y-imsz):int(y+imsz),int(x-imsz):int(x+imsz)]
 
 fig=plt.figure(1,figsize=(5,5))
@@ -570,45 +615,21 @@ ax.add_patch(be)
 
 
 
-    <matplotlib.patches.Ellipse at 0x17f8c9d60>
+    <matplotlib.patches.Ellipse at 0x346f95010>
 
 
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-11-20-ecogal-dja-showcase_files/ecogal-dja-showcase_42_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-11-20-ecogal-dja-showcase_files/ecogal-dja-showcase_46_1.png)
     
 
 
-## Access the DJA file from the information available in the catalogue
+# Access the DJA files from the information available in the catalogue
 
 
 ```python
-## search for the ALMA program with the corresponding ecogal ID
-tab[tab['id_new']=='COSMOS.46930']['projectID','target_alma','small_mosaic_idx','file_alma','id_new','band','flux_aper','eflux_aper','zsp_best_avail','file','mass_ez','sfr_ez','lmass']
-```
-
-
-
-
-<div><i>GTable length=6</i>
-<table id="table14228258400" class="table-striped table-bordered table-condensed">
-<thead><tr><th>projectID</th><th>target_alma</th><th>small_mosaic_idx</th><th>file_alma</th><th>id_new</th><th>band</th><th>flux_aper</th><th>eflux_aper</th><th>zsp_best_avail</th><th>file</th><th>mass_ez</th><th>sfr_ez</th><th>lmass</th></tr></thead>
-<thead><tr><th></th><th></th><th></th><th></th><th></th><th></th><th>Jy</th><th>Jy</th><th></th><th></th><th>solMass</th><th>solMass / yr</th><th>solMass</th></tr></thead>
-<thead><tr><th>str14</th><th>str23</th><th>int64</th><th>str137</th><th>str13</th><th>str2</th><th>float64</th><th>float64</th><th>float64</th><th>str55</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
-<tr><td>2021.1.00705.S</td><td>COS.0083</td><td>-999</td><td>2021.1.00705.S__all_COS.0083_b4_cont_noninter2sig.image.pbcor.fits</td><td>COSMOS.46930</td><td>b4</td><td>0.00111</td><td>-999.0</td><td>5.8564</td><td>capers-cos07-v4_prism-clear_6368_42364.spec.fits</td><td>17206852312.057457</td><td>0.8678239285976781</td><td>10.56</td></tr>
-<tr><td>2021.1.00705.S</td><td>COS.0059</td><td>-999</td><td>2021.1.00705.S__all_COS.0059_b4_cont_noninter2sig.image.pbcor.fits</td><td>COSMOS.46930</td><td>b4</td><td>0.000327</td><td>0.000115</td><td>5.8564</td><td>capers-cos07-v4_prism-clear_6368_42364.spec.fits</td><td>17206852312.057457</td><td>0.8678239285976781</td><td>10.56</td></tr>
-<tr><td>2021.1.00505.S</td><td>MAMBO-9</td><td>-999</td><td>2021.1.00505.S__all_MAMBO-9_b7_cont_noninter2sig.image.pbcor.fits</td><td>COSMOS.46930</td><td>b7</td><td>0.000342</td><td>0.000315</td><td>5.8564</td><td>capers-cos07-v4_prism-clear_6368_42364.spec.fits</td><td>17206852312.057457</td><td>0.8678239285976781</td><td>10.56</td></tr>
-<tr><td>2018.A.00037.S</td><td>csm1</td><td>-999</td><td>2018.A.00037.S__all_csm1_b7_cont_noninter2sig.image.pbcor.fits</td><td>COSMOS.46930</td><td>b7</td><td>0.00155</td><td>0.000219</td><td>5.8564</td><td>capers-cos07-v4_prism-clear_6368_42364.spec.fits</td><td>17206852312.057457</td><td>0.8678239285976781</td><td>10.56</td></tr>
-<tr><td>2018.A.00037.S</td><td>csm1</td><td>-999</td><td>2018.A.00037.S__all_csm1_b3_cont_noninter2sig.image.pbcor.fits</td><td>COSMOS.46930</td><td>b3</td><td>0.000137</td><td>7.11e-06</td><td>5.8564</td><td>capers-cos07-v4_prism-clear_6368_42364.spec.fits</td><td>17206852312.057457</td><td>0.8678239285976781</td><td>10.56</td></tr>
-<tr><td>2018.1.01871.S</td><td>627356</td><td>-999</td><td>2018.1.01871.S__all_627356_b4_cont_noninter2sig.image.pbcor.fits</td><td>COSMOS.46930</td><td>b4</td><td>0.000621</td><td>0.000147</td><td>5.8564</td><td>capers-cos07-v4_prism-clear_6368_42364.spec.fits</td><td>17206852312.057457</td><td>0.8678239285976781</td><td>10.56</td></tr>
-</table></div>
-
-
-
-
-```python
-## considering the peak SNR>15 and DJA spectra at z>5
+## consider peak SNR>15 and DJA spectra at z>5
 
 con_sn = tab0['sn']>15
 con_sn &= tab0['zsp_best_survey']=='dja'
@@ -629,9 +650,9 @@ filename, zgal
 
 
 ```python
-## prepare a line detectionary
-# line dictionary -- for plot purpose (you can add more)
-# lines in AA to overplot the emission lines
+# prepare a line detectionary
+# ** line dictionary -- for plot purpose (you can add more)
+# ** lines in AA to overplot the emission lines
 
 lam_file = Table.read("""line, wavelength_nm
 H-alpha,656.46
@@ -684,7 +705,7 @@ lam_file
 
 
 <div><i>Table length=27</i>
-<table id="table13195790480" class="table-striped table-bordered table-condensed">
+<table id="table13184612736" class="table-striped table-bordered table-condensed">
 <thead><tr><th>line</th><th>wavelength_nm</th></tr></thead>
 <thead><tr><th>str8</th><th>float64</th></tr></thead>
 <tr><td>H-alpha</td><td>656.46</td></tr>
@@ -711,7 +732,7 @@ lam_file
 
 
 
-### setting some functions to get DJA spectra
+### set some functions to get DJA spectra
 
 
 ```python
@@ -797,7 +818,7 @@ for kk in range(len(lam_file)):
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-11-20-ecogal-dja-showcase_files/ecogal-dja-showcase_51_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-11-20-ecogal-dja-showcase_files/ecogal-dja-showcase_54_1.png)
     
 
 
@@ -826,7 +847,7 @@ tab0[con_sn]['file','objid']
 
 
 <div><i>GTable length=6</i>
-<table id="table13195698560" class="table-striped table-bordered table-condensed">
+<table id="table13184605776" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>objid</th></tr></thead>
 <thead><tr><th>str55</th><th>float64</th></tr></thead>
 <tr><td>gto-wide-uds13-v4_prism-clear_1215_1951.spec.fits</td><td>172449.0</td></tr>
@@ -841,13 +862,12 @@ tab0[con_sn]['file','objid']
 
 
 ```python
-## checking the alternative spectra information
+## check the alternative spectra information
 
 dja_uniq_id = 172449
 print(dja_uniq_id)
+
 #search for other dja spectra
-
-
 msa = tab00[tab00['objid'] == dja_uniq_id]
 msa
 ```
@@ -859,7 +879,7 @@ msa
 
 
 <div><i>GTable length=4</i>
-<table id="table13195802576" class="table-striped table-bordered table-condensed">
+<table id="table13210052288" class="table-striped table-bordered table-condensed">
 <thead><tr><th>file</th><th>srcid</th><th>ra</th><th>dec</th><th>grating</th><th>filter</th><th>effexptm</th><th>nfiles</th><th>dataset</th><th>msamet</th><th>msaid</th><th>msacnf</th><th>dithn</th><th>slitid</th><th>root</th><th>npix</th><th>ndet</th><th>wmin</th><th>wmax</th><th>wmaxsn</th><th>sn10</th><th>flux10</th><th>err10</th><th>sn50</th><th>flux50</th><th>err50</th><th>sn90</th><th>flux90</th><th>err90</th><th>xstart</th><th>ystart</th><th>xsize</th><th>ysize</th><th>slit_pa</th><th>pa_v3</th><th>srcypix</th><th>profcen</th><th>profsig</th><th>ctime</th><th>version</th><th>exptime</th><th>contchi2</th><th>dof</th><th>fullchi2</th><th>line_ariii_7138</th><th>line_ariii_7138_err</th><th>line_ariii_7753</th><th>line_ariii_7753_err</th><th>line_bra</th><th>line_bra_err</th><th>line_brb</th><th>line_brb_err</th><th>line_brd</th><th>line_brd_err</th><th>line_brg</th><th>line_brg_err</th><th>line_hb</th><th>line_hb_err</th><th>line_hd</th><th>line_hd_err</th><th>line_hei_1083</th><th>line_hei_1083_err</th><th>line_hei_3889</th><th>line_hei_3889_err</th><th>line_hei_5877</th><th>line_hei_5877_err</th><th>line_hei_7065</th><th>line_hei_7065_err</th><th>line_hei_8446</th><th>line_hei_8446_err</th><th>line_heii_4687</th><th>line_heii_4687_err</th><th>line_hg</th><th>line_hg_err</th><th>line_lya</th><th>line_lya_err</th><th>line_mgii</th><th>line_mgii_err</th><th>line_neiii_3867</th><th>line_neiii_3867_err</th><th>line_neiii_3968</th><th>line_neiii_3968_err</th><th>line_nev_3346</th><th>line_nev_3346_err</th><th>line_nevi_3426</th><th>line_nevi_3426_err</th><th>line_niii_1750</th><th>line_niii_1750_err</th><th>line_oi_6302</th><th>line_oi_6302_err</th><th>line_oii</th><th>line_oii_7325</th><th>line_oii_7325_err</th><th>line_oii_err</th><th>line_oiii</th><th>line_oiii_1663</th><th>line_oiii_1663_err</th><th>line_oiii_4363</th><th>line_oiii_4363_err</th><th>line_oiii_4959</th><th>line_oiii_4959_err</th><th>line_oiii_5007</th><th>line_oiii_5007_err</th><th>line_oiii_err</th><th>line_pa10</th><th>line_pa10_err</th><th>line_pa8</th><th>line_pa8_err</th><th>line_pa9</th><th>line_pa9_err</th><th>line_paa</th><th>line_paa_err</th><th>line_pab</th><th>line_pab_err</th><th>line_pad</th><th>line_pad_err</th><th>line_pag</th><th>line_pag_err</th><th>line_pfb</th><th>line_pfb_err</th><th>line_pfd</th><th>line_pfd_err</th><th>line_pfe</th><th>line_pfe_err</th><th>line_pfg</th><th>line_pfg_err</th><th>line_sii</th><th>line_sii_err</th><th>line_siii_9068</th><th>line_siii_9068_err</th><th>line_siii_9531</th><th>line_siii_9531_err</th><th>spl_0</th><th>spl_0_err</th><th>spl_1</th><th>spl_10</th><th>spl_10_err</th><th>spl_11</th><th>spl_11_err</th><th>spl_12</th><th>spl_12_err</th><th>spl_13</th><th>spl_13_err</th><th>spl_14</th><th>spl_14_err</th><th>spl_15</th><th>spl_15_err</th><th>spl_16</th><th>spl_16_err</th><th>spl_17</th><th>spl_17_err</th><th>spl_18</th><th>spl_18_err</th><th>spl_19</th><th>spl_19_err</th><th>spl_1_err</th><th>spl_2</th><th>spl_20</th><th>spl_20_err</th><th>spl_21</th><th>spl_21_err</th><th>spl_22</th><th>spl_22_err</th><th>spl_2_err</th><th>spl_3</th><th>spl_3_err</th><th>spl_4</th><th>spl_4_err</th><th>spl_5</th><th>spl_5_err</th><th>spl_6</th><th>spl_6_err</th><th>spl_7</th><th>spl_7_err</th><th>spl_8</th><th>spl_8_err</th><th>spl_9</th><th>spl_9_err</th><th>zline</th><th>line_civ_1549</th><th>line_civ_1549_err</th><th>line_h10</th><th>line_h10_err</th><th>line_h11</th><th>line_h11_err</th><th>line_h12</th><th>line_h12_err</th><th>line_h7</th><th>line_h7_err</th><th>line_h8</th><th>line_h8_err</th><th>line_h9</th><th>line_h9_err</th><th>line_ha</th><th>line_ha_err</th><th>line_hei_6680</th><th>line_hei_6680_err</th><th>line_heii_1640</th><th>line_heii_1640_err</th><th>line_nii_6549</th><th>line_nii_6549_err</th><th>line_nii_6584</th><th>line_nii_6584_err</th><th>line_oii_7323</th><th>line_oii_7323_err</th><th>line_oii_7332</th><th>line_oii_7332_err</th><th>line_sii_6717</th><th>line_sii_6717_err</th><th>line_sii_6731</th><th>line_sii_6731_err</th><th>line_siii_6314</th><th>line_siii_6314_err</th><th>escale0</th><th>escale1</th><th>line_ciii_1906</th><th>line_ciii_1906_err</th><th>line_niv_1487</th><th>line_niv_1487_err</th><th>line_pah_3p29</th><th>line_pah_3p29_err</th><th>line_pah_3p40</th><th>line_pah_3p40_err</th><th>eqw_ariii_7138</th><th>eqw_ariii_7753</th><th>eqw_bra</th><th>eqw_brb</th><th>eqw_brd</th><th>eqw_brg</th><th>eqw_ciii_1906</th><th>eqw_civ_1549</th><th>eqw_ha_nii</th><th>eqw_hb</th><th>eqw_hd</th><th>eqw_hei_1083</th><th>eqw_hei_3889</th><th>eqw_hei_5877</th><th>eqw_hei_7065</th><th>eqw_hei_8446</th><th>eqw_heii_1640</th><th>eqw_heii_4687</th><th>eqw_hg</th><th>eqw_lya</th><th>eqw_mgii</th><th>eqw_neiii_3867</th><th>eqw_neiii_3968</th><th>eqw_nev_3346</th><th>eqw_nevi_3426</th><th>eqw_niii_1750</th><th>eqw_niv_1487</th><th>eqw_oi_6302</th><th>eqw_oii</th><th>eqw_oii_7325</th><th>eqw_oiii</th><th>eqw_oiii_1663</th><th>eqw_oiii_4363</th><th>eqw_oiii_4959</th><th>eqw_oiii_5007</th><th>eqw_pa10</th><th>eqw_pa8</th><th>eqw_pa9</th><th>eqw_paa</th><th>eqw_pab</th><th>eqw_pad</th><th>eqw_pag</th><th>eqw_pfb</th><th>eqw_pfd</th><th>eqw_pfe</th><th>eqw_pfg</th><th>eqw_sii</th><th>eqw_siii_9068</th><th>eqw_siii_9531</th><th>line_ha_nii</th><th>line_ha_nii_err</th><th>eqw_h10</th><th>eqw_h11</th><th>eqw_h12</th><th>eqw_h7</th><th>eqw_h8</th><th>eqw_h9</th><th>eqw_ha</th><th>eqw_hei_6680</th><th>eqw_nii_6549</th><th>eqw_nii_6584</th><th>eqw_oii_7323</th><th>eqw_oii_7332</th><th>eqw_sii_6717</th><th>eqw_sii_6731</th><th>eqw_siii_6314</th><th>sn_line</th><th>ztime</th><th>line_ci_9850</th><th>line_ci_9850_err</th><th>line_feii_11128</th><th>line_feii_11128_err</th><th>line_pii_11886</th><th>line_pii_11886_err</th><th>line_feii_12570</th><th>line_feii_12570_err</th><th>eqw_ci_9850</th><th>eqw_feii_11128</th><th>eqw_pii_11886</th><th>eqw_feii_12570</th><th>line_feii_16440</th><th>line_feii_16440_err</th><th>line_feii_16877</th><th>line_feii_16877_err</th><th>line_brf</th><th>line_brf_err</th><th>line_feii_17418</th><th>line_feii_17418_err</th><th>line_bre</th><th>line_bre_err</th><th>line_feii_18362</th><th>line_feii_18362_err</th><th>eqw_feii_16440</th><th>eqw_feii_16877</th><th>eqw_brf</th><th>eqw_feii_17418</th><th>eqw_bre</th><th>eqw_feii_18362</th><th>valid</th><th>objid</th><th>z_best</th><th>ztype</th><th>z_prism</th><th>z_grating</th><th>phot_correction</th><th>phot_flux_radius</th><th>phot_dr</th><th>file_phot</th><th>id_phot</th><th>phot_mag_auto</th><th>phot_f090w_tot_1</th><th>phot_f090w_etot_1</th><th>phot_f115w_tot_1</th><th>phot_f115w_etot_1</th><th>phot_f150w_tot_1</th><th>phot_f150w_etot_1</th><th>phot_f200w_tot_1</th><th>phot_f200w_etot_1</th><th>phot_f277w_tot_1</th><th>phot_f277w_etot_1</th><th>phot_f356w_tot_1</th><th>phot_f356w_etot_1</th><th>phot_f410m_tot_1</th><th>phot_f410m_etot_1</th><th>phot_f444w_tot_1</th><th>phot_f444w_etot_1</th><th>phot_Av</th><th>phot_mass</th><th>phot_restU</th><th>phot_restV</th><th>phot_restJ</th><th>z_phot</th><th>phot_LHa</th><th>phot_LOIII</th><th>phot_LOII</th><th>grade</th><th>zgrade</th><th>reviewer</th><th>comment</th><th>zrf</th><th>escale</th><th>obs_239_valid</th><th>obs_239_frac</th><th>obs_239_flux</th><th>obs_239_err</th><th>obs_239_full_err</th><th>obs_205_valid</th><th>obs_205_frac</th><th>obs_205_flux</th><th>obs_205_err</th><th>obs_205_full_err</th><th>obs_362_valid</th><th>obs_362_frac</th><th>obs_362_flux</th><th>obs_362_err</th><th>obs_362_full_err</th><th>obs_363_valid</th><th>obs_363_frac</th><th>obs_363_flux</th><th>obs_363_err</th><th>obs_363_full_err</th><th>obs_364_valid</th><th>obs_364_frac</th><th>obs_364_flux</th><th>obs_364_err</th><th>obs_364_full_err</th><th>obs_365_valid</th><th>obs_365_frac</th><th>obs_365_flux</th><th>obs_365_err</th><th>obs_365_full_err</th><th>obs_366_valid</th><th>obs_366_frac</th><th>obs_366_flux</th><th>obs_366_err</th><th>obs_366_full_err</th><th>obs_370_valid</th><th>obs_370_frac</th><th>obs_370_flux</th><th>obs_370_err</th><th>obs_370_full_err</th><th>obs_371_valid</th><th>obs_371_frac</th><th>obs_371_flux</th><th>obs_371_err</th><th>obs_371_full_err</th><th>obs_375_valid</th><th>obs_375_frac</th><th>obs_375_flux</th><th>obs_375_err</th><th>obs_375_full_err</th><th>obs_376_valid</th><th>obs_376_frac</th><th>obs_376_flux</th><th>obs_376_err</th><th>obs_376_full_err</th><th>obs_377_valid</th><th>obs_377_frac</th><th>obs_377_flux</th><th>obs_377_err</th><th>obs_377_full_err</th><th>obs_379_valid</th><th>obs_379_frac</th><th>obs_379_flux</th><th>obs_379_err</th><th>obs_379_full_err</th><th>obs_380_valid</th><th>obs_380_frac</th><th>obs_380_flux</th><th>obs_380_err</th><th>obs_380_full_err</th><th>obs_381_valid</th><th>obs_381_frac</th><th>obs_381_flux</th><th>obs_381_err</th><th>obs_381_full_err</th><th>obs_382_valid</th><th>obs_382_frac</th><th>obs_382_flux</th><th>obs_382_err</th><th>obs_382_full_err</th><th>obs_383_valid</th><th>obs_383_frac</th><th>obs_383_flux</th><th>obs_383_err</th><th>obs_383_full_err</th><th>obs_384_valid</th><th>obs_384_frac</th><th>obs_384_flux</th><th>obs_384_err</th><th>obs_384_full_err</th><th>obs_385_valid</th><th>obs_385_frac</th><th>obs_385_flux</th><th>obs_385_err</th><th>obs_385_full_err</th><th>obs_386_valid</th><th>obs_386_frac</th><th>obs_386_flux</th><th>obs_386_err</th><th>obs_386_full_err</th><th>rest_120_valid</th><th>rest_120_frac</th><th>rest_120_flux</th><th>rest_120_err</th><th>rest_120_full_err</th><th>rest_121_valid</th><th>rest_121_frac</th><th>rest_121_flux</th><th>rest_121_err</th><th>rest_121_full_err</th><th>rest_218_valid</th><th>rest_218_frac</th><th>rest_218_flux</th><th>rest_218_err</th><th>rest_218_full_err</th><th>rest_219_valid</th><th>rest_219_frac</th><th>rest_219_flux</th><th>rest_219_err</th><th>rest_219_full_err</th><th>rest_270_valid</th><th>rest_270_frac</th><th>rest_270_flux</th><th>rest_270_err</th><th>rest_270_full_err</th><th>rest_271_valid</th><th>rest_271_frac</th><th>rest_271_flux</th><th>rest_271_err</th><th>rest_271_full_err</th><th>rest_272_valid</th><th>rest_272_frac</th><th>rest_272_flux</th><th>rest_272_err</th><th>rest_272_full_err</th><th>rest_274_valid</th><th>rest_274_frac</th><th>rest_274_flux</th><th>rest_274_err</th><th>rest_274_full_err</th><th>rest_153_valid</th><th>rest_153_frac</th><th>rest_153_flux</th><th>rest_153_err</th><th>rest_153_full_err</th><th>rest_154_valid</th><th>rest_154_frac</th><th>rest_154_flux</th><th>rest_154_err</th><th>rest_154_full_err</th><th>rest_155_valid</th><th>rest_155_frac</th><th>rest_155_flux</th><th>rest_155_err</th><th>rest_155_full_err</th><th>rest_156_valid</th><th>rest_156_frac</th><th>rest_156_flux</th><th>rest_156_err</th><th>rest_156_full_err</th><th>rest_157_valid</th><th>rest_157_frac</th><th>rest_157_flux</th><th>rest_157_err</th><th>rest_157_full_err</th><th>rest_158_valid</th><th>rest_158_frac</th><th>rest_158_flux</th><th>rest_158_err</th><th>rest_158_full_err</th><th>rest_159_valid</th><th>rest_159_frac</th><th>rest_159_flux</th><th>rest_159_err</th><th>rest_159_full_err</th><th>rest_160_valid</th><th>rest_160_frac</th><th>rest_160_flux</th><th>rest_160_err</th><th>rest_160_full_err</th><th>rest_161_valid</th><th>rest_161_frac</th><th>rest_161_flux</th><th>rest_161_err</th><th>rest_161_full_err</th><th>rest_162_valid</th><th>rest_162_frac</th><th>rest_162_flux</th><th>rest_162_err</th><th>rest_162_full_err</th><th>rest_163_valid</th><th>rest_163_frac</th><th>rest_163_flux</th><th>rest_163_err</th><th>rest_163_full_err</th><th>rest_414_valid</th><th>rest_414_frac</th><th>rest_414_flux</th><th>rest_414_err</th><th>rest_414_full_err</th><th>rest_415_valid</th><th>rest_415_frac</th><th>rest_415_flux</th><th>rest_415_err</th><th>rest_415_full_err</th><th>rest_416_valid</th><th>rest_416_frac</th><th>rest_416_flux</th><th>rest_416_err</th><th>rest_416_full_err</th><th>beta</th><th>beta_ref_flux</th><th>beta_npix</th><th>beta_wlo</th><th>beta_whi</th><th>beta_nmad</th><th>dla_npix</th><th>dla_value</th><th>dla_unc</th><th>beta_cov_00</th><th>beta_cov_01</th><th>beta_cov_10</th><th>beta_cov_11</th></tr></thead>
 <thead><tr><th>str57</th><th>int64</th><th>float64</th><th>float64</th><th>str5</th><th>str6</th><th>float64</th><th>int64</th><th>str72</th><th>str25</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>str24</th><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>int64</th><th>int64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str30</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str5</th><th>int64</th><th>float64</th><th>str1</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str44</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>str4</th><th>str93</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th></tr></thead>
 <tr><td>excels-uds01-v4_g235m-f170lp_3543_109269.spec.fits</td><td>109269</td><td>34.35062413</td><td>-5.14987821</td><td>G235M</td><td>F170LP</td><td>6565.0</td><td>6</td><td>jw03543001001_05101_00002_nrs1_f170lp_g235m_raw.113.3543_109269.fits</td><td>jw03543001001_02_msa.fits</td><td>61</td><td>2</td><td>1</td><td>113</td><td>excels-uds01-v4</td><td>2775</td><td>1</td><td>1.6052381</td><td>4.5752573</td><td>2.8156571</td><td>0.6637892</td><td>0.18690835</td><td>0.105276756</td><td>2.2439482</td><td>0.42614815</td><td>0.17913413</td><td>4.0894103</td><td>0.8803835</td><td>0.55858326</td><td>505</td><td>1434</td><td>1544</td><td>34</td><td>0.0</td><td>56.909737</td><td>0.0</td><td>0.001</td><td>0.7432314</td><td>1737361758.0337665</td><td>0.9.4.dev7+g92b1aa6</td><td>39390.0</td><td>21056.38</td><td>2775</td><td>4609.6426</td><td>38.13521</td><td>13.5339</td><td>6.23057</td><td>15.9514675</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>421.78845</td><td>12.253539</td><td>40.8329</td><td>9.549703</td><td>--</td><td>--</td><td>--</td><td>--</td><td>77.94422</td><td>11.366782</td><td>-18.494478</td><td>14.979722</td><td>--</td><td>--</td><td>10.297021</td><td>8.836235</td><td>160.58878</td><td>9.798167</td><td>--</td><td>--</td><td>--</td><td>--</td><td>99.20305</td><td>11.2175455</td><td>33.67219</td><td>13.387148</td><td>5.13252</td><td>14.60536</td><td>-8.739283</td><td>12.896657</td><td>--</td><td>--</td><td>45.190254</td><td>16.34102</td><td>760.06665</td><td>--</td><td>--</td><td>17.633625</td><td>--</td><td>--</td><td>--</td><td>31.543615</td><td>8.97263</td><td>475.65164</td><td>12.492301</td><td>1478.7195</td><td>20.716312</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>2.6916635</td><td>1.0292606</td><td>1.7623694</td><td>1.2084138</td><td>0.15936823</td><td>0.7734618</td><td>0.109258264</td><td>1.507685</td><td>0.09797959</td><td>0.94181395</td><td>0.09681845</td><td>1.1777208</td><td>0.101651385</td><td>0.77827024</td><td>0.1148971</td><td>1.0161806</td><td>0.15089206</td><td>0.77205783</td><td>0.29294607</td><td>-0.36806196</td><td>1.5045673</td><td>-4700.389</td><td>2830.5718</td><td>0.3863113</td><td>2.5191631</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.22010241</td><td>1.9552373</td><td>0.1284232</td><td>2.357576</td><td>0.10218456</td><td>2.2045765</td><td>0.080455534</td><td>1.839689</td><td>0.07207858</td><td>1.9590814</td><td>0.071644664</td><td>1.7162542</td><td>0.07768974</td><td>1.4521762</td><td>0.08238754</td><td>4.622439</td><td>--</td><td>--</td><td>-23.880041</td><td>10.763638</td><td>-4.216068</td><td>10.945385</td><td>-10.380039</td><td>10.463703</td><td>34.730713</td><td>12.585057</td><td>63.86072</td><td>11.191996</td><td>-11.493438</td><td>10.910542</td><td>1681.4718</td><td>22.707413</td><td>-3.8843367</td><td>13.712671</td><td>--</td><td>--</td><td>92.769104</td><td>13.244619</td><td>303.3422</td><td>14.018277</td><td>32.40743</td><td>14.736954</td><td>16.250576</td><td>15.096581</td><td>101.71479</td><td>13.087306</td><td>102.27705</td><td>12.364596</td><td>-1.5309846</td><td>11.467584</td><td>-0.009823302</td><td>-0.121039405</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>33.2399</td><td>6.5497913</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>224.49889</td><td>18.628468</td><td>--</td><td>--</td><td>48.388504</td><td>-15.68925</td><td>--</td><td>--</td><td>5.4066896</td><td>80.58066</td><td>--</td><td>--</td><td>43.52189</td><td>14.867565</td><td>2.3390548</td><td>-4.0933743</td><td>--</td><td>--</td><td>30.003298</td><td>341.56543</td><td>--</td><td>--</td><td>--</td><td>15.96317</td><td>259.9941</td><td>822.1586</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>-10.549018</td><td>-1.8727355</td><td>-4.633839</td><td>15.341046</td><td>28.01381</td><td>-5.052083</td><td>1117.2476</td><td>-2.8325858</td><td>61.117584</td><td>204.48856</td><td>32.12791</td><td>16.236942</td><td>77.48471</td><td>79.08182</td><td>-1.009964</td><td>74.0</td><td>1737501800.0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>True</td><td>172449</td><td>4.6228543</td><td>G</td><td>4.621582</td><td>4.6228543</td><td>1.42</td><td>5.58</td><td>0.07257426</td><td>primer-uds-north-grizli-v7.2-fix_phot.fits</td><td>39787</td><td>23.86</td><td>0.2917665994332862</td><td>0.0074583520942602035</td><td>0.375822323338598</td><td>0.007474258631804441</td><td>0.4462115844556865</td><td>0.006440427649332001</td><td>0.5739798944677847</td><td>0.0055131230600766225</td><td>0.8435675923509218</td><td>0.004741583591371624</td><td>1.0094882735221247</td><td>0.0047143753686044055</td><td>0.8893053372138517</td><td>0.007319798398806998</td><td>0.9324802470703117</td><td>0.006405565944800626</td><td>1.7697781011450084</td><td>32809883821.644165</td><td>0.50983775</td><td>0.8515203</td><td>1.7189896</td><td>4.3906884</td><td>1693531123.1206756</td><td>2439001724.140659</td><td>491718980.0611007</td><td>3</td><td>4.62244</td><td>GBr</td><td>--</td><td>4.622438759007668</td><td>0.746566883923777</td><td>2775</td><td>0.0</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.25734946334707326</td><td>0.1074029218392234</td><td>0.13636944110351917</td><td>0.10877193379102598</td><td>2775</td><td>0.0001394147781913819</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>7.565232436087342e-05</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>3.422394938541863e-05</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.18365482662141527</td><td>0.08209852978824275</td><td>0.16733941953045023</td><td>0.13347483195853058</td><td>2775</td><td>0.9999855948537121</td><td>0.3193219632664132</td><td>0.005046263733122996</td><td>0.003990200871756824</td><td>2775</td><td>0.9999941843069329</td><td>0.2537792256940876</td><td>0.007393142686722595</td><td>0.0058590486168480374</td><td>2775</td><td>0.9999997834578057</td><td>0.38033510071734095</td><td>0.007166974424120975</td><td>0.005662438935784687</td><td>2775</td><td>1.0445811860385603</td><td>0.5174015331443249</td><td>0.005326151990107252</td><td>0.004123053610335878</td><td>2775</td><td>0.9592728684084484</td><td>0.674501855000472</td><td>0.010566295717687798</td><td>0.007890078518426866</td><td>2775</td><td>0.6864766461295206</td><td>0.5792201942495757</td><td>0.020225125958432014</td><td>0.014654466478661369</td><td>2775</td><td>0.9999202045997251</td><td>0.42909751937482243</td><td>0.008124019535932383</td><td>0.006308060928818762</td><td>2775</td><td>1.1339807135904223</td><td>0.39599140714595715</td><td>0.009180965975024354</td><td>0.006979044758972154</td><td>2775</td><td>0.9155759349124712</td><td>0.4344144049679926</td><td>0.012006150861982732</td><td>0.008986950271338471</td><td>2775</td><td>1.0003708102100584</td><td>0.9253913925579329</td><td>0.01587640316376797</td><td>0.011945629668644334</td><td>2775</td><td>0.9999629444372514</td><td>0.6012130410382595</td><td>0.020954229679142105</td><td>0.015287445913223813</td><td>2775</td><td>0.999952382768961</td><td>0.5847551343491033</td><td>0.034596802984993714</td><td>0.025068505153244595</td><td>2775</td><td>0.271742948888724</td><td>0.385786571762731</td><td>0.09041192951455833</td><td>0.06486283568862884</td><td>2775</td><td>0.000870765250533563</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.0</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.0042335255686836125</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.0</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.30297438438353747</td><td>0.0729137126199859</td><td>0.17875572974377257</td><td>0.1425808222110095</td><td>2775</td><td>0.0</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.0</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.0</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.2211925775581921</td><td>-0.10563051622940384</td><td>0.4136296577937412</td><td>0.3299245935603866</td><td>2775</td><td>1.0000337085333644</td><td>0.33738668400013666</td><td>0.004950199713314884</td><td>0.003915120681098042</td><td>2775</td><td>1.0001181069105798</td><td>0.4548665953094292</td><td>0.0043750033335366945</td><td>0.0034114654722886342</td><td>2775</td><td>1.001699616190192</td><td>0.4504944699708305</td><td>0.007085518684495233</td><td>0.005398401794143544</td><td>2775</td><td>1.0000088989496112</td><td>0.32547592596442326</td><td>0.005407843553604075</td><td>0.004276370382439811</td><td>2775</td><td>1.0004391319019352</td><td>0.5330539495518211</td><td>0.004904124090599388</td><td>0.0038212765386505553</td><td>2775</td><td>0.9675655946156906</td><td>0.6715857097916574</td><td>0.010553795880270628</td><td>0.00794324809030287</td><td>2775</td><td>0.9587468093273036</td><td>0.5833624760823622</td><td>0.019415353864716576</td><td>0.014090356633500783</td><td>2775</td><td>0.010634676241646013</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.0</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.0</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.0</td><td>0.0</td><td>-1.0</td><td>-1.0</td><td>2775</td><td>0.5946532185930513</td><td>0.14378560988350406</td><td>0.08065630650619657</td><td>0.06433176255255493</td><td>2775</td><td>0.9991700000926202</td><td>0.43613237675563177</td><td>0.007582746197806663</td><td>0.0058824222012783854</td><td>2775</td><td>0.9993484777878848</td><td>0.5972217145015718</td><td>0.022166001353858905</td><td>0.016079926523872485</td><td>--</td><td>--</td><td>0</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td><td>--</td></tr>
@@ -869,11 +889,6 @@ msa
 </table></div>
 
 
-
-
-```python
-from IPython.display import display, Markdown, Latex
-```
 
 
 ```python
@@ -958,17 +973,12 @@ plt.legend(fontsize=7, ncol=1)
 
 
 
-    <matplotlib.legend.Legend at 0x17ff87080>
+    <matplotlib.legend.Legend at 0x3117895e0>
 
 
 
 
     
-![png]({{ site.baseurl }}/assets/post_files/2025-11-20-ecogal-dja-showcase_files/ecogal-dja-showcase_59_1.png)
+![png]({{ site.baseurl }}/assets/post_files/2025-11-20-ecogal-dja-showcase_files/ecogal-dja-showcase_61_1.png)
     
 
-
-
-```python
-
-```
