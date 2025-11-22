@@ -4,7 +4,7 @@ Maintained by Victoria Strait and Gabriel Brammer
 
 # Devel
 
-To serve locally with jekyll:
+To serve locally with [jekyll](https://jekyllrb.com/docs/installation/):
 
 ```bash
 $ rm -rf _site; bundle exec jekyll serve --incremental
