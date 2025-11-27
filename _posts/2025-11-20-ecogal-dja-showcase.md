@@ -22,7 +22,8 @@ This notebook provides an introduction to the ECOGAL catalogue, including how to
     
     `python -m pip install git+https://github.com/mjastro/ecogal.git`
 
-> Additional documentation will be released soon. A complete description of the ALMA data reduction and catalogue construction will appear in **Lee et al. (2025; submitted)**, and should be cited when using the ECOGAL data products. Users should also cite the appropriate survey references (including ALMA project IDs) when making use of the DJA data products.
+> Additional documentation will be released soon. A complete description of the ALMA data reduction and catalogue construction is provided in [Lee et al. (2025)](
+https://doi.org/10.48550/arXiv.2511.20751) [arXiv:2511.20751], and should be cited when using the ECOGAL data products. Users should also cite the appropriate survey references (including ALMA project IDs) when making use of the DJA data products.
 
 
 
