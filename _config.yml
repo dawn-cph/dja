@@ -1,5 +1,5 @@
 # Settings
-url: https://dawn-cph.github.io/dja/
+url: https://dawn-cph.github.io/
 baseurl: /dja
 title: DJA
 tagline: The DAWN JWST Archive
@@ -30,8 +30,8 @@ snapchat:
 
 # Pagination
 paginate: 4
-permalink: blog/:year/:month/:day/:title/
-paginate_path: blog/page:num/
+permalink: /blog/:year/:month/:day/:title/
+paginate_path: /blog/page:num/
 
 # Build settings
 markdown: kramdown
