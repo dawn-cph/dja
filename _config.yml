@@ -1,9 +1,10 @@
 # Settings
-url: https://dawn-cph.github.io/
+url: https://dawn-cph.github.io/dja/
 baseurl: /dja
 title: DJA
 tagline: The DAWN JWST Archive
 repository: dawn-cph/dja
+description: The DAWN JWST Archive, Science-ready public JWST data products
 
 bannerTitle: The DAWN JWST Archive
 bannerTagline: Science-ready public JWST data products
@@ -52,4 +53,5 @@ plugins:
     - jekyll-email-protect
     - jekyll-paginate
     - jemoji
+    - jekyll-feed
 
