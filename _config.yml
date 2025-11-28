@@ -30,8 +30,8 @@ snapchat:
 
 # Pagination
 paginate: 4
-permalink: /blog/:year/:month/:day/:title/
-paginate_path: /blog/page:num/
+permalink: blog/:year/:month/:day/:title/
+paginate_path: blog/page:num/
 
 # Build settings
 markdown: kramdown
