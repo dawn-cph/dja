@@ -22,7 +22,7 @@ JSON files with full parsed schedule entries:
 ## Cycle 4
 
 
-### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20260202_report_20260129.txt" > 20260202_report_20260129.txt </a>
+### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20260202_report_20260204.txt" > 20260202_report_20260204.txt </a>
 
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
@@ -97,25 +97,10 @@ JSON files with full parsed schedule entries:
 | 2026.02.05 | 01:22:24  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7033"> 7033 </a> |   3:1  |  <span style="color:#d3b6d9;"> 03:54:33 </span>  | NIRSpec MOS      | new_coords_bg_wts_stel_rand2                 |                                                   |
 |  |  |  |   |  |  NIRCam Imaging                        | Coordinated Parallel  |   |
 | 2026.02.04 | 21:00:00  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9292"> 9292 </a> |   6:1  |  <span style="color:#d4b9da;"> 03:45:53 </span>  | NIRSpec MOS      | OrionNebula_v2                               |                                                   |
-| 2026.02.04 | 16:46:23  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7565"> 7565 </a> |   4:1  |  <span style="color:#d4b9da;"> 03:42:01 </span>  | NIRCam Engineering Imaging            | GD71                                         |  White dwarfs                                     |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> |  76:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> |  77:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> |  78:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> |  79:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> |  80:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> | 101:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> | 102:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> | 103:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> | 104:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> | 105:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> | 106:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> | 107:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> | 108:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> | 109:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> | 110:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-|  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9274"> 9274 </a> | 221:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
-| 2026.02.04 | 16:03:48  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7052"> 7052 </a> |  85:1  |  <span style="color:#d4b9da;"> 00:28:07 </span>  | WFSC NIRCam Fine Phasing              | 2MASS-05322940+1204475                       |  Focus test                                       |
-| 2026.02.04 | 12:00:00  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9292"> 9292 </a> |   5:1  |  <span style="color:#d4b9da;"> 03:38:12 </span>  | NIRSpec MOS      | OrionNebula_v2                               |                                                   |
+| 2026.02.04 | 16:35:41  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7565"> 7565 </a> |   4:1  |  <span style="color:#d4b9da;"> 03:42:01 </span>  | NIRCam Engineering Imaging            | GD71                                         |  White dwarfs                                     |
+| 2026.02.04 | 15:53:06  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7052"> 7052 </a> |  85:1  |  <span style="color:#d4b9da;"> 00:28:07 </span>  | WFSC NIRCam Fine Phasing              | 2MASS-05322940+1204475                       |  Focus test                                       |
+| 2026.02.04 | 14:20:13  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=4192"> 4192 </a> | 213:1  |  <span style="color:#d4b9da;"> 00:43:12 </span>  | MIRI LRS slit      | BZK-17999-update                             |  Infrared galaxies                                |
+| 2026.02.04 | 12:28:42  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7881"> 7881 </a> |   1:1  |  <span style="color:#d4b9da;"> 01:30:25 </span>  | MIRI Imaging                          | SN-2023ixf                                   |  Supernovae,  Type II supernovae                  |
 | 2026.02.04 | 10:19:24  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5324"> 5324 </a> |  27:1  |  <span style="color:#d4b9da;"> 01:08:37 </span>  | NIRCam Imaging                        | JADES-SNIa                                   |  Type Ia supernovae                               |
 | 2026.02.04 | 06:09:32  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=5324"> 5324 </a> |  25:1  |  <span style="color:#d3b5d8;"> 03:56:36 </span>  | NIRSpec MOS      | MPT_input_5324_v4                            |                                                   |
 | 2026.02.04 | 03:35:08  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=12496"> 12496 </a> |   4:1  |  <span style="color:#d4b9da;"> 01:47:35 </span>  | NIRCam Imaging                        | Radio-Galaxy-NIRCam                          |  Active galactic nuclei,  Radio galaxies,  Radio jets |
