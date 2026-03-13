@@ -22,7 +22,7 @@ JSON files with full parsed schedule entries:
 ## Cycle 4
 
 
-### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20260309_report_20260310.txt" > 20260309_report_20260310.txt </a>
+### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20260309_report_20260312.txt" > 20260309_report_20260312.txt </a>
 
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
@@ -50,8 +50,12 @@ JSON files with full parsed schedule entries:
 |  |  |  |   |  |  NIRCam Imaging                        | Coordinated Parallel  |   |
 | 2026.03.14 | 07:37:30  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=8233"> 8233 </a> |   1:1  |  <span style="color:#e159a8;"> 07:52:23 </span>  | NIRISS SOSS  | HAT-P-13                                     |  Exoplanet Systems,  Exoplanets                   |
 | 2026.03.14 | 04:43:29  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7404"> 7404 </a> |   2:4  |  <span style="color:#d4b9da;"> 01:34:44 </span>  | NIRCam WFSS  | GOODS-N-CENTER                               |  Blank field                                      |
+| 2026.03.14 | 03:18:08  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=12510"> 12510 </a> |   1:1  |  <span style="color:#d4b9da;"> 03:28:28 </span>  | NIRSpec IFU              | SN2025wny_A_Gal1                             |  Supernovae                                       |
 | 2026.03.14 | 03:03:18  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7404"> 7404 </a> |   2:3  |  <span style="color:#d4b9da;"> 01:34:44 </span>  | NIRCam WFSS  | GOODS-N-CENTER                               |  Blank field                                      |
+| 2026.03.14 | 01:37:32  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9365"> 9365 </a> |   6:1  |  <span style="color:#d4b9da;"> 01:10:17 </span>  | NIRISS WFSS  | Par34                                        |  Blank field                                      |
 | 2026.03.14 | 01:23:00  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7404"> 7404 </a> |   2:2  |  <span style="color:#d4b9da;"> 01:34:44 </span>  | NIRCam WFSS  | GOODS-N-CENTER                               |  Blank field                                      |
+| 2026.03.14 | 00:50:01  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9271"> 9271 </a> |   8:1  |  <span style="color:#d4b9da;"> 00:19:37 </span>  | NIRSpec Internal Lamp                 |                                              |                                                   |
+| 2026.03.13 | 23:59:06  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9271"> 9271 </a> |   7:1  |  <span style="color:#d4b9da;"> 00:50:00 </span>  | NIRSpec MSA Short Detection           |                                              |                                                   |
 | 2026.03.13 | 23:39:46  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7404"> 7404 </a> |   2:1  |  <span style="color:#d4b9da;"> 01:37:47 </span>  | NIRCam WFSS  | GOODS-N-CENTER                               |  Blank field                                      |
 | 2026.03.13 | 19:19:58  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7944"> 7944 </a> |   2:1  |  <span style="color:#d4b9da;"> 03:32:04 </span>  | MIRI MRS IFU   | 142-301                                      |  Proplyds,  Protoplanetary disks                  |
 |  |  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=9273"> 9273 </a> |  99:1  |  |  NIRSpec Dark                          | Internal Calibration  |   |
