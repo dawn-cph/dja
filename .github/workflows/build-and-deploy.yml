@@ -17,7 +17,7 @@ on:
   schedule:
     # https://crontab.guru/#40_9_*_*_0
     # Run at 06:00,23:00 UTC to catch schedule updates
-    - cron: "0 06,23 * * *" 
+    - cron: "30 04 * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
