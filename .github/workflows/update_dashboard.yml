@@ -5,8 +5,7 @@ on:
   schedule:
     # https://crontab.guru/#40_9_*_*_0
     # At 05:00 Monday-Friday.
-    - cron: "30 05 * * *" 
-      timezone: "Europe/Berlin"
+    - cron: "30 01 * * *" 
 
 jobs:
   UpdateDataDashboard:
