@@ -289,14 +289,14 @@ Schedules from previous cycles
 <a href="../jwst_schedules_past_cycles/#cycle-1"> 1 </a>,
 <a href="../jwst_schedules_past_cycles/#cycle-2"> 2 </a>,
 <a href="../jwst_schedules_past_cycles/#cycle-3"> 3 </a>,
-<a href="../jwst_schedules_past_cycles/#cycle-4"> 4 </a>.
+and <a href="../jwst_schedules_past_cycles/#cycle-4"> 4 </a>.
 
 JSON files with full parsed schedule entries:
-<a href="../../assets/schedule/jwst-schedule-cycle5.json"> jwst-schedule-cycle5.json </a>,
-<a href="../../assets/schedule/jwst-schedule-cycle4.json"> jwst-schedule-cycle4.json </a>,
-<a href="../../assets/schedule/jwst-schedule-cycle3.json"> jwst-schedule-cycle3.json </a>,
+<a href="../../assets/schedule/jwst-schedule-cycle1.json"> jwst-schedule-cycle1.json </a>,
 <a href="../../assets/schedule/jwst-schedule-cycle2.json"> jwst-schedule-cycle2.json </a>,
-<a href="../../assets/schedule/jwst-schedule-cycle1.json"> jwst-schedule-cycle1.json </a>.
+<a href="../../assets/schedule/jwst-schedule-cycle3.json"> jwst-schedule-cycle3.json </a>,
+<a href="../../assets/schedule/jwst-schedule-cycle4.json"> jwst-schedule-cycle4.json </a>,
+<a href="../../assets/schedule/jwst-schedule-cycle5.json"> jwst-schedule-cycle5.json </a>.
 
 """
     text_lines = [post_header]
