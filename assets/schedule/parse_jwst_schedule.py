@@ -9,6 +9,8 @@ import numpy as np
 
 BASE_URL = "https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents"
 
+CURRENT_CYCLE = 5
+
 class ScheduleEntry():
     program = None
     visit = None
@@ -247,7 +249,7 @@ def read_schedule_summary(url="https://www.stsci.edu/jwst/science-execution/obse
 def make_merged_json():
     """
     """
-    for cycle in [1,2,3,4]:
+    for cycle in [CURRENT_CYCLE - 1, CURRENT_CYCLE]:
         files = glob.glob(f"Cycle{cycle}/*json")
         print(f"Make merged Cycle {cycle} json file from N={len(files)} separate files")
         entries = []
@@ -263,7 +265,7 @@ def make_merged_json():
             json.dump(sorted_entries, fp)
 
 
-def schedules_to_markdown(markdown_file="jwst_schedules.md", cycles=[4]):
+def schedules_to_markdown(markdown_file="jwst_schedules.md", cycles=[CURRENT_CYCLE]):
     """
     """
 
@@ -283,10 +285,14 @@ Reformatted views of the JWST Observing Schedules <a href="https://www.stsci.edu
 
 Table created with the script <a href="../../assets/schedule/"> here </a>.
 
-Schedules from previous cycles <a href="../jwst_schedules_past_cycles/#cycle-1"> 1 </a>
-, <a href="../jwst_schedules_past_cycles/#cycle-2"> 2 </a>, and <a href="../jwst_schedules_past_cycles/#cycle-3"> 3 </a>.
+Schedules from previous cycles
+<a href="../jwst_schedules_past_cycles/#cycle-1"> 1 </a>,
+<a href="../jwst_schedules_past_cycles/#cycle-2"> 2 </a>,
+<a href="../jwst_schedules_past_cycles/#cycle-3"> 3 </a>,
+<a href="../jwst_schedules_past_cycles/#cycle-4"> 4 </a>.
 
 JSON files with full parsed schedule entries:
+<a href="../../assets/schedule/jwst-schedule-cycle5.json"> jwst-schedule-cycle5.json </a>,
 <a href="../../assets/schedule/jwst-schedule-cycle4.json"> jwst-schedule-cycle4.json </a>,
 <a href="../../assets/schedule/jwst-schedule-cycle3.json"> jwst-schedule-cycle3.json </a>,
 <a href="../../assets/schedule/jwst-schedule-cycle2.json"> jwst-schedule-cycle2.json </a>,
@@ -344,8 +350,21 @@ JSON files with full parsed schedule entries:
 
 if __name__ == "__main__":
 
+    import sys
+    
     read_schedule_summary()
 
-    schedules_to_markdown(markdown_file="../../general/jwst_schedules.md")
+    cycles = [CURRENT_CYCLE, CURRENT_CYCLE - 1]
+
+    for i, arg in enumerate(sys.argv):
+        if arg.startswith("--cycles"):
+            cycles = np.array(sys.argv[i+1].split(',')).astype(int).tolist()
+
+    print(f"Cycles in current summary: {cycles}")
+
+    schedules_to_markdown(
+        markdown_file="../../general/jwst_schedules.md",
+        cycles=cycles,
+    )
 
     
