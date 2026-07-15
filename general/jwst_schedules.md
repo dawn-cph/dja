@@ -26,7 +26,7 @@ JSON files with full parsed schedule entries:
 ## Cycle 5
 
 
-### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20260712_report_20260710.txt" > 20260712_report_20260710.txt </a>
+### <a href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/science-execution/observing-schedules/_documents/20260712_report_20260714.txt" > 20260712_report_20260714.txt </a>
 
 |  Date  |  Time   | Program | Visit | Duration | Intrument | Target | Keywords | 
 | :----: | :-----: | :-----: | ----: | :------: | :-------- | :----- | :------- |
@@ -62,8 +62,10 @@ JSON files with full parsed schedule entries:
 | 2026.07.16 | 21:15:51  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7700"> 7700 </a> |   5:2  |  <span style="color:#cea5d0;"> 04:47:11 </span>  | NIRCam Engineering Imaging            | JPB_16+24_FinalPointing_SE4                  |  Blank field                                      |
 | 2026.07.16 | 16:20:00  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7700"> 7700 </a> |   5:1  |  <span style="color:#cea4cf;"> 04:50:14 </span>  | NIRCam Engineering Imaging            | JPB_16+24_FinalPointing_SE4                  |  Blank field                                      |
 | 2026.07.16 | 12:00:00  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=2745"> 2745 </a> |  77:1  |  <span style="color:#d4b9da;"> 03:04:38 </span>  | Realtime Commanding                   | TSR-4327                                     |  Blank field                                      |
-| 2026.07.16 | 08:33:08  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=11192"> 11192 </a> |   1:1  |  <span style="color:#d4b9da;"> 00:36:08 </span>  | NIRSpec Fixed Slit       | SN2024cld                                    |  Dust shell,  Supernovae                          |
+| 2026.07.16 | 10:15:12  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=11192"> 11192 </a> |   1:1  |  <span style="color:#d4b9da;"> 00:36:08 </span>  | NIRSpec Fixed Slit       | SN2024cld                                    |  Dust shell,  Supernovae                          |
+| 2026.07.16 | 08:24:43  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=8217"> 8217 </a> |  17:1  |  <span style="color:#d4b9da;"> 01:24:58 </span>  | NIRSpec IFU              | 2MASX-J15342642-0119003                      |  Elliptical galaxies,  Giant elliptical galaxies,  Giant galaxies |
 | 2026.07.16 | 06:41:13  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=8217"> 8217 </a> |   2:1  |  <span style="color:#d4b9da;"> 01:22:22 </span>  | NIRCam Imaging                        | 2MASX-J13481074+0251102                      |  Elliptical galaxies,  Giant elliptical galaxies,  Giant galaxies |
+| 2026.07.16 | 04:53:19  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=12517"> 12517 </a> |  13:1  |  <span style="color:#d4b9da;"> 03:12:33 </span>  | NIRSpec Fixed Slit       | SF1615+001A                                  |  G dwarfs                                         |
 | 2026.07.16 | 03:19:17  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=8976"> 8976 </a> |   7:1  |  <span style="color:#d4b9da;"> 03:09:22 </span>  | NIRSpec IFU              | 2014-AT28                                    |  Asteroid                                         |
 | 2026.07.15 | 22:09:26  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=7700"> 7700 </a> |   4:2  |  <span style="color:#cea4cf;"> 04:50:14 </span>  | NIRCam Engineering Imaging            | JPB_16+24_FinalPointing_SE4                  |  Blank field                                      |
 | 2026.07.15 | 20:12:17  | <a href="https://www.stsci.edu/jwst-program-info/program/?program=12772"> 12772 </a> |   1:1  |  <span style="color:#d4b9da;"> 01:26:51 </span>  | MIRI MRS IFU   | 235P                                         |  Comet                                            |
