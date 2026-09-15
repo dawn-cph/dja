@@ -7,13 +7,19 @@ version = "v4"
 
 nre = db.SQL("""select file, root, grating || '-' || filter as grating, msamet, effexptm, exptime from nirspec_extractions
 where root like '%%v3'
-AND root not like 'rubies%%-nod-v3' AND root not like 'rubies%%-xoff-v3'
+AND root not like 'rubies%%-nod-%%' AND root not like 'rubies%%-xoff-%%'
 AND root not like 'jw0%%'
-AND root not like 'mom-cos%%'
-AND root not like 'uncover-flash%%'
+AND root not like 'xmom-cos%%'
+AND root not like 'xuncover-flash%%'
+AND root not like '%%covelo%%'
+AND root not like '%%greene%%'
+AND root not like '%%weibel%%'
 """.replace("v3", version))
 
-nre['prog'] = [m[3:7] for m in nre['msamet']]
+if hasattr(nre['msamet'], 'mask'):
+    nre = nre[~nre['msamet'].mask]
+
+nre['prog'] = [f"{int(m[2:7])}" for m in nre['msamet']]
 
 nrm = db.SQL("""select objid, file, ra, dec, z
 from nirspec_unique natural join nirspec_unique_match
@@ -40,10 +46,13 @@ print(lines[0])
 rowstr = '| [{0}](https://www.stsci.edu/jwst-program-info/program/?program={0}) |  {5} |  {1} | {2} | {3} | {4} |'
 
 for v in un.values:
-    if v in ['x1208', 'x4318', 'x1635', '1226', 'x3567', 'x1835','4713','4527','4598']:
+
+    if v in ['x1208', 'x4318', 'x1635', '1226', 'x3567', 'x1835','x4713','x4527','x4598']:
         continue
         
     uv = un[v]
+    print(v, uv.sum())
+
     roots = np.unique(nre['root'][uv])
     in_un = np.isin(nrm['file'], nre['file'][uv])
     n_un = len(np.unique(nrm['objid'][in_un]))
@@ -75,6 +84,6 @@ for v in un.values:
 
     # break
 
-with open(f'dja_nirspec_summary_{version}.md','w') as fp:
+with open(f'dja_nirspec_summary_{version}x.md','w') as fp:
     for line in lines:
         fp.write(line + '\n')
