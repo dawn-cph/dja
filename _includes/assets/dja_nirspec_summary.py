@@ -19,7 +19,7 @@ AND root not like '%%weibel%%'
 if hasattr(nre['msamet'], 'mask'):
     nre = nre[~nre['msamet'].mask]
 
-nre['prog'] = [f"{int(m[2:7])}" for m in nre['msamet']]
+nre['prog'] = [f"{m[2:7]}" for m in nre['msamet']]
 
 nrm = db.SQL("""select objid, file, ra, dec, z
 from nirspec_unique natural join nirspec_unique_match
@@ -76,7 +76,7 @@ for v in un.values:
     for root in roots
     ]
     row = [
-        v,
+        int(v),
         ' <br> '.join(root_links), ' <br> '.join(grating_summary), n_un, n_unz, survey]
     
     line = rowstr.format(*row)
