@@ -6,8 +6,7 @@ categories: spectroscopy
 author: G. Brammer
 tags: jwst miri wfss demo
 ---
-{% include tags.html %}
-
+{% include components/tags.html %}
 # Basic extraction of MIRI (LRS) slitless observations
 
 - Subtract background by simply taking differences of offset exposures
