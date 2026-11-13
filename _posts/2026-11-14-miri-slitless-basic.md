@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  {Preliminary MIRI LRS Slitless Extraction}
+title:  Preliminary MIRI LRS Slitless Extraction
 date:   2026-11-14 00:31:51 +0100
 categories: spectroscopy
 author: G. Brammer
@@ -130,9 +130,8 @@ else:
 lrs.load_rate_files?
 ```
 
-
-    [0;31mSignature:[0m [0mlrs[0m[0;34m.[0m[0mload_rate_files[0m[0;34m([0m[0mfiles[0m[0;34m,[0m [0mwrite_bkg_files[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-    [0;31mDocstring:[0m
+    Signature: lrs.load_rate_files(files, write_bkg_files=True)
+    Docstring:
     Load rate files, take diffs to remove background
     
     Parameters
@@ -248,17 +247,17 @@ lrs.rate_group_regions?
 ```
 
 
-    [0;31mSignature:[0m
-    [0mlrs[0m[0;34m.[0m[0mrate_group_regions[0m[0;34m([0m[0;34m[0m
-    [0;34m[0m    [0mrate_groups[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mroot[0m[0;34m=[0m[0;34m'group'[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mseparate_region_files[0m[0;34m=[0m[0;32mFalse[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mwrite_file[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mmake_figure[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m8[0m[0;34m,[0m [0;36m8[0m[0;34m)[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0;34m**[0m[0mkwargs[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-    [0;31mDocstring:[0m
+    Signature:
+    lrs.rate_group_regions(
+        rate_groups,
+        root='group',
+        separate_region_files=False,
+        write_file=True,
+        make_figure=True,
+        figsize=(8, 8),
+        **kwargs,
+    )
+    Docstring:
     Make region file(s) for the illuminated portions of the loaded exposures
     
     Parameters
@@ -362,19 +361,19 @@ lrs.rate_group_mosaic?
 ```
 
 
-    [0;31mSignature:[0m
-    [0mlrs[0m[0;34m.[0m[0mrate_group_mosaic[0m[0;34m([0m[0;34m[0m
-    [0;34m[0m    [0mrate_groups[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mroot[0m[0;34m=[0m[0;34m'jw09615'[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0moutput_path[0m[0;34m=[0m[0;34m'./'[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mmake_separate[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mmake_combined[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mpixel_scale[0m[0;34m=[0m[0;36m0.11057[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mkernel[0m[0;34m=[0m[0;34m'square'[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mpixfrac[0m[0;34m=[0m[0;36m0.5[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m    [0mverbose[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0;34m[0m
-    [0;34m[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-    [0;31mDocstring:[0m
+    Signature:
+    lrs.rate_group_mosaic(
+        rate_groups,
+        root='jw09615',
+        output_path='./',
+        make_separate=True,
+        make_combined=True,
+        pixel_scale=0.11057,
+        kernel='square',
+        pixfrac=0.5,
+        verbose=True,
+    )
+    Docstring:
     Make drizzled mosaics of group exposures
     
     Parameters

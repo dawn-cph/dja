@@ -15,7 +15,7 @@ date:   {TIMESTAMP}
 categories: Research
 tags: HST
 ---
-{% include tags.html %}
+{% include components/tags.html %}
 ```
 
 3) Run the command below, where the last item is a list of jekyll properties
