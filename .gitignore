@@ -17,6 +17,10 @@ _incoming/*.csv
 _incoming/*.fits
 _incoming/*.gz
 
+# just include test-post.ipynb
+_incoming/[a-su-z]*.ipynb
+_incoming/[a-su-z]*.md
+
 *.ipynb_checkpoints
 *__pycache__*
 

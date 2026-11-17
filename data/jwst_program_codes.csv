@@ -1,17 +1,22 @@
 proposal_id,pi,count
 1063,"Sunnquist, Ben",3745
-1076,"Pirzkal, Norbert",887
+1076,"Pirzkal, Norbert",2240
 1089,"Martel, Andre",252
 1160,"Perrin, Marshall",140
-1176,"Windhorst, Rogier A.",1380
-1180,"Eisenstein, Daniel J.",3828
+1176,"Windhorst, Rogier A.",1860
+1180,"Eisenstein, Daniel J.",8308
 1181,"Eisenstein, Daniel J.",3924
+1199,"Stiavelli, Massimo",240
 1207,"Rieke, George",492
 1208,"Willott, Chris J.",5170
 1210,"Luetzgendorf, Nora",720
-1243,"Lilly, Simon J.",4380
-1283,"Oestlin, Goeran",462
-1286,"Luetzgendorf, Nora",450
+1233,"Meixner, Margaret",104
+1243,"Lilly, Simon J.",5840
+1262,"Luetzgendorf, Nora",12
+1264,"Colina Robledo, Luis",264
+1283,"Oestlin, Goeran",583
+1286,"Luetzgendorf, Nora",3600
+1287,"Isaak, Kate",720
 1324,"Treu, Tommaso L.",1240
 1328,"Armus, Lee",231
 1334,"Weisz, Daniel R.",327
@@ -20,40 +25,189 @@ proposal_id,pi,count
 1433,"Coe, Dan",160
 1475,"Boyer, Martha L.",583
 1476,"Boyer, Martha L.",1698
-1479,"Boyer, Martha L.",36
+1479,"Boyer, Martha L.",440
+1480,"Boyer, Martha L.",200
 1521,"Garcia Marin, Macarena",324
 1536,"Gordon, Karl D.",260
 1567,"Fujimoto, Seiji",120
-1571,"Malkan, Matthew A.",635
-1727,"Kartaltepe, Jeyhan",7084
+1571,"Malkan, Matthew A.",944
+1572,"Dannerbauer, Helmut",160
+1635,"Martin, Crystal Linn",920
+1657,"Harikane, Yuichi",124
+1727,"Kartaltepe, Jeyhan",13660
 1764,"Fan, Xiaohui",1041
-1837,"Dunlop, James S.",8734
-1869,"Schaerer, Daniel",160
+1791,"Spilker, Justin",136
+1810,"Belli, Sirio",320
+1837,"Dunlop, James S.",9703
+1840,"Alvarez-Marquez, Javier",660
+1869,"Schaerer, Daniel",240
 1895,"Oesch, Pascal",1760
 1933,"Matthee, Jorryt",1080
+1939,"Lu, Jessica Ryan",480
 1963,"Williams, Christina C",528
-2078,"Wang, Feige",2391
-2079,"Finkelstein, Steven L.",770
-2107,"Lee, Janice",3216
+1967,"Onoue, Masafusa",960
+1995,"Freedman, Wendy L.",1320
+2028,"Wang, Feige",120
+2046,"Nierenberg, Anna",372
+2073,"Hennawi, Joseph",570
+2078,"Wang, Feige",2589
+2079,"Finkelstein, Steven L.",1540
+2107,"Lee, Janice",4000
 2180,"De Looze, Ilse",550
 2198,"Barrufet, Laia",240
+2234,"Banados, Eduardo",400
 2279,"Naidu, Rohan",220
 2282,"Coe, Dan",240
-2321,"Best, Philip N.",180
+2321,"Best, Philip N.",1320
+2345,"Newman, Andrew B.",40
 2362,"Marsan, Cemile",120
-2514,UNKNOWN,3960
-2561,"Labbe, Ivo",2839
+2391,"Roman-Duval, Julia Christine",280
+2417,"Riechers, Dominik A.",52
+2452,"Smith, JD",360
+2514,UNKNOWN,7310
+2516,"Hodge, Jacqueline",288
+2555,"Rivera-Thorsen, T. Emil",120
+2561,"Labbe, Ivo",3199
+2674,"Arrabal Haro, Pablo",240
 2727,"Pontoppidan, Klaus M.",144
 2730,"Pontoppidan, Klaus M.",202
 2732,"Pontoppidan, Klaus M.",1014
 2736,"Pontoppidan, Klaus M.",358
-2738,"Windhorst, Rogier A.",408
-2739,"Pontoppidan, Klaus M.",1750
+2738,"Windhorst, Rogier A.",2496
+2739,"Pontoppidan, Klaus M.",2283
 2750,"Arrabal Haro, Pablo",90
 2756,"Chen, Wenlei",240
 2767,"Kelly, Patrick",120
-2883,"Sun, Fengwu",154
+2774,"Rieke, George",120
+2775,"Alberts, Stacey",132
+2883,"Sun, Fengwu",1232
+2926,"Colina Robledo, Luis",48
+2987,"Leroy, Adam",288
+3017,"Yue, Minghao",180
+3073,"Castellano, Marco",180
+3215,"Eisenstein, Daniel J.",1620
+3222,"Drozdovskaya, Maria Nikolayevna",220
+3293,"Atek, Hakim",5280
+3325,"Wang, Feige",1110
+3362,"Muzzin, Adam",1320
+3383,"Glazebrook, Karl",473
+3433,"Richard, Johan Pierre",180
+3516,"Matthee, Jorryt",2376
+3538,"Iani, Edoardo",2390
+3547,"Umehata, Hideki",68
+3567,"Valentino, Francesco Maria",480
+3577,"Egami, Eiichi",1320
+3629,"Man, Allison",24
+3743,"Spilker, Justin",460
+3794,"Kirkpatrick, Allison",404
+3843,"Bayliss, Matthew",120
+3859,"Onoue, Masafusa",640
+3907,"Zhang, Yichen",384
+3950,"Finner, Kyle",160
+3954,"Lelli, Federico",768
+3990,"Morishita, Takahiro",14046
+4043,"Witten, Callum",220
+4092,"Becker, George D",1120
+4111,"Suess, Katherine",2464
+4125,"Florian, Michael",720
+4212,"Bradley, Larry",160
+4246,"Abdurro'uf, Abdurro'uf",12
+4265,"Gonzalez Lopez, Jorge Ignacio",145
+4287,"Mason, Charlotte",240
+4368,"Noirot, Gael",24
 4434,"Levan, Andrew James",90
-4443,"Sunnquist, Ben",176
+4443,"Sunnquist, Ben",341
 4445,"Levan, Andrew James",70
 4446,"Frye, Brenda Louise",120
+4447,"Kozhurina-Platais, Vera",820
+4449,"Pirzkal, Norbert",240
+4530,"Colina Robledo, Luis",48
+4540,"Eisenstein, Daniel J.",1116
+4549,"Rieke, George",594
+4573,"Fujimoto, Seiji",120
+4586,"Harikane, Yuichi",35
+4598,"Bradac, Marusa",442
+4681,"Glazebrook, Karl",914
+4735,"Sandford, Nathan Ross",680
+4744,"Frye, Brenda Louise",240
+4761,"Faisst, Andreas L",144
+4762,"Fujimoto, Seiji",257
+4866,"Luhman, Kevin",2160
+4877,"Endsley, Ryan",126
+4903,"Newman, Andrew B.",120
+4924,"Sun, Fengwu",330
+5018,"Salome, Philippe",108
+5058,"Furtak, Lukas Jonathan",495
+5105,"Shen, Yue",4442
+5221,"Pudoka, Maria",360
+5279,"Shivaei, Irene",66
+5293,"Xu, Xinfeng",90
+5324,"Pierel, Justin",1480
+5328,"Gonzalez, Anthony Hernan",160
+5365,"Ginsburg, Adam G",1500
+5398,"Kartaltepe, Jeyhan",13650
+5407,"Leung, Gene C K",343
+5427,"Davies, Rebecca",80
+5552,"Jorgensen, Jes K.",1660
+5578,"Iani, Edoardo",128
+5594,"Mahler, Guillaume",5580
+5782,"Claeyssens, Adelaide Marie",720
+5890,"Withers, Cassandra",1056
+5893,"Kakiichi, Koki",16731
+5911,"Simcoe, Robert Andrew",1080
+5917,"Vanzella, Eros",24
+5997,"Looser, Tobias Jakob",720
+6036,"Hodge, Jacqueline",120
+6123,"Gallo, Elena",36
+6154,"de Graaff, Anna G",80
+6207,"Lagattuta, David",160
+6368,"Dickinson, Mark",3810
+6434,"Egami, Eiichi",12370
+6480,"Schouws, Sander",2630
+6511,"Oestlin, Goeran",1320
+6541,"Egami, Eiichi",360
+6549,"Pierel, Justin",180
+6585,"Coulter, David",150
+6628,"Pirzkal, Norbert",480
+6642,"Muzerolle Page, James",120
+6675,"Dahle, Haakon",360
+6743,"Killi, Meghana",103
+6761,"Greene, Jenny Emma",8
+6777,"Lu, Jessica Ryan",240
+6782,"Foo, Nicholas",60
+6796,"Fujimoto, Seiji",320
+6882,"Fujimoto, Seiji",11592
+6958,"Valentino, Francesco Maria",136
+7336,"Sun, Fengwu",280
+7345,"Fudamoto, Yoshinobu",960
+7404,"Naidu, Rohan",2640
+7511,"Covelo-Paz, Alba",300
+7573,"Dessauges-Zavadsky, Miroslava",80
+7583,"Jin, Shuowen",380
+7700,"Trilling, David E.",1760
+7814,"Muzzin, Adam",15224
+8060,"Egami, Eiichi",420
+8281,"Vegetti, Simona",210
+8410,"Simons, Raymond",240
+8559,"Davis, Kelcey",2000
+8799,"Suyu, Sherry H.",60
+8838,"Pirzkal, Norbert",210
+9165,"Endsley, Ryan",90
+9263,"Shen, Yue",3408
+9296,"Levan, Andrew James",240
+9372,"Padilla Gonzalez, Estefania",50
+9438,"Schlafly, Eddie",1440
+9478,"Larison, Conor",40
+9493,"Coulter, David",45
+10005,"Sun, Fengwu",88
+10790,"Tacchella, Sandro",1170
+11373,"Whitaker, Katherine E.",376
+12299,"Larison, Conor",64
+12539,"Sunnquist, Ben",1496
+12576,"Pierel, Justin",40
+12577,"Egami, Eiichi",180
+12581,"Fujimoto, Seiji",120
+12761,"Wolf, Julien Anton",240
+12774,"Agrawal, Aadya",80
+12782,"Fujimoto, Seiji",120
+16602,"Zhuang, Mingyang",132

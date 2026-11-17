@@ -735,7 +735,7 @@ proposal_id,pi,count,prog_code
 12074,"Dalcanton, Julianne",117,bfb
 12075,"Dalcanton, Julianne",117,bfd
 12076,"Dalcanton, Julianne",117,bfe
-12099,"Riess, Adam",199,bfu
+12099,"Riess, Adam",203,bfu
 12100,"Postman, Marc",73,bfc
 12101,"Postman, Marc",75,bff
 12102,"Postman, Marc",77,bfk
@@ -756,11 +756,11 @@ proposal_id,pi,count,prog_code
 12117,"Drake, Andrew",3,bfw
 12118,"Kasliwal, Mansi",3,bfx
 12163,"Barth, Aaron J.",66,biq
-12166,"Ebeling, Harald",110,bkz
+12166,"Ebeling, Harald",112,bkz
 12167,"Franx, Marijn",13,bhg
 12170,"Gal-Yam, Avishay",3,bhq
 12174,"Li, Zhiyuan",4,bir
-12177,"van Dokkum, Pieter",276,bhj
+12177,"van Dokkum, Pieter",278,bhj
 12180,"Cannon, John Michael",20,bin
 12181,"Deming, Drake",10,bh7
 12182,"Do, Tuan",38,bij
@@ -840,7 +840,7 @@ proposal_id,pi,count,prog_code
 12323,"Bersier, David",13,bif
 12324,"Kochanek, Chris S.",25,bgw
 12326,"Noll, Keith S.",25,bkx
-12328,"van Dokkum, Pieter",224,bhm
+12328,"van Dokkum, Pieter",229,bhm
 12329,"Jiang, Linhua",10,bl1
 12330,"Kirkpatrick, J. Davy",24,bl4
 12331,"Kochanek, Chris S.",8,bky
@@ -878,8 +878,8 @@ proposal_id,pi,count,prog_code
 12434,"Lobanov, Andrei",1,bo3
 12438,"Tanvir, Nial Rahil",2,bo6
 12440,"Faber, Sandra M.",436,boa
-12442,"Faber, Sandra M.",80,boh
-12443,"Faber, Sandra M.",422,boe
+12442,"Faber, Sandra M.",81,boh
+12443,"Faber, Sandra M.",423,boe
 12444,"Faber, Sandra M.",377,boi
 12445,"Faber, Sandra M.",394,btm
 12447,"Fruchter, Andrew S.",4,bof
@@ -895,7 +895,7 @@ proposal_id,pi,count,prog_code
 12458,"Postman, Marc",88,bsu
 12459,"Postman, Marc",87,bst
 12460,"Postman, Marc",74,bs5
-12461,"Riess, Adam",179,bwj
+12461,"Riess, Adam",180,bwj
 12469,"Ruiz-Lapuente, Pilar",1,boy
 12470,"Tran, Kim-Vy",29,brg
 12471,"Erb, Dawn K.",60,br9
@@ -913,7 +913,7 @@ proposal_id,pi,count,prog_code
 12493,"McGreer, Ian",4,bsc
 12496,"Wang, Ran",4,bsd
 12497,"Hong, Sungryong",4,bse
-12498,"Ellis, Richard S.",128,bp3
+12498,"Ellis, Richard S.",129,bp3
 12499,"Lennon, Daniel J.",31,bsf
 12500,"Kaviraj, Sugata",25,bpl
 12502,"Fruchter, Andrew S.",14,bsh
@@ -938,7 +938,7 @@ proposal_id,pi,count,prog_code
 12531,"Filippenko, Alex V.",11,bq9
 12532,"Harris, William Edgar",20,bqg
 12533,"Martin, Crystal Linn",4,brm
-12534,"Teplitz, Harry",91,box
+12534,"Teplitz, Harry",92,box
 12541,"Bennett, David P.",14,bqt
 12543,"Rubin, Robert H.",1,brd
 12544,"Cushing, Michael C.",8,bql
@@ -1088,7 +1088,7 @@ proposal_id,pi,count,prog_code
 12941,"Stephens, Ian William",50,c2o
 12942,"Glikman, Eilat",30,byu
 12943,"Yang, Yujin",24,c1h
-12944,"Allers, Katelyn",97,c11
+12944,"Allers, Katelyn",98,c11
 12945,"Rudnick, Gregory Howard",60,c1b
 12949,"Perley, Daniel",37,bzj
 12950,"Heinke, Craig",6,c2r
@@ -1154,7 +1154,7 @@ proposal_id,pi,count,prog_code
 13057,"Sahu, Kailash C.",256,c3f
 13058,"Sahu, Kailash C.",17,c3k
 13062,"Bond, Howard E.",2,c1k
-13063,"Riess, Adam",130,c6h
+13063,"Riess, Adam",131,c6h
 13065,"Baum, Stefi A.",3,c0p
 13066,"Smith, Linda J.",10,c3c
 13079,"Hilbert, Bryan",2,c5n
@@ -1172,7 +1172,7 @@ proposal_id,pi,count,prog_code
 13110,"Fruchter, Andrew S.",10,c5f
 13111,"Barnard, Robin",2,c6b
 13112,"Liu, Xin",6,c5o
-13113,"Kochanek, Chris S.",14,c3u
+13113,"Kochanek, Chris S.",15,c3u
 13114,"Perlman, Eric S.",3,c5c
 13116,"Kharb, Preeti",6,c67
 13117,"Levan, Andrew James",12,chb
@@ -1195,7 +1195,7 @@ proposal_id,pi,count,prog_code
 13291,"Hayashi, Masao",5,c9n
 13292,"Indebetouw, Remy",24,cbn
 13294,"Karim, Alexander",9,ccb
-13297,"Piotto, Giampaolo",611,cau
+13297,"Piotto, Giampaolo",612,cau
 13299,"Radigan, Jacqueline",12,car
 13300,"Rubin, Kate",9,cbo
 13303,"Simcoe, Robert Andrew",9,ccy
@@ -1223,10 +1223,10 @@ proposal_id,pi,count,prog_code
 13352,"Malkan, Matthew A.",785,cdx
 13356,"McGreer, Ian",3,cbg
 13357,"Radburn-Smith, David J.",32,cc3
-13359,"Lennon, Daniel J.",30,c9r
+13359,"Lennon, Daniel J.",31,c9r
 13360,"Jha, Saurabh W.",3,cb4
 13361,"Blair, William P.",4,cae
-13364,"Calzetti, Daniela",375,cdm
+13364,"Calzetti, Daniela",376,cdm
 13366,"de Jong, Roelof S.",40,c9l
 13370,"Georgiev, Iskren Y.",7,c8q
 13371,"Gezari, Suvi",2,c8g
@@ -1237,7 +1237,7 @@ proposal_id,pi,count,prog_code
 13379,"Milone, Antonino Paolo",16,cb7
 13384,"Riechers, Dominik A.",3,cbs
 13386,"Rodney, Steve",84,ca9
-13389,"Siana, Brian",36,cda
+13389,"Siana, Brian",37,cda
 13392,"Sugerman, Ben E. K.",6,c8s
 13393,"Zaritsky, Dennis",60,c8h
 13399,"Cooray, Asantha R",10,c86
@@ -1277,7 +1277,7 @@ proposal_id,pi,count,prog_code
 13467,"Bean, Jacob L.",2541,ccz
 13468,"Bond, Howard E.",2,ca1
 13470,"Chaname, Julio",80,ccn
-13476,"Kallivayalil, Nitya",120,cc2
+13476,"Kallivayalil, Nitya",121,cc2
 13477,"Kochanek, Chris S.",13,c85
 13479,"Levan, Andrew James",2,cbl
 13480,"Levan, Andrew James",6,cbm
@@ -1285,10 +1285,10 @@ proposal_id,pi,count,prog_code
 13483,"Oestlin, Goeran",82,cdb
 13490,"Surace, Jason A.",26,c9h
 13493,"Schrabback, Tim",22,cb8
-13495,"Lotz, Jennifer",192,c8n
+13495,"Lotz, Jennifer",193,c8n
 13496,"Lotz, Jennifer",190,c8o
 13497,"Tanvir, Nial Rahil",4,c81
-13498,"Lotz, Jennifer",141,c8m
+13498,"Lotz, Jennifer",143,c8m
 13504,"Lotz, Jennifer",142,cdu
 13505,"Milisavljevic, Dan",4,cdt
 13506,"Wilkes, Belinda J.",3,cfr
@@ -1346,7 +1346,7 @@ proposal_id,pi,count,prog_code
 13673,"Kalirai, Jason",8,ck3
 13674,"Kaplan, David L.",15,clk
 13676,"Meyer, Eileen T",17,ckz
-13677,"Perlmutter, Saul",263,cn1
+13677,"Perlmutter, Saul",266,cn1
 13678,"Riess, Adam",43,cir
 13680,"Sabbi, Elena",6,ckk
 13681,"van Dokkum, Pieter",4,cjb
@@ -1360,7 +1360,7 @@ proposal_id,pi,count,prog_code
 13690,"Diaz-Santos, Tanio",26,com
 13691,"Freedman, Wendy L.",358,cnw
 13695,"Holwerda, Benne Willem",110,clt
-13696,"Holwerda, Benne Willem",12,cnc
+13696,"Holwerda, Benne Willem",15,cnc
 13698,"Lyman, Joseph",10,clg
 13699,"Martin, Nicolas",67,cn8
 13701,"Mihos, Chris",26,ck8
@@ -1399,18 +1399,18 @@ proposal_id,pi,count,prog_code
 13763,"Megeath, Tom",20,ckw
 13765,"Peterson, Bradley M",24,cjs
 13767,"Trenti, Michele",1574,cph
-13768,"Weisz, Daniel R.",110,cm9
+13768,"Weisz, Daniel R.",111,cm9
 13770,"Do, Tuan",16,cm7
 13771,"Lennon, Daniel J.",37,cm4
 13772,"Weisskopf, Martin C.",4,cp3
 13773,"Chandar, Rupali",32,cnk
 13777,"Gregg, Michael D.",20,cnv
-13779,"Malhotra, Sangeeta",325,coi
+13779,"Malhotra, Sangeeta",329,coi
 13782,"Milisavljevic, Dan",6,cju
 13785,"Reddy, Naveen A.",16,ckl
 13787,"Smith, Nathan",5,ckj
 13790,"Rodney, Steve",87,cl3
-13792,"Bouwens, Rychard",32,cnq
+13792,"Bouwens, Rychard",34,cnq
 13793,"Bowler, Rebecca A A",17,clo
 13799,"Modjaz, Maryam",4,co0
 13802,"Luhman, Kevin",4,cit
@@ -1445,7 +1445,7 @@ proposal_id,pi,count,prog_code
 13858,"De Cia, Annalisa",8,cm2
 13860,"Gennaro, Mario",13,ckh
 13867,"Kasliwal, Mansi",4,cny
-13868,"Kocevski, Dale D.",25,cp9
+13868,"Kocevski, Dale D.",26,cp9
 13869,"Levan, Andrew James",2,cl5
 13871,"Oesch, Pascal",18,cka
 13872,"Oesch, Pascal",120,cn6
@@ -1476,7 +1476,7 @@ proposal_id,pi,count,prog_code
 14023,"Pirzkal, Norbert",24,cqv
 14024,"Pirzkal, Norbert",24,cqw
 14031,"Kozhurina-Platais, Vera",32,cqx
-14037,"Lotz, Jennifer",144,cqt
+14037,"Lotz, Jennifer",147,cqt
 14038,"Lotz, Jennifer",146,csz
 14039,"Levay, Zolt",16,cs7
 14041,"Kelly, Patrick",64,csc
@@ -1509,7 +1509,7 @@ proposal_id,pi,count,prog_code
 14091,"Barth, Aaron J.",3,cuk
 14093,"Berg, Danielle",4,cyu
 14095,"Brammer, Gabriel",33,cvz
-14096,"Coe, Dan",648,czg
+14096,"Coe, Dan",651,czg
 14098,"Ebeling, Harald",93,czp
 14108,"Salzer, John J.",2,cxs
 14109,"Shen, Yue",21,cva
@@ -1536,8 +1536,8 @@ proposal_id,pi,count,prog_code
 14156,"Leroy, Adam",11,cyq
 14157,"Luhman, Kevin",9,ctz
 14158,"Meyer, Eileen T",7,cw5
-14159,"Meyer, Eileen T",3,cw6
-14160,"OMeara, John M.",21,cwa
+14159,"Meyer, Eileen T",6,cw6
+14160,"OMeara, John M.",22,cwa
 14162,"Poppenhaeger, Katja",3,cv1
 14163,"Rigault, Mickael",72,cua
 14164,"Sarajedini, Ata",132,cw8
@@ -1549,7 +1549,7 @@ proposal_id,pi,count,prog_code
 14172,"Bowler, Brendan",12,cvn
 14174,"Goudfrooij, Paul",4,cza
 14175,"Goudfrooij, Paul",40,cz9
-14178,"Malkan, Matthew A.",1050,d1k
+14178,"Malkan, Matthew A.",1051,d1k
 14181,"Megeath, Tom",115,czc
 14182,"Puzia, Thomas H.",107,cwr
 14183,"Rangelov, Blagoy",4,cws
@@ -1560,7 +1560,7 @@ proposal_id,pi,count,prog_code
 14189,"Bolton, Adam S.",21,cv2
 14191,"Cole, Andrew A.",16,cto
 14197,"Johnson, Christian",4,czd
-14199,"Kelly, Patrick",102,cur
+14199,"Kelly, Patrick",106,cur
 14200,"Ma, Jingzhe",6,cwu
 14202,"Milisavljevic, Dan",3,cvc
 14204,"Milone, Antonino Paolo",32,cu8
@@ -1587,7 +1587,7 @@ proposal_id,pi,count,prog_code
 14236,"Sohn, Sangmo Tony",8,cwl
 14237,"Tanvir, Nial Rahil",13,cy3
 14239,"Tremonti, Christy A.",6,cxm
-14241,"Apai, Daniel",347,cyt
+14241,"Apai, Daniel",348,cyt
 14244,"Foley, Ryan",5,cz8
 14249,"Mignani, Roberto",12,cx5
 14251,"Reines, Amy E.",33,cuu
@@ -1596,7 +1596,7 @@ proposal_id,pi,count,prog_code
 14254,"Treu, Tommaso L.",16,cud
 14256,"Biretta, John A.",3,cxy
 14258,"Bond, Howard E.",23,d28
-14259,"Crnojevic, Denija",44,cwk
+14259,"Crnojevic, Denija",45,cwk
 14260,"Deming, Drake",1083,cy0
 14262,"Jahnke, Knud",21,cw4
 14266,"Kochanek, Chris S.",5,cu6
@@ -1658,17 +1658,17 @@ proposal_id,pi,count,prog_code
 14544,"Pirzkal, Norbert",26,dco
 14550,"Kozhurina-Platais, Vera",10,dcm
 14593,"Bastian, Nate",3,d78
-14594,"Bielby, Rich",144,d7h
+14594,"Bielby, Rich",145,d7h
 14595,"Da Rio, Nicola",9,d7c
-14596,"Fan, Xiaohui",4,d7a
+14596,"Fan, Xiaohui",5,d7a
 14606,"Simmons, Brooke Devlin",100,d95
 14607,"Troja, Eleonora",3,d7d
 14608,"Zakamska, Nadia L",22,d9y
-14610,"Dalcanton, Julianne",351,db6
+14610,"Dalcanton, Julianne",353,db6
 14611,"Graur, Or",39,d69
 14613,"Lu, Jessica Ryan",2,d8h
 14614,"Mauerhan, Jon",4,d6u
-14618,"Shara, Michael",106,d5o
+14618,"Shara, Michael",109,d5o
 14620,"Trainor, Ryan F",20,d7l
 14622,"Whitaker, Katherine E.",24,d66
 14624,"Arce, Hector G.",8,da7
@@ -1697,7 +1697,7 @@ proposal_id,pi,count,prog_code
 14668,"Filippenko, Alex V.",56,d96
 14669,"Hlavacek-Larrondo, Julie",2,d77
 14671,"Meyer, Eileen T",2,d7w
-14675,"Roman-Duval, Julia Christine",223,da9
+14675,"Roman-Duval, Julia Christine",225,da9
 14676,"Sand, David J.",4,d6d
 14677,"Schrabback, Tim",63,d81
 14678,"Shappee, Benjamin John",8,d6v
@@ -1708,14 +1708,14 @@ proposal_id,pi,count,prog_code
 14688,"Goudfrooij, Paul",4,d6f
 14689,"Gouliermis, Dimitrios",108,d73
 14695,"Megeath, Tom",4,d7z
-14696,"Perlman, Eric S.",1,d7x
+14696,"Perlman, Eric S.",7,d7x
 14697,"Pogge, Richard W.",24,d8m
 14699,"Sobral, David",17,d8l
 14700,"Sugerman, Ben E. K.",18,d6h
 14701,"Trenti, Michele",1,d7u
-14704,"Conroy, Charlie",136,d8f
+14704,"Conroy, Charlie",137,d8f
 14706,"Glikman, Eilat",42,d5k
-14707,"Massey, Philip Louis",31,d58
+14707,"Massey, Philip Louis",32,d58
 14709,"Mazur, Brian",12,dae
 14710,"Milone, Antonino Paolo",32,d6i
 14711,"Rich, R. Michael",8,d7n
@@ -1747,7 +1747,7 @@ proposal_id,pi,count,prog_code
 14753,"Fransson, Claes",2,dad
 14754,"Martin, Crystal Linn",20,d98
 14758,"Berta-Thompson, Zach K.",430,dap
-14759,"Brown, Thomas M.",9,d6e
+14759,"Brown, Thomas M.",10,d6e
 14760,"Cai, Zheng",18,d93
 14763,"Maund, Justyn Robert",3,d5p
 14766,"Simon, Joshua D.",48,d9w
@@ -1884,7 +1884,7 @@ proposal_id,pi,count,prog_code
 15183,"Sand, David J.",10,dhe
 15186,"Thilker, David",15,dj5
 15187,"Tilvi, Vithal",17,dn6
-15191,"Meyer, Eileen T",6,dgl
+15191,"Meyer, Eileen T",9,dgl
 15192,"Shappee, Benjamin John",9,dhc
 15194,"Aloisi, Alessandra",17,dnd
 15196,"Bowen, David V.",7,dgp
@@ -1946,7 +1946,7 @@ proposal_id,pi,count,prog_code
 15302,"Collins, Michelle L.M.",32,djy
 15303,"DAndrea, Chris",17,diq
 15304,"de Wit, Julien",232,dhs
-15307,"Gladders, Michael D.",244,dgb
+15307,"Gladders, Michael D.",247,dgb
 15308,"Gonzalez, Anthony Hernan",12,dgs
 15311,"Kochanek, Chris S.",2,djc
 15315,"McDonald, Michael A.",6,dh9
@@ -1996,9 +1996,9 @@ proposal_id,pi,count,prog_code
 15436,"Suess, Katherine",6,dro
 15441,"Lin, Dacheng",1,dru
 15443,"Dupke, Renato A.",3,drt
-15444,"Barth, Aaron J.",198,drw
-15445,"Keel, William Clifford",166,ds4
-15446,"Dalcanton, Julianne",203,drz
+15444,"Barth, Aaron J.",202,drw
+15445,"Keel, William Clifford",174,ds4
+15446,"Dalcanton, Julianne",204,drz
 15449,"Mutchler, Max",16,dry
 15450,"Buie, Marc W.",4,ds6
 15455,"Bennett, David P.",6,dsa
@@ -2055,7 +2055,7 @@ proposal_id,pi,count,prog_code
 15642,"Freedman, Wendy L.",32,dy0
 15643,"Hayes, Matthew James",21,dxv
 15644,"Perley, Daniel",20,dxm
-15645,"Sand, David J.",42,dxk
+15645,"Sand, David J.",43,dxk
 15647,"Teplitz, Harry",240,dxf
 15649,"Chandar, Rupali",39,dy4
 15650,"Homayouni, Yasaman",113,dxp
@@ -2157,10 +2157,10 @@ proposal_id,pi,count,prog_code
 15937,"Mahler, Guillaume",13,e2z
 15938,"Mutlu-Pakdil, Burcin",20,e3w
 15939,"Peroux, Celine",47,e4i
-15940,"Ribeiro, Bruno",20,e3u
+15940,"Ribeiro, Bruno",26,e3u
 15944,"Dupuy, Trent J.",8,e4o
 15945,"Cordoni, Giacomo",4,e21
-15947,"Apai, Daniel",31,e2x
+15947,"Apai, Daniel",39,e2x
 15949,"Gladders, Michael D.",31,e2u
 15950,"Gonzalez, Anthony Hernan",3,e0g
 15952,"Jones, Olivia",16,e35
@@ -2171,7 +2171,7 @@ proposal_id,pi,count,prog_code
 15960,"Sahu, Kailash C.",11,e4f
 15961,"Sahu, Kailash C.",4,e4d
 15964,"Berger, Edo",12,e01
-15966,"Chisholm, John",6,e4r
+15966,"Chisholm, John",7,e4r
 15968,"Fossati, Matteo",2,e08
 15969,"Fu, Guangwei",71,e2g
 15970,"Grier, Catherine J",52,e1n
@@ -2234,7 +2234,7 @@ proposal_id,pi,count,prog_code
 16184,"Seymour, Nicholas",9,ebt
 16185,"Smercina, Adam",33,ee9
 16186,"van der Burg, Remco",3,ea3
-16187,"Wang, Feige",29,ebe
+16187,"Wang, Feige",31,ebe
 16191,"Smercina, Adam",93,eea
 16194,"Desert, Jean-Michel",276,ed1
 16198,"Riess, Adam",80,ebi
@@ -2246,57 +2246,57 @@ proposal_id,pi,count,prog_code
 16220,"Beatty, Thomas G.",5,e9v
 16222,"Clark, Christopher",4,ean
 16223,"Gullieuszik, Marco",26,edv
-16226,"Fu, Sal Wanying",12,ebl
+16226,"Fu, Sal Wanying",24,ebl
 16229,"Fontanive, Clemence",41,eay
 16232,"Sahai, Raghvendra",5,eev
 16234,"Jha, Saurabh W.",53,eel
 16235,"Murray, Claire E.",156,ehs
-16237,"Chapman, Scott C.",3,eew
+16237,"Chapman, Scott C.",18,eew
 16239,"Foley, Ryan",114,eec
 16241,"Koss, Michael J",66,eag
 16243,"Marocco, Federico",17,eer
 16244,"Mathieu, Robert D.",1,ees
 16245,"Oestlin, Goeran",14,eet
 16246,"Revalski, Mitchell",13,ebn
-16247,"Scalco, Michele",3,ebd
+16247,"Scalco, Michele",6,ebd
 16248,"Spilker, Justin",8,ebr
 16249,"Tremblay, Pier-Emmanuel",99,ebo
 16250,"Yuan, Wenlong",24,ebs
 16251,"Sahu, Kailash C.",1,edb
-16252,"Jansen, Rolf A.",23,eex
+16252,"Jansen, Rolf A.",26,eex
 16255,"Dalessandro, Emanuele",2,ecc
-16257,"Marleau, Francine",72,ece
-16258,"Mazzucchelli, Chiara Giulia",8,ecj
+16257,"Marleau, Francine",74,ece
+16258,"Mazzucchelli, Chiara Giulia",23,ecj
 16259,"Momcheva, Ivelina G",192,edw
 16262,"Tully, R. Brent",69,edy
-16264,"Pierel, Justin",16,ebc
+16264,"Pierel, Justin",28,ebc
 16265,"Larsson, Josefin",2,eb9
-16268,"Dupuy, Trent J.",22,ee1
+16268,"Dupuy, Trent J.",25,ee1
 16269,"Jones, David",114,edh
 16273,"Sohn, Sangmo Tony",17,ea6
-16274,"Sohn, Sangmo Tony",14,e9t
+16274,"Sohn, Sangmo Tony",20,e9t
 16275,"Tanvir, Nial Rahil",5,ed9
 16276,"Wang, Xin",70,ecu
 16277,"Brown, Thomas M.",9,e9y
-16278,"Kelly, Patrick",108,ecd
+16278,"Kelly, Patrick",125,ecd
 16281,"Chiaberge, Marco",86,ecs
 16282,"Correnti, Matteo",2,ecg
 16283,"DAntona, Francesca",70,eav
 16284,"Danieli, Shany",2,edd
-16287,"Lyman, Joseph",105,ebj
+16287,"Lyman, Joseph",106,ebj
 16289,"Milone, Antonino Paolo",84,eau
 16291,"Tremonti, Christy A.",8,ef2
 16292,"Choi, Yumi",14,ed4
 16293,"Choi, Yumi",18,ecl
 16294,"Eggen, Nathan",4,edt
 16295,"Harikane, Yuichi",8,ec9
-16298,"Libralato, Mattia",30,eaz
-16300,"Noble, Allison",5,eco
+16298,"Libralato, Mattia",31,eaz
+16300,"Noble, Allison",8,eco
 16302,"Wu, Ya-Lin",72,ec3
 16303,"Berger, Edo",10,es0
 16307,"Fu, Guangwei",70,eap
 16312,"Karovska, Margarita",1,eao
-16316,"Sabbi, Elena",27,ec0
+16316,"Sabbi, Elena",31,ec0
 16320,"Levan, Andrew James",6,ecx
 16352,"Carlberg, Joleen",8,efs
 16358,"Beaton, Rachael Lynn",22,eha
@@ -2321,7 +2321,7 @@ proposal_id,pi,count,prog_code
 16434,"Britt, Christopher",7,ehh
 16435,"Britt, Christopher",5,ehe
 16441,"Anderson, Jay",8,ehr
-16443,"Momcheva, Ivelina G",281,ehn
+16443,"Momcheva, Ivelina G",313,ehn
 16444,"Dahle, Haakon",4,eie
 16450,"Lothringer, Joshua D.",148,ei6
 16453,"McQuinn, Kristen B W",16,ehz
@@ -2337,69 +2337,75 @@ proposal_id,pi,count,prog_code
 16485,"Yoon, Ilsang",1,ej1
 16488,"Zohren, Hannah",20,eiu
 16497,"Graur, Or",26,eje
-16500,"Jacobson-Galan, Wynn Vicente",3,ejn
-16504,"Rosenthal, Michael Jacob",2,ejo
+16500,"Jacobson-Galan, Wynn Vicente",6,ejn
+16504,"Rosenthal, Michael Jacob",4,ejo
 16505,"Levan, Andrew James",1,ejb
 16506,"Witstok, Joris",4,ejm
 16507,"Yue, Minghao",1,ejd
 16508,"Jencson, Jacob",6,ejk
 16509,"Terry, Sean",4,ejc
 16512,"Bajaj, Varun",8,ejw
-16513,"Roman-Duval, Julia Christine",4,ejz
+16513,"Roman-Duval, Julia Christine",8,ejz
 16514,"Bohlin, Ralph C.",21,ejt
 16518,"Dressel, Linda L.",4,ek9
-16520,"Hathi, Nimish P.",15,elq
+16520,"Hathi, Nimish P.",24,elq
 16559,"Hernandez, Svea S",2,elc
 16579,"Calamida, Annalisa",7,emg
-16580,"Calamida, Annalisa",4,elz
+16580,"Calamida, Annalisa",16,elz
 16583,"Som, Debopam",22,ele
-16588,"Kozhurina-Platais, Vera",6,em4
-16641,"Egami, Eiichi",15,eq7
+16588,"Kozhurina-Platais, Vera",9,em4
+16641,"Egami, Eiichi",18,eq7
 16649,"Smith, Nathan",4,eqe
 16653,"Bedin, Luigi R.",5,eml
-16657,"Fremling, Christoffer",48,ep3
+16657,"Fremling, Christoffer",55,ep3
+16658,"Lu, Jessica Ryan",2,eqn
 16660,"Quinn, Samuel",143,eqo
 16661,"Reines, Amy E.",4,enj
 16662,"Seymour, Nicholas",8,enk
 16664,"Tendulkar, Shriharsh",3,em7
-16667,"Bradac, Marusa",107,eou
-16668,"Coe, Dan",4,eov
-16670,"Ebeling, Harald",135,enq
+16667,"Bradac, Marusa",110,eou
+16668,"Coe, Dan",8,eov
+16670,"Ebeling, Harald",136,enq
 16671,"Elias-Rosa, Nancy",12,enp
-16681,"Do, Tuan",1,eop
-16684,"Lemaux, Brian",157,enn
+16681,"Do, Tuan",2,eop
+16684,"Lemaux, Brian",164,enn
 16688,"Anderson, Richard I",4,eoc
-16691,"Foley, Ryan",66,erg
+16691,"Foley, Ryan",72,erg
 16693,"Overzier, Roderik A.",3,eo4
-16702,"Appleton, Philip N.",4,epb
+16702,"Appleton, Philip N.",13,epb
 16706,"Gezari, Suvi",68,ep7
-16711,"Marleau, Francine",40,enm
+16711,"Marleau, Francine",56,enm
+16713,"Nyland, Kristina",1,ep0
 16716,"Sahu, Kailash C.",17,epz
 16725,"Dupuy, Trent J.",3,emo
-16729,"Kelly, Patrick",248,epl
-16730,"Lehner, Nicolas",61,eq4
-16733,"Rigby, Jane R.",2,eo2
-16734,"Scarlata, Claudia",14,ep2
+16729,"Kelly, Patrick",256,epl
+16730,"Lehner, Nicolas",75,eq4
+16733,"Rigby, Jane R.",4,eo2
+16734,"Scarlata, Claudia",18,ep2
 16735,"Schneider, Adam",11,em9
 16736,"Sing, David K.",5,epf
-16740,"Farina, Emanuele Paolo",5,eqb
-16741,"Galbany, Lluis",74,epo
+16740,"Farina, Emanuele Paolo",7,eqb
+16741,"Galbany, Lluis",84,epo
 16742,"Ho, Stephanie H.",14,eoa
-16743,"Hoyt, Taylor",8,eq9
-16744,"Huang, Caroline",6,eq6
+16743,"Hoyt, Taylor J",12,eq9
+16744,"Huang, Caroline",10,eq6
 16746,"Mackey, Dougal",2,epn
-16748,"Niederhofer, Florian",17,epp
+16748,"Niederhofer, Florian",21,epp
 16749,"Nielsen, Nikki",2,eq0
 16756,"Eilers, Anna-Christina",10,emm
-16757,"Gonzalez, Anthony Hernan",44,eny
+16757,"Gonzalez, Anthony Hernan",56,eny
 16758,"Jones, Michael Gordon",20,emf
 16760,"Lam, Casey",2,eos
 16761,"Meyer, Eileen T",29,epx
 16762,"Mihos, Chris",12,eog
+16763,"Mingozzi, Matilde",4,epy
 16766,"Schulze, Steve",8,env
 16768,"Tinyanont, Samaporn",7,eon
-16773,"Glazebrook, Karl",139,enh
+16773,"Glazebrook, Karl",147,enh
+16777,"Seth, Anil C.",30,en4
 16782,"Sahu, Kailash C.",2,eoj
+16786,"Murray, Claire E.",129,etx
+16789,"Larsson, Josefin",6,emk
 16792,"Brown, Thomas M.",5,eni
 16793,"Jansen, Rolf A.",18,emn
 16797,"Williams, Benjamin F.",85,eps
@@ -2408,6 +2414,7 @@ proposal_id,pi,count,prog_code
 16800,"Williams, Benjamin F.",72,epv
 16836,"Buote, David",2,er9
 16838,"Fruchter, Andrew S.",2,erj
+16839,"Homan, Jeroen",4,erh
 16843,"Reines, Amy E.",16,erc
 16845,"Sun, Ming",3,era
 16846,"Troja, Eleonora",1,erb
@@ -2423,20 +2430,264 @@ proposal_id,pi,count,prog_code
 16883,"Lyman, Joseph",4,esb
 16884,"Graur, Or",8,es2
 16885,"Graur, Or",4,esl
+16888,"Baker, Andrew",4,est
 16889,"Kanekar, Nissim",1,ese
 16892,"Liu, Xin",11,es8
-16894,"Neilsen, Joseph",4,et4
+16894,"Neilsen, Joseph",8,et4
 16903,"Graur, Or",3,esq
 16911,"Cenko, Stephen Bradley",2,etg
+16912,"van Dokkum, Pieter",30,ety
+16914,"Evans, Aaron S.",7,eu0
 16927,"Volk, Kevin",2,etl
+16928,"Beaton, Rachael L",19,etq
+16968,"Hathi, Nimish P.",15,ezz
+16990,"Do, Tuan",2,f12
+16996,"Larsson, Josefin",4,ewx
+17015,"Calamida, Annalisa",3,ev5
+17016,"Calamida, Annalisa",12,evr
+17023,"Martlin, Catherine A",12,f01
 17065,"Cantalupo, Sebastiano",12,f0w
+17067,"Duchene, Gaspard",11,ey5
+17068,"Archer, Haylee Nichole",24,ey4
+17069,"Hayes, Matthew James",27,eww
+17070,"Kilpatrick, Charles",5,ey3
+17073,"Hayes, Matthew James",32,ey6
+17079,"Jang, In Sung",26,eyr
+17084,"Bayliss, Matthew",3,ez7
+17087,"Shappee, Benjamin John",3,f10
 17091,"Faisst, Andreas L",33,f0z
-17110,"Setton, David",52,ezd
+17097,"Riess, Adam",20,ev9
+17103,"Bennert, Vardha N.",1,exh
+17108,"Spilker, Justin",14,ev7
+17110,"Setton, David",78,ezd
+17115,"Bowen, David V.",20,f14
 17117,"Koyama, Yusei",21,f15
-17143,"Ding, Xuheng",12,exo
-17147,"Scarlata, Claudia",163,f2g
+17118,"Murray, Claire E.",16,f1h
+17128,"Foley, Ryan",44,f1z
+17129,"Oestlin, Goeran",6,eyy
+17133,"Mestric, Uros",5,ex9
+17138,"Mainali, Ramesh",3,ezv
+17140,"Annibali, Francesca",3,f0s
+17141,"De Furio, Matthew",42,f0q
+17143,"Ding, Xuheng",16,exo
+17144,"Kochanek, Chris S.",2,ewl
+17147,"Scarlata, Claudia",221,f2g
+17151,"Messa, Matteo",12,f0k
+17154,"Yan, Haojing",13,eyg
+17158,"Bell, Eric F.",9,ez4
 17159,"Wang, Xin",12,exi
-17172,"Canning, Rebecca E. A.",27,eyu
+17165,"Bentz, Misty C.",35,eyq
+17167,"Bouy, Herve",4,exn
+17172,"Canning, Rebecca E. A.",52,eyu
+17177,"Chilingarian, Igor",20,eyf
+17179,"Galbany, Lluis",21,f0g
+17181,"Lyman, Joseph",9,f0d
+17189,"Thilker, David",72,ez2
+17191,"Graur, Or",2,ex6
+17194,"Kelsey, Lisa",10,ey9
+17197,"Meyer, Eileen T",1,ezk
+17199,"Lemon, Cameron",7,exj
+17200,"El-Badry, Kareem",5,eya
+17203,"Fox, Ori Dosovitz",8,ezr
+17212,"West, Michael J.",18,eyi
+17225,"Calzetti, Daniela",2,ezo
+17226,"Annunziatella, Marianna",12,ey0
+17228,"Kelly, Patrick",19,ev1
 17231,"Treu, Tommaso L.",7,f1g
+17235,"Chapman, Scott C.",8,f2q
+17236,"Nicholl, Matt",1,f24
+17238,"Chrimes, Ashley",8,f29
+17240,"Sun, Ming",4,f1s
+17242,"Sun, Ming",3,f1t
+17243,"Napier, Kate",7,f27
 17253,"Kelly, Patrick",4,f2e
+17256,"Anderson, Jay",3,f2k
+17262,"Anderson, Jay",2,f2x
+17266,"Britt, Christopher",60,f2s
+17267,"Jones, Michael Gordon",2,f30
+17269,"Liu, Xin",5,f2y
+17285,"U, Vivian",4,f3d
+17287,"Liu, Xin",2,f39
+17298,"Troja, Eleonora",6,f3t
 17301,"van Dokkum, Pieter",12,f3x
+17307,"Tran, Kim-Vy",14,f54
+17308,"Lemon, Cameron",33,f56
+17309,"Mehta, Vihang",28,f50
+17310,"Koss, Michael J",18,f55
+17311,"Bayliss, Matthew",5,f48
+17312,"Huang, Caroline",10,f4c
+17331,"Hathi, Nimish P.",15,f4w
+17361,"Calamida, Annalisa",4,f6h
+17362,"Marinelli, Mariarosa",4,f5v
+17372,"Martlin, Catherine A",9,f5h
+17397,"Dong, Subo",2,f62
+17399,"Bedin, Luigi R.",5,f8r
+17402,"Bedin, Luigi R.",31,f7g
+17404,"Bennett, David P.",1,fam
+17409,"Do, Tuan",2,f9n
+17410,"Foley, Ryan",53,fa3
+17412,"Dupuy, Trent J.",1,f99
+17413,"Graur, Or",4,f87
+17424,"Marques-Chaves, Rui",6,f8n
+17429,"Tucker, Michael",19,f7f
+17430,"Parker, Kaelee S",6,fau
+17431,"Gladders, Michael D.",7,f82
+17434,"Vitral, Eduardo",2,fat
+17435,"Massari, Davide",19,f79
+17436,"Jensen, Joseph",12,f7q
+17437,"Barone, Tania",4,f8d
+17438,"Gull, Maude",1,f81
+17439,"Noble, Allison",7,fa4
+17446,"Milne, Peter",4,f7r
+17454,"van Dokkum, Pieter",3,f89
+17455,"Shen, Yue",54,f8a
+17458,"Erb, Dawn K.",3,f8p
+17461,"Mehta, Vihang",23,f98
+17472,"Levan, Andrew James",5,f93
+17473,"Warfield, Jack Thomas",4,f9q
+17474,"Pierel, Justin",53,f7c
+17480,"McQuinn, Kristen B W",12,f75
+17483,"Dutta, Rajeshwari",19,f80
+17486,"Battisti, Andrew J.",24,f7s
+17489,"Vissapragada, Shreyas",5,f9p
+17492,"OConnor, Brendan",6,f8z
+17496,"Larsson, Josefin",3,f7e
+17498,"Sand, David J.",2,f7a
+17501,"Bennet, Paul",7,f7l
+17502,"Thilker, David",159,fab
+17504,"Kelly, Patrick",336,faa
+17505,"Chakrabarti, Sukanya",313,f8l
+17506,"Jacobson-Galan, Wynn Vicente",12,f8c
+17509,"Lindberg, Christina Willecke",59,f9e
+17510,"Gregg, Michael D.",70,f9v
+17513,"Bennet, Paul",7,f7k
+17518,"Beckett, Alexander",10,f9h
+17519,"Chilingarian, Igor",12,fal
+17520,"Breuval, Louise",105,f9s
+17528,"Mihos, Chris",51,f9w
+17530,"Patrick, Lee",6,fa8
+17535,"Veilleux, Sylvain",37,f7p
+17578,"Irwin, Jimmy A.",5,faq
+17579,"Hughes, John P.",5,fax
+17592,"Neilsen, Joseph",4,fbb
+17593,"Boehringer, Hans",3,fbd
+17597,"Peng, Eric W.",17,fbs
+17598,"van Dokkum, Pieter",7,fbl
+17599,"van Dokkum, Pieter",6,fbm
+17601,"Dux, Frederic",4,fbi
+17603,"Maund, Justyn Robert",6,fbg
+17606,"Sears, Huei",8,fbq
+17607,"Jones, Michael Gordon",2,fbh
+17611,"Goobar, Ariel",8,fbu
+17627,"Li, Mingyu",2,fc5
+17644,"Stapleton, Daniel",4,fhd
+17651,"Clark, Christopher",15,fch
+17681,"Mack, Jennifer",2,fi5
+17682,"Marinelli, Mariarosa",16,fj4
+17687,"Revalski, Mitchell",6,fdb
+17688,"Alam, Munazza",12,fdg
+17693,"Martlin, Catherine A",15,fi4
+17708,"Shen, Yue",123,fev
+17710,"Millon, Martin",6,fh6
+17712,"Benitez-Llambay, Alejandro",16,fha
+17714,"Miller, Tim Blake",5,fgn
+17717,"Boettcher, Erin",4,fh8
+17718,"DAmmando, Filippo",46,fg8
+17719,"Franco, Maximilien",36,fge
+17726,"Dahle, Haakon",13,ffb
+17728,"Bayliss, Matthew",7,ffh
+17730,"Whitaker, Katherine E.",30,fe1
+17731,"Filippenko, Alex V.",8,fgl
+17735,"Bolton, Adam S.",48,ffo
+17738,"Blanchard, Peter",4,fgj
+17740,"Erb, Dawn K.",4,fh5
+17743,"Riess, Adam",39,fcr
+17744,"Lawrence, Stephen S.",2,feo
+17748,"Subrayan, Bhagya",4,fh1
+17751,"Monsch, Kristina",7,fhn
+17756,"Goudfrooij, Paul",14,fey
+17759,"McQuinn, Kristen B W",12,feu
+17763,"Ferraro, Francesco R.",80,fd7
+17765,"Nicholl, Matt",15,fcf
+17770,"Hiramatsu, Daichi",11,fi0
+17775,"Angus, Charlotte Rebecca",7,fga
+17776,"Terry, Sean",513,fhl
+17777,"Taggart, Kirsty",17,fd6
+17781,"Meyer, Eileen T",7,ffa
+17783,"Meyer, Eileen T",1,ff9
+17784,"Fitzpatrick, Beth",5,fct
+17785,"Faherty, Jacqueline Kelly",1,ffm
+17796,"Valenti, Stefano",14,fgq
+17797,"Bell, Eric F.",49,ffv
+17798,"Mutlu-Pakdil, Burcin",2,feh
+17802,"Kartaltepe, Jeyhan",929,ffu
+17806,"Tanvir, Nial Rahil",8,ffx
+17809,"Thilker, David",145,fgb
+17811,"Gomez, Sebastian",4,fgm
+17815,"Beckett, Alexander",15,fg7
+17817,"Sun, Ming",2,fhs
+17818,"Morgan, Christopher W.",1,fel
+17826,"Oestlin, Goeran",14,fg1
+17831,"Prescott, Moire",4,fg6
+17833,"Dalcanton, Julianne",475,fcp
+17834,"Terry, Sean",10,ffp
+17837,"Tucker, Michael",9,fe5
+17838,"Bennett, David P.",4,ffe
+17840,"Levan, Andrew James",2,ff5
+17842,"Larsson, Josefin",2,fez
+17844,"Gregg, Michael D.",78,fgz
+17846,"Graur, Or",9,fgg
+17855,"Britt, Christopher",3,fie
+17874,"Chen, Chien-Ting J.",1,fir
+17882,"Britt, Christopher",2,fiv
+17883,"Britt, Christopher",6,fiw
+17889,"Ho, Anna Yen Qin",4,fj3
+17891,"Sand, David J.",2,fj8
+17893,"Anderson, Jay",45,fjl
+17894,"Yao, Yuhan",2,fj9
+17895,"Anand, Gagandeep Singh",15,fjv
+17898,"Guolo, Muryel",5,fjf
+17902,"Neilsen, Joseph",4,fjp
+17905,"Bajaj, Varun",13,fk9
+17906,"Calamida, Annalisa",60,fk8
+17908,"Hayes, Matthew James",24,fjz
+17914,"Patra, Kishore C.",21,fjm
+17916,"Treu, Tommaso L.",9,fjj
+17917,"Morse, Jon A.",1,fjn
+17919,"Meyer, Eileen T",6,fk2
+17921,"Serrano Borlaff, Alejandro",2,fk4
+17922,"Sparks, William B.",46,fjh
+17923,"Nataf, David Moise",4,fjy
+17924,"Smith, Brent M",49,fjo
+17927,"Chrimes, Ashley",28,fk5
+17928,"Fedriani, Ruben",4,fjd
+17932,"Thilker, David",30,fkj
+17943,"Tristan, Isaiah I.",12,fkk
+17960,"Mack, Jennifer",2,fqj
+17962,"Marinelli, Mariarosa",8,fn9
+17975,"Clark, Christopher",6,fld
+18004,"Hayes, Matthew James",86,fnx
+18008,"Kilpatrick, Charles",1,fl7
+18022,"Nedkova, Kalina",8,fq2
+18027,"Jensen, Joseph",2,fmj
+18029,"Bennet, Paul",4,fop
+18035,"Furtak, Lukas Jonathan",5,fp2
+18037,"Do, Ha My",6,fpk
+18061,"Jones, Michael Gordon",36,fmy
+18067,"Luhman, Kevin",10,flt
+18069,"Pierel, Justin",15,fl6
+18070,"Tully, R. Brent",4,fob
+18079,"Sarbadhicary, Sumit K",26,fpv
+18080,"Scarlata, Claudia",2,fqh
+18084,"Su, Jianing",1,fpl
+18085,"Huang, Xiaosheng",6,fpi
+18095,"Linden, Sean",2,foc
+18103,"Thilker, David",34,foq
+18106,"Kelly, Patrick",1,fq4
+18112,"Wolf, Julien Anton",4,fpt
+18116,"Wang, Shu",2,fpz
+18137,"Yue, Minghao",5,fpj
+18187,"Neilsen, Joseph",8,frf
+18243,"Bayliss, Matthew",2,fsl
+18297,"Agrawal, Aadya",6,ft8
+18470,"Pascale, Massimo",4,fu9
