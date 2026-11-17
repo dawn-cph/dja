@@ -7,6 +7,16 @@ Gemfile.lock
 vendor
 
 _incoming/.ipynb_checkpoints*
+_incoming/*html
+_incoming/*json
+_incoming/spectra
+_incoming/old_templates
+_incoming/*.png
+_incoming/*.pdf
+_incoming/*.csv
+_incoming/*.fits
+_incoming/*.gz
+
 *.ipynb_checkpoints
 *__pycache__*
 
